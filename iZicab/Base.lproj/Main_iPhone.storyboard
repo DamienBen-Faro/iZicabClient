@@ -174,7 +174,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="JG4-dv-4I9" kind="push" identifier="dashMap" customClass="DashboardSegue" id="KQj-yf-e2n"/>
+                                    <segue destination="JG4-dv-4I9" kind="custom" identifier="dashMap" customClass="DashboardSegue" id="KQj-yf-e2n"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvM-0X-9Hb">
@@ -295,7 +295,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="familyName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Na5-6I-52H">
                                 <rect key="frame" x="33" y="98" width="254" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="firstName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FaB-cR-XTG">

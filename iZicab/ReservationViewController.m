@@ -33,10 +33,10 @@
     backBtn.frame = CGRectMake(0, 0, 97, 15);
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
 
-    self.navigationController.navigationBar.frame = CGRectMake(0, -10, self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height);
+
     [self.navigationItem setLeftBarButtonItem:backButton];
 
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"MES RESERVATION DE OUF"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"MES RESERVATIONS"];
 }
 
 - (void)goback
@@ -48,7 +48,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 @end
