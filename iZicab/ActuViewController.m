@@ -81,12 +81,16 @@
     //cell.infoType.text = @"infoType";//[tableData objectAtIndex:indexPath.row];
 
     cell.infoType.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    cell.infoType.textColor = [UIColor darkGrayColor];
     
     cell.date.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    cell.date.textColor = [UIColor darkGrayColor];
 
     cell.hour.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    cell.hour.textColor = [UIColor darkGrayColor];
     
     cell.desc.font = [UIFont fontWithName:@"Roboto-Thin" size:15.0];
+    cell.desc.textColor = [UIColor darkGrayColor];
     
 
     

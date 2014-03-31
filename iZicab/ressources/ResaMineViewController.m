@@ -61,7 +61,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 130;
+    return 137;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -78,13 +78,28 @@
     {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ResaMineCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
+        
     }
     
+    cell.date.font = [UIFont fontWithName:@"Roboto-Light" size:20.0];
+    cell.date.textColor = [UIColor darkGrayColor];
+    
+    cell.hour.font = [UIFont fontWithName:@"Roboto-Light" size:20.0];
+    cell.hour.textColor = [UIColor darkGrayColor];
+    
+    cell.startAddress.font = [UIFont fontWithName:@"Roboto-Thin" size:15.0];
+    cell.startAddress.textColor = [UIColor darkGrayColor];
+    
+    cell.startEndress.font = [UIFont fontWithName:@"Roboto-Thin" size:15.0];
+    cell.startEndress.textColor = [UIColor darkGrayColor];
+    
+    
    //[tableData objectAtIndex:indexPath.row];
+    
     cell.date.text = @"12/12/2012";
     cell.hour.text = @"12h14";
-    cell.startAddress.text = @"description de dingue";
-    cell.startEndress.text = @"description de dingue";
+    cell.startAddress.text = @"14-16 RUE SOLEILLET PARIS 75020";
+    cell.startEndress.text = @"AEROPORT CHARLES DE GAULLE Roissy-en-France 95700";
     
     
     [cell.see addTarget:self action:@selector(seeResa) forControlEvents:UIControlEventTouchDown];

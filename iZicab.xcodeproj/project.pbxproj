@@ -70,6 +70,9 @@
 		E31C5F2218E9ABE200727ABD /* ActuImageFull.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2118E9ABE200727ABD /* ActuImageFull.png */; };
 		E31C5F2518E9AF8300727ABD /* pinArrive.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2318E9AF8300727ABD /* pinArrive.png */; };
 		E31C5F2618E9AF8300727ABD /* pinDepart.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2418E9AF8300727ABD /* pinDepart.png */; };
+		E31C5F2A18E9B9B900727ABD /* ButtonView.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2718E9B9B900727ABD /* ButtonView.png */; };
+		E31C5F2B18E9B9B900727ABD /* ButtonDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2818E9B9B900727ABD /* ButtonDelete.png */; };
+		E31C5F2C18E9B9B900727ABD /* ButtonChange.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2918E9B9B900727ABD /* ButtonChange.png */; };
 		E3249CA218E985D700BD23B1 /* ActuImage-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA118E985D700BD23B1 /* ActuImage-01.png */; };
 		E3249CA718E9973700BD23B1 /* Account@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA318E9973700BD23B1 /* Account@2X.png */; };
 		E3249CA818E9973700BD23B1 /* MesResa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA418E9973700BD23B1 /* MesResa@2x.png */; };
@@ -178,6 +181,9 @@
 		E31C5F2118E9ABE200727ABD /* ActuImageFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActuImageFull.png; sourceTree = "<group>"; };
 		E31C5F2318E9AF8300727ABD /* pinArrive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinArrive.png; sourceTree = "<group>"; };
 		E31C5F2418E9AF8300727ABD /* pinDepart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinDepart.png; sourceTree = "<group>"; };
+		E31C5F2718E9B9B900727ABD /* ButtonView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonView.png; sourceTree = "<group>"; };
+		E31C5F2818E9B9B900727ABD /* ButtonDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonDelete.png; sourceTree = "<group>"; };
+		E31C5F2918E9B9B900727ABD /* ButtonChange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonChange.png; sourceTree = "<group>"; };
 		E3249CA118E985D700BD23B1 /* ActuImage-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActuImage-01.png"; sourceTree = "<group>"; };
 		E3249CA318E9973700BD23B1 /* Account@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Account@2X.png"; sourceTree = "<group>"; };
 		E3249CA418E9973700BD23B1 /* MesResa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MesResa@2x.png"; sourceTree = "<group>"; };
@@ -358,6 +364,9 @@
 		6DCF530018E43C400037A10C /* ressources */ = {
 			isa = PBXGroup;
 			children = (
+				E31C5F2718E9B9B900727ABD /* ButtonView.png */,
+				E31C5F2818E9B9B900727ABD /* ButtonDelete.png */,
+				E31C5F2918E9B9B900727ABD /* ButtonChange.png */,
 				E31C5F2318E9AF8300727ABD /* pinArrive.png */,
 				E31C5F2418E9AF8300727ABD /* pinDepart.png */,
 				E3249CA318E9973700BD23B1 /* Account@2X.png */,
@@ -455,6 +464,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E31C5F2A18E9B9B900727ABD /* ButtonView.png in Resources */,
 				6D53B96D18E586FC0012C12A /* Roboto-BoldItalic.ttf in Resources */,
 				6D53B96E18E586FC0012C12A /* Roboto-Italic.ttf in Resources */,
 				6D53B97718E586FC0012C12A /* RobotoCondensed-BoldItalic.ttf in Resources */,
@@ -482,6 +492,8 @@
 				6D53B95618E57BD70012C12A /* buttonBack.png in Resources */,
 				6D0039EB18E314EC00D6C9E3 /* InfoPlist.strings in Resources */,
 				6D53B96A18E586FC0012C12A /* Roboto-Black.ttf in Resources */,
+				E31C5F2B18E9B9B900727ABD /* ButtonDelete.png in Resources */,
+				E31C5F2C18E9B9B900727ABD /* ButtonChange.png in Resources */,
 				E3249CAA18E9973700BD23B1 /* actu@2x.png in Resources */,
 				E3249CA218E985D700BD23B1 /* ActuImage-01.png in Resources */,
 				6D53B97118E586FC0012C12A /* Roboto-Medium.ttf in Resources */,
