@@ -106,7 +106,7 @@
                         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.actuView.frame.size.width, self.actuView.frame.size.height)];
                         if (isFirst)
                         {
-                            [imgV setImage:[UIImage imageNamed:@"ElementAppli-03"]];
+                            [imgV setImage:[UIImage imageNamed:@"actu@2x"]];
                             [imgV setTag:11];
                             [self.actuView addSubview:imgV];
                             isFirst = NO;
@@ -142,7 +142,7 @@
                         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.actuView.frame.size.width, self.actuView.frame.size.height)];
                         if (isFirst)
                         {
-                            [imgV setImage:[UIImage imageNamed:@"ElementAppli-02"]];
+                            [imgV setImage:[UIImage imageNamed:@"map@2x"]];
                             [imgV setTag:42];
                             [self.mapView addSubview:imgV];
                             isFirst = NO;
@@ -179,7 +179,7 @@
                         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.resaMineView.frame.size.width, self.resaMineView.frame.size.height)];
                         if (isFirst)
                         {
-                            [imgV setImage:[UIImage imageNamed:@"ElementAppli-04"]];
+                            [imgV setImage:[UIImage imageNamed:@"MesResa@2x"]];
                             [imgV setTag:422];
                             [self.resaMineView addSubview:imgV];
                             isFirst = NO;

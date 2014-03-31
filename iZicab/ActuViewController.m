@@ -58,7 +58,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 130;
+    return 153;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -77,11 +77,19 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.infoType.text = @"infoType";//[tableData objectAtIndex:indexPath.row];
+    cell.infoType.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    
+    cell.date.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+
+    cell.hour.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    
+    cell.desc.font = [UIFont fontWithName:@"Roboto-Thin" size:15.0];
+    
+    /* cell.infoType.text = @"infoType";//[tableData objectAtIndex:indexPath.row];
     cell.img.image = [UIImage imageNamed:@"datB"];//[UIImage imageNamed:[thumbnails objectAtIndex:indexPath.row]];
     cell.date.text = @"12/12/2012";//[prepTime objectAtIndex:indexPath.row];
     cell.hour.text = @"12h14";//[prepTime objectAtIndex:indexPath.row];
-    cell.desc.text = @"description de dingue";//[prepTime objectAtIndex:indexPath.row];
+    cell.desc.text = @"description de dingue";//[prepTime objectAtIndex:indexPath.row];*/
     
     return cell;
 }
