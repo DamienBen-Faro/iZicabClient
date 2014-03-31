@@ -26,13 +26,13 @@
     v.backgroundColor = [UIColor clearColor];
     
     UILabel *l =[[UILabel alloc] initWithFrame:CGRectMake(12.5f, 30, self.frame.size.width - 25, 90)];
-    l.text = self.titleNavBar;
+    l.text = _titleNavBar;
     l.textColor = [UIColor whiteColor];
     l.font = [UIFont fontWithName:@"Roboto-Thin" size:34.0];
     l.textAlignment = NSTextAlignmentCenter;
     l.lineBreakMode = NSLineBreakByWordWrapping;
     l.numberOfLines = 2;
-
+    
     
     UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 30)];
     whiteView.backgroundColor = [UIColor whiteColor];
@@ -41,6 +41,7 @@
     [v addSubview:l];
     [self insertSubview:v atIndex:0];
     self.frame = CGRectMake(0, -10, self.frame.size.width, self.frame.size.height);
+ 
 }
 
 

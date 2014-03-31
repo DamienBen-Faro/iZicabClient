@@ -1,31 +1,31 @@
 //
-//  ReservationViewController.m
+//  ActuDetailViewController.m
 //  iZicab
 //
-//  Created by Damien  on 3/27/14.
+//  Created by Damien  on 3/28/14.
 //  Copyright (c) 2014 Damien . All rights reserved.
 //
 
-#import "ReservationViewController.h"
+#import "ActuDetailViewController.h"
 #import "CustomNavBar.h"
 
-
-@implementation ReservationViewController
+@implementation ActuDetailViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        // Custom initialization
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-
+    
 }
 
 - (void)goback
@@ -46,15 +46,12 @@
     [self.navigationItem setLeftBarButtonItem:backButton];
     CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"RESERVATION"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"ACTU DETAIL"];
     
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
 
-}
+
 
 @end

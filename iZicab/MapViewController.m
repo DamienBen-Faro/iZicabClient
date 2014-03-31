@@ -24,6 +24,16 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+
+}
+
+- (void)goback
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backBtnImage = [UIImage imageNamed:@"buttonBack"]  ;
     [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
@@ -31,16 +41,14 @@
     backBtn.frame = CGRectMake(0, 0, 97, 15);
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
-
+    
     [self.navigationItem setLeftBarButtonItem:backButton];
-
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"MES RESERVATIONS"];
+    CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
+	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@""];
+    
 }
 
-- (void)goback
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 
 - (void)didReceiveMemoryWarning

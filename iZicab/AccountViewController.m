@@ -1,22 +1,21 @@
 //
-//  ReservationViewController.m
+//  AccountViewController.m
 //  iZicab
 //
-//  Created by Damien  on 3/27/14.
+//  Created by Damien  on 3/28/14.
 //  Copyright (c) 2014 Damien . All rights reserved.
 //
 
-#import "ReservationViewController.h"
+#import "AccountViewController.h"
 #import "CustomNavBar.h"
 
-
-@implementation ReservationViewController
+@implementation AccountViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        // Custom initialization
     }
     return self;
 }
@@ -25,6 +24,7 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
 
 }
 
@@ -46,15 +46,16 @@
     [self.navigationItem setLeftBarButtonItem:backButton];
     CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"RESERVATION"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"ACCOUNT"];
     
 }
+
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-
+    // Dispose of any resources that can be recreated.
 }
 
 @end

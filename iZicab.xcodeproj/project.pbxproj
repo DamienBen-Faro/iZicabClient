@@ -13,7 +13,6 @@
 		6D0039EB18E314EC00D6C9E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D0039E918E314EC00D6C9E3 /* InfoPlist.strings */; };
 		6D0039ED18E314EC00D6C9E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0039EC18E314EC00D6C9E3 /* main.m */; };
 		6D0039F118E314EC00D6C9E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0039F018E314EC00D6C9E3 /* AppDelegate.m */; };
-		6D0039F418E314EC00D6C9E3 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0039F218E314EC00D6C9E3 /* Main_iPhone.storyboard */; };
 		6D0039F718E314EC00D6C9E3 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D0039F518E314EC00D6C9E3 /* Main_iPad.storyboard */; };
 		6D0039FA18E314EC00D6C9E3 /* SignController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D0039F918E314EC00D6C9E3 /* SignController.m */; };
 		6D0039FC18E314EC00D6C9E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D0039FB18E314EC00D6C9E3 /* Images.xcassets */; };
@@ -22,6 +21,7 @@
 		6D003A0518E314EC00D6C9E3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D0039E418E314EC00D6C9E3 /* UIKit.framework */; };
 		6D003A0D18E314ED00D6C9E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D003A0B18E314ED00D6C9E3 /* InfoPlist.strings */; };
 		6D003A0F18E314ED00D6C9E3 /* iZicabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D003A0E18E314ED00D6C9E3 /* iZicabTests.m */; };
+		6D3161D618E97AE6005ABB3E /* ResaMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3161D518E97AE6005ABB3E /* ResaMineCell.m */; };
 		6D53B95418E578370012C12A /* CustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B95318E578370012C12A /* CustomNavBar.m */; };
 		6D53B95618E57BD70012C12A /* buttonBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B95518E57BD70012C12A /* buttonBack.png */; };
 		6D53B96A18E586FC0012C12A /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B95818E586FC0012C12A /* Roboto-Black.ttf */; };
@@ -42,6 +42,17 @@
 		6D53B97918E586FC0012C12A /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B96718E586FC0012C12A /* RobotoCondensed-Light.ttf */; };
 		6D53B97A18E586FC0012C12A /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B96818E586FC0012C12A /* RobotoCondensed-LightItalic.ttf */; };
 		6D53B97B18E586FC0012C12A /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B96918E586FC0012C12A /* RobotoCondensed-Regular.ttf */; };
+		6D53B97E18E58E4E0012C12A /* ResaMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B97D18E58E4E0012C12A /* ResaMineViewController.m */; };
+		6D53B98118E58EAF0012C12A /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B98018E58EAF0012C12A /* AccountViewController.m */; };
+		6D53B98418E5901D0012C12A /* RecapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B98318E5901D0012C12A /* RecapViewController.m */; };
+		6D53B98718E591C60012C12A /* InvoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B98618E591C60012C12A /* InvoiceViewController.m */; };
+		6D53B98A18E59CB10012C12A /* ActuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B98918E59CB10012C12A /* ActuViewController.m */; };
+		6D53B98D18E59D330012C12A /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B98C18E59D330012C12A /* ShareViewController.m */; };
+		6D53B99318E5A7730012C12A /* ActuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B99218E5A7730012C12A /* ActuCell.m */; };
+		6D53B99518E5A7A50012C12A /* ActuCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B99418E5A7A50012C12A /* ActuCellView.xib */; };
+		6D53B99718E5BBBB0012C12A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B99618E5BBBB0012C12A /* Main_iPhone.storyboard */; };
+		6D53B99A18E5BDCF0012C12A /* ActuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B99918E5BDCF0012C12A /* ActuDetailViewController.m */; };
+		6D53B99C18E5C2F70012C12A /* ResaMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B99B18E5C2F70012C12A /* ResaMineCell.xib */; };
 		6D83735018E46A94005A6709 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83734E18E46A94005A6709 /* DashboardViewController.m */; };
 		6D83735318E46C01005A6709 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D83735218E46C01005A6709 /* MapKit.framework */; };
 		6D83736318E47586005A6709 /* ElementAppli-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83735E18E47586005A6709 /* ElementAppli-01.png */; };
@@ -82,7 +93,6 @@
 		6D0039EE18E314EC00D6C9E3 /* iZicab-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iZicab-Prefix.pch"; sourceTree = "<group>"; };
 		6D0039EF18E314EC00D6C9E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6D0039F018E314EC00D6C9E3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6D0039F318E314EC00D6C9E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		6D0039F618E314EC00D6C9E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		6D0039F818E314EC00D6C9E3 /* SignController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignController.h; sourceTree = "<group>"; };
 		6D0039F918E314EC00D6C9E3 /* SignController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignController.m; sourceTree = "<group>"; };
@@ -92,6 +102,8 @@
 		6D003A0A18E314ED00D6C9E3 /* iZicabTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iZicabTests-Info.plist"; sourceTree = "<group>"; };
 		6D003A0C18E314ED00D6C9E3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D003A0E18E314ED00D6C9E3 /* iZicabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iZicabTests.m; sourceTree = "<group>"; };
+		6D3161D418E97AD8005ABB3E /* ResaMineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResaMineCell.h; sourceTree = "<group>"; };
+		6D3161D518E97AE6005ABB3E /* ResaMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResaMineCell.m; sourceTree = "<group>"; };
 		6D53B95218E578370012C12A /* CustomNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavBar.h; sourceTree = "<group>"; };
 		6D53B95318E578370012C12A /* CustomNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavBar.m; sourceTree = "<group>"; };
 		6D53B95518E57BD70012C12A /* buttonBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBack.png; sourceTree = "<group>"; };
@@ -113,6 +125,25 @@
 		6D53B96718E586FC0012C12A /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
 		6D53B96818E586FC0012C12A /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
 		6D53B96918E586FC0012C12A /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		6D53B97C18E58E4E0012C12A /* ResaMineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResaMineViewController.h; path = ressources/ResaMineViewController.h; sourceTree = "<group>"; };
+		6D53B97D18E58E4E0012C12A /* ResaMineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResaMineViewController.m; path = ressources/ResaMineViewController.m; sourceTree = "<group>"; };
+		6D53B97F18E58EAE0012C12A /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		6D53B98018E58EAF0012C12A /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		6D53B98218E5901D0012C12A /* RecapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecapViewController.h; path = ressources/RecapViewController.h; sourceTree = "<group>"; };
+		6D53B98318E5901D0012C12A /* RecapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecapViewController.m; path = ressources/RecapViewController.m; sourceTree = "<group>"; };
+		6D53B98518E591C60012C12A /* InvoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvoiceViewController.h; sourceTree = "<group>"; };
+		6D53B98618E591C60012C12A /* InvoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InvoiceViewController.m; sourceTree = "<group>"; };
+		6D53B98818E59CB10012C12A /* ActuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActuViewController.h; sourceTree = "<group>"; };
+		6D53B98918E59CB10012C12A /* ActuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActuViewController.m; sourceTree = "<group>"; };
+		6D53B98B18E59D330012C12A /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		6D53B98C18E59D330012C12A /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		6D53B99118E5A7730012C12A /* ActuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActuCell.h; sourceTree = "<group>"; };
+		6D53B99218E5A7730012C12A /* ActuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActuCell.m; sourceTree = "<group>"; };
+		6D53B99418E5A7A50012C12A /* ActuCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActuCellView.xib; sourceTree = "<group>"; };
+		6D53B99618E5BBBB0012C12A /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
+		6D53B99818E5BDCF0012C12A /* ActuDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActuDetailViewController.h; sourceTree = "<group>"; };
+		6D53B99918E5BDCF0012C12A /* ActuDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActuDetailViewController.m; sourceTree = "<group>"; };
+		6D53B99B18E5C2F70012C12A /* ResaMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResaMineCell.xib; sourceTree = "<group>"; };
 		6D83734D18E46A94005A6709 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		6D83734E18E46A94005A6709 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		6D83735218E46C01005A6709 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -199,25 +230,45 @@
 		6D0039E618E314EC00D6C9E3 /* iZicab */ = {
 			isa = PBXGroup;
 			children = (
+				6D3161D418E97AD8005ABB3E /* ResaMineCell.h */,
+				6D3161D518E97AE6005ABB3E /* ResaMineCell.m */,
+				6D53B99618E5BBBB0012C12A /* Main_iPhone.storyboard */,
+				6D53B99818E5BDCF0012C12A /* ActuDetailViewController.h */,
+				6D53B99918E5BDCF0012C12A /* ActuDetailViewController.m */,
+				6D53B99B18E5C2F70012C12A /* ResaMineCell.xib */,
 				6DCF530018E43C400037A10C /* ressources */,
 				6D0039EF18E314EC00D6C9E3 /* AppDelegate.h */,
 				6D0039F018E314EC00D6C9E3 /* AppDelegate.m */,
-				6D0039F218E314EC00D6C9E3 /* Main_iPhone.storyboard */,
+				6D53B99118E5A7730012C12A /* ActuCell.h */,
+				6D53B99218E5A7730012C12A /* ActuCell.m */,
+				6D53B99418E5A7A50012C12A /* ActuCellView.xib */,
+				6D53B98B18E59D330012C12A /* ShareViewController.h */,
+				6D53B98C18E59D330012C12A /* ShareViewController.m */,
 				6D83736E18E48A4D005A6709 /* MapViewController.h */,
 				6D83736F18E48A4D005A6709 /* MapViewController.m */,
 				6D83736B18E47E6B005A6709 /* DashboardSegue.h */,
 				6D83736C18E47E6B005A6709 /* DashboardSegue.m */,
 				6D83734D18E46A94005A6709 /* DashboardViewController.h */,
-				6D83734E18E46A94005A6709 /* DashboardViewController.m */,
 				6D0039F518E314EC00D6C9E3 /* Main_iPad.storyboard */,
+				6D83734E18E46A94005A6709 /* DashboardViewController.m */,
 				6DCF530618E44A2B0037A10C /* SignInViewController.h */,
 				6DCF530718E44A2B0037A10C /* SignInViewController.m */,
 				6DCF530B18E451520037A10C /* CodeViewController.h */,
+				6D53B98218E5901D0012C12A /* RecapViewController.h */,
+				6D53B98318E5901D0012C12A /* RecapViewController.m */,
 				6D83736818E476A8005A6709 /* ReservationViewController.h */,
 				6D83736918E476A8005A6709 /* ReservationViewController.m */,
+				6D53B97F18E58EAE0012C12A /* AccountViewController.h */,
+				6D53B98018E58EAF0012C12A /* AccountViewController.m */,
 				6DCF530C18E451520037A10C /* CodeViewController.m */,
 				6D0039F818E314EC00D6C9E3 /* SignController.h */,
 				6D0039F918E314EC00D6C9E3 /* SignController.m */,
+				6D53B97C18E58E4E0012C12A /* ResaMineViewController.h */,
+				6D53B97D18E58E4E0012C12A /* ResaMineViewController.m */,
+				6D53B98518E591C60012C12A /* InvoiceViewController.h */,
+				6D53B98618E591C60012C12A /* InvoiceViewController.m */,
+				6D53B98818E59CB10012C12A /* ActuViewController.h */,
+				6D53B98918E59CB10012C12A /* ActuViewController.m */,
 				6D0039FB18E314EC00D6C9E3 /* Images.xcassets */,
 				6D0039E718E314EC00D6C9E3 /* Supporting Files */,
 				6DCF52FA18E4394A0037A10C /* SignUpViewController.h */,
@@ -389,6 +440,7 @@
 				6D53B97518E586FC0012C12A /* Roboto-ThinItalic.ttf in Resources */,
 				6D53B97B18E586FC0012C12A /* RobotoCondensed-Regular.ttf in Resources */,
 				6D83737A18E49EAF005A6709 /* datB.png in Resources */,
+				6D53B99518E5A7A50012C12A /* ActuCellView.xib in Resources */,
 				6D0039F718E314EC00D6C9E3 /* Main_iPad.storyboard in Resources */,
 				6D83736718E47586005A6709 /* ElementAppli-05.png in Resources */,
 				6D53B97418E586FC0012C12A /* Roboto-Thin.ttf in Resources */,
@@ -397,9 +449,10 @@
 				6D83736418E47586005A6709 /* ElementAppli-02.png in Resources */,
 				6D53B96B18E586FC0012C12A /* Roboto-BlackItalic.ttf in Resources */,
 				6D53B96F18E586FC0012C12A /* Roboto-Light.ttf in Resources */,
-				6D0039F418E314EC00D6C9E3 /* Main_iPhone.storyboard in Resources */,
+				6D53B99C18E5C2F70012C12A /* ResaMineCell.xib in Resources */,
 				6D83736318E47586005A6709 /* ElementAppli-01.png in Resources */,
 				6D53B97818E586FC0012C12A /* RobotoCondensed-Italic.ttf in Resources */,
+				6D53B99718E5BBBB0012C12A /* Main_iPhone.storyboard in Resources */,
 				6D53B95618E57BD70012C12A /* buttonBack.png in Resources */,
 				6D0039EB18E314EC00D6C9E3 /* InfoPlist.strings in Resources */,
 				6D53B96A18E586FC0012C12A /* Roboto-Black.ttf in Resources */,
@@ -431,16 +484,25 @@
 			files = (
 				6DCF530818E44A2B0037A10C /* SignInViewController.m in Sources */,
 				6D0039FA18E314EC00D6C9E3 /* SignController.m in Sources */,
+				6D53B98118E58EAF0012C12A /* AccountViewController.m in Sources */,
 				6D0039F118E314EC00D6C9E3 /* AppDelegate.m in Sources */,
+				6D53B99A18E5BDCF0012C12A /* ActuDetailViewController.m in Sources */,
 				6D83735018E46A94005A6709 /* DashboardViewController.m in Sources */,
 				6D83736A18E476A8005A6709 /* ReservationViewController.m in Sources */,
 				6DCF52FC18E4394A0037A10C /* SignUpViewController.m in Sources */,
 				6D83736D18E47E6B005A6709 /* DashboardSegue.m in Sources */,
+				6D53B99318E5A7730012C12A /* ActuCell.m in Sources */,
 				6D0039ED18E314EC00D6C9E3 /* main.m in Sources */,
+				6D53B98A18E59CB10012C12A /* ActuViewController.m in Sources */,
+				6D53B98418E5901D0012C12A /* RecapViewController.m in Sources */,
 				6DCF52FF18E43BAD0037A10C /* NavigationControlViewController.m in Sources */,
 				6DCF530E18E451530037A10C /* CodeViewController.m in Sources */,
 				6D53B95418E578370012C12A /* CustomNavBar.m in Sources */,
 				6D83737018E48A4D005A6709 /* MapViewController.m in Sources */,
+				6D53B98718E591C60012C12A /* InvoiceViewController.m in Sources */,
+				6D3161D618E97AE6005ABB3E /* ResaMineCell.m in Sources */,
+				6D53B98D18E59D330012C12A /* ShareViewController.m in Sources */,
+				6D53B97E18E58E4E0012C12A /* ResaMineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,14 +531,6 @@
 				6D0039EA18E314EC00D6C9E3 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		6D0039F218E314EC00D6C9E3 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6D0039F318E314EC00D6C9E3 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 		6D0039F518E314EC00D6C9E3 /* Main_iPad.storyboard */ = {

@@ -1,5 +1,5 @@
 //
-//  CustomNavBar.h
+//  RecapViewController.h
 //  iZicab
 //
 //  Created by Damien  on 3/28/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CustomNavBar : UINavigationBar
+@interface RecapViewController : UIViewController
 
 @end
