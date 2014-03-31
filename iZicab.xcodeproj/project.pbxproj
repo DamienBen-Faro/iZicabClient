@@ -58,10 +58,6 @@
 		6D83735018E46A94005A6709 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83734E18E46A94005A6709 /* DashboardViewController.m */; };
 		6D83735318E46C01005A6709 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D83735218E46C01005A6709 /* MapKit.framework */; };
 		6D83736318E47586005A6709 /* ElementAppli-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83735E18E47586005A6709 /* ElementAppli-01.png */; };
-		6D83736418E47586005A6709 /* ElementAppli-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83735F18E47586005A6709 /* ElementAppli-02.png */; };
-		6D83736518E47586005A6709 /* ElementAppli-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83736018E47586005A6709 /* ElementAppli-03.png */; };
-		6D83736618E47586005A6709 /* ElementAppli-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83736118E47586005A6709 /* ElementAppli-04.png */; };
-		6D83736718E47586005A6709 /* ElementAppli-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83736218E47586005A6709 /* ElementAppli-05.png */; };
 		6D83736A18E476A8005A6709 /* ReservationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83736918E476A8005A6709 /* ReservationViewController.m */; };
 		6D83736D18E47E6B005A6709 /* DashboardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83736C18E47E6B005A6709 /* DashboardSegue.m */; };
 		6D83737018E48A4D005A6709 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83736F18E48A4D005A6709 /* MapViewController.m */; };
@@ -69,9 +65,17 @@
 		6D83737A18E49EAF005A6709 /* datB.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83737918E49EAF005A6709 /* datB.png */; };
 		6DCF52FC18E4394A0037A10C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FB18E4394A0037A10C /* SignUpViewController.m */; };
 		6DCF52FF18E43BAD0037A10C /* NavigationControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FE18E43BAD0037A10C /* NavigationControlViewController.m */; };
-		6DCF530218E43DA00037A10C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DCF530118E43DA00037A10C /* bg.png */; };
 		6DCF530818E44A2B0037A10C /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF530718E44A2B0037A10C /* SignInViewController.m */; };
 		6DCF530E18E451530037A10C /* CodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF530C18E451520037A10C /* CodeViewController.m */; };
+		E31C5F2218E9ABE200727ABD /* ActuImageFull.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2118E9ABE200727ABD /* ActuImageFull.png */; };
+		E31C5F2518E9AF8300727ABD /* pinArrive.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2318E9AF8300727ABD /* pinArrive.png */; };
+		E31C5F2618E9AF8300727ABD /* pinDepart.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2418E9AF8300727ABD /* pinDepart.png */; };
+		E3249CA218E985D700BD23B1 /* ActuImage-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA118E985D700BD23B1 /* ActuImage-01.png */; };
+		E3249CA718E9973700BD23B1 /* Account@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA318E9973700BD23B1 /* Account@2X.png */; };
+		E3249CA818E9973700BD23B1 /* MesResa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA418E9973700BD23B1 /* MesResa@2x.png */; };
+		E3249CA918E9973700BD23B1 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA518E9973700BD23B1 /* map@2x.png */; };
+		E3249CAA18E9973700BD23B1 /* actu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA618E9973700BD23B1 /* actu@2x.png */; };
+		E3249CAC18E9998100BD23B1 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CAB18E9998100BD23B1 /* bg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,10 +159,6 @@
 		6D83734E18E46A94005A6709 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		6D83735218E46C01005A6709 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		6D83735E18E47586005A6709 /* ElementAppli-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ElementAppli-01.png"; sourceTree = "<group>"; };
-		6D83735F18E47586005A6709 /* ElementAppli-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ElementAppli-02.png"; sourceTree = "<group>"; };
-		6D83736018E47586005A6709 /* ElementAppli-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ElementAppli-03.png"; sourceTree = "<group>"; };
-		6D83736118E47586005A6709 /* ElementAppli-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ElementAppli-04.png"; sourceTree = "<group>"; };
-		6D83736218E47586005A6709 /* ElementAppli-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ElementAppli-05.png"; sourceTree = "<group>"; };
 		6D83736818E476A8005A6709 /* ReservationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReservationViewController.h; sourceTree = "<group>"; };
 		6D83736918E476A8005A6709 /* ReservationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReservationViewController.m; sourceTree = "<group>"; };
 		6D83736B18E47E6B005A6709 /* DashboardSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSegue.h; sourceTree = "<group>"; };
@@ -171,11 +171,19 @@
 		6DCF52FB18E4394A0037A10C /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		6DCF52FD18E43BAD0037A10C /* NavigationControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationControlViewController.h; sourceTree = "<group>"; };
 		6DCF52FE18E43BAD0037A10C /* NavigationControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationControlViewController.m; sourceTree = "<group>"; };
-		6DCF530118E43DA00037A10C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 		6DCF530618E44A2B0037A10C /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
 		6DCF530718E44A2B0037A10C /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		6DCF530B18E451520037A10C /* CodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeViewController.h; sourceTree = "<group>"; };
 		6DCF530C18E451520037A10C /* CodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeViewController.m; sourceTree = "<group>"; };
+		E31C5F2118E9ABE200727ABD /* ActuImageFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActuImageFull.png; sourceTree = "<group>"; };
+		E31C5F2318E9AF8300727ABD /* pinArrive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinArrive.png; sourceTree = "<group>"; };
+		E31C5F2418E9AF8300727ABD /* pinDepart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinDepart.png; sourceTree = "<group>"; };
+		E3249CA118E985D700BD23B1 /* ActuImage-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActuImage-01.png"; sourceTree = "<group>"; };
+		E3249CA318E9973700BD23B1 /* Account@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Account@2X.png"; sourceTree = "<group>"; };
+		E3249CA418E9973700BD23B1 /* MesResa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MesResa@2x.png"; sourceTree = "<group>"; };
+		E3249CA518E9973700BD23B1 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
+		E3249CA618E9973700BD23B1 /* actu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actu@2x.png"; sourceTree = "<group>"; };
+		E3249CAB18E9998100BD23B1 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,16 +358,20 @@
 		6DCF530018E43C400037A10C /* ressources */ = {
 			isa = PBXGroup;
 			children = (
+				E31C5F2318E9AF8300727ABD /* pinArrive.png */,
+				E31C5F2418E9AF8300727ABD /* pinDepart.png */,
+				E3249CA318E9973700BD23B1 /* Account@2X.png */,
+				E3249CA418E9973700BD23B1 /* MesResa@2x.png */,
+				E3249CA518E9973700BD23B1 /* map@2x.png */,
+				E3249CAB18E9998100BD23B1 /* bg.png */,
+				E31C5F2118E9ABE200727ABD /* ActuImageFull.png */,
+				E3249CA618E9973700BD23B1 /* actu@2x.png */,
+				E3249CA118E985D700BD23B1 /* ActuImage-01.png */,
 				6D53B95718E586FC0012C12A /* RobotoFont */,
 				6D53B95518E57BD70012C12A /* buttonBack.png */,
 				6D83737918E49EAF005A6709 /* datB.png */,
 				6D83737718E49739005A6709 /* bgbar.png */,
 				6D83735E18E47586005A6709 /* ElementAppli-01.png */,
-				6D83735F18E47586005A6709 /* ElementAppli-02.png */,
-				6D83736018E47586005A6709 /* ElementAppli-03.png */,
-				6D83736118E47586005A6709 /* ElementAppli-04.png */,
-				6D83736218E47586005A6709 /* ElementAppli-05.png */,
-				6DCF530118E43DA00037A10C /* bg.png */,
 			);
 			path = ressources;
 			sourceTree = "<group>";
@@ -447,35 +459,39 @@
 				6D53B96E18E586FC0012C12A /* Roboto-Italic.ttf in Resources */,
 				6D53B97718E586FC0012C12A /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				6D53B97018E586FC0012C12A /* Roboto-LightItalic.ttf in Resources */,
-				6D83736618E47586005A6709 /* ElementAppli-04.png in Resources */,
+				E3249CAC18E9998100BD23B1 /* bg.png in Resources */,
 				6D83737818E49739005A6709 /* bgbar.png in Resources */,
 				6D53B97518E586FC0012C12A /* Roboto-ThinItalic.ttf in Resources */,
 				6D53B97B18E586FC0012C12A /* RobotoCondensed-Regular.ttf in Resources */,
 				6D83737A18E49EAF005A6709 /* datB.png in Resources */,
+				E31C5F2618E9AF8300727ABD /* pinDepart.png in Resources */,
 				6D53B99518E5A7A50012C12A /* ActuCellView.xib in Resources */,
+				E3249CA918E9973700BD23B1 /* map@2x.png in Resources */,
 				6D0039F718E314EC00D6C9E3 /* Main_iPad.storyboard in Resources */,
-				6D83736718E47586005A6709 /* ElementAppli-05.png in Resources */,
 				6D53B97418E586FC0012C12A /* Roboto-Thin.ttf in Resources */,
 				6D0039FC18E314EC00D6C9E3 /* Images.xcassets in Resources */,
 				6D53B97A18E586FC0012C12A /* RobotoCondensed-LightItalic.ttf in Resources */,
-				6D83736418E47586005A6709 /* ElementAppli-02.png in Resources */,
 				6D53B96B18E586FC0012C12A /* Roboto-BlackItalic.ttf in Resources */,
 				6D53B96F18E586FC0012C12A /* Roboto-Light.ttf in Resources */,
 				6D53B99C18E5C2F70012C12A /* ResaMineCell.xib in Resources */,
+				E3249CA818E9973700BD23B1 /* MesResa@2x.png in Resources */,
 				6D83736318E47586005A6709 /* ElementAppli-01.png in Resources */,
 				6D53B97818E586FC0012C12A /* RobotoCondensed-Italic.ttf in Resources */,
 				6D53B99718E5BBBB0012C12A /* Main_iPhone.storyboard in Resources */,
+				E31C5F2218E9ABE200727ABD /* ActuImageFull.png in Resources */,
 				6D53B95618E57BD70012C12A /* buttonBack.png in Resources */,
 				6D0039EB18E314EC00D6C9E3 /* InfoPlist.strings in Resources */,
 				6D53B96A18E586FC0012C12A /* Roboto-Black.ttf in Resources */,
+				E3249CAA18E9973700BD23B1 /* actu@2x.png in Resources */,
+				E3249CA218E985D700BD23B1 /* ActuImage-01.png in Resources */,
 				6D53B97118E586FC0012C12A /* Roboto-Medium.ttf in Resources */,
+				E3249CA718E9973700BD23B1 /* Account@2X.png in Resources */,
 				6D53B97918E586FC0012C12A /* RobotoCondensed-Light.ttf in Resources */,
 				6D53B97318E586FC0012C12A /* Roboto-Regular.ttf in Resources */,
-				6DCF530218E43DA00037A10C /* bg.png in Resources */,
+				E31C5F2518E9AF8300727ABD /* pinArrive.png in Resources */,
 				6D53B96C18E586FC0012C12A /* Roboto-Bold.ttf in Resources */,
 				6D53B97218E586FC0012C12A /* Roboto-MediumItalic.ttf in Resources */,
 				6D53B97618E586FC0012C12A /* RobotoCondensed-Bold.ttf in Resources */,
-				6D83736518E47586005A6709 /* ElementAppli-03.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
