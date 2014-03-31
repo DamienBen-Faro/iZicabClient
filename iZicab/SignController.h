@@ -10,8 +10,6 @@
 
 @interface SignController : UIViewController
 
-- (IBAction) sendInscription:(id) sender;
-
 -(void)noNeedToSign;
 
 @end

@@ -17,8 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    [ConnectionData sendReq: @"auth/checkUserActdivated": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"phone", @"0610755306d", @"idDevice", @"ios", nil]];
+    [ConnectionData sendReq: @"auth/checkUserActivated": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"phone", @"0610755306", @"idDevice", @"ios", nil]];
 
 }
 
@@ -31,12 +30,20 @@
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
-            [[UserInfoSingleton sharedUserInfo] setUserId:[dict objectForKey:@"id"]];
-            [[UserInfoSingleton sharedUserInfo] setEmail:[dict objectForKey:@"email"]];
-
-            if ([[UserInfoSingleton sharedUserInfo] userId].length != 0)
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            if (((NSString *)[defaults objectForKey:@"phone"]).length  != 0)
                 [self noNeedToSign];
         }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+
     };
 }
 

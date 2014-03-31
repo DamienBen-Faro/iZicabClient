@@ -13,6 +13,7 @@
 }
 
 @property (strong) NSString *userId;
+@property (strong) NSString *phone;
 @property (strong) NSString *name;
 @property (strong) NSString *email;
 @property (strong) NSString *postalCode;

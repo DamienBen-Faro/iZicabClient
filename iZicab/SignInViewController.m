@@ -32,7 +32,12 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    // a delete quand cest ok
     [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", @"0610755306", @"idDevice", @"ios", @"password",  @"izicab", @"userType", @"privateUser", nil]];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:@"0610755306" forKey:@"phone"];
+    [defaults synchronize];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,6 +62,10 @@
 - (IBAction)connexion:(id)sender
 {
     [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", @"0610755306", @"idDevice", @"ios", @"password",  @"izicab", @"userType", @"privateUser", nil]];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setValue:@"0610755306" forKey:@"phone"];
+     [defaults synchronize];
 }
 
 
@@ -70,6 +79,10 @@
         {
             [[UserInfoSingleton sharedUserInfo] setUserId:[dict objectForKey:@"id"]];
             [[UserInfoSingleton sharedUserInfo] setEmail:[dict objectForKey:@"email"]];
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:[dict objectForKey:@"id"] forKey:@"userId"];
+             [defaults synchronize];
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
             DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
