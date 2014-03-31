@@ -27,9 +27,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-      [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", @"0610755306", @"idDevice", @"ios", @"password",  @"izicab", @"userType", @"privateUser", nil]];
-
     
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", @"0610755306", @"idDevice", @"ios", @"password",  @"izicab", @"userType", @"privateUser", nil]];
 }
 
 - (void)didReceiveMemoryWarning
