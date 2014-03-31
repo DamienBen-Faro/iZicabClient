@@ -22,6 +22,8 @@
 		6D003A0D18E314ED00D6C9E3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D003A0B18E314ED00D6C9E3 /* InfoPlist.strings */; };
 		6D003A0F18E314ED00D6C9E3 /* iZicabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D003A0E18E314ED00D6C9E3 /* iZicabTests.m */; };
 		6D3161D618E97AE6005ABB3E /* ResaMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3161D518E97AE6005ABB3E /* ResaMineCell.m */; };
+		6D3161DC18E98505005ABB3E /* ConnectionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3161DB18E98505005ABB3E /* ConnectionData.m */; };
+		6D3161DF18E9AD89005ABB3E /* UserInfoSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D3161DE18E9AD89005ABB3E /* UserInfoSingleton.m */; };
 		6D53B95418E578370012C12A /* CustomNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B95318E578370012C12A /* CustomNavBar.m */; };
 		6D53B95618E57BD70012C12A /* buttonBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B95518E57BD70012C12A /* buttonBack.png */; };
 		6D53B96A18E586FC0012C12A /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B95818E586FC0012C12A /* Roboto-Black.ttf */; };
@@ -104,6 +106,11 @@
 		6D003A0E18E314ED00D6C9E3 /* iZicabTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iZicabTests.m; sourceTree = "<group>"; };
 		6D3161D418E97AD8005ABB3E /* ResaMineCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResaMineCell.h; sourceTree = "<group>"; };
 		6D3161D518E97AE6005ABB3E /* ResaMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResaMineCell.m; sourceTree = "<group>"; };
+		6D3161D718E98149005ABB3E /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = ../Constant.h; sourceTree = "<group>"; };
+		6D3161DA18E98505005ABB3E /* ConnectionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionData.h; sourceTree = "<group>"; };
+		6D3161DB18E98505005ABB3E /* ConnectionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionData.m; sourceTree = "<group>"; };
+		6D3161DD18E9AD89005ABB3E /* UserInfoSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoSingleton.h; sourceTree = "<group>"; };
+		6D3161DE18E9AD89005ABB3E /* UserInfoSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoSingleton.m; sourceTree = "<group>"; };
 		6D53B95218E578370012C12A /* CustomNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomNavBar.h; sourceTree = "<group>"; };
 		6D53B95318E578370012C12A /* CustomNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomNavBar.m; sourceTree = "<group>"; };
 		6D53B95518E57BD70012C12A /* buttonBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBack.png; sourceTree = "<group>"; };
@@ -239,6 +246,9 @@
 				6DCF530018E43C400037A10C /* ressources */,
 				6D0039EF18E314EC00D6C9E3 /* AppDelegate.h */,
 				6D0039F018E314EC00D6C9E3 /* AppDelegate.m */,
+				6D3161DD18E9AD89005ABB3E /* UserInfoSingleton.h */,
+				6D3161DE18E9AD89005ABB3E /* UserInfoSingleton.m */,
+				6D3161D718E98149005ABB3E /* Constant.h */,
 				6D53B99118E5A7730012C12A /* ActuCell.h */,
 				6D53B99218E5A7730012C12A /* ActuCell.m */,
 				6D53B99418E5A7A50012C12A /* ActuCellView.xib */,
@@ -249,6 +259,8 @@
 				6D83736B18E47E6B005A6709 /* DashboardSegue.h */,
 				6D83736C18E47E6B005A6709 /* DashboardSegue.m */,
 				6D83734D18E46A94005A6709 /* DashboardViewController.h */,
+				6D3161DA18E98505005ABB3E /* ConnectionData.h */,
+				6D3161DB18E98505005ABB3E /* ConnectionData.m */,
 				6D0039F518E314EC00D6C9E3 /* Main_iPad.storyboard */,
 				6D83734E18E46A94005A6709 /* DashboardViewController.m */,
 				6DCF530618E44A2B0037A10C /* SignInViewController.h */,
@@ -484,6 +496,7 @@
 			files = (
 				6DCF530818E44A2B0037A10C /* SignInViewController.m in Sources */,
 				6D0039FA18E314EC00D6C9E3 /* SignController.m in Sources */,
+				6D3161DF18E9AD89005ABB3E /* UserInfoSingleton.m in Sources */,
 				6D53B98118E58EAF0012C12A /* AccountViewController.m in Sources */,
 				6D0039F118E314EC00D6C9E3 /* AppDelegate.m in Sources */,
 				6D53B99A18E5BDCF0012C12A /* ActuDetailViewController.m in Sources */,
@@ -499,6 +512,7 @@
 				6DCF530E18E451530037A10C /* CodeViewController.m in Sources */,
 				6D53B95418E578370012C12A /* CustomNavBar.m in Sources */,
 				6D83737018E48A4D005A6709 /* MapViewController.m in Sources */,
+				6D3161DC18E98505005ABB3E /* ConnectionData.m in Sources */,
 				6D53B98718E591C60012C12A /* InvoiceViewController.m in Sources */,
 				6D3161D618E97AE6005ABB3E /* ResaMineCell.m in Sources */,
 				6D53B98D18E59D330012C12A /* ShareViewController.m in Sources */,

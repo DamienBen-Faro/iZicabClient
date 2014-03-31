@@ -10,6 +10,7 @@
 #import "DashboardViewController.h"
 #import "CustomNavBar.h"
 #import "ConnectionData.h"
+#import "UserInfoSingleton.h"
 
 @implementation SignController
 
@@ -29,7 +30,13 @@
         NSError *error;
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
-            [self noNeedToSign];
+        {
+            [[UserInfoSingleton sharedUserInfo] setUserId:[dict objectForKey:@"id"]];
+            [[UserInfoSingleton sharedUserInfo] setEmail:[dict objectForKey:@"email"]];
+
+            if ([[UserInfoSingleton sharedUserInfo] userId].length != 0)
+                [self noNeedToSign];
+        }
     };
 }
 

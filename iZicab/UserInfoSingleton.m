@@ -10,4 +10,18 @@
 
 @implementation UserInfoSingleton
 
+
++ (id)sharedUserInfo
+{
+    static UserInfoSingleton *sharedUserInfo = nil;
+    @synchronized(self)
+    {
+        if (sharedUserInfo == nil)
+            sharedUserInfo = [[self alloc] init];
+    }
+    return sharedUserInfo;
+}
+
+
+
 @end

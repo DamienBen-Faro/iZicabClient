@@ -11,6 +11,7 @@
 #import "CustomNavBar.h"
 #import "DashboardViewController.h"
 #import "ConnectionData.h"
+#import "UserInfoSingleton.h"
 
 @implementation SignInViewController
 
@@ -26,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   //   [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", @"0610755306", @"idDevice", @"ios", @"password",  @"izicab", @"userType", @"privateUser", nil]];
+      [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", @"0610755306", @"idDevice", @"ios", @"password",  @"izicab", @"userType", @"privateUser", nil]];
 
     
 }
@@ -64,11 +65,11 @@
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
-            
+            [[UserInfoSingleton sharedUserInfo] setUserId:[dict objectForKey:@"id"]];
+            [[UserInfoSingleton sharedUserInfo] setEmail:[dict objectForKey:@"email"]];
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
             DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-            
             [self.navigationController pushViewController:ctrl animated:YES];
 
         }
