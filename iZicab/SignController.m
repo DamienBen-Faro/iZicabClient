@@ -8,43 +8,53 @@
 
 #import "SignController.h"
 #import "DashboardViewController.h"
-
+#import "CustomNavBar.h"
+#import "ConnectionData.h"
 
 @implementation SignController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://199.16.131.147/~izicat/102/Website/index.php/ws/reservation/readAll"]] queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *_response, NSData *_data, NSError *_error) {
-                              
-                               NSError *error;
-                               NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
-                               NSLog(@"diction:%@", dict);
-                           
-                        }];
-    
-    [self checkAccount];
+
+    [ConnectionData sendReq: @"auth/checkUserActdivated": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"phone", @"0610755306d", @"idDevice", @"ios", nil]];
+
 }
 
-- (void)didReceiveMemoryWarning
+
+- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))checkAcc
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
+        
+        NSError *error;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+            [self noNeedToSign];
+    };
 }
 
-- (IBAction) sendInscription:(id) sender
+- (void)goback
 {
-    NSLog(@"wat");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)checkAccount
+
+
+-(void)noNeedToSign
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
     
-    
     [self.navigationController pushViewController:ctrl animated:YES];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+
+    CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
+	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"IZICAB"];
+    
 }
 
 @end

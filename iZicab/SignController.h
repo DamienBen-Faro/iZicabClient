@@ -12,6 +12,6 @@
 
 - (IBAction) sendInscription:(id) sender;
 
--(void)checkAccount;
+-(void)noNeedToSign;
 
 @end
