@@ -63,6 +63,7 @@
 		6D83737018E48A4D005A6709 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83736F18E48A4D005A6709 /* MapViewController.m */; };
 		6D83737818E49739005A6709 /* bgbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83737718E49739005A6709 /* bgbar.png */; };
 		6D83737A18E49EAF005A6709 /* datB.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83737918E49EAF005A6709 /* datB.png */; };
+		6DC3BD8618EAFCAB00CEAEB3 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DC3BD8518EAFCAB00CEAEB3 /* Pin.png */; };
 		6DCF52FC18E4394A0037A10C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FB18E4394A0037A10C /* SignUpViewController.m */; };
 		6DCF52FF18E43BAD0037A10C /* NavigationControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FE18E43BAD0037A10C /* NavigationControlViewController.m */; };
 		6DCF530818E44A2B0037A10C /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF530718E44A2B0037A10C /* SignInViewController.m */; };
@@ -172,6 +173,7 @@
 		6D83736F18E48A4D005A6709 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6D83737718E49739005A6709 /* bgbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgbar.png; sourceTree = "<group>"; };
 		6D83737918E49EAF005A6709 /* datB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = datB.png; sourceTree = "<group>"; };
+		6DC3BD8518EAFCAB00CEAEB3 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pin.png; path = ../../../../../.Trash/iZicab/iZicab/ressources/Pin.png; sourceTree = "<group>"; };
 		6DCF52FA18E4394A0037A10C /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		6DCF52FB18E4394A0037A10C /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		6DCF52FD18E43BAD0037A10C /* NavigationControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationControlViewController.h; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				E31C5F2918E9B9B900727ABD /* ButtonChange.png */,
 				E31C5F2318E9AF8300727ABD /* pinArrive.png */,
 				E31C5F2418E9AF8300727ABD /* pinDepart.png */,
+				6DC3BD8518EAFCAB00CEAEB3 /* Pin.png */,
 				E3249CA318E9973700BD23B1 /* Account@2X.png */,
 				E3249CA418E9973700BD23B1 /* MesResa@2x.png */,
 				E3249CA518E9973700BD23B1 /* map@2x.png */,
@@ -470,6 +473,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DC3BD8618EAFCAB00CEAEB3 /* Pin.png in Resources */,
 				E31C5F2A18E9B9B900727ABD /* ButtonView.png in Resources */,
 				6D53B96D18E586FC0012C12A /* Roboto-BoldItalic.ttf in Resources */,
 				6D53B96E18E586FC0012C12A /* Roboto-Italic.ttf in Resources */,
