@@ -79,6 +79,8 @@
 		E3249CA918E9973700BD23B1 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA518E9973700BD23B1 /* map@2x.png */; };
 		E3249CAA18E9973700BD23B1 /* actu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA618E9973700BD23B1 /* actu@2x.png */; };
 		E3249CAC18E9998100BD23B1 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CAB18E9998100BD23B1 /* bg.png */; };
+		E32A6F7F18EAB78400460F78 /* buttonOn.png in Resources */ = {isa = PBXBuildFile; fileRef = E32A6F7D18EAB78400460F78 /* buttonOn.png */; };
+		E32A6F8018EAB78400460F78 /* buttonOff.png in Resources */ = {isa = PBXBuildFile; fileRef = E32A6F7E18EAB78400460F78 /* buttonOff.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +192,8 @@
 		E3249CA518E9973700BD23B1 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
 		E3249CA618E9973700BD23B1 /* actu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actu@2x.png"; sourceTree = "<group>"; };
 		E3249CAB18E9998100BD23B1 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		E32A6F7D18EAB78400460F78 /* buttonOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonOn.png; sourceTree = "<group>"; };
+		E32A6F7E18EAB78400460F78 /* buttonOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonOff.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -364,6 +368,8 @@
 		6DCF530018E43C400037A10C /* ressources */ = {
 			isa = PBXGroup;
 			children = (
+				E32A6F7D18EAB78400460F78 /* buttonOn.png */,
+				E32A6F7E18EAB78400460F78 /* buttonOff.png */,
 				E31C5F2718E9B9B900727ABD /* ButtonView.png */,
 				E31C5F2818E9B9B900727ABD /* ButtonDelete.png */,
 				E31C5F2918E9B9B900727ABD /* ButtonChange.png */,
@@ -468,8 +474,10 @@
 				6D53B96D18E586FC0012C12A /* Roboto-BoldItalic.ttf in Resources */,
 				6D53B96E18E586FC0012C12A /* Roboto-Italic.ttf in Resources */,
 				6D53B97718E586FC0012C12A /* RobotoCondensed-BoldItalic.ttf in Resources */,
+				E32A6F7F18EAB78400460F78 /* buttonOn.png in Resources */,
 				6D53B97018E586FC0012C12A /* Roboto-LightItalic.ttf in Resources */,
 				E3249CAC18E9998100BD23B1 /* bg.png in Resources */,
+				E32A6F8018EAB78400460F78 /* buttonOff.png in Resources */,
 				6D83737818E49739005A6709 /* bgbar.png in Resources */,
 				6D53B97518E586FC0012C12A /* Roboto-ThinItalic.ttf in Resources */,
 				6D53B97B18E586FC0012C12A /* RobotoCondensed-Regular.ttf in Resources */,
