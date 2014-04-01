@@ -32,13 +32,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    // a delete quand cest ok
-    [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", @"0610755306", @"idDevice", @"ios", @"password",  @"izicab", @"userType", @"privateUser", nil]];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:@"0610755306" forKey:@"phone"];
-    [defaults synchronize];
-}
+ }
 
 - (void)didReceiveMemoryWarning
 {
@@ -61,10 +55,10 @@
 
 - (IBAction)connexion:(id)sender
 {
-    [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", @"0610755306", @"idDevice", @"ios", @"password",  @"izicab", @"userType", @"privateUser", nil]];
+    [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", _phone.text, @"idDevice", @"ios", @"password",  _password.text, @"userType", @"privateUser", nil]];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setValue:@"0610755306" forKey:@"phone"];
+    [defaults setValue:_phone.text forKey:@"phone"];
      [defaults synchronize];
 }
 
@@ -97,6 +91,7 @@
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];
             [alert show];
+            
         }
     };
 }

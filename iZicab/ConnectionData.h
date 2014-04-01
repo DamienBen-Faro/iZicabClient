@@ -9,9 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface ConnectionData : NSObject
-{
-    
-}
+{}
+
+@property (strong) IBOutlet UITextField *phone;
+@property (strong) IBOutlet UITextField *code;
+
 + (void)sendReq:(NSString *)serviceName:(void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))completion:(id)delegateController:(NSMutableDictionary *)params;
 
 @end

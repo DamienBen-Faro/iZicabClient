@@ -8,6 +8,9 @@
 
 #import "SignUpViewController.h"
 #import "CustomNavBar.h"
+#import "ConnectionData.h"
+#import "UserInfoSingleton.h"
+#import "DashboardViewController.h"
 
 @implementation SignUpViewController
 
@@ -23,7 +26,51 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+
+}
+
+
+- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))checkAcc
+{
+    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
+        
+        NSError *error;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
+        NSLog(@"%@", dict);
+        if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+        {
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:_phone.text forKey:@"phone"];
+            [defaults setValue:[dict objectForKey:@"data"] forKey:@"userId"];
+            [defaults setValue:@"NO" forKey:@"isActivated"];
+            [[UserInfoSingleton sharedUserInfo] setUserId:[dict objectForKey:@"data"]];
+            [defaults synchronize];
+          
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                            message:@"Vous allez recevoir un code d'enregistrement d'ici quelques secondes."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+            DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CodeViewController"];
+            [self.navigationController pushViewController:ctrl animated:YES];
+
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    };
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,9 +79,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)wat:(id)sender
+- (IBAction)sendSubscribe:(id)sender
 {
-
+        [ConnectionData sendReq: @"account/createPrivateUser": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", _phone.text, @"idDevice", @"ios", @"password", _password.text, @"email", _email.text, @"name", _firstName.text, @"familyName", _familyName.text ,nil]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,6 +105,11 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
+
+
+
 
 
 @end
