@@ -100,11 +100,11 @@
     ctrpoint = [self.mapView centerCoordinate];
     
     
-    self.annotation = [[MKPointAnnotation alloc] init];
-    [self.annotation setCoordinate:ctrpoint];
-    [self.annotation setTitle:@"First"];
-    [self.annotation setSubtitle:@"First"];
-    [self.mapView addAnnotation:self.annotation];
+    self.annotationFirst = [[MKPointAnnotation alloc] init];
+    [self.annotationFirst setCoordinate:ctrpoint];
+    [self.annotationFirst setTitle:@"First"];
+    [self.annotationFirst setSubtitle:@"First"];
+    [self.mapView addAnnotation:self.annotationFirst];
     
 
     CLGeocoder *ceo = [[CLGeocoder alloc]init];
@@ -130,16 +130,16 @@
     ctrpoint = [self.mapView centerCoordinate];
     
 
-    self.annotation = [[MKPointAnnotation alloc] init];
-    [self.annotation setCoordinate:ctrpoint];
-    [self.annotation setTitle:@"First"];
-    [self.annotation setSubtitle:@"First"];
+    self.annotationSecond = [[MKPointAnnotation alloc] init];
+    [self.annotationSecond setCoordinate:ctrpoint];
+    [self.annotationSecond setTitle:@"First"];
+    [self.annotationSecond setSubtitle:@"First"];
  
     
-    MKPinAnnotationView *result = [[MKPinAnnotationView alloc] initWithAnnotation:self.annotation reuseIdentifier:Nil];
+    MKPinAnnotationView *result = [[MKPinAnnotationView alloc] initWithAnnotation:self.annotationSecond reuseIdentifier:Nil];
     result.pinColor = 244;
     
-       [self.mapView addAnnotation:result];
+    [self.mapView addAnnotation:result];
    
     
     

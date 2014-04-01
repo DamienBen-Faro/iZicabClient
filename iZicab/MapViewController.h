@@ -13,9 +13,10 @@
 
 
 @property (strong)IBOutlet MKMapView *mapView;
-@property (strong)IBOutlet MKPointAnnotation *annotation;
+@property (strong) MKPointAnnotation *annotationFirst;
+@property (strong) MKPointAnnotation *annotationSecond;
 @property (strong)IBOutlet UILabel *startAddress;
 @property (strong)IBOutlet UILabel *endAddress;
-@property (assign)BOOL isFirstPlacement;
+@property (assign)BOOL      isFirstPlacement;
 
 @end
