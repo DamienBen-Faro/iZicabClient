@@ -69,6 +69,7 @@
 		6DCF530E18E451530037A10C /* CodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF530C18E451520037A10C /* CodeViewController.m */; };
 		E30010ED18EC06EB00551FA7 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E30010EC18EC06EB00551FA7 /* Pin.png */; };
 		E30010EF18EC073E00551FA7 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E30010EE18EC073E00551FA7 /* Pin.png */; };
+		E30010F118EC110000551FA7 /* resa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E30010F018EC110000551FA7 /* resa@2x.png */; };
 		E31C5F2218E9ABE200727ABD /* ActuImageFull.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2118E9ABE200727ABD /* ActuImageFull.png */; };
 		E31C5F2518E9AF8300727ABD /* pinArrive.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2318E9AF8300727ABD /* pinArrive.png */; };
 		E31C5F2618E9AF8300727ABD /* pinDepart.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2418E9AF8300727ABD /* pinDepart.png */; };
@@ -203,6 +204,7 @@
 		6DCF530C18E451520037A10C /* CodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeViewController.m; sourceTree = "<group>"; };
 		E30010EC18EC06EB00551FA7 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pin.png; sourceTree = "<group>"; };
 		E30010EE18EC073E00551FA7 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pin.png; sourceTree = "<group>"; };
+		E30010F018EC110000551FA7 /* resa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resa@2x.png"; sourceTree = "<group>"; };
 		E31C5F2118E9ABE200727ABD /* ActuImageFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActuImageFull.png; sourceTree = "<group>"; };
 		E31C5F2318E9AF8300727ABD /* pinArrive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinArrive.png; sourceTree = "<group>"; };
 		E31C5F2418E9AF8300727ABD /* pinDepart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinDepart.png; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				E31C5F2318E9AF8300727ABD /* pinArrive.png */,
 				E31C5F2418E9AF8300727ABD /* pinDepart.png */,
 				E3EF8E2F18EAE4930068EC03 /* rond.png */,
+				E30010F018EC110000551FA7 /* resa@2x.png */,
 				E3EF8E2B18EAD05C0068EC03 /* Fleche.png */,
 				E3249CA318E9973700BD23B1 /* Account@2X.png */,
 				E3249CA418E9973700BD23B1 /* MesResa@2x.png */,
@@ -552,6 +555,7 @@
 				6D53B99518E5A7A50012C12A /* ActuCellView.xib in Resources */,
 				E3EF8E3018EAE4930068EC03 /* rond.png in Resources */,
 				E3249CA918E9973700BD23B1 /* map@2x.png in Resources */,
+				E30010F118EC110000551FA7 /* resa@2x.png in Resources */,
 				6D0039F718E314EC00D6C9E3 /* Main_iPad.storyboard in Resources */,
 				E3EF8E2C18EAD05C0068EC03 /* Fleche.png in Resources */,
 				6D53B97418E586FC0012C12A /* Roboto-Thin.ttf in Resources */,
