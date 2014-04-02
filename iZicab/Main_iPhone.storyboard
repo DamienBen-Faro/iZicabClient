@@ -1277,8 +1277,6 @@ X </string>
         <image name="pinDepart.png" width="23" height="30"/>
         <image name="resa.png" width="192" height="30"/>
         <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="separateurDouble.png" width="540" height="7"/>
         <image name="separateurDouble.png" width="540" height="7"/>
         <image name="suitcase.png" width="82" height="89"/>
         <image name="validation.png" width="146" height="30"/>
