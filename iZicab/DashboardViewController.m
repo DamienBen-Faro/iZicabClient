@@ -95,21 +95,18 @@
     
     MKMapItem *srcMapItem = [[MKMapItem alloc]initWithPlacemark:source];
     [srcMapItem setName:@""];
-    
     MKPlacemark *destination = [[MKPlacemark alloc]initWithCoordinate:northEast addressDictionary:nil];
-    
     MKMapItem *distMapItem = [[MKMapItem alloc]initWithPlacemark:destination];
     [distMapItem setName:@""];
     
     MKDirectionsRequest *request = [[MKDirectionsRequest alloc]init];
     [request setSource:srcMapItem];
     [request setDestination:distMapItem];
-    [request setTransportType:MKDirectionsTransportTypeWalking];
-    
+    [request setTransportType:MKDirectionsTransportTypeAutomobile];
     MKDirections *direction = [[MKDirections alloc]initWithRequest:request];
     
-    [direction calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
-        
+    [direction calculateDirectionsWithCompletionHandler: ^(MKDirectionsResponse *response, NSError *error)
+    {
         NSLog(@"response = %@",response);
         NSArray *arrRoutes = [response routes];
         [arrRoutes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -175,56 +172,7 @@
     */
 
     
-/*
-- (void) firstAnim
-{/*
-    [UIView animateWithDuration:0.7 delay:3.0 options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^(void) {
-                         self.actuButton.viewForBaselineLayout.transform = CGAffineTransformMakeScale(1, 1);
-                         
-                     }
-                     completion:^(BOOL finished){
-                     //    self.actuReverseButton.layer.zPosition = 0;
-                       //    self.actuButton.layer.zPosition = 100;
-                         [self lastAnim];
-                     }];
-    
-    [UIView transitionWithView:self.actuView
-                      duration:0.8
-     
-                       options: UIViewAnimationOptionTransitionFlipFromRight
-                    animations:^{
-                      //  [self.actuView setBackgroundImage:[UIImage imageNamed:@"ElementAppli-05"] forState:UIControlStateNormal];
-                        UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.actuView.frame.size.width, self.actuView.frame.size.height)];
-                        [imgV setImage:[UIImage imageNamed:@"ElementAppli-05"]];
-                        [self.actuView addSubview:imgV];
 
-                        
-                    }
-                    completion:^(BOOL finished) {
-                      //  [NSThread sleepForTimeInterval:5.5];
-                        [self lastAnim];
-                    }];
-}
-
-- (void) lastAnim
-{
-     [UIView transitionWithView:self.actuView
-                      duration:0.8
-                       options: UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^{
-                       // [self.actuView setBackgroundImage:[UIImage imageNamed:@"ElementAppli-03"] forState:UIControlStateNormal];
-                        UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.actuView.frame.size.width, self.actuView.frame.size.height)];
-                          [imgV setImage:[UIImage imageNamed:@"ElementAppli-03"]];
-                        [self.actuView addSubview:imgV];
-                    }
-                    completion:^(BOOL finished) {
-               //         [NSThread sleepForTimeInterval:5.5];
-                        [self firstAnim];
-                    }];
-    
-
-}*/
 
 - (void) actuAnim
 {
@@ -252,7 +200,8 @@
                         }
                         
                     }
-                    completion:^(BOOL finished) {
+                    completion:^(BOOL finished)
+                        {
                                  //[NSThread sleepForTimeInterval:5.5];
                         if (isFirst)
                             [self performSelector:@selector(actuAnim) withObject:nil afterDelay:5.5];
