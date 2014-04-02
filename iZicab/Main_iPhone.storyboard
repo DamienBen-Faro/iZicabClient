@@ -408,7 +408,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.39868858029999998" green="1" blue="0.28049666890000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="gBi-ex-Ojc" firstAttribute="top" secondItem="jKU-Dr-m3O" secondAttribute="bottom" constant="20" id="1gU-ei-a6G"/>
                                             <constraint firstItem="Bhz-Wg-P5c" firstAttribute="top" secondItem="gBi-ex-Ojc" secondAttribute="bottom" constant="20" id="3YS-GX-yUd"/>
@@ -662,11 +662,11 @@ X </string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="47h-FS-Enb">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="47h-FS-Enb">
                                 <rect key="frame" x="0.0" y="66" width="320" height="292"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2i-P1-bn5">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2i-P1-bn5">
                                 <rect key="frame" x="0.0" y="357" width="320" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -765,6 +765,11 @@ X </string>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="o2i-P1-bn5" secondAttribute="bottom" id="NU9-JM-s2S"/>
+                            <constraint firstItem="47h-FS-Enb" firstAttribute="top" secondItem="JuX-Ns-WCS" secondAttribute="bottom" constant="20" id="b72-9n-HTN"/>
+                            <constraint firstItem="jkJ-Ob-Byj" firstAttribute="top" secondItem="47h-FS-Enb" secondAttribute="bottom" constant="122" id="m9e-Kd-Axx"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fwf-5T-V9H"/>
                     <connections>
@@ -949,20 +954,13 @@ X </string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8T5-Tw-KDH">
-                                <rect key="frame" x="160" y="330" width="160" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="Account@2X.png">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="242-BB-Qac" kind="custom" identifier="AccountDash" customClass="DashboardSegue" id="jed-27-Tqh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XP-ph-GPi">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XP-ph-GPi">
                                 <rect key="frame" x="95" y="175" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="205" id="XrA-n3-d7J"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="205" id="Z5V-tW-M2M"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="ElementAppli-01.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -971,7 +969,22 @@ X </string>
                                     <segue destination="De9-HY-9cN" kind="custom" identifier="dashResa" customClass="DashboardSegue" id="uUX-gp-wMd"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8b-Ma-8Yg" userLabel="actuView">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8T5-Tw-KDH">
+                                <rect key="frame" x="160" y="330" width="160" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="3Wo-Pr-MFw"/>
+                                    <constraint firstAttribute="width" constant="160" id="NW4-Tj-ZTj"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="Account@2X.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="242-BB-Qac" kind="custom" identifier="AccountDash" customClass="DashboardSegue" id="jed-27-Tqh"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8b-Ma-8Yg" userLabel="actuView">
                                 <rect key="frame" x="160" y="0.0" width="160" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -1004,11 +1017,11 @@ X </string>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IG3-yw-GVN">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IG3-yw-GVN">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xti-QH-IIv">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xti-QH-IIv">
                                 <rect key="frame" x="1" y="-1" width="160" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
@@ -1018,7 +1031,7 @@ X </string>
                                     <segue destination="JG4-dv-4I9" kind="custom" customClass="DashboardSegue" id="u8u-sq-XO3"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Hf-sg-xEL" userLabel="resaMineView">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Hf-sg-xEL" userLabel="resaMineView">
                                 <rect key="frame" x="0.0" y="330" width="160" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -1058,6 +1071,15 @@ X </string>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IG3-yw-GVN" firstAttribute="top" secondItem="CIz-fe-Xt1" secondAttribute="top" id="6vN-JK-H36"/>
+                            <constraint firstAttribute="bottom" secondItem="3Hf-sg-xEL" secondAttribute="bottom" id="7WM-CB-WuW"/>
+                            <constraint firstItem="H8b-Ma-8Yg" firstAttribute="top" secondItem="CIz-fe-Xt1" secondAttribute="top" id="HNo-bi-MhP"/>
+                            <constraint firstItem="4XP-ph-GPi" firstAttribute="leading" relation="lessThanOrEqual" secondItem="CIz-fe-Xt1" secondAttribute="leading" constant="56" id="VMH-WE-fJE"/>
+                            <constraint firstItem="xti-QH-IIv" firstAttribute="top" secondItem="CIz-fe-Xt1" secondAttribute="top" constant="1" id="XrH-B0-LL9"/>
+                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="4XP-ph-GPi" secondAttribute="bottom" constant="180" id="j41-RS-6uu"/>
+                            <constraint firstItem="iPc-NU-GS2" firstAttribute="top" secondItem="8T5-Tw-KDH" secondAttribute="bottom" id="yID-ZW-jvE"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" prompt="" id="Xzo-H1-UVZ"/>
                     <connections>

@@ -24,7 +24,7 @@
     self.mapView.delegate = self;
     
     UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Pin"]];
-    [imgV setFrame:CGRectMake(self.mapView.frame.size.width / 2 - 10 , self.mapView.frame.size.height / 2 - 35, imgV.frame.size.width, imgV.frame.size.height)];
+    [imgV setFrame:CGRectMake(self.mapView.frame.size.width / 2 - 7 , self.mapView.frame.size.height / 2 + 11, imgV.frame.size.width, imgV.frame.size.height)];
     [self.mapView addSubview:imgV];
    
     
