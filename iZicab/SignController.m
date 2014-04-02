@@ -47,12 +47,12 @@
             [alert show];
             
             
-            if ([dict objectForKey:@"error"])
+         /*   if ([dict objectForKey:@"error"])
             {
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
                 DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CodeViewController"];
                 [self.navigationController pushViewController:ctrl animated:YES];
-            }
+            }*/
         }
 
     };
