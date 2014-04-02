@@ -63,6 +63,7 @@
 		6D83737018E48A4D005A6709 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83736F18E48A4D005A6709 /* MapViewController.m */; };
 		6D83737818E49739005A6709 /* bgbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83737718E49739005A6709 /* bgbar.png */; };
 		6D83737A18E49EAF005A6709 /* datB.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83737918E49EAF005A6709 /* datB.png */; };
+		6DC3BD8618EAFCAB00CEAEB3 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DC3BD8518EAFCAB00CEAEB3 /* Pin.png */; };
 		6DCF52FC18E4394A0037A10C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FB18E4394A0037A10C /* SignUpViewController.m */; };
 		6DCF52FF18E43BAD0037A10C /* NavigationControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FE18E43BAD0037A10C /* NavigationControlViewController.m */; };
 		6DCF530818E44A2B0037A10C /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF530718E44A2B0037A10C /* SignInViewController.m */; };
@@ -191,6 +192,7 @@
 		6D83736F18E48A4D005A6709 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6D83737718E49739005A6709 /* bgbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgbar.png; sourceTree = "<group>"; };
 		6D83737918E49EAF005A6709 /* datB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = datB.png; sourceTree = "<group>"; };
+		6DC3BD8518EAFCAB00CEAEB3 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pin.png; path = ../../../../../.Trash/iZicab/iZicab/ressources/Pin.png; sourceTree = "<group>"; };
 		6DCF52FA18E4394A0037A10C /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		6DCF52FB18E4394A0037A10C /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		6DCF52FD18E43BAD0037A10C /* NavigationControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationControlViewController.h; sourceTree = "<group>"; };
@@ -314,21 +316,21 @@
 				6D83736F18E48A4D005A6709 /* MapViewController.m */,
 				6D83736B18E47E6B005A6709 /* DashboardSegue.h */,
 				6D83736C18E47E6B005A6709 /* DashboardSegue.m */,
-				6D83734D18E46A94005A6709 /* DashboardViewController.h */,
 				6D3161DA18E98505005ABB3E /* ConnectionData.h */,
 				6D3161DB18E98505005ABB3E /* ConnectionData.m */,
 				6D0039F518E314EC00D6C9E3 /* Main_iPad.storyboard */,
 				6D83734E18E46A94005A6709 /* DashboardViewController.m */,
+				6D83734D18E46A94005A6709 /* DashboardViewController.h */,
 				6DCF530618E44A2B0037A10C /* SignInViewController.h */,
 				6DCF530718E44A2B0037A10C /* SignInViewController.m */,
 				6DCF530B18E451520037A10C /* CodeViewController.h */,
+				6DCF530C18E451520037A10C /* CodeViewController.m */,
 				6D53B98218E5901D0012C12A /* RecapViewController.h */,
 				6D53B98318E5901D0012C12A /* RecapViewController.m */,
 				6D83736818E476A8005A6709 /* ReservationViewController.h */,
 				6D83736918E476A8005A6709 /* ReservationViewController.m */,
 				6D53B97F18E58EAE0012C12A /* AccountViewController.h */,
 				6D53B98018E58EAF0012C12A /* AccountViewController.m */,
-				6DCF530C18E451520037A10C /* CodeViewController.m */,
 				6D0039F818E314EC00D6C9E3 /* SignController.h */,
 				6D0039F918E314EC00D6C9E3 /* SignController.m */,
 				6D53B97C18E58E4E0012C12A /* ResaMineViewController.h */,
@@ -430,8 +432,12 @@
 				E3EF8E2718EAC7630068EC03 /* validation@2x.png */,
 				E31C5F2318E9AF8300727ABD /* pinArrive.png */,
 				E31C5F2418E9AF8300727ABD /* pinDepart.png */,
+<<<<<<< HEAD
 				E3EF8E2F18EAE4930068EC03 /* rond.png */,
 				E3EF8E2B18EAD05C0068EC03 /* Fleche.png */,
+=======
+				6DC3BD8518EAFCAB00CEAEB3 /* Pin.png */,
+>>>>>>> FETCH_HEAD
 				E3249CA318E9973700BD23B1 /* Account@2X.png */,
 				E3249CA418E9973700BD23B1 /* MesResa@2x.png */,
 				E3249CA518E9973700BD23B1 /* map@2x.png */,
@@ -527,6 +533,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DC3BD8618EAFCAB00CEAEB3 /* Pin.png in Resources */,
 				E31C5F2A18E9B9B900727ABD /* ButtonView.png in Resources */,
 				6D53B96D18E586FC0012C12A /* Roboto-BoldItalic.ttf in Resources */,
 				E3EF8E3E18EAE99B0068EC03 /* paperOn@2x.png in Resources */,

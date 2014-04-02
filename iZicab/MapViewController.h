@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
-@interface MapViewController : UIViewController
+@interface MapViewController : UIViewController<MKMapViewDelegate>
+
+
+@property (strong)IBOutlet MKMapView *mapView;
+@property (strong) MKPointAnnotation *annotationFirst;
+@property (strong) MKPointAnnotation *annotationSecond;
+@property (strong)IBOutlet UILabel *startAddress;
+@property (strong)IBOutlet UILabel *endAddress;
+@property (assign)BOOL      isFirstPlacement;
 
 @end

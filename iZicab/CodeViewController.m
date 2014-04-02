@@ -7,10 +7,8 @@
 //
 
 #import "CodeViewController.h"
-
-@interface CodeViewController ()
-
-@end
+#import "DashboardViewController.h"
+#import "ConnectionData.h"
 
 @implementation CodeViewController
 
@@ -32,6 +30,55 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))finishSignup
+{
+    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
+        
+        NSError *error;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
+        
+        if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+        {
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setValue:@"YES" forKey:@"isActivated"];
+            [defaults synchronize];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                            message:@"Compte créé"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+            DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
+            [self.navigationController pushViewController:ctrl animated:YES];
+            
+            
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    };
+}
+
+
+-(IBAction)activateAccount:(id)sender
+{
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [ConnectionData sendReq: @"account/activePrivateUser": [self finishSignup]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"userId", [defaults objectForKey:@"userId"], @"code", _code.text ,nil]];
+
 }
 
 @end

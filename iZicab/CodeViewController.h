@@ -11,6 +11,8 @@
 @interface CodeViewController : UIViewController
 
 @property(strong) IBOutlet UIView *subCodeView;
+@property (strong) IBOutlet UITextField *code;
 
+-(IBAction)activateAccount:(id)sender;
 
 @end

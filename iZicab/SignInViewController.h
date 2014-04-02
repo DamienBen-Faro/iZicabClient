@@ -10,4 +10,11 @@
 
 @interface SignInViewController : UIViewController
 
+
+@property (strong) IBOutlet UITextField *phone;
+@property (strong) IBOutlet UITextField *password;
+@property (strong) IBOutlet UIButton *conn;
+
+- (IBAction)connexion:(id)sender;
+
 @end

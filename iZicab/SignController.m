@@ -17,7 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [ConnectionData sendReq: @"auth/checkUserActivated": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"phone", @"0610755306", @"idDevice", @"ios", nil]];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [ConnectionData sendReq: @"auth/checkUserActivated": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"phone", [defaults objectForKey:@"phone"], @"idDevice", @"ios", nil]];
 
 }
 
@@ -31,7 +32,7 @@
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            if (((NSString *)[defaults objectForKey:@"phone"]).length  != 0)
+            if (((NSString *)[defaults objectForKey:@"phone"]).length  != 0 && [[defaults objectForKey:@"isActivated"] isEqualToString:@"YES"])
                 [self noNeedToSign];
         }
         else
@@ -42,6 +43,14 @@
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];
             [alert show];
+            
+            
+            if ([dict objectForKey:@"error"])
+            {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+                DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CodeViewController"];
+                [self.navigationController pushViewController:ctrl animated:YES];
+            }
         }
 
     };
