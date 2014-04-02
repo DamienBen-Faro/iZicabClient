@@ -8,7 +8,7 @@
 
 #import "MapViewController.h"
 #import "CustomNavBar.h"
-
+#import "ReservationViewController.h"
 
 @implementation MapViewController
 
@@ -99,13 +99,10 @@
     
     ctrpoint = [self.mapView centerCoordinate];
     
+        [self.mapView removeAnnotation:self.annotationFirst];
     
-    self.annotationFirst = [[MKPointAnnotation alloc] init];
-    [self.annotationFirst setCoordinate:ctrpoint];
-    [self.annotationFirst setTitle:@"First"];
-    [self.annotationFirst setSubtitle:@"First"];
-    [self.mapView addAnnotation:self.annotationFirst];
-    
+
+
 
     CLGeocoder *ceo = [[CLGeocoder alloc]init];
     CLLocation *loc = [[CLLocation alloc]initWithLatitude:ctrpoint.latitude longitude:ctrpoint.longitude]; //insert your coordinates
@@ -117,6 +114,11 @@
          //String to hold address
          NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
          self.startAddress.text =locatedAt;
+         self.annotationFirst = [[MKPointAnnotation alloc] init];
+         [self.annotationFirst setCoordinate:ctrpoint];
+         [self.annotationFirst setTitle:locatedAt];
+         [self.annotationFirst setSubtitle:@"First"];
+         [self.mapView addAnnotation:self.annotationFirst];
      }
      
      ];
@@ -129,17 +131,16 @@
     
     ctrpoint = [self.mapView centerCoordinate];
     
+    [self.mapView removeAnnotation:self.annotationSecond];
 
-    self.annotationSecond = [[MKPointAnnotation alloc] init];
-    [self.annotationSecond setCoordinate:ctrpoint];
-    [self.annotationSecond setTitle:@"First"];
-    [self.annotationSecond setSubtitle:@"First"];
- 
     
-    MKPinAnnotationView *result = [[MKPinAnnotationView alloc] initWithAnnotation:self.annotationSecond reuseIdentifier:Nil];
-    result.pinColor = 244;
+
+
     
-    [self.mapView addAnnotation:result];
+   // MKPinAnnotationView *result = [[MKPinAnnotationView alloc] initWithAnnotation:self.annotationSecond reuseIdentifier:Nil];
+   // result.pinColor = 244;
+    
+    
     
     
     CLGeocoder *ceo = [[CLGeocoder alloc]init];
@@ -151,6 +152,11 @@
          NSLog(@"placemark %@",placemark);
          //String to hold address
          NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+         self.annotationSecond = [[MKPointAnnotation alloc] init];
+         [self.annotationSecond setCoordinate:ctrpoint];
+         [self.annotationSecond setTitle:locatedAt];
+         [self.annotationSecond setSubtitle:@"second"];
+         [self.mapView addAnnotation:self.annotationSecond];
          self.endAddress.text =locatedAt;
      }
      
@@ -158,6 +164,15 @@
 }
 
 
+-(IBAction)sendResa:(id)sender
+{
+
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    ReservationViewController* ctrl = (ReservationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ReservationViewController"];
+
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
 
 - (void)goback
 {
