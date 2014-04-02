@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cor-LO-qsg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cor-LO-qsg">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Sign Controller-->
@@ -135,8 +135,8 @@
                                 <rect key="frame" x="0.0" y="66" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drm-ue-p9V">
-                                        <rect key="frame" x="0.0" y="-100" width="320" height="1200"/>
+                                    <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drm-ue-p9V">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jKU-Dr-m3O" userLabel="nameView">
@@ -165,11 +165,14 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GSf-jM-QBV">
-                                                        <rect key="frame" x="220" y="74" width="51" height="31"/>
+                                                        <rect key="frame" x="239" y="74" width="51" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="tiersAct:" destination="De9-HY-9cN" eventType="valueChanged" id="hB9-Tb-vES"/>
+                                                        </connections>
                                                     </switch>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Prendre une reservatiojn pour autrui" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-Kz-Ecd">
-                                                        <rect key="frame" x="13" y="84" width="275" height="21"/>
+                                                        <rect key="frame" x="13" y="84" width="208" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <nil key="highlightedColor"/>
@@ -198,6 +201,9 @@
                                                         <state key="normal" title="heure">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="selectHour:" destination="De9-HY-9cN" eventType="touchUpInside" id="I2O-CM-q72"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aii-IM-31j">
                                                         <rect key="frame" x="30" y="160" width="60" height="30"/>
@@ -205,6 +211,9 @@
                                                         <state key="normal" title="date">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="selectDate:" destination="De9-HY-9cN" eventType="touchUpInside" id="uyA-yj-QVo"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MuH-NO-8x3">
                                                         <rect key="frame" x="6" y="25" width="237" height="30"/>
@@ -224,6 +233,9 @@
                                                         <state key="normal" title="map">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="goToMap:" destination="De9-HY-9cN" eventType="touchUpInside" id="j8H-ep-Fob"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGh-FE-r6l">
                                                         <rect key="frame" x="247" y="25" width="31" height="30"/>
@@ -231,6 +243,9 @@
                                                         <state key="normal" title="map">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="goToMap:" destination="De9-HY-9cN" eventType="touchUpInside" id="gIK-xT-rDt"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -285,6 +300,9 @@
                                                                         <state key="normal" title="+">
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="more:" destination="De9-HY-9cN" eventType="touchUpInside" id="odu-mz-321"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glj-n5-DLL">
                                                                         <rect key="frame" x="199" y="48" width="30" height="30"/>
@@ -292,6 +310,9 @@
                                                                         <state key="normal" title="-">
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="less:" destination="De9-HY-9cN" eventType="touchUpInside" id="hDV-WU-HGQ"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -317,13 +338,19 @@
                                                                         <state key="normal" title="+">
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="more:" destination="De9-HY-9cN" eventType="touchUpInside" id="HAG-2M-d1f"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UD9-Wj-KaW">
-                                                                        <rect key="frame" x="230" y="35" width="30" height="30"/>
+                                                                        <rect key="frame" x="230" y="34" width="30" height="30"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <state key="normal" title="-">
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="less:" destination="De9-HY-9cN" eventType="touchUpInside" id="xW1-jP-ssP"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre de baggages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flJ-KT-nrG">
                                                                         <rect key="frame" x="26" y="5" width="249" height="21"/>
@@ -340,6 +367,9 @@
                                                                 <state key="normal" backgroundImage="paperOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="setOption:" destination="De9-HY-9cN" eventType="touchUpInside" id="1UX-pl-bu7"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iph-EW-0uc" userLabel="Button - baby">
                                                                 <rect key="frame" x="10" y="198" width="130" height="130"/>
@@ -347,6 +377,9 @@
                                                                 <state key="normal" backgroundImage="babyOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="setOption:" destination="De9-HY-9cN" eventType="touchUpInside" id="S98-li-f2g"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfE-Me-ss1" userLabel="Button - baby">
                                                                 <rect key="frame" x="10" y="350" width="130" height="130"/>
@@ -354,6 +387,9 @@
                                                                 <state key="normal" backgroundImage="wifiOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="setOption:" destination="De9-HY-9cN" eventType="touchUpInside" id="cpE-Ff-FFf"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -367,6 +403,9 @@
                                                 <state key="normal" title="Valider">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="send:" destination="De9-HY-9cN" eventType="touchUpInside" id="g3v-Fm-e71"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.39868858029999998" green="1" blue="0.28049666890000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -398,6 +437,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="RCw-t7-1PT"/>
+                    <connections>
+                        <outlet property="babySeat" destination="iph-EW-0uc" id="i8v-ik-qKR"/>
+                        <outlet property="endAddress" destination="ZVB-FY-RNJ" id="u7o-gk-2qW"/>
+                        <outlet property="luggBtn" destination="rHY-Ei-R2M" id="MxV-aa-Aie"/>
+                        <outlet property="name" destination="pPV-gi-czO" id="RDo-uE-GQC"/>
+                        <outlet property="paper" destination="DS6-9Y-2EY" id="iff-0O-72M"/>
+                        <outlet property="passBtn" destination="RfO-SQ-VYb" id="iAc-7F-dpk"/>
+                        <outlet property="phone" destination="r1Y-gJ-S7x" id="UIg-vr-1re"/>
+                        <outlet property="startAddress" destination="MuH-NO-8x3" id="RDi-We-Y3Y"/>
+                        <outlet property="startDate" destination="aii-IM-31j" id="uoG-UK-N7P"/>
+                        <outlet property="startHour" destination="NRw-N8-OBP" id="S0S-Ku-r2O"/>
+                        <outlet property="tiers" destination="GSf-jM-QBV" id="arB-rB-UgI"/>
+                        <outlet property="wifi" destination="bfE-Me-ss1" id="anh-s4-6Nf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49M-hP-Yct" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -600,7 +653,7 @@ X </string>
         <!--Map View Controller-->
         <scene sceneID="IIR-he-WYM">
             <objects>
-                <viewController id="JG4-dv-4I9" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MapViewController" storyboardIdentifier="MapViewController" id="JG4-dv-4I9" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JuX-Ns-WCS"/>
                         <viewControllerLayoutGuide type="bottom" id="jkJ-Ob-Byj"/>
@@ -652,7 +705,7 @@ X </string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="238" translatesAutoresizingMaskIntoConstraints="NO" id="Jco-1G-6d8">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Addresse depart" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="238" translatesAutoresizingMaskIntoConstraints="NO" id="Jco-1G-6d8">
                                         <rect key="frame" x="61" y="11" width="238" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -665,7 +718,7 @@ X </string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="238" translatesAutoresizingMaskIntoConstraints="NO" id="PyP-qJ-GuQ">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Addresse arrivee" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="238" translatesAutoresizingMaskIntoConstraints="NO" id="PyP-qJ-GuQ">
                                         <rect key="frame" x="61" y="49" width="238" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1202,6 +1255,8 @@ X </string>
         <image name="pinDepart.png" width="23" height="30"/>
         <image name="resa.png" width="192" height="30"/>
         <image name="rond.png" width="82" height="82"/>
+        <image name="rond.png" width="82" height="82"/>
+        <image name="separateurDouble.png" width="540" height="7"/>
         <image name="separateurDouble.png" width="540" height="7"/>
         <image name="suitcase.png" width="82" height="89"/>
         <image name="validation.png" width="146" height="30"/>

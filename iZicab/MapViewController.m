@@ -170,7 +170,12 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     ReservationViewController* ctrl = (ReservationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ReservationViewController"];
-
+    ctrl.startLat = self.annotationFirst.coordinate.latitude;
+    ctrl.startLng = self.annotationFirst.coordinate.longitude;
+    ctrl.endLat = self.annotationSecond.coordinate.latitude;
+    ctrl.endLng = self.annotationSecond.coordinate.longitude;
+    ctrl.startAddr = self.startAddress.text;
+    ctrl.endAddr = self.endAddress.text;
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 

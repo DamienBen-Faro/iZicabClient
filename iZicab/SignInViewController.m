@@ -73,11 +73,14 @@
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
+            dict = [dict objectForKey:@"data"];
             [[UserInfoSingleton sharedUserInfo] setUserId:[dict objectForKey:@"id"]];
             [[UserInfoSingleton sharedUserInfo] setEmail:[dict objectForKey:@"email"]];
-            
+            [[UserInfoSingleton sharedUserInfo] setName:[dict objectForKey:@"name"]];
+        
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setValue:[dict objectForKey:@"id"] forKey:@"userId"];
+            [defaults setValue:[dict objectForKey:@"name"] forKey:@"userName"];
             [defaults setValue:@"YES" forKey:@"isActivated"];
             [defaults synchronize];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
