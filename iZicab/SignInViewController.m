@@ -57,6 +57,8 @@
 {
     [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", _phone.text, @"idDevice", @"ios", @"password",  _password.text, @"userType", @"privateUser", nil]];
     
+    
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:_phone.text forKey:@"phone"];
      [defaults synchronize];
@@ -76,8 +78,8 @@
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setValue:[dict objectForKey:@"id"] forKey:@"userId"];
-             [defaults synchronize];
-            
+            [defaults setValue:@"YES" forKey:@"isActivated"];
+            [defaults synchronize];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
             DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
             [self.navigationController pushViewController:ctrl animated:YES];
@@ -91,6 +93,8 @@
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];
             [alert show];
+            NSString* dataStr = [[NSString alloc] initWithData:_data encoding:NSASCIIStringEncoding];
+            NSLog(@"%@", dataStr);
             
         }
     };

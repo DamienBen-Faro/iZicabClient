@@ -63,11 +63,12 @@
 		6D83737018E48A4D005A6709 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83736F18E48A4D005A6709 /* MapViewController.m */; };
 		6D83737818E49739005A6709 /* bgbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83737718E49739005A6709 /* bgbar.png */; };
 		6D83737A18E49EAF005A6709 /* datB.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83737918E49EAF005A6709 /* datB.png */; };
-		6DC3BD8618EAFCAB00CEAEB3 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DC3BD8518EAFCAB00CEAEB3 /* Pin.png */; };
 		6DCF52FC18E4394A0037A10C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FB18E4394A0037A10C /* SignUpViewController.m */; };
 		6DCF52FF18E43BAD0037A10C /* NavigationControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FE18E43BAD0037A10C /* NavigationControlViewController.m */; };
 		6DCF530818E44A2B0037A10C /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF530718E44A2B0037A10C /* SignInViewController.m */; };
 		6DCF530E18E451530037A10C /* CodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF530C18E451520037A10C /* CodeViewController.m */; };
+		E30010ED18EC06EB00551FA7 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E30010EC18EC06EB00551FA7 /* Pin.png */; };
+		E30010EF18EC073E00551FA7 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E30010EE18EC073E00551FA7 /* Pin.png */; };
 		E31C5F2218E9ABE200727ABD /* ActuImageFull.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2118E9ABE200727ABD /* ActuImageFull.png */; };
 		E31C5F2518E9AF8300727ABD /* pinArrive.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2318E9AF8300727ABD /* pinArrive.png */; };
 		E31C5F2618E9AF8300727ABD /* pinDepart.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2418E9AF8300727ABD /* pinDepart.png */; };
@@ -192,7 +193,6 @@
 		6D83736F18E48A4D005A6709 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6D83737718E49739005A6709 /* bgbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgbar.png; sourceTree = "<group>"; };
 		6D83737918E49EAF005A6709 /* datB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = datB.png; sourceTree = "<group>"; };
-		6DC3BD8518EAFCAB00CEAEB3 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Pin.png; path = ../../../../../.Trash/iZicab/iZicab/ressources/Pin.png; sourceTree = "<group>"; };
 		6DCF52FA18E4394A0037A10C /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		6DCF52FB18E4394A0037A10C /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		6DCF52FD18E43BAD0037A10C /* NavigationControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationControlViewController.h; sourceTree = "<group>"; };
@@ -201,6 +201,8 @@
 		6DCF530718E44A2B0037A10C /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		6DCF530B18E451520037A10C /* CodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeViewController.h; sourceTree = "<group>"; };
 		6DCF530C18E451520037A10C /* CodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeViewController.m; sourceTree = "<group>"; };
+		E30010EC18EC06EB00551FA7 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pin.png; sourceTree = "<group>"; };
+		E30010EE18EC073E00551FA7 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pin.png; sourceTree = "<group>"; };
 		E31C5F2118E9ABE200727ABD /* ActuImageFull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ActuImageFull.png; sourceTree = "<group>"; };
 		E31C5F2318E9AF8300727ABD /* pinArrive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinArrive.png; sourceTree = "<group>"; };
 		E31C5F2418E9AF8300727ABD /* pinDepart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pinDepart.png; sourceTree = "<group>"; };
@@ -424,20 +426,18 @@
 				E3EF8E3618EAE99B0068EC03 /* wifiOn@2x.jpg */,
 				E3EF8E3718EAE99B0068EC03 /* babyOff@2x.png */,
 				E3EF8E3818EAE99B0068EC03 /* paperOn@2x.png */,
+				E30010EE18EC073E00551FA7 /* Pin.png */,
 				E3EF8E3918EAE99B0068EC03 /* paperOff@2x.png */,
 				E3EF8E3A18EAE99B0068EC03 /* wifiOff@2x.png */,
+				E30010EC18EC06EB00551FA7 /* Pin.png */,
 				E365EDC718EAF8FC00E90D14 /* Fleche2.png */,
 				E3EF8E2918EACFCA0068EC03 /* ButtonOption.png */,
 				E31C5F2918E9B9B900727ABD /* ButtonChange.png */,
 				E3EF8E2718EAC7630068EC03 /* validation@2x.png */,
 				E31C5F2318E9AF8300727ABD /* pinArrive.png */,
 				E31C5F2418E9AF8300727ABD /* pinDepart.png */,
-<<<<<<< HEAD
 				E3EF8E2F18EAE4930068EC03 /* rond.png */,
 				E3EF8E2B18EAD05C0068EC03 /* Fleche.png */,
-=======
-				6DC3BD8518EAFCAB00CEAEB3 /* Pin.png */,
->>>>>>> FETCH_HEAD
 				E3249CA318E9973700BD23B1 /* Account@2X.png */,
 				E3249CA418E9973700BD23B1 /* MesResa@2x.png */,
 				E3249CA518E9973700BD23B1 /* map@2x.png */,
@@ -533,7 +533,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6DC3BD8618EAFCAB00CEAEB3 /* Pin.png in Resources */,
 				E31C5F2A18E9B9B900727ABD /* ButtonView.png in Resources */,
 				6D53B96D18E586FC0012C12A /* Roboto-BoldItalic.ttf in Resources */,
 				E3EF8E3E18EAE99B0068EC03 /* paperOn@2x.png in Resources */,
@@ -587,6 +586,8 @@
 				E3249CA718E9973700BD23B1 /* Account@2X.png in Resources */,
 				E3EF8E2818EAC7640068EC03 /* validation@2x.png in Resources */,
 				6D53B97918E586FC0012C12A /* RobotoCondensed-Light.ttf in Resources */,
+				E30010ED18EC06EB00551FA7 /* Pin.png in Resources */,
+				E30010EF18EC073E00551FA7 /* Pin.png in Resources */,
 				6D53B97318E586FC0012C12A /* Roboto-Regular.ttf in Resources */,
 				E3EF8E4218EAEBF10068EC03 /* suitcase.png in Resources */,
 				E31C5F2518E9AF8300727ABD /* pinArrive.png in Resources */,

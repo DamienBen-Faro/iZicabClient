@@ -17,8 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [ConnectionData sendReq: @"auth/checkUserActivated": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"phone", [defaults objectForKey:@"phone"], @"idDevice", @"ios", nil]];
+   
+    [ConnectionData sendReq: @"auth/checkUserActivated": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"phone", [defaults objectForKey:@"phone"] ? [defaults objectForKey:@"phone"] : @"", @"idDevice", @"ios", nil]];
 
 }
 
