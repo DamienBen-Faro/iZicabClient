@@ -140,7 +140,6 @@
     result.pinColor = 244;
     
     [self.mapView addAnnotation:result];
-   
     
     
     CLGeocoder *ceo = [[CLGeocoder alloc]init];

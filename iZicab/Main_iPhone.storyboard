@@ -746,8 +746,6 @@
         <image name="ActuImageFull.png" width="300" height="210"/>
         <image name="ElementAppli-01.png" width="263" height="262"/>
         <image name="buttonOff.png" width="20" height="20"/>
-        <image name="buttonOff.png" width="20" height="20"/>
-        <image name="buttonOn.png" width="20" height="20"/>
         <image name="buttonOn.png" width="20" height="20"/>
         <image name="pinArrive.png" width="23" height="30"/>
         <image name="pinDepart.png" width="23" height="30"/>

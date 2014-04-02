@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface DashboardViewController : UIViewController
+@interface DashboardViewController : UIViewController<MKMapViewDelegate>
 
 @property(strong) IBOutlet UIButton *mapButton;
 @property(strong) IBOutlet UIButton *actuButton;
@@ -27,6 +27,7 @@
 @property(strong) IBOutlet UIImageView *resaMineImgView;
 
 @property(assign) BOOL datstop;
+@property(assign) BOOL isFirstPlacement;
 
 
 @end
