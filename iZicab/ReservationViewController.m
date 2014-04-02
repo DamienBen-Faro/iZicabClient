@@ -25,9 +25,16 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    self.scrollView.delegate = self;
+    self.scrollView.scrollEnabled = YES;
+   // self.scrollView.contentSize = CGSizeMake(320,  1000);
+
+
 
 
 }
+
+
 
 - (void)goback
 {

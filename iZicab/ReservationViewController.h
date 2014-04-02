@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReservationViewController : UIViewController
+@interface ReservationViewController : UIViewController<UIScrollViewDelegate>
 
 
+@property (strong) IBOutlet UIScrollView *scrollView;
 
 @end
