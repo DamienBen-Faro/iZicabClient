@@ -10,6 +10,7 @@
 #import "CustomNavBar.h"
 #import "MapViewController.h"
 #import "UserInfoSingleton.h"
+#import "InvoiceViewController.h"
 
 @implementation ReservationViewController
 
@@ -32,16 +33,20 @@
     self.endAddress.tag = 222;
     self.startAddress.text = self.startAddr;
     self.endAddress.text = self.endAddr;
-    NSLog(@"hahaahhaahha:%f", self.startLat);
     [self.startAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.endAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+
+    self.datePicker.hidden = YES;
+    self.datePicker.backgroundColor = [UIColor whiteColor];
+    
+
 }
 
 
 
 - (void) viewDidAppear:(BOOL)animated
 {
-        [self loadUserData];
+    [self loadUserData];
     self.autocompleteTableView = [[UITableView alloc] initWithFrame:
                              CGRectMake(0, 20, 320, 120) style:UITableViewStylePlain];
     self.autocompleteTableView.delegate = self;
@@ -51,6 +56,9 @@
     self.autocompleteUrls = [[NSMutableArray alloc] init];
     
     [self.view addSubview:self.autocompleteTableView];
+    UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(offAll:)];
+    tapGestureRecognize.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:tapGestureRecognize];
 }
 
 - (void) loadUserData
@@ -98,7 +106,6 @@
         
       //  NSLog(@"lat:%f / lng:%f / arr count: %i / addr: %@", lat, lng, [placemarks count], [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "]);
         self.autocompleteTableView.hidden = NO;
-        
         [self.autocompleteUrls removeAllObjects];
         for(CLPlacemark *curString in placemarks)
         {
@@ -127,22 +134,75 @@
 }
 
 - (IBAction)selectDate:(id)sender
-{}
+{
+    self.datePicker.hidden = NO;
+    [self.startDate setTitle: [NSString stringWithFormat:@"%@",self.datePicker.date] forState:UIControlStateNormal];
+}
 
-- (IBAction)selectHour:(id)sender
-{}
+- (IBAction)offAll:(id)sender
+{
+    self.datePicker.hidden = YES;
+    [self.startAddress resignFirstResponder];
+    [self.endAddress resignFirstResponder];
+    [self.phone resignFirstResponder];
+    [self.phone resignFirstResponder];
+}
+
+
+
 
 - (IBAction)more:(id)sender
-{}
+{
+    if ([sender tag] == 7878)
+    {
+        int i =  [((NSString *)self.passBtn.titleLabel.text) intValue];
+        if (i < 8)
+            i++;
+        [self.passBtn setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
+    }
+    else
+    {
+        int i =  [((NSString *)self.luggBtn.titleLabel.text) intValue];
+        if (i < 8)
+        i++;
+        [self.luggBtn setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
+    }
+}
 
 - (IBAction)less:(id)sender
-{}
+{
+    if ([sender tag] == 7878)
+    {
+        int i =  [((NSString *)self.passBtn.titleLabel.text) intValue];
+        if (i > 1)
+            i--;
+        [self.passBtn setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
+    }
+    else
+    {
+        int i =  [((NSString *)self.luggBtn.titleLabel.text) intValue];
+        if (i > 1)
+            i--;
+        [self.luggBtn setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
+    }
+
+}
 
 - (IBAction)setOption:(id)sender
-{}
+{
+    if (((UIButton *)sender).selected)
+        ((UIButton *)sender).selected = NO;
+    else
+        ((UIButton *)sender).selected = YES;
+}
 
 - (IBAction)send:(id)sender
-{}
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    InvoiceViewController* ctrl = (InvoiceViewController *)[storyboard instantiateViewControllerWithIdentifier:@"InvoiceViewController"];
+    ctrl.resaCtrl = self;
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
 
 - (IBAction)tiersAct:(id)sender
 {
@@ -187,7 +247,15 @@
     
     cell.textLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     cell.textLabel.textColor = [UIColor darkGrayColor];
-
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.tag = [indexPath row];
+    [button addTarget:self
+               action:@selector(selectAddr:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"" forState:UIControlStateNormal];
+    [button setBackgroundColor:[UIColor clearColor]];
+    button.frame = cell.frame;
+    [cell addSubview:button];
     cell.textLabel.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
     return cell;
 }
@@ -200,6 +268,17 @@
         self.startAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
     else
         self.endAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
+}
+
+- (IBAction)selectAddr:(id)sender
+{
+    self.autocompleteTableView.hidden = YES;
+    
+    if (self.isStartAddr)
+        self.startAddress.text = [self.autocompleteUrls objectAtIndex:[sender tag]];
+    else
+        self.endAddress.text = [self.autocompleteUrls objectAtIndex:[sender tag]];
+
 }
 
 - (void)goback

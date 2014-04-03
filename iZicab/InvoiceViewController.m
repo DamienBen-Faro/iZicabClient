@@ -24,7 +24,17 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-   
+    self.date.text = self.resaCtrl.startDate.titleLabel.text;
+    self.start.text = self.resaCtrl.startAddress.text;
+    self.end.text = self.resaCtrl.endAddress.text;
+    self.passenger.text = self.resaCtrl.passBtn.titleLabel.text;
+    self.luggage.text = self.resaCtrl.luggBtn.titleLabel.text;
+    
+    self.baby.text = [NSString stringWithFormat:@"%i", self.resaCtrl.babySeat.selected];
+    self.wifi.text = [NSString stringWithFormat:@"%i", self.resaCtrl.wifi.selected];
+    self.paper.text = [NSString stringWithFormat:@"%i", self.resaCtrl.paper.selected];
+    
+    self.premium.selected = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -44,6 +54,25 @@
 
 }
 
+
+- (IBAction)standard:(id)sender
+{
+        self.price.text = @"55€";
+        self.premium.selected = NO;
+        self.standard.selected = YES;
+}
+
+- (IBAction)premium:(id)sender
+{
+     self.price.text = @"75€";
+        self.premium.selected = YES;
+        self.standard.selected = NO;
+}
+
+- (IBAction)send:(id)sender
+{
+    
+}
 
 - (void)goback
 {

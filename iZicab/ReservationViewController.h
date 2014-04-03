@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
+
 @interface ReservationViewController : UIViewController<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
 
@@ -19,26 +20,26 @@
 @property (strong)IBOutlet UITextField *endAddress;
 @property (strong)IBOutlet UISwitch    *tiers;
 @property (strong)IBOutlet UIButton    *startDate;
-@property (strong)IBOutlet UIButton    *startHour;
 @property (strong)IBOutlet UIButton    *passBtn;
 @property (strong)IBOutlet UIButton    *luggBtn;
 @property (strong)IBOutlet UIButton    *babySeat;
 @property (strong)IBOutlet UIButton    *paper;
 @property (strong)IBOutlet UIButton    *wifi;
-@property (strong)  UITableView *autocompleteTableView;
-@property (strong)  NSMutableArray *autocompleteUrls;
-@property (assign)  BOOL isStartAddr;
-@property (strong)  NSString *startAddr;
-@property (strong)  NSString *endAddr;
-@property (assign)  float startLat;
-@property (assign)  float startLng;
-@property (assign)  float endLat;
-@property (assign)  float endLng;
+@property (strong)IBOutlet UIDatePicker*datePicker;
+@property (strong)         UITableView *autocompleteTableView;
+@property (strong)         NSMutableArray *autocompleteUrls;
+@property (assign)         BOOL isStartAddr;
+@property (strong)         NSString *startAddr;
+@property (strong)         NSString *endAddr;
+@property (assign)         float startLat;
+@property (assign)         float startLng;
+@property (assign)         float endLat;
+@property (assign)         float endLng;
+
 
 
 - (IBAction)goToMap:(id)sender;
 - (IBAction)selectDate:(id)sender;
-- (IBAction)selectHour:(id)sender;
 - (IBAction)more:(id)sender;
 - (IBAction)less:(id)sender;
 - (IBAction)setOption:(id)sender;
