@@ -50,6 +50,51 @@
     
 }
 
+- (IBAction)more:(id)sender
+{
+    if ([sender tag] == 7878)
+    {
+        int i =  [((NSString *)self.passBtn.titleLabel.text) intValue];
+        if (i < 8)
+            i++;
+        [self.passBtn setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
+    }
+    else
+    {
+        int i =  [((NSString *)self.luggBtn.titleLabel.text) intValue];
+        if (i < 8)
+            i++;
+        [self.luggBtn setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
+    }
+}
+
+- (IBAction)less:(id)sender
+{
+    if ([sender tag] == 7878)
+    {
+        int i =  [((NSString *)self.passBtn.titleLabel.text) intValue];
+        if (i > 1)
+            i--;
+        [self.passBtn setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
+    }
+    else
+    {
+        int i =  [((NSString *)self.luggBtn.titleLabel.text) intValue];
+        if (i > 1)
+            i--;
+        [self.luggBtn setTitle:[NSString stringWithFormat:@"%i", i] forState:UIControlStateNormal];
+    }
+    
+}
+
+
+- (IBAction)setOption:(id)sender
+{
+    if (((UIButton *)sender).selected)
+        ((UIButton *)sender).selected = NO;
+    else
+        ((UIButton *)sender).selected = YES;
+}
 
 
 - (void)didReceiveMemoryWarning

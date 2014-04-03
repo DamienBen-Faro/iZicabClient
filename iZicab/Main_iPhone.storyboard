@@ -932,16 +932,16 @@ Roissy-en-France 95700</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tBp-MA-WNB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tBp-MA-WNB">
+                                <rect key="frame" x="0.0" y="50" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iKH-6A-kJs">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="794"/>
+                                        <rect key="frame" x="0.0" y="-50" width="320" height="794"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VlZ-ph-kAW" userLabel="nameView">
-                                                <rect key="frame" x="10" y="66" width="300" height="210"/>
+                                                <rect key="frame" x="10" y="0.0" width="300" height="210"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aFx-Oz-OcA">
@@ -984,14 +984,6 @@ Roissy-en-France 95700</string>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Mot de passe" placeholder="Mot de passe" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Law-JX-rjT">
-                                                                <rect key="frame" x="10" y="170" width="280" height="30"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                                                     </view>
@@ -999,7 +991,7 @@ Roissy-en-France 95700</string>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6B4-fM-f1G" userLabel="optionView">
-                                                <rect key="frame" x="10" y="296" width="300" height="407"/>
+                                                <rect key="frame" x="10" y="236" width="300" height="407"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="07T-ev-RAI">
@@ -1067,19 +1059,25 @@ Roissy-en-France 95700</string>
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wJ-Ld-QAm">
+                                                                    <button opaque="NO" tag="7878" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wJ-Ld-QAm">
                                                                         <rect key="frame" x="234" y="32" width="26" height="26"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <state key="normal" image="plus.png">
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="more:" destination="242-BB-Qac" eventType="touchUpInside" id="bVE-cO-yLh"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gb-vC-2Mt">
+                                                                    <button opaque="NO" tag="7878" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Gb-vC-2Mt">
                                                                         <rect key="frame" x="183" y="32" width="26" height="26"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <state key="normal" image="minus.png">
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="less:" destination="242-BB-Qac" eventType="touchUpInside" id="FAW-kp-kI9"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -1118,6 +1116,9 @@ Roissy-en-France 95700</string>
                                                                         <state key="normal" image="plus.png">
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="more:" destination="242-BB-Qac" eventType="touchUpInside" id="yq6-G8-kw9"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dW-BY-uQj">
                                                                         <rect key="frame" x="183" y="32" width="26" height="26"/>
@@ -1125,16 +1126,23 @@ Roissy-en-France 95700</string>
                                                                         <state key="normal" image="minus.png">
                                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="less:" destination="242-BB-Qac" eventType="touchUpInside" id="DYB-8k-DLk"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             </view>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZV-At-gz1" userLabel="Button - baby">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pZV-At-gz1" userLabel="Button - paper">
                                                                 <rect key="frame" x="105" y="218" width="90" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <state key="normal" backgroundImage="paperOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <state key="selected" backgroundImage="paperOn.png"/>
+                                                                <connections>
+                                                                    <action selector="setOption:" destination="242-BB-Qac" eventType="touchUpInside" id="jZP-qM-Ubo"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9no-J3-QQF" userLabel="Button - baby">
                                                                 <rect key="frame" x="10" y="218" width="90" height="90"/>
@@ -1142,13 +1150,18 @@ Roissy-en-France 95700</string>
                                                                 <state key="normal" backgroundImage="babyOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <state key="selected" backgroundImage="babyOn.png"/>
+                                                                <connections>
+                                                                    <action selector="setOption:" destination="242-BB-Qac" eventType="touchUpInside" id="rza-6I-hX9"/>
+                                                                </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRT-Rv-zqP" userLabel="Button - baby">
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRT-Rv-zqP" userLabel="Button - wifi">
                                                                 <rect key="frame" x="200" y="218" width="90" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <state key="normal" backgroundImage="wifiOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
+                                                                <state key="selected" backgroundImage="wifiOn.jpg"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgA-QV-WoO">
                                                                 <rect key="frame" x="77" y="316" width="146" height="30"/>
@@ -1170,13 +1183,8 @@ Roissy-en-France 95700</string>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ElF-60-K5K">
-                                                <rect key="frame" x="10" y="723" width="300" height="58"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAV-I9-rtM">
-                                                <rect key="frame" x="10" y="724" width="298" height="56"/>
+                                                <rect key="frame" x="10" y="664" width="298" height="56"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="33"/>
@@ -1203,9 +1211,8 @@ Roissy-en-France 95700</string>
                                     <constraint firstAttribute="trailing" secondItem="iKH-6A-kJs" secondAttribute="trailing" id="FdQ-t1-Ahe"/>
                                     <constraint firstAttribute="trailing" secondItem="iKH-6A-kJs" secondAttribute="trailing" id="I94-YQ-UcJ"/>
                                     <constraint firstAttribute="bottom" secondItem="iKH-6A-kJs" secondAttribute="bottom" id="Njk-u8-j2C"/>
-                                    <constraint firstItem="iKH-6A-kJs" firstAttribute="top" secondItem="tBp-MA-WNB" secondAttribute="top" id="XNK-aR-qd1"/>
+                                    <constraint firstItem="iKH-6A-kJs" firstAttribute="top" secondItem="tBp-MA-WNB" secondAttribute="top" constant="-50" id="XNK-aR-qd1"/>
                                     <constraint firstAttribute="bottom" secondItem="iKH-6A-kJs" secondAttribute="bottom" id="mte-bO-lqy"/>
-                                    <constraint firstItem="iKH-6A-kJs" firstAttribute="top" secondItem="tBp-MA-WNB" secondAttribute="top" id="vEk-wp-Qw9"/>
                                 </constraints>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="66" maxX="0.0" maxY="0.0"/>
                             </scrollView>
@@ -1213,11 +1220,20 @@ Roissy-en-France 95700</string>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tBp-MA-WNB" secondAttribute="trailing" id="6VN-NN-ulM"/>
-                            <constraint firstItem="tBp-MA-WNB" firstAttribute="top" secondItem="3gP-3t-22V" secondAttribute="top" id="Y1e-zO-yVV"/>
+                            <constraint firstAttribute="bottom" secondItem="tBp-MA-WNB" secondAttribute="bottom" constant="-70" id="8B5-OI-jdF"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="tBp-MA-WNB" secondAttribute="bottom" id="H0z-2d-nGx"/>
+                            <constraint firstItem="tBp-MA-WNB" firstAttribute="top" secondItem="BPs-IJ-NMA" secondAttribute="bottom" constant="60" id="ZFd-ri-MxY"/>
                             <constraint firstItem="tBp-MA-WNB" firstAttribute="leading" secondItem="3gP-3t-22V" secondAttribute="leading" id="haO-Cp-wVf"/>
                             <constraint firstItem="Ocm-ia-Cqm" firstAttribute="top" secondItem="tBp-MA-WNB" secondAttribute="bottom" id="lE8-E5-zAT"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="babySeat" destination="9no-J3-QQF" id="fqa-aH-NXh"/>
+                        <outlet property="luggBtn" destination="8dm-gQ-RG1" id="g5S-Gc-80x"/>
+                        <outlet property="paper" destination="pZV-At-gz1" id="38q-V2-e19"/>
+                        <outlet property="passBtn" destination="oZ9-c0-kia" id="Rll-L8-XD7"/>
+                        <outlet property="wifi" destination="DRT-Rv-zqP" id="qCR-JW-dp6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bc9-hE-feU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1754,10 +1770,8 @@ Roissy-en-France 95700</string>
         <image name="Fleche.png" width="75" height="38"/>
         <image name="Fleche2.png" width="75" height="38"/>
         <image name="babyOff.png" width="130" height="130"/>
-        <image name="babyOff.png" width="130" height="130"/>
         <image name="babyOn.png" width="130" height="130"/>
         <image name="bigLogo.png" width="129" height="120"/>
-        <image name="buttonPassenger.png" width="41" height="44"/>
         <image name="buttonPassenger.png" width="41" height="44"/>
         <image name="connexion.png" width="146" height="30"/>
         <image name="facebook.png" width="72" height="72"/>
@@ -1767,28 +1781,18 @@ Roissy-en-France 95700</string>
         <image name="logoBlack.png" width="206" height="30"/>
         <image name="mail.png" width="72" height="72"/>
         <image name="minus.png" width="52" height="52"/>
-        <image name="minus.png" width="52" height="52"/>
-        <image name="paperOff.png" width="130" height="130"/>
         <image name="paperOff.png" width="130" height="130"/>
         <image name="paperOn.png" width="130" height="130"/>
         <image name="pinArrive.png" width="23" height="30"/>
         <image name="pinDepart.png" width="23" height="30"/>
         <image name="plus.png" width="52" height="52"/>
-        <image name="plus.png" width="52" height="52"/>
         <image name="resa.png" width="192" height="30"/>
         <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="separateurDouble.png" width="540" height="7"/>
         <image name="separateurDouble.png" width="540" height="7"/>
         <image name="sms.png" width="72" height="72"/>
         <image name="suitcase.png" width="82" height="89"/>
-        <image name="suitcase.png" width="82" height="89"/>
         <image name="twitter.png" width="72" height="72"/>
         <image name="validation.png" width="146" height="30"/>
-        <image name="validation.png" width="146" height="30"/>
-        <image name="wifiOff.png" width="130" height="130"/>
         <image name="wifiOff.png" width="130" height="130"/>
         <image name="wifiOn.jpg" width="130" height="130"/>
     </resources>
