@@ -1163,6 +1163,9 @@ Roissy-en-France 95700</string>
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
                                                                 <state key="selected" backgroundImage="wifiOn.jpg"/>
+                                                                <connections>
+                                                                    <action selector="setOption:" destination="242-BB-Qac" eventType="touchUpInside" id="lmc-aq-MDo"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgA-QV-WoO">
                                                                 <rect key="frame" x="77" y="316" width="146" height="30"/>
@@ -1589,6 +1592,9 @@ Roissy-en-France 95700</string>
                     <connections>
                         <outlet property="actuButton" destination="1z7-2Y-z6I" id="pUo-Qp-gcY"/>
                         <outlet property="actuView" destination="H8b-Ma-8Yg" id="9dh-Dg-k6m"/>
+                        <outlet property="logoDecal" destination="VMH-WE-fJE" id="0OE-VN-3uc"/>
+                        <outlet property="logoH" destination="XrA-n3-d7J" id="X1M-pt-6Cu"/>
+                        <outlet property="logoW" destination="Z5V-tW-M2M" id="DEW-c5-rcB"/>
                         <outlet property="mapButton" destination="xti-QH-IIv" id="IXx-hZ-Sm0"/>
                         <outlet property="mapView" destination="IG3-yw-GVN" id="NDA-kR-ss2"/>
                         <outlet property="resaMineView" destination="3Hf-sg-xEL" id="Jbb-aR-Xnq"/>
@@ -1779,11 +1785,8 @@ Roissy-en-France 95700</string>
         <image name="Fleche.png" width="75" height="38"/>
         <image name="Fleche2.png" width="75" height="38"/>
         <image name="babyOff.png" width="130" height="130"/>
-        <image name="babyOff.png" width="130" height="130"/>
-        <image name="babyOn.png" width="130" height="130"/>
         <image name="babyOn.png" width="130" height="130"/>
         <image name="bigLogo.png" width="129" height="120"/>
-        <image name="buttonPassenger.png" width="41" height="44"/>
         <image name="buttonPassenger.png" width="41" height="44"/>
         <image name="connexion.png" width="146" height="30"/>
         <image name="facebook.png" width="72" height="72"/>
@@ -1793,31 +1796,19 @@ Roissy-en-France 95700</string>
         <image name="logoBlack.png" width="206" height="30"/>
         <image name="mail.png" width="72" height="72"/>
         <image name="minus.png" width="52" height="52"/>
-        <image name="minus.png" width="52" height="52"/>
         <image name="paperOff.png" width="130" height="130"/>
-        <image name="paperOff.png" width="130" height="130"/>
-        <image name="paperOn.png" width="130" height="130"/>
         <image name="paperOn.png" width="130" height="130"/>
         <image name="pinArrive.png" width="23" height="30"/>
         <image name="pinDepart.png" width="23" height="30"/>
         <image name="plus.png" width="52" height="52"/>
-        <image name="plus.png" width="52" height="52"/>
         <image name="resa.png" width="192" height="30"/>
         <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="separateurDouble.png" width="540" height="7"/>
         <image name="separateurDouble.png" width="540" height="7"/>
         <image name="sms.png" width="72" height="72"/>
         <image name="suitcase.png" width="82" height="89"/>
-        <image name="suitcase.png" width="82" height="89"/>
         <image name="twitter.png" width="72" height="72"/>
         <image name="validation.png" width="146" height="30"/>
-        <image name="validation.png" width="146" height="30"/>
         <image name="wifiOff.png" width="130" height="130"/>
-        <image name="wifiOff.png" width="130" height="130"/>
-        <image name="wifiOn.jpg" width="130" height="130"/>
         <image name="wifiOn.jpg" width="130" height="130"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -8,7 +8,7 @@
 
 #import "DashboardViewController.h"
 
-
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
 @implementation DashboardViewController
 
@@ -32,6 +32,13 @@
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
     self.isFirstPlacement = NO;
+    
+    if (!IS_IPHONE_5)
+    {
+        self.logoH.constant = 130;
+        self.logoW.constant = 130;
+        self.logoDecal.constant = 95;
+    }
 }
 
 

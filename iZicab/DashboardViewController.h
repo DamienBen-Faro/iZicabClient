@@ -26,6 +26,10 @@
 @property(strong) IBOutlet UIView *resaMineView;
 @property(strong) IBOutlet UIImageView *resaMineImgView;
 
+@property(strong) IBOutlet NSLayoutConstraint *logoH;
+@property(strong) IBOutlet NSLayoutConstraint *logoW;
+@property(strong) IBOutlet NSLayoutConstraint *logoDecal;
+    
 @property(assign) BOOL datstop;
 @property(assign) BOOL isFirstPlacement;
 
