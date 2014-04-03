@@ -448,7 +448,7 @@
                                                                 <state key="normal" backgroundImage="wifiOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
-                                                                <state key="selected" backgroundImage="wifiOn.jpg"/>
+                                                                <state key="selected" backgroundImage="wifiOn.png"/>
                                                                 <connections>
                                                                     <action selector="setOption:" destination="De9-HY-9cN" eventType="touchUpInside" id="cpE-Ff-FFf"/>
                                                                 </connections>
@@ -1201,7 +1201,9 @@ Roissy-en-France 95700</string>
                                                                 <state key="normal" backgroundImage="paperOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
-                                                                <state key="selected" backgroundImage="paperOn.png"/>
+                                                                <state key="selected" backgroundImage="paperOn.png">
+                                                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="setOption:" destination="242-BB-Qac" eventType="touchUpInside" id="jZP-qM-Ubo"/>
                                                                 </connections>
@@ -1212,7 +1214,9 @@ Roissy-en-France 95700</string>
                                                                 <state key="normal" backgroundImage="babyOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
-                                                                <state key="selected" backgroundImage="babyOn.png"/>
+                                                                <state key="selected" backgroundImage="babyOn.png">
+                                                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </state>
                                                                 <connections>
                                                                     <action selector="setOption:" destination="242-BB-Qac" eventType="touchUpInside" id="rza-6I-hX9"/>
                                                                 </connections>
@@ -1223,7 +1227,9 @@ Roissy-en-France 95700</string>
                                                                 <state key="normal" backgroundImage="wifiOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
-                                                                <state key="selected" backgroundImage="wifiOn.jpg"/>
+                                                                <state key="selected" backgroundImage="wifiOn.png">
+                                                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                </state>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgA-QV-WoO">
                                                                 <rect key="frame" x="77" y="316" width="146" height="30"/>
@@ -1867,7 +1873,7 @@ Roissy-en-France 95700</string>
         <image name="twitter.png" width="72" height="72"/>
         <image name="validation.png" width="146" height="30"/>
         <image name="wifiOff.png" width="130" height="130"/>
-        <image name="wifiOn.jpg" width="130" height="130"/>
+        <image name="wifiOn.png" width="130" height="130"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
