@@ -180,7 +180,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" onImage="buttonOn.png" offImage="buttonOff.png" translatesAutoresizingMaskIntoConstraints="NO" id="GSf-jM-QBV">
-                                                        <rect key="frame" x="240" y="79" width="51" height="31"/>
+                                                        <rect key="frame" x="241" y="79" width="51" height="31"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <connections>
                                                             <action selector="tiersAct:" destination="De9-HY-9cN" eventType="valueChanged" id="hB9-Tb-vES"/>
@@ -1842,7 +1842,6 @@ Roissy-en-France 95700</string>
         <image name="Fleche2.png" width="75" height="38"/>
         <image name="babyOff.png" width="130" height="130"/>
         <image name="babyOn.png" width="130" height="130"/>
-        <image name="babyOn.png" width="130" height="130"/>
         <image name="bigLogo.png" width="129" height="120"/>
         <image name="buttonOff.png" width="20" height="20"/>
         <image name="buttonOn.png" width="20" height="20"/>
@@ -1857,7 +1856,6 @@ Roissy-en-France 95700</string>
         <image name="minus.png" width="52" height="52"/>
         <image name="paperOff.png" width="130" height="130"/>
         <image name="paperOn.png" width="130" height="130"/>
-        <image name="paperOn.png" width="130" height="130"/>
         <image name="pinArrive.png" width="23" height="30"/>
         <image name="pinDepart.png" width="23" height="30"/>
         <image name="plus.png" width="52" height="52"/>
@@ -1869,7 +1867,6 @@ Roissy-en-France 95700</string>
         <image name="twitter.png" width="72" height="72"/>
         <image name="validation.png" width="146" height="30"/>
         <image name="wifiOff.png" width="130" height="130"/>
-        <image name="wifiOn.jpg" width="130" height="130"/>
         <image name="wifiOn.jpg" width="130" height="130"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
