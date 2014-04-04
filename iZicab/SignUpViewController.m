@@ -11,6 +11,7 @@
 #import "ConnectionData.h"
 #import "UserInfoSingleton.h"
 #import "DashboardViewController.h"
+#import "CodeViewController.h"
 
 @implementation SignUpViewController
 
@@ -26,9 +27,63 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-
+    self.firstName.delegate = self;
+    self.phone.delegate = self;
+    self.familyName.delegate = self;
+    self.password.delegate = self;
+    self.email.delegate = self;
+    
+    self.familyName.tag = 60;
+    self.firstName.tag = 80;
+    self.phone.tag = 90;
+    self.email.tag = 120;
+    self.password.tag = 160;
+    
+    UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:dismissKeyboard];
+    
 }
+
+- (void)dismissKeyboard {
+    for (UIView *subView in self.view.subviews) {
+        if ([subView isKindOfClass:[UITextField class]]) {
+            [subView resignFirstResponder];
+        }
+    }
+}
+
+- (void)textFieldDidBeginEditing:(UITextView *)textView
+{
+    [self animateTextView: YES:textView.tag];
+}
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextView *)textView
+{
+    [self animateTextView:NO :textView.tag];
+}
+
+- (void) animateTextView:(BOOL) up: (int)tag
+{
+    
+    const int movementDistance = tag; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    int movement= movement = (up ? -movementDistance : movementDistance);
+    NSLog(@"%d",movement);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectMake(0, self.view.frame.origin.y + movement, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
+
 
 
 - (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))checkAcc
@@ -56,7 +111,7 @@
             [alert show];
 
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-            DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CodeViewController"];
+            CodeViewController* ctrl = (CodeViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CodeViewController"];
             [self.navigationController pushViewController:ctrl animated:YES];
 
         }

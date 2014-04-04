@@ -10,7 +10,9 @@
 
 @interface AccountViewController : UIViewController
 
-@property (strong) IBOutlet UITextField *name;
+@property (strong) IBOutlet UIScrollView *scrollView;
+@property (strong) IBOutlet UITextField *firstName;
+@property (strong) IBOutlet UITextField *familyName;
 @property (strong) IBOutlet UITextField *phone;
 @property (strong) IBOutlet UITextField *email;
 @property (strong) IBOutlet UIButton    *passBtn;

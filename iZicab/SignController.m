@@ -19,7 +19,6 @@
     [super viewDidLoad];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-   
     [ConnectionData sendReq: @"auth/checkUserActivated": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"phone", [defaults objectForKey:@"phone"] ? [defaults objectForKey:@"phone"] : @"", @"idDevice", @"ios", nil]];
 
 }
@@ -37,8 +36,9 @@
             if (((NSString *)[defaults objectForKey:@"phone"]).length  != 0 && [[defaults objectForKey:@"isActivated"] isEqualToString:@"YES"])
                 [self noNeedToSign];
         }
-        else
+        /*else
         {
+            NSLog(@"%@",  [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                             message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
                                                            delegate:self
@@ -47,13 +47,13 @@
             [alert show];
             
             
-         /*   if ([dict objectForKey:@"error"])
+            if ([dict objectForKey:@"error"])
             {
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
                 DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CodeViewController"];
                 [self.navigationController pushViewController:ctrl animated:YES];
-            }*/
-        }
+            }
+        }*/
 
     };
 }

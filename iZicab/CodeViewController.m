@@ -24,6 +24,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(offAll:)];
+    tapGestureRecognize.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:tapGestureRecognize];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -80,5 +84,14 @@
     [ConnectionData sendReq: @"account/activePrivateUser": [self finishSignup]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"userId", [defaults objectForKey:@"userId"], @"code", _code.text ,nil]];
 
 }
+
+
+- (IBAction)offAll:(id)sender
+{
+    [self.code resignFirstResponder];
+}
+
+
+
 
 @end

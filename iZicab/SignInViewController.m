@@ -28,7 +28,55 @@
 {
     [super viewDidLoad];
     
+    UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:dismissKeyboard];
+    
+    self.password.delegate = self;
+    self.phone.delegate = self;
+    
+    self.phone.tag = 50;
+    self.password.tag = 60;
 }
+
+- (void)dismissKeyboard {
+    for (UIView *subView in self.view.subviews) {
+        if ([subView isKindOfClass:[UITextField class]]) {
+            [subView resignFirstResponder];
+        }
+    }
+}
+
+- (void)textFieldDidBeginEditing:(UITextView *)textView
+{
+    [self animateTextView: YES:textView.tag];
+}
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextView *)textView
+{
+    [self animateTextView:NO :textView.tag];
+}
+
+- (void) animateTextView:(BOOL) up: (int)tag
+{
+    
+    const int movementDistance = tag; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    int movement= movement = (up ? -movementDistance : movementDistance);
+    NSLog(@"%d",movement);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectMake(0, self.view.frame.origin.y + movement, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
+
 
 - (void)viewDidAppear:(BOOL)animated
 {

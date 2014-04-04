@@ -25,8 +25,18 @@
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
-
+    
+    UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:dismissKeyboard];
 }
+
+- (void)dismissKeyboard {
+    [self.email resignFirstResponder];
+    [self.familyName resignFirstResponder];
+    [self.phone resignFirstResponder];
+    [self.firstName resignFirstResponder];
+}
+
 
 - (void)goback
 {

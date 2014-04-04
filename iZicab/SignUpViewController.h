@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUpViewController : UIViewController
+@interface SignUpViewController : UIViewController<UITextFieldDelegate>
 
 @property (strong) IBOutlet UITextField *familyName;
 @property (strong) IBOutlet UITextField *firstName;
 @property (strong) IBOutlet UITextField *phone;
 @property (strong) IBOutlet UITextField *email;
 @property (strong) IBOutlet UITextField *password;
+
+
+
 
 - (IBAction)sendSubscribe:(id)sender;
 

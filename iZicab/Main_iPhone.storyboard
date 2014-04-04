@@ -769,6 +769,9 @@ Roissy-en-France 95700</string>
                                                 <state key="normal" title="VALIDER">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="send:" destination="WTm-sb-bGq" eventType="touchUpInside" id="iPm-N4-il3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1297,9 +1300,14 @@ Roissy-en-France 95700</string>
                     </view>
                     <connections>
                         <outlet property="babySeat" destination="9no-J3-QQF" id="fqa-aH-NXh"/>
+                        <outlet property="email" destination="f12-ZJ-zvZ" id="eGS-ZW-7d8"/>
+                        <outlet property="familyName" destination="J79-GY-C0c" id="Pcs-7N-Dr5"/>
+                        <outlet property="firstName" destination="Trc-zo-hf5" id="nwP-2Q-mK3"/>
                         <outlet property="luggBtn" destination="8dm-gQ-RG1" id="g5S-Gc-80x"/>
                         <outlet property="paper" destination="pZV-At-gz1" id="38q-V2-e19"/>
                         <outlet property="passBtn" destination="oZ9-c0-kia" id="Rll-L8-XD7"/>
+                        <outlet property="phone" destination="IOs-z4-wJo" id="UaG-U6-VP2"/>
+                        <outlet property="scrollView" destination="tBp-MA-WNB" id="jBV-jf-BON"/>
                         <outlet property="wifi" destination="DRT-Rv-zqP" id="qCR-JW-dp6"/>
                     </connections>
                 </viewController>
@@ -1770,15 +1778,15 @@ Roissy-en-France 95700</string>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Téléphone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-bJ-ac3">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Téléphone" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-bJ-ac3">
                                 <rect key="frame" x="20" y="242" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etp-Bo-yKU">
                                 <rect key="frame" x="20" y="280" width="280" height="30"/>
@@ -1846,18 +1854,14 @@ Roissy-en-France 95700</string>
         <image name="Account@2X.png" width="320" height="300"/>
         <image name="ActuImageFull.png" width="300" height="210"/>
         <image name="ButtonMap.png" width="30" height="30"/>
-        <image name="ButtonMap.png" width="30" height="30"/>
         <image name="ElementAppli-01.png" width="263" height="262"/>
         <image name="Fleche.png" width="75" height="38"/>
         <image name="Fleche2.png" width="75" height="38"/>
         <image name="babyOff.png" width="130" height="130"/>
-        <image name="babyOff.png" width="130" height="130"/>
-        <image name="babyOn.png" width="130" height="130"/>
         <image name="babyOn.png" width="130" height="130"/>
         <image name="bigLogo.png" width="129" height="120"/>
         <image name="buttonOff.png" width="20" height="20"/>
         <image name="buttonOn.png" width="20" height="20"/>
-        <image name="buttonPassenger.png" width="41" height="44"/>
         <image name="buttonPassenger.png" width="41" height="44"/>
         <image name="connexion.png" width="146" height="30"/>
         <image name="facebook.png" width="72" height="72"/>
@@ -1867,35 +1871,19 @@ Roissy-en-France 95700</string>
         <image name="logoBlack.png" width="206" height="30"/>
         <image name="mail.png" width="72" height="72"/>
         <image name="minus.png" width="52" height="52"/>
-        <image name="minus.png" width="52" height="52"/>
-        <image name="minus.png" width="52" height="52"/>
-        <image name="minus.png" width="52" height="52"/>
         <image name="paperOff.png" width="130" height="130"/>
-        <image name="paperOff.png" width="130" height="130"/>
-        <image name="paperOn.png" width="130" height="130"/>
         <image name="paperOn.png" width="130" height="130"/>
         <image name="pinArrive.png" width="23" height="30"/>
         <image name="pinDepart.png" width="23" height="30"/>
         <image name="plus.png" width="52" height="52"/>
-        <image name="plus.png" width="52" height="52"/>
-        <image name="plus.png" width="52" height="52"/>
-        <image name="plus.png" width="52" height="52"/>
         <image name="resa.png" width="192" height="30"/>
         <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="separateurDouble.png" width="540" height="7"/>
         <image name="separateurDouble.png" width="540" height="7"/>
         <image name="sms.png" width="72" height="72"/>
         <image name="suitcase.png" width="82" height="89"/>
-        <image name="suitcase.png" width="82" height="89"/>
         <image name="twitter.png" width="72" height="72"/>
         <image name="validation.png" width="146" height="30"/>
-        <image name="validation.png" width="146" height="30"/>
         <image name="wifiOff.png" width="130" height="130"/>
-        <image name="wifiOff.png" width="130" height="130"/>
-        <image name="wifiOn.png" width="130" height="130"/>
         <image name="wifiOn.png" width="130" height="130"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -8,6 +8,8 @@
 
 #import "InvoiceViewController.h"
 #import "CustomNavBar.h"
+#import "ConnectionData.h"
+#import "DashboardViewController.h"
 
 @implementation InvoiceViewController
 
@@ -69,8 +71,80 @@
         self.standard.selected = NO;
 }
 
+- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))sendResa
+{
+    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
+        
+       NSError *error;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
+        NSLog(@"%@", dict);
+        if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+        {
+
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                            message:@"Reservation Effectuée"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+            DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
+            [self.navigationController pushViewController:ctrl animated:YES];
+            
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+      
+    };
+}
+
+
 - (IBAction)send:(id)sender
 {
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    
+    NSString *isPremium = @"standard";
+    
+    if ( self.premium.selected)
+        isPremium = @"premium";
+    
+   
+    NSLog(@"hahahh:%f / %@", self.resaCtrl.startLat, self.resaCtrl.phone.text);
+    [ConnectionData sendReq: @"reservation/create": [self sendResa]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                                            @"userId",  [defaults objectForKey:@"userId"],
+                                                                            @"latStart", [NSString stringWithFormat:@"%f", self.resaCtrl.startLat ],
+                                                                            @"lngStart", [NSString stringWithFormat:@"%f", self.resaCtrl.startLng],
+                                                                            @"startAddress", self.start.text,
+                                                                            @"latEnd", [NSString stringWithFormat:@"%f", self.resaCtrl.endLat],
+                                                                            @"lngEnd", [NSString stringWithFormat:@"%f", self.resaCtrl.endLng ],
+                                                                            @"endAddress", self.end.text,
+                                                                            @"tripType", isPremium,
+                                                                            @"tripDateTime", self.date.text,
+                                                                            @"paymentMode", @"cash",
+                                                                            @"seat", self.passenger.text,
+                                                                            @"luggage", self.luggage.text,
+                                                                            @"convention", @"no covention",
+                                                                            @"status", @"waiting",
+                                                                            @"contactName", self.resaCtrl.name.text,
+                                                                            @"contactEmail", @"empty",
+                                                                            @"contactPhone", self.resaCtrl.phone.text,
+                                                                            @"convention", @"" ,
+                                                                            @"wifi", self.wifi.text,
+                                                                            @"magazine", self.paper.text,
+                                                                            @"babysit" , self.baby.text
+                                                                            ,nil]];
     
 }
 
