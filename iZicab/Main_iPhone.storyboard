@@ -197,57 +197,34 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gBi-ex-Ojc" userLabel="addressView">
-                                                <rect key="frame" x="10" y="130" width="300" height="171"/>
+                                                <rect key="frame" x="10" y="130" width="300" height="130"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KNz-jb-uBV">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="171"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="130"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l18-rz-xU0">
-                                                                <rect key="frame" x="260" y="50" width="30" height="30"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <state key="normal" image="ButtonMap.png">
-                                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                                </state>
-                                                                <connections>
-                                                                    <action selector="goToMap:" destination="De9-HY-9cN" eventType="touchUpInside" id="j8H-ep-Fob"/>
-                                                                </connections>
-                                                            </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fkU-6L-nVh">
                                                                 <rect key="frame" x="10" y="90" width="280" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             </imageView>
+                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aii-IM-31j">
+                                                                <rect key="frame" x="11" y="91" width="278" height="28"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                                                <state key="normal" title="Date et heure de départ">
+                                                                    <color key="titleColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                    <color key="titleShadowColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="selectDate:" destination="De9-HY-9cN" eventType="touchUpInside" id="uyA-yj-QVo"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </view>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date et heure de depart" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Cz-C9-Nt7">
-                                                        <rect key="frame" x="11" y="91" width="278" height="28"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mrv-cS-DdD">
-                                                        <rect key="frame" x="10" y="130" width="280" height="30"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aii-IM-31j">
-                                                        <rect key="frame" x="11" y="131" width="278" height="28"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                                        <state key="normal" title="----------- date -----------">
-                                                            <color key="titleColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
-                                                            <color key="titleShadowColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="selectDate:" destination="De9-HY-9cN" eventType="touchUpInside" id="uyA-yj-QVo"/>
-                                                        </connections>
-                                                    </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-S3-b5h">
                                                         <rect key="frame" x="10" y="10" width="240" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -284,12 +261,22 @@
                                                             <action selector="goToMap:" destination="De9-HY-9cN" eventType="touchUpInside" id="gIK-xT-rDt"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l18-rz-xU0">
+                                                        <rect key="frame" x="260" y="50" width="30" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" image="ButtonMap.png">
+                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="goToMap:" destination="De9-HY-9cN" eventType="touchUpInside" id="j8H-ep-Fob"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" red="0.16544094141864438" green="0.54940609056122447" blue="0.44171529067230669" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bhz-Wg-P5c" userLabel="optionView">
-                                                <rect key="frame" x="10" y="321" width="300" height="550"/>
+                                                <rect key="frame" x="10" y="280" width="300" height="550"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KlX-PO-Vao">
@@ -470,15 +457,18 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
-                                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ygk-vz-yqa">
-                                                <rect key="frame" x="0.0" y="198" width="320" height="162"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="1" green="0.99609828281971635" blue="0.99388378613019601" alpha="1" colorSpace="calibratedRGB"/>
-                                                <date key="date" timeIntervalSinceReferenceDate="418209971.59753001">
-                                                    <!--2014-04-03 09:26:11 +0000-->
-                                                </date>
-                                                <timeZone key="timeZone" name="America/Los_Angeles">
-                                                    <data key="data">
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ygk-vz-yqa">
+                                        <rect key="frame" x="0.0" y="170" width="320" height="162"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="0.99609828281971635" blue="0.99388378613019601" alpha="1" colorSpace="calibratedRGB"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="418209971.59753001">
+                                            <!--2014-04-03 09:26:11 +0000-->
+                                        </date>
+                                        <timeZone key="timeZone" name="America/Los_Angeles">
+                                            <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -497,14 +487,11 @@ AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
 </data>
-                                                </timeZone>
-                                                <connections>
-                                                    <action selector="selectDate:" destination="De9-HY-9cN" eventType="valueChanged" id="gNd-mp-fzg"/>
-                                                </connections>
-                                            </datePicker>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
+                                        </timeZone>
+                                        <connections>
+                                            <action selector="selectDate:" destination="De9-HY-9cN" eventType="valueChanged" id="gNd-mp-fzg"/>
+                                        </connections>
+                                    </datePicker>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1005,19 +992,19 @@ Roissy-en-France 95700</string>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VlZ-ph-kAW" userLabel="nameView">
-                                                <rect key="frame" x="10" y="0.0" width="300" height="210"/>
+                                                <rect key="frame" x="10" y="0.0" width="300" height="140"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aFx-Oz-OcA">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="210"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="140"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vMb-Hf-YSc">
-                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="218"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="140"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             </imageView>
                                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Nom" placeholder="Prénom" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Trc-zo-hf5">
-                                                                <rect key="frame" x="10" y="40" width="280" height="30"/>
+                                                                <rect key="frame" x="10" y="20" width="280" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1025,7 +1012,7 @@ Roissy-en-France 95700</string>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Téléphone" placeholder="Téléphone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IOs-z4-wJo">
-                                                                <rect key="frame" x="10" y="100" width="280" height="30"/>
+                                                                <rect key="frame" x="10" y="60" width="280" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1033,7 +1020,7 @@ Roissy-en-France 95700</string>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Mail" placeholder="Mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f12-ZJ-zvZ">
-                                                                <rect key="frame" x="10" y="160" width="280" height="30"/>
+                                                                <rect key="frame" x="10" y="100" width="280" height="30"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1047,11 +1034,11 @@ Roissy-en-France 95700</string>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6B4-fM-f1G" userLabel="optionView">
-                                                <rect key="frame" x="10" y="236" width="300" height="407"/>
+                                                <rect key="frame" x="10" y="160" width="300" height="407"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="07T-ev-RAI">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300" height="407"/>
+                                                        <rect key="frame" x="0.0" y="5" width="300" height="407"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwU-9E-ciP">
@@ -1084,7 +1071,7 @@ Roissy-en-France 95700</string>
                                                         <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ohd-SO-bL7" userLabel="hideView">
-                                                        <rect key="frame" x="0.0" y="50" width="300" height="357"/>
+                                                        <rect key="frame" x="0.0" y="58" width="300" height="357"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zUm-Kb-D5d" userLabel="nbPassager">
@@ -1252,7 +1239,7 @@ Roissy-en-France 95700</string>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DAV-I9-rtM">
-                                                <rect key="frame" x="10" y="664" width="298" height="56"/>
+                                                <rect key="frame" x="10" y="588" width="298" height="56"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="33"/>
