@@ -73,6 +73,8 @@
 		E30010ED18EC06EB00551FA7 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E30010EC18EC06EB00551FA7 /* Pin.png */; };
 		E30010EF18EC073E00551FA7 /* Pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E30010EE18EC073E00551FA7 /* Pin.png */; };
 		E30010F118EC110000551FA7 /* resa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E30010F018EC110000551FA7 /* resa@2x.png */; };
+		E309AE4F18F4571200CC60DC /* backButtonBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E309AE4D18F4571200CC60DC /* backButtonBlue@2x.png */; };
+		E309AE5018F4571200CC60DC /* menuButtonBlue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E309AE4E18F4571200CC60DC /* menuButtonBlue@2x.png */; };
 		E30D1CC318EC1EFE00252F1C /* pinArrive@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E30D1CC118EC1EFE00252F1C /* pinArrive@2x.png */; };
 		E30D1CC418EC1EFE00252F1C /* pinDepart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E30D1CC218EC1EFE00252F1C /* pinDepart@2x.png */; };
 		E30D1CC618EC275500252F1C /* bigLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E30D1CC518EC275500252F1C /* bigLogo@2x.png */; };
@@ -232,6 +234,8 @@
 		E30010EC18EC06EB00551FA7 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pin.png; sourceTree = "<group>"; };
 		E30010EE18EC073E00551FA7 /* Pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pin.png; sourceTree = "<group>"; };
 		E30010F018EC110000551FA7 /* resa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resa@2x.png"; sourceTree = "<group>"; };
+		E309AE4D18F4571200CC60DC /* backButtonBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButtonBlue@2x.png"; sourceTree = "<group>"; };
+		E309AE4E18F4571200CC60DC /* menuButtonBlue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuButtonBlue@2x.png"; sourceTree = "<group>"; };
 		E30D1CC118EC1EFE00252F1C /* pinArrive@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinArrive@2x.png"; sourceTree = "<group>"; };
 		E30D1CC218EC1EFE00252F1C /* pinDepart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinDepart@2x.png"; sourceTree = "<group>"; };
 		E30D1CC518EC275500252F1C /* bigLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bigLogo@2x.png"; sourceTree = "<group>"; };
@@ -373,6 +377,8 @@
 				6D0039F518E314EC00D6C9E3 /* Main_iPad.storyboard */,
 				6D83734E18E46A94005A6709 /* DashboardViewController.m */,
 				6D83734D18E46A94005A6709 /* DashboardViewController.h */,
+				E309AE4D18F4571200CC60DC /* backButtonBlue@2x.png */,
+				E309AE4E18F4571200CC60DC /* menuButtonBlue@2x.png */,
 				6DCF530618E44A2B0037A10C /* SignInViewController.h */,
 				6DCF530718E44A2B0037A10C /* SignInViewController.m */,
 				6DCF530B18E451520037A10C /* CodeViewController.h */,
@@ -661,6 +667,7 @@
 				E31C5F2218E9ABE200727ABD /* ActuImageFull.png in Resources */,
 				6D53B95618E57BD70012C12A /* buttonBack.png in Resources */,
 				6D0039EB18E314EC00D6C9E3 /* InfoPlist.strings in Resources */,
+				E309AE5018F4571200CC60DC /* menuButtonBlue@2x.png in Resources */,
 				6D53B96A18E586FC0012C12A /* Roboto-Black.ttf in Resources */,
 				E30D1CC418EC1EFE00252F1C /* pinDepart@2x.png in Resources */,
 				E3EF8E3D18EAE99B0068EC03 /* babyOff@2x.png in Resources */,
@@ -679,6 +686,7 @@
 				E333E4AA18F4133D007D5490 /* backButton@2x.png in Resources */,
 				E3249CA718E9973700BD23B1 /* Account@2X.png in Resources */,
 				E30D1CC818EC31FE00252F1C /* inscription@2x.png in Resources */,
+				E309AE4F18F4571200CC60DC /* backButtonBlue@2x.png in Resources */,
 				E3EF8E2818EAC7640068EC03 /* validation@2x.png in Resources */,
 				6D53B97918E586FC0012C12A /* RobotoCondensed-Light.ttf in Resources */,
 				E30D1CC618EC275500252F1C /* bigLogo@2x.png in Resources */,

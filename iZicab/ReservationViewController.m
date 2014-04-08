@@ -59,11 +59,7 @@
     self.autocompleteTableView.hidden = YES;
     self.autocompleteUrls = [[NSMutableArray alloc] init];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-mm-dd hh:mm:ss"];
 
-    NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
-    self.startDate.titleLabel.text = stringFromDate;
     
     [self.view addSubview:self.autocompleteTableView];
     UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(offAll:)];
