@@ -35,13 +35,22 @@
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
     
     
-    [self.navigationItem setLeftBarButtonItem:backButton];    
+    [self.navigationItem setLeftBarButtonItem:backButton];
     [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"RECAPITULATIF"];
 }
 
 - (void)goBack
 {
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    
+    CATransition *transition = [CATransition animation];
+    [transition setType:kCAAnimationCubicPaced];
+    [self.navigationController.view.layer addAnimation:transition forKey:@"someAnimation"];
+    
     [self.navigationController popViewControllerAnimated:YES];
+    [CATransaction commit];
+    
 }
 
 

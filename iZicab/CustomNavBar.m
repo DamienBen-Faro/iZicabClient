@@ -49,18 +49,21 @@
 - (void)drawRect:(CGRect)rect
 {
 
-   // [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    if (_isDash)
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 110)];
     v.backgroundColor = [UIColor clearColor];
     
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, self.frame.size.width, 70)];
+    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 20, self.frame.size.width, 70)];
     whiteView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.3];
     
     UIImageView *fondu = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 110)];
     fondu.image = [UIImage imageNamed:@"fondu"];
     
-    UILabel *l =[[UILabel alloc] initWithFrame:CGRectMake(25, 19, self.frame.size.width - 50, 90)];
+    UILabel *l =[[UILabel alloc] initWithFrame:CGRectMake(25, 9, self.frame.size.width - 50, 90)];
     l.text = _titleNavBar;
     l.textColor = [UIColor whiteColor];
     l.font = [UIFont fontWithName:@"Roboto-Thin" size:30.0];

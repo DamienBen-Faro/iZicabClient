@@ -60,7 +60,16 @@
 
 - (void)goBack
 {
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    
+    CATransition *transition = [CATransition animation];
+    [transition setType:kCAAnimationCubicPaced];
+    [self.navigationController.view.layer addAnimation:transition forKey:@"someAnimation"];
+    
     [self.navigationController popViewControllerAnimated:YES];
+    [CATransaction commit];
+    
 }
 
 

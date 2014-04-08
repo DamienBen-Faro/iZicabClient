@@ -18,5 +18,6 @@
 @property (strong)IBOutlet UILabel *startAddress;
 @property (strong)IBOutlet UILabel *endAddress;
 @property (assign)BOOL      isFirstPlacement;
+@property (strong)MKPolyline *line;
 
 @end

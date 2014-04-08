@@ -28,7 +28,7 @@
     _datstop = NO;
    // self.mapView.hidden = YES;
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
@@ -46,8 +46,7 @@
     [ConnectionData sendReq: @"reservation/readAllMinePrivateUser": [self readMine]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                                                                             [defaults objectForKey:@"userId"],  @"userId"
                                                                                             ,nil]];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES
-                                            withAnimation:UIStatusBarAnimationFade];
+
 
     
 }
@@ -224,25 +223,9 @@
     
     if ([overlay isKindOfClass:[MKPolyline class]]) {
         MKPolylineView* aView = [[MKPolylineView alloc]initWithPolyline:(MKPolyline*)overlay] ;
-        aView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
+        aView.strokeColor = [[UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1] colorWithAlphaComponent:1];;
         aView.lineWidth = 10;
         return aView;
-    }
-    else if ([overlay isKindOfClass:[MKCircle class]])
-    {
-        MKCircleRenderer *route = overlay;
-        MKCircleRenderer *routeRenderer = [[MKCircleRenderer alloc] initWithCircle:route];
-        
-        UIColor *c = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
-        if ([overlay.title  isEqual: @"medium"])
-            c = [UIColor colorWithRed:0.6 green:0.5 blue:0.0 alpha:0.5];
-        if ([overlay.title  isEqual: @"low"])
-            c = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.5];
-        
-        routeRenderer.fillColor = c;
-        //routeRenderer.strokeColor = [UIColor blueColor];
-        return routeRenderer;
-        
     }
     
     return nil;
@@ -252,7 +235,6 @@
 
 
     
-
 
 - (void) actuAnim
 {
@@ -382,7 +364,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 
 

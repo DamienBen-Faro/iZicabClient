@@ -325,7 +325,17 @@
 
 - (void)goBack
 {
+              [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    
+    CATransition *transition = [CATransition animation];
+    [transition setType:kCAAnimationCubicPaced];
+    [self.navigationController.view.layer addAnimation:transition forKey:@"someAnimation"];
+    
     [self.navigationController popViewControllerAnimated:YES];
+    [CATransaction commit];
+    
 }
 
 - (void) goToDash
@@ -349,7 +359,7 @@
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
     backBtn.frame = CGRectMake(0, 0, 50, 70);
     UIView *backButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 70)];
-    [backButtonView setFrame:CGRectMake(0, 30, 50, 70)];//25, 75
+    [backButtonView setFrame:CGRectMake(0, 20, 50, 70)];//25, 75
     [backButtonView addSubview:backBtn];
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.hidesBackButton = YES;
@@ -362,13 +372,14 @@
     [homeBtn addTarget:self action:@selector(goToDash) forControlEvents:UIControlEventTouchUpInside];
     homeBtn.frame = CGRectMake(0, 0, 50, 70);
     UIView *homeButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 70)];
-    [homeButtonView setFrame:CGRectMake(270, 30, 50, 70)];//25, 75
+    [homeButtonView setFrame:CGRectMake(270, 20, 50, 70)];//25, 75
     [homeButtonView addSubview:homeBtn];
     
     
     
     
     CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
+    navigationBar.isDash = YES;
     [navigationBar addSubview:backButtonView];
     [navigationBar addSubview:homeButtonView];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];

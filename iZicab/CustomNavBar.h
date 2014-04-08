@@ -11,6 +11,6 @@
 @interface CustomNavBar : UINavigationBar
 
 @property (strong) NSString *titleNavBar;
-
+@property (assign) BOOL    isDash;
 
 @end

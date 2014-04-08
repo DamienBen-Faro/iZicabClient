@@ -13,7 +13,7 @@
 
 @implementation MapViewController
 
-
+#define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
 - (void)viewDidLoad
 {
@@ -25,7 +25,12 @@
     self.mapView.delegate = self;
     
     UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pinDepart"]];
-    [imgV setFrame:CGRectMake(self.mapView.frame.size.width / 2 , self.mapView.frame.size.height / 2 , imgV.frame.size.width, imgV.frame.size.height)];
+    NSLog(@"%f/%f", self.mapView.frame.size.width / 2 , self.mapView.layer.frame.size.height / 2 );
+    
+    float coef = 1.1833333;
+    if (!IS_IPHONE_5)
+        coef = 1;
+    [imgV setFrame:CGRectMake(self.mapView.frame.size.width / 2 , (self.mapView.frame.size.height / 2) * coef, imgV.frame.size.width, imgV.frame.size.height)];
     [self.mapView addSubview:imgV];
    
     
@@ -89,7 +94,7 @@
 -(IBAction)setFirstPin:(id)sender
 {
     CLLocationCoordinate2D  ctrpoint;
-    
+
     ctrpoint = [self.mapView centerCoordinate];
     
         [self.mapView removeAnnotation:self.annotationFirst];
@@ -128,7 +133,8 @@
 -(IBAction)setSecondPin:(id)sender
 {
     CLLocationCoordinate2D  ctrpoint;
-    
+
+
     ctrpoint = [self.mapView centerCoordinate];
     
     [self.mapView removeAnnotation:self.annotationSecond];
@@ -168,10 +174,10 @@
      }
      
      ];
+    
     for (id<MKAnnotation> annotation in self.mapView.annotations)
     {
         MKAnnotationView* anView = [self.mapView viewForAnnotation: annotation];
-        NSLog(@"ANNOTATION:%@", [annotation subtitle] );
         if (anView && [[annotation subtitle]  isEqual: @"Arrivée" ])
         {
             anView.image = [UIImage imageNamed:@"pinArrive"];
@@ -204,8 +210,9 @@
              
              MKRoute *rout = obj;
              
-             MKPolyline *line = [rout polyline];
-             [self.mapView addOverlay:line];
+              [self.mapView removeOverlay:self.line];
+             _line = [rout polyline];
+             [self.mapView addOverlay:_line];
              NSLog(@"Rout Name : %@",rout.name);
              NSLog(@"Total Distance (in Meters) :%f",rout.distance);
              
@@ -224,30 +231,17 @@
 
 - (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay
 {
+
     
-    if ([overlay isKindOfClass:[MKPolyline class]]) {
-        MKPolylineView* aView = [[MKPolylineView alloc]initWithPolyline:(MKPolyline*)overlay] ;
-        aView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
+    if ([overlay isKindOfClass:[MKPolyline class]])
+    {
+
+        MKPolylineView* aView = [[MKPolylineView alloc]initWithPolyline:(MKPolyline*)overlay];
+        aView.strokeColor = [[UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1] colorWithAlphaComponent:1];
         aView.lineWidth = 10;
         return aView;
     }
-    else if ([overlay isKindOfClass:[MKCircle class]])
-    {
-        MKCircleRenderer *route = overlay;
-        MKCircleRenderer *routeRenderer = [[MKCircleRenderer alloc] initWithCircle:route];
-        
-        UIColor *c = [UIColor colorWithRed:1.0 green:0.0 blue:0.0 alpha:0.5];
-        if ([overlay.title  isEqual: @"medium"])
-        c = [UIColor colorWithRed:0.6 green:0.5 blue:0.0 alpha:0.5];
-        if ([overlay.title  isEqual: @"low"])
-        c = [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.5];
-        
-        routeRenderer.fillColor = c;
-        //routeRenderer.strokeColor = [UIColor blueColor];
-        return routeRenderer;
-        
-    }
-    
+
     return nil;
 }
 
@@ -272,7 +266,19 @@
 
 - (IBAction)goBack:(id)sender
 {
+          [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    
+    CATransition *transition = [CATransition animation];
+    [transition setType:kCAAnimationCubicPaced];
+    [self.navigationController.view.layer addAnimation:transition forKey:@"someAnimation"];
+    
     [self.navigationController popViewControllerAnimated:YES];
+    [CATransaction commit];
+    
+
+
 }
 
 - (IBAction)goToDash:(id)sender
@@ -286,7 +292,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     
-    
+            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
 
@@ -294,6 +300,8 @@
     self.isFirstPlacement = NO;
 
 }
+
+
 
 
 
