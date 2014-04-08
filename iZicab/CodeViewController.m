@@ -81,7 +81,7 @@
 -(IBAction)activateAccount:(id)sender
 {
      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [ConnectionData sendReq: @"account/activePrivateUser": [self finishSignup]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"userId", [defaults objectForKey:@"userId"], @"code", _code.text ,nil]];
+    [ConnectionData sendReq: @"account/activePrivateUser": [self finishSignup]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys: [defaults objectForKey:@"userId"], @"userId", _code.text , @"code",nil]];
 
 }
 

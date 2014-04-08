@@ -38,9 +38,12 @@
 
     self.datePicker.hidden = YES;
     self.datePicker.backgroundColor = [UIColor whiteColor];
-    
-
+    self.latLng = [[NSMutableArray alloc] init];
+    if (self.isResa)
+        [self updateResa];
 }
+
+
 
 
 
@@ -55,10 +58,25 @@
     self.autocompleteTableView.hidden = YES;
     self.autocompleteUrls = [[NSMutableArray alloc] init];
     
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-mm-dd hh:mm:ss"];
+
+    NSString *stringFromDate = [formatter stringFromDate:[NSDate date]];
+    self.startDate.titleLabel.text = stringFromDate;
+    
     [self.view addSubview:self.autocompleteTableView];
     UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(offAll:)];
     tapGestureRecognize.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:tapGestureRecognize];
+}
+
+
+- (void) updateResa
+{
+    //service need to return lat and long ...
+ //   self.startAddress.text = self.resaUpdate[@"startposition"];
+    
+    
 }
 
 - (void) loadUserData
@@ -73,11 +91,14 @@
     self.phone.text = [defaults objectForKey:@"phone"];
     self.phone.enabled = NO;
     self.phone.backgroundColor = [UIColor lightGrayColor];
-    [self.passBtn setTitle:@"1" forState:UIControlStateNormal];
-    [self.luggBtn setTitle:@"1" forState:UIControlStateNormal];
-    self.babySeat.selected = NO;
-    self.paper.selected = NO;
-    self.wifi.selected = NO;
+    
+    self.passBtn.titleLabel.text = [defaults objectForKey:@"passBtn"] ?  [defaults objectForKey:@"passBtn"] : @"1";
+    self.luggBtn.titleLabel.text = [defaults objectForKey:@"luggBtn"] ?  [defaults objectForKey:@"luggBtn"] : @"1";
+    
+    self.babySeat.selected = [[defaults objectForKey:@"babySeat"] boolValue] ?  [[defaults objectForKey:@"babySeat"] boolValue]: NO;
+    self.paper.selected = [[defaults objectForKey:@"paper"] boolValue] ?  [[defaults objectForKey:@"paper"] boolValue]: NO;
+    self.wifi.selected = [[defaults objectForKey:@"wifi"] boolValue] ?  [[defaults objectForKey:@"wifi"] boolValue]: NO;
+
     
 }
 
@@ -94,32 +115,31 @@
         fieldSelected = self.endAddress.text;
     }
     
-   
-    
-    
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:fieldSelected completionHandler:^(NSArray *placemarks, NSError *error) {
-        //Error checking
-        
-        CLPlacemark *placemark = [placemarks objectAtIndex:0];
        
         
-      //  NSLog(@"lat:%f / lng:%f / arr count: %i / addr: %@", lat, lng, [placemarks count], [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "]);
         self.autocompleteTableView.hidden = NO;
         [self.autocompleteUrls removeAllObjects];
+        [self.latLng removeAllObjects];
         for(CLPlacemark *curString in placemarks)
         {
              if(self.isStartAddr)
              {
-                 self.startLat = placemark.region.center.latitude;
-                 self.startLng = placemark.region.center.longitude;
+                 self.startLat = curString.region.center.latitude;
+                 self.startLng = curString.region.center.longitude;
              }
             else
             {
-                self.endLat = placemark.region.center.latitude;
-                self.endLng = placemark.region.center.longitude;
+                self.endLat = curString.region.center.latitude;
+                self.endLng = curString.region.center.longitude;
             }
-            [self.autocompleteUrls addObject:[[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "]];
+            NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys:[ NSString stringWithFormat:@"%f", curString.region.center.latitude], @"lat",
+                                  [ NSString stringWithFormat:@"%f", curString.region.center.longitude], @"lng",nil];
+
+            [self.latLng addObject:tmp];
+            
+          [self.autocompleteUrls addObject:[[curString.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "]];
         }
         
         [self.autocompleteTableView reloadData];
@@ -265,9 +285,17 @@
     self.autocompleteTableView.hidden = YES;
     
     if (self.isStartAddr)
+    {
         self.startAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
+        self.startLat = [self.latLng[[indexPath row]][@"lat"] floatValue];
+         self.startLng = [self.latLng[[indexPath row]][@"lng"] floatValue];
+    }
     else
+    {
         self.endAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
+        self.endLat = [self.latLng[[indexPath row]][@"lat"] floatValue];
+        self.endLng = [self.latLng[[indexPath row]][@"lng"] floatValue];
+    }
 }
 
 - (IBAction)selectAddr:(id)sender
@@ -275,10 +303,18 @@
     self.autocompleteTableView.hidden = YES;
     
     if (self.isStartAddr)
+    {
         self.startAddress.text = [self.autocompleteUrls objectAtIndex:[sender tag]];
-    else
-        self.endAddress.text = [self.autocompleteUrls objectAtIndex:[sender tag]];
+        self.startLat = [[((NSDictionary *)[self.latLng objectAtIndex:[sender tag]]) objectForKey:@"lat"] floatValue ];
+        self.startLng = [[((NSDictionary *)[self.latLng objectAtIndex:[sender tag]]) objectForKey:@"lng"] floatValue ];
 
+    }
+    else
+    {
+        self.endAddress.text = [self.autocompleteUrls objectAtIndex:[sender tag]];
+        self.endLat = [[((NSDictionary *)[self.latLng objectAtIndex:[sender tag]]) objectForKey:@"lat"] floatValue ];
+        self.endLng = [[((NSDictionary *)[self.latLng objectAtIndex:[sender tag]]) objectForKey:@"lng"] floatValue ];
+    }
 }
 
 - (void)goback

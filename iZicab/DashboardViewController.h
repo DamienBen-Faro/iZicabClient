@@ -34,4 +34,12 @@
 @property(assign) BOOL isFirstPlacement;
 
 
+@property(strong) IBOutlet UILabel *dateResaMine;
+@property(strong) IBOutlet UILabel *hourResaMine;
+@property(strong) IBOutlet UILabel *addressResaMine;
+
+
+
+
+
 @end

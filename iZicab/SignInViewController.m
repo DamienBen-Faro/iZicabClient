@@ -36,6 +36,9 @@
     
     self.phone.tag = 50;
     self.password.tag = 60;
+    
+    self.phone.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    self.password.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
 }
 
 - (void)dismissKeyboard {
@@ -103,11 +106,12 @@
 
 - (IBAction)connexion:(id)sender
 {
-    [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", _phone.text, @"idDevice", @"ios", @"password",  _password.text, @"userType", @"privateUser", nil]];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys: _phone.text, @"login",  [defaults objectForKey:@"token"] , @"idDevice",  _password.text, @"password", @"privateUser", @"userType", nil]];
     
     
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
     [defaults setValue:_phone.text forKey:@"phone"];
      [defaults synchronize];
 }
@@ -129,6 +133,7 @@
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setValue:[dict objectForKey:@"id"] forKey:@"userId"];
             [defaults setValue:[dict objectForKey:@"name"] forKey:@"userName"];
+            [defaults setValue:[dict objectForKey:@"email"] forKey:@"email"];
             [defaults setValue:@"YES" forKey:@"isActivated"];
             [defaults synchronize];
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];

@@ -11,6 +11,7 @@
 #import "ResaMineCell.h"
 #import "ReservationViewController.h"
 #import "InvoiceViewController.h"
+#import "ConnectionData.h"
 
 @implementation ResaMineViewController
 
@@ -26,14 +27,55 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
+    
+    [ConnectionData sendReq: @"reservation/readAllMinePrivateUser": [self readMine]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                                                             [defaults objectForKey:@"userId"], @"userId"
+                                                                                             ,nil]];
 }
 
+
+
+- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))readMine
+{
+ 
+     return ^(NSURLResponse *_response, NSData *_data, NSError *_error)
+    {
+        NSError *error;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
+        NSLog(@"%@", dict);
+        
+        if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+        {
+            [self.arr removeAllObjects];
+            if ([dict objectForKey:@"data"]  > 0)
+            {
+             self.arr = [[NSMutableArray alloc] init];
+             for (NSMutableArray * it in ((NSMutableArray*)dict[@"data"]))
+                [self.arr addObject:it];
+            }
+            [self.tableView reloadData];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+
+    };
+}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    
+
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backBtnImage = [UIImage imageNamed:@"buttonBack"]  ;
     [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
@@ -48,9 +90,12 @@
     [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"MES RESERVATIONS"];
     
     self.tableView.delegate = self;
-    self.arr = [[NSMutableArray alloc] initWithObjects:@"1", @"2", @"3", nil];
     self.tableView.dataSource = self;
+
+    
 }
+
+
 
 
 - (void)goback
@@ -95,20 +140,35 @@
     
     
    //[tableData objectAtIndex:indexPath.row];
+   // NSLog(@"%@", self.arr[[indexPath row]]);
+    NSString *date =  self.arr[[indexPath row]][@"tripdatetime"];
+    NSArray *listItems = [date componentsSeparatedByString:@" "];
+
+    cell.date.text = [listItems objectAtIndex:0];
+    cell.hour.text = [listItems objectAtIndex:1];
+    cell.startAddress.text =  self.arr[[indexPath row]][@"startposition"];
+    cell.startEndress.text =  self.arr[[indexPath row]][@"endposition"];
     
-    cell.date.text = @"12/12/2012";
-    cell.hour.text = @"12h14";
-    cell.startAddress.text = @"14-16 RUE SOLEILLET PARIS 75020";
-    cell.startEndress.text = @"AEROPORT CHARLES DE GAULLE Roissy-en-France 95700";
     
+    cell.deleteResa.tag = [indexPath row];
     
     [cell.see addTarget:self action:@selector(seeResa) forControlEvents:UIControlEventTouchDown];
-    [cell.modif addTarget:self action:@selector(modifResa) forControlEvents:UIControlEventTouchDown];
-    [cell.deleteResa addTarget:self action:@selector(deleteResa) forControlEvents:UIControlEventTouchDown];
+    [cell.modif addTarget:self action:@selector(modifResa:) forControlEvents:UIControlEventTouchDown];
+    [cell.deleteResa addTarget:self action:@selector(deleteResa:) forControlEvents:UIControlEventTouchDown];
   
     
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    InvoiceViewController* ctrl = (InvoiceViewController *)[storyboard instantiateViewControllerWithIdentifier:@"InvoiceViewController"];
+    ctrl.isSeeing = YES;
+    NSLog(@"%@", self.arr[[indexPath row]]);
+    ctrl.resa = self.arr[[indexPath row]];
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 -(void) seeResa
@@ -119,15 +179,55 @@
 
 }
 
-- (void)deleteResa
+
+- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))delResa
 {
+    
+    return ^(NSURLResponse *_response, NSData *_data, NSError *_error)
+    {
+        NSError *error;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
+        NSLog(@"%@", dict);
+        
+        if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+        {
+             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [ConnectionData sendReq: @"reservation/readAllMinePrivateUser": [self readMine]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                                                                    [defaults objectForKey:@"userId"],  @"userId"
+                                                                                                    ,nil]];
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+
+        }
+        
+    };
+}
+
+
+- (IBAction)deleteResa:(id)sender
+{
+    NSLog(@"%@", self.arr[[sender tag]][@"id"]);
+    [ConnectionData sendReq: @"reservation/delete": [self delResa]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                                                              self.arr[[sender tag]][@"id"],@"resaId"
+                                                                                            ,nil]];
+   
     
 }
 
-- (void)modifResa
+- (IBAction)modifResa:(id)sender
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     ReservationViewController* ctrl = (ReservationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ReservationViewController"];
+    ctrl.resaUpdate =  self.arr[[sender tag]];
+    ctrl.isResa = YES;
                                                                     [self.navigationController pushViewController:ctrl animated:YES];
 
 }

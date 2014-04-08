@@ -7,6 +7,7 @@
 //
 
 #import "DashboardViewController.h"
+#import "ConnectionData.h"
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
@@ -39,6 +40,103 @@
         self.logoW.constant = 130;
         self.logoDecal.constant = 95;
     }
+    
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [ConnectionData sendReq: @"reservation/readAllMinePrivateUser": [self readMine]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                                                            [defaults objectForKey:@"userId"],  @"userId"
+                                                                                            ,nil]];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES
+                                            withAnimation:UIStatusBarAnimationFade];
+
+    
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return NO;
+}
+
+- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))readMine
+{
+    
+    return ^(NSURLResponse *_response, NSData *_data, NSError *_error)
+    {
+        NSError *error;
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
+        NSLog(@"%@", dict);
+        
+        if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+        {
+            
+            
+           
+            if ([dict objectForKey:@"data"]  > 0)
+            {
+
+                NSString *pos = [dict objectForKey:@"data"][0][@"tripdatetime"] ? [dict objectForKey:@"data"][0][@"tripdatetime"] : @"" ;
+                
+                self.addressResaMine.text = [dict objectForKey:@"data"][0][@"endposition"] ? [dict objectForKey:@"data"][0][@"endposition"]  : @"";
+                self.hourResaMine.text = [pos componentsSeparatedByString:@" "][1] ? [pos componentsSeparatedByString:@" "][1] : @"";
+                self.dateResaMine.text = [pos componentsSeparatedByString:@" "][0] ? [pos componentsSeparatedByString:@" "][0] : @"";
+             
+                
+                CLLocationCoordinate2D startMap, endMap;
+                startMap.latitude =  [((NSString *)[dict objectForKey:@"data"][0][@"startLat"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"startLat"]) floatValue] : 0.0;
+                startMap.longitude =  [((NSString *)[dict objectForKey:@"data"][0][@"startLng"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"startLng"]) floatValue] : 0.0;
+                endMap.latitude =  [((NSString *)[dict objectForKey:@"data"][0][@"endLat"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"endLat"]) floatValue] : 0.0;
+                endMap.longitude =  [((NSString *)[dict objectForKey:@"data"][0][@"endLng"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"endLng"]) floatValue] : 0.0;
+                
+               [self mapResa: startMap: endMap];
+                [self resaMineAnim];
+            }
+        }
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"ok"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+        
+    };
+}
+
+
+
+-(void)mapResa: (CLLocationCoordinate2D ) locationFirst:(CLLocationCoordinate2D )locationSecond
+{
+
+    
+    CLLocationCoordinate2D southWest = locationFirst;
+    CLLocationCoordinate2D northEast = locationSecond;
+    
+    MKPointAnnotation *m = [[MKPointAnnotation alloc] init];
+    [m setCoordinate:southWest];
+    MKPointAnnotation *m2 = [[MKPointAnnotation alloc] init];
+    [m2 setCoordinate:northEast];
+    
+      [self.mapView addAnnotation:m];
+       [self.mapView addAnnotation:m2];
+    
+    
+    CLLocation *locSouthWest = [[CLLocation alloc] initWithLatitude:southWest.latitude longitude:southWest.longitude];
+    CLLocation *locNorthEast = [[CLLocation alloc] initWithLatitude:northEast.latitude longitude:northEast.longitude];
+    CLLocationDistance meters = [locSouthWest getDistanceFrom:locNorthEast];
+    
+    MKCoordinateRegion region;
+    region.center.latitude = (southWest.latitude + northEast.latitude) / 2.0;
+    region.center.longitude = (southWest.longitude + northEast.longitude) / 2.0;
+    region.span.latitudeDelta = meters / 111319.5;
+    region.span.longitudeDelta = 0.0;
+    
+    MKCoordinateRegion rRegion = [self.mapView regionThatFits:region];
+    [self.mapView setRegion:rRegion animated:YES];
+    [self traceRoute:southWest:northEast];
+    
+
 }
 
 
@@ -60,39 +158,9 @@
         self.isFirstPlacement = YES;
         
         CLLocationCoordinate2D locationFirst;
-        locationFirst.latitude = 48.8f;
-        locationFirst.longitude = 2.35f;
-        
         CLLocationCoordinate2D locationSecond;
-        locationSecond.latitude = 43.29;
-        locationSecond.longitude = 5.3f;
         
-        CLLocationCoordinate2D southWest = locationFirst;
-        CLLocationCoordinate2D northEast = locationSecond;
-        
-        MKPointAnnotation *m = [[MKPointAnnotation alloc] init];
-        [m setCoordinate:southWest];
-        MKPointAnnotation *m2 = [[MKPointAnnotation alloc] init];
-        [m2 setCoordinate:northEast];
-        
-        [self.mapView addAnnotation:m];
-        [self.mapView addAnnotation:m2];
-     
-        
-        CLLocation *locSouthWest = [[CLLocation alloc] initWithLatitude:southWest.latitude longitude:southWest.longitude];
-        CLLocation *locNorthEast = [[CLLocation alloc] initWithLatitude:northEast.latitude longitude:northEast.longitude];
-        CLLocationDistance meters = [locSouthWest getDistanceFrom:locNorthEast];
-        
-        MKCoordinateRegion region;
-        region.center.latitude = (southWest.latitude + northEast.latitude) / 2.0;
-        region.center.longitude = (southWest.longitude + northEast.longitude) / 2.0;
-        region.span.latitudeDelta = meters / 111319.5;
-        region.span.longitudeDelta = 0.0;
-        
-        MKCoordinateRegion rRegion = [self.mapView regionThatFits:region];
-        [self.mapView setRegion:rRegion animated:YES];
-        [self traceRoute:southWest:northEast];
-        
+
     }
 }
 
@@ -114,7 +182,7 @@
     
     [direction calculateDirectionsWithCompletionHandler: ^(MKDirectionsResponse *response, NSError *error)
     {
-        NSLog(@"response = %@",response);
+        //NSLog(@"response = %@",response);
         NSArray *arrRoutes = [response routes];
         [arrRoutes enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             
@@ -122,16 +190,16 @@
             
             MKPolyline *line = [rout polyline];
             [self.mapView addOverlay:line];
-            NSLog(@"Rout Name : %@",rout.name);
-            NSLog(@"Total Distance (in Meters) :%f",rout.distance);
+        //    NSLog(@"Rout Name : %@",rout.name);
+         //   NSLog(@"Total Distance (in Meters) :%f",rout.distance);
             
             NSArray *steps = [rout steps];
             
-            NSLog(@"Total Steps : %d",[steps count]);
+          //  NSLog(@"Total Steps : %d",[steps count]);
             
             [steps enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-                NSLog(@"Rout Instruction : %@",[obj instructions]);
-                NSLog(@"Rout Distance : %f",[obj distance]);
+            //    NSLog(@"Rout Instruction : %@",[obj instructions]);
+              //  NSLog(@"Rout Distance : %f",[obj distance]);
             }];
         }];
     }];
@@ -168,15 +236,7 @@
 }
 
 
-        
-    /*
-    [UIView animateWithDuration:1.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut
-                     animations:^(void) {
-                         self.actuReverseButton.viewForBaselineLayout.transform = CGAffineTransformMakeScale(1, -1);
-                     }
-                     completion:nil];
 
-    */
 
     
 
@@ -294,6 +354,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     _datstop = YES;
+
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -303,7 +364,7 @@
    _datstop = NO;
    [self performSelector:@selector(mapAnim) withObject:nil afterDelay:2.5];
     [self actuAnim];
-    [self resaMineAnim];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated

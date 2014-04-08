@@ -35,7 +35,9 @@
 @property (assign)         float startLng;
 @property (assign)         float endLat;
 @property (assign)         float endLng;
-
+@property (strong)         NSMutableArray *latLng;
+@property (assign)         BOOL isResa;
+@property (strong)         NSMutableDictionary *resaUpdate;
 
 
 - (IBAction)goToMap:(id)sender;

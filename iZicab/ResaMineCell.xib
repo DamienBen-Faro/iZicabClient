@@ -61,21 +61,14 @@
                         <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKy-Ru-dgh">
-                        <rect key="frame" x="257" y="6" width="30" height="30"/>
+                        <rect key="frame" x="257" y="23" width="30" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="ButtonChange.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="El2-gG-7Fk">
-                        <rect key="frame" x="257" y="44" width="30" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" image="ButtonView.png">
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4VN-42-AOl">
-                        <rect key="frame" x="257" y="82" width="30" height="30"/>
+                        <rect key="frame" x="257" y="72" width="30" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="ButtonDelete.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -103,7 +96,6 @@
                 <outlet property="deleteResa" destination="4VN-42-AOl" id="IGc-Sh-uzW"/>
                 <outlet property="hour" destination="cbO-37-jVS" id="hC8-0A-DRH"/>
                 <outlet property="modif" destination="fKy-Ru-dgh" id="RWd-vw-lN4"/>
-                <outlet property="see" destination="El2-gG-7Fk" id="9S1-xl-Ssa"/>
                 <outlet property="startAddress" destination="MDC-C0-Nmd" id="X0s-NT-Uwn"/>
                 <outlet property="startEndress" destination="cds-Cv-eus" id="JvZ-CV-Odn"/>
             </connections>
@@ -112,7 +104,6 @@
     <resources>
         <image name="ButtonChange.png" width="30" height="30"/>
         <image name="ButtonDelete.png" width="30" height="30"/>
-        <image name="ButtonView.png" width="30" height="30"/>
         <image name="pinArrive.png" width="23" height="30"/>
         <image name="pinDepart.png" width="23" height="30"/>
     </resources>

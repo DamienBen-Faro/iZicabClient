@@ -32,11 +32,11 @@
     l.textAlignment = NSTextAlignmentCenter;
     l.lineBreakMode = NSLineBreakByWordWrapping;
     l.numberOfLines = 2;
-    
+    //[[UIApplication sharedApplication] setStatusBarHidden:NO
+      //                                      withAnimation:UIStatusBarAnimationFade];
     
     UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 30)];
     whiteView.backgroundColor = [UIColor whiteColor];
-    
     [v addSubview:whiteView];
     [v addSubview:l];
     [self insertSubview:v atIndex:0];

@@ -25,16 +25,29 @@
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    self.name.text = [defaults objectForKey:@"userName"];
+    self.phone.text = [defaults objectForKey:@"phone"];
+    self.email.text = [defaults objectForKey:@"email"];
     
-    UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:dismissKeyboard];
+    self.passBtn.titleLabel.text = [defaults objectForKey:@"passBtn"] ?  [defaults objectForKey:@"passBtn"] : @"1";
+    self.luggBtn.titleLabel.text = [defaults objectForKey:@"luggBtn"] ?  [defaults objectForKey:@"luggBtn"] : @"1";
+    
+    self.babySeat.selected = [[defaults objectForKey:@"babySeat"] boolValue] ?  [[defaults objectForKey:@"babySeat"] boolValue]: NO;
+    self.paper.selected = [[defaults objectForKey:@"paper"] boolValue] ?  [[defaults objectForKey:@"paper"] boolValue]: NO;
+    self.wifi.selected = [[defaults objectForKey:@"wifi"] boolValue] ?  [[defaults objectForKey:@"wifi"] boolValue]: NO;
+    
+    
+    //UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
+    //[self.view addGestureRecognizer:dismissKeyboard];
 }
 
-- (void)dismissKeyboard {
-    [self.email resignFirstResponder];
+- (void)dismissKeyboard
+{
+    /*[self.email resignFirstResponder];
     [self.familyName resignFirstResponder];
     [self.phone resignFirstResponder];
-    [self.firstName resignFirstResponder];
+    [self.firstName resignFirstResponder];*/
 }
 
 
@@ -106,6 +119,29 @@
         ((UIButton *)sender).selected = YES;
 }
 
+
+- (IBAction)save:(id)sender
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults setValue:self.passBtn.titleLabel.text forKey:@"passBtn"];
+    [defaults setValue:self.luggBtn.titleLabel.text forKey:@"luggBtn"];
+    
+    [defaults setValue:[NSString stringWithFormat:@"%i",self.babySeat.selected] forKey:@"babySeat"];
+    [defaults setValue:[NSString stringWithFormat:@"%i",self.paper.selected] forKey:@"paper"];
+    [defaults setValue:[NSString stringWithFormat:@"%i",self.wifi.selected] forKey:@"wifi"];
+    [defaults synchronize];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                    message:@"Options sauvegardée"
+                                                   delegate:self
+                                          cancelButtonTitle:@"ok"
+                                          otherButtonTitles:nil];
+    [alert show];
+
+
+    
+}
 
 - (void)didReceiveMemoryWarning
 {

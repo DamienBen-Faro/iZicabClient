@@ -39,6 +39,12 @@
     self.email.tag = 120;
     self.password.tag = 160;
     
+    self.familyName.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    self.firstName.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+        self.phone.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+        self.email.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+        self.password.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    
     UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:dismissKeyboard];
     
@@ -98,6 +104,9 @@
         {
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setValue:_phone.text forKey:@"phone"];
+            [defaults setValue:_email.text forKey:@"email"];
+            [defaults setValue:[NSString stringWithFormat:@"%@ %@", _familyName.text , _firstName.text ] forKey:@"userName"];
+            
             [defaults setValue:[dict objectForKey:@"data"] forKey:@"userId"];
             [defaults setValue:@"NO" forKey:@"isActivated"];
             [[UserInfoSingleton sharedUserInfo] setUserId:[dict objectForKey:@"data"]];
@@ -123,6 +132,8 @@
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];
             [alert show];
+            NSString* dataStr = [[NSString alloc] initWithData:_data encoding:NSASCIIStringEncoding];
+            NSLog(@"%@", dataStr);
         }
         
     };
@@ -136,7 +147,8 @@
 
 - (IBAction)sendSubscribe:(id)sender
 {
-        [ConnectionData sendReq: @"account/createPrivateUser": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:@"login", _phone.text, @"idDevice", @"ios", @"password", _password.text, @"email", _email.text, @"name", _firstName.text, @"familyName", _familyName.text ,nil]];
+        [ConnectionData sendReq: @"account/createPrivateUser": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:_phone.text, @"login" , @"ios" ,@"idDevice", _password.text,
+                                                                                       @"password", _email.text, @"email", _firstName.text,  @"name", _familyName.text,  @"familyName" ,nil]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -153,6 +165,8 @@
     CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
     [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"SIGN UP"];
+    
+
     
 }
 
