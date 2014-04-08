@@ -51,7 +51,7 @@
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
             [self.arr removeAllObjects];
-            if ([dict objectForKey:@"data"]  > 0 && ![[dict objectForKey:@"data"] isEqualToString:@"empty"])
+            if ([dict objectForKey:@"data"]  > 0 && [[dict objectForKey:@"data"] isKindOfClass:[NSArray class]])
             {
              self.arr = [[NSMutableArray alloc] init];
              for (NSMutableArray * it in ((NSMutableArray*)dict[@"data"]))

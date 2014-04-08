@@ -67,12 +67,13 @@
         
         NSLog(@"%@", dict);
         
+        
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
             
             
            
-            if ([dict objectForKey:@"data"]  > 0 && ![[dict objectForKey:@"data"] isEqualToString:@"empty"])
+            if ([dict objectForKey:@"data"]  > 0 && [[dict objectForKey:@"data"] isKindOfClass:[NSArray class]])
             {
 
                 NSString *pos = [dict objectForKey:@"data"][0][@"tripdatetime"] ? [dict objectForKey:@"data"][0][@"tripdatetime"] : @"" ;
@@ -88,8 +89,19 @@
                 endMap.latitude =  [((NSString *)[dict objectForKey:@"data"][0][@"endLat"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"endLat"]) floatValue] : 0.0;
                 endMap.longitude =  [((NSString *)[dict objectForKey:@"data"][0][@"endLng"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"endLng"]) floatValue] : 0.0;
                 
+  
+          
+                
                [self mapResa: startMap: endMap];
                 [self resaMineAnim];
+            }
+            else
+            {
+                UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.resaMineView.frame.size.width, self.resaMineView.frame.size.height)];
+                
+                [imgV setImage:[UIImage imageNamed:@"MesResa@2x"]];
+                [imgV setTag:422];
+                [self.resaMineView addSubview:imgV];
             }
         }
         else

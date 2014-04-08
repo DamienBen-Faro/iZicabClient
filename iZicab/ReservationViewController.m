@@ -52,7 +52,7 @@
 {
     [self loadUserData];
     self.autocompleteTableView = [[UITableView alloc] initWithFrame:
-                             CGRectMake(0, 20, 320, 120) style:UITableViewStylePlain];
+                             CGRectMake(0, 99, 320, 500) style:UITableViewStylePlain];
     self.autocompleteTableView.delegate = self;
     self.autocompleteTableView.dataSource = self;
     self.autocompleteTableView.scrollEnabled = YES;
@@ -297,6 +297,9 @@
         self.endLat = [self.latLng[[indexPath row]][@"lat"] floatValue];
         self.endLng = [self.latLng[[indexPath row]][@"lng"] floatValue];
     }
+    [self.startAddress resignFirstResponder];
+    [self.endAddress resignFirstResponder];
+
 }
 
 - (IBAction)selectAddr:(id)sender
@@ -316,6 +319,8 @@
         self.endLat = [[((NSDictionary *)[self.latLng objectAtIndex:[sender tag]]) objectForKey:@"lat"] floatValue ];
         self.endLng = [[((NSDictionary *)[self.latLng objectAtIndex:[sender tag]]) objectForKey:@"lng"] floatValue ];
     }
+    [self.startAddress resignFirstResponder];
+    [self.endAddress resignFirstResponder];
 }
 
 - (void)goBack
