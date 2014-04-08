@@ -35,6 +35,12 @@
     
 }
 
+- (void)goBack
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     
