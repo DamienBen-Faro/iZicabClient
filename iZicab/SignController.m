@@ -58,7 +58,7 @@
     };
 }
 
-- (void)goback
+- (void)goBack
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -78,7 +78,7 @@
 
     CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"IZICAB"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@""];
     
 }
 

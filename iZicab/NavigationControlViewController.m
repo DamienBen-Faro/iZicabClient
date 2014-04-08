@@ -24,9 +24,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view insertSubview:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]] atIndex:0];
     
-   
+    UIImageView *img =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bg"]];
+    [img setFrame:CGRectMake(0, 0, img.frame.size.width, img.frame.size.height)];
+    [self.view insertSubview:img atIndex:0];
+    
+    
     self.navigationItem.titleView.hidden = YES;
     CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
 	[self setValue:navigationBar forKey:@"navigationBar"];

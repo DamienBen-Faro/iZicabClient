@@ -52,8 +52,9 @@
     
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return NO;
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 - (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))readMine
@@ -71,7 +72,7 @@
             
             
            
-            if ([dict objectForKey:@"data"]  > 0)
+            if ([dict objectForKey:@"data"]  > 0 && ![[dict objectForKey:@"data"] isEqualToString:@"empty"])
             {
 
                 NSString *pos = [dict objectForKey:@"data"][0][@"tripdatetime"] ? [dict objectForKey:@"data"][0][@"tripdatetime"] : @"" ;

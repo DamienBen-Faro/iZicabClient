@@ -28,6 +28,7 @@
 	<array>
 		<string>Roboto-Thin.ttf</string>
 		<string>Roboto-Regular.ttf</string>
+		<string>Roboto-Light.ttf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>Main_iPhone</string>

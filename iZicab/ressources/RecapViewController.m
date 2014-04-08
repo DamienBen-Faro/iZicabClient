@@ -39,7 +39,7 @@
     [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"RECAPITULATIF"];
 }
 
-- (void)goback
+- (void)goBack
 {
     [self.navigationController popViewControllerAnimated:YES];
 }

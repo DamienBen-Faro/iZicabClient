@@ -18,30 +18,63 @@
     return self;
 }
 
-
+/*
+ UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 110)];
+ v.backgroundColor = [UIColor clearColor];
+ 
+ UILabel *l =[[UILabel alloc] initWithFrame:CGRectMake(12.5f, 30, self.frame.size.width - 25, 90)];
+ l.text = _titleNavBar;
+ l.textColor = [UIColor whiteColor];
+ l.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+ l.textAlignment = NSTextAlignmentCenter;
+ l.lineBreakMode = NSLineBreakByWordWrapping;
+ l.numberOfLines = 2;
+ //[[UIApplication sharedApplication] setStatusBarHidden:NO
+ //                                      withAnimation:UIStatusBarAnimationFade];
+ 
+ UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 30)];
+ whiteView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.3];
+ 
+ UIImageView *fondu = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 86)];
+ fondu.image = [UIImage imageNamed:@"fondu"];
+ 
+ 
+ [v addSubview:whiteView];
+ [v addSubview:fondu];
+ [v addSubview:l];
+ [self insertSubview:v atIndex:0];
+ 
+ */
 
 - (void)drawRect:(CGRect)rect
 {
+
+   // [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    
     UIView *v = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 110)];
     v.backgroundColor = [UIColor clearColor];
     
-    UILabel *l =[[UILabel alloc] initWithFrame:CGRectMake(12.5f, 30, self.frame.size.width - 25, 90)];
+    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 30, self.frame.size.width, 70)];
+    whiteView.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.3];
+    
+    UIImageView *fondu = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 110)];
+    fondu.image = [UIImage imageNamed:@"fondu"];
+    
+    UILabel *l =[[UILabel alloc] initWithFrame:CGRectMake(25, 19, self.frame.size.width - 50, 90)];
     l.text = _titleNavBar;
     l.textColor = [UIColor whiteColor];
-    l.font = [UIFont fontWithName:@"Roboto-Thin" size:34.0];
+    l.font = [UIFont fontWithName:@"Roboto-Thin" size:30.0];
     l.textAlignment = NSTextAlignmentCenter;
     l.lineBreakMode = NSLineBreakByWordWrapping;
     l.numberOfLines = 2;
-    //[[UIApplication sharedApplication] setStatusBarHidden:NO
-      //                                      withAnimation:UIStatusBarAnimationFade];
-    
-    UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 30)];
-    whiteView.backgroundColor = [UIColor whiteColor];
+
+
+    self.frame = CGRectMake(0, 0, self.frame.size.width, 110);
+    [v insertSubview:fondu atIndex:0];
     [v addSubview:whiteView];
-    [v addSubview:l];
+   
     [self insertSubview:v atIndex:0];
-    self.frame = CGRectMake(0, -10, self.frame.size.width, self.frame.size.height);
- 
+    [self addSubview:l];
 }
 
 
