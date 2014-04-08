@@ -1867,19 +1867,15 @@ Roissy-en-France 95700</string>
         <image name="Account@2X.png" width="320" height="300"/>
         <image name="ActuImageFull.png" width="300" height="210"/>
         <image name="ButtonMap.png" width="30" height="30"/>
-        <image name="ButtonMap.png" width="30" height="30"/>
         <image name="ElementAppli-01.png" width="263" height="262"/>
         <image name="Fleche.png" width="75" height="38"/>
         <image name="Fleche2.png" width="75" height="38"/>
         <image name="babyOff.png" width="130" height="130"/>
-        <image name="babyOff.png" width="130" height="130"/>
-        <image name="babyOn.png" width="130" height="130"/>
         <image name="babyOn.png" width="130" height="130"/>
         <image name="backButtonBlue.png" width="50" height="65"/>
         <image name="bigLogo.png" width="129" height="120"/>
         <image name="buttonOff.png" width="20" height="20"/>
         <image name="buttonOn.png" width="20" height="20"/>
-        <image name="buttonPassenger.png" width="41" height="44"/>
         <image name="buttonPassenger.png" width="41" height="44"/>
         <image name="connexion.png" width="146" height="30"/>
         <image name="facebook.png" width="72" height="72"/>
@@ -1890,43 +1886,23 @@ Roissy-en-France 95700</string>
         <image name="mail.png" width="72" height="72"/>
         <image name="menuBackBlue.png" width="50" height="65"/>
         <image name="minus.png" width="52" height="52"/>
-        <image name="minus.png" width="52" height="52"/>
-        <image name="minus.png" width="52" height="52"/>
-        <image name="minus.png" width="52" height="52"/>
         <image name="paperOff.png" width="130" height="130"/>
-        <image name="paperOff.png" width="130" height="130"/>
-        <image name="paperOn.png" width="130" height="130"/>
         <image name="paperOn.png" width="130" height="130"/>
         <image name="pinArrive.png" width="23" height="30"/>
         <image name="pinDepart.png" width="23" height="30"/>
         <image name="plus.png" width="52" height="52"/>
-        <image name="plus.png" width="52" height="52"/>
-        <image name="plus.png" width="52" height="52"/>
-        <image name="plus.png" width="52" height="52"/>
-        <image name="premiumOff.png" width="130" height="30"/>
         <image name="premiumOff.png" width="130" height="30"/>
         <image name="premiumOn.png" width="130" height="30"/>
         <image name="resa.png" width="192" height="30"/>
         <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="separateurDouble.png" width="540" height="7"/>
         <image name="separateurDouble.png" width="540" height="7"/>
         <image name="sms.png" width="72" height="72"/>
         <image name="standardOff.png" width="130" height="30"/>
-        <image name="standardOff.png" width="130" height="30"/>
         <image name="standardOn.png" width="130" height="30"/>
-        <image name="suitcase.png" width="82" height="89"/>
         <image name="suitcase.png" width="82" height="89"/>
         <image name="twitter.png" width="72" height="72"/>
         <image name="validation.png" width="146" height="30"/>
-        <image name="validation.png" width="146" height="30"/>
-        <image name="validation.png" width="146" height="30"/>
-        <image name="validation.png" width="146" height="30"/>
         <image name="wifiOff.png" width="130" height="130"/>
-        <image name="wifiOff.png" width="130" height="130"/>
-        <image name="wifiOn.png" width="130" height="130"/>
         <image name="wifiOn.png" width="130" height="130"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
