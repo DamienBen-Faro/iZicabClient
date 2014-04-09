@@ -102,10 +102,12 @@
              if ( self.premium.selected)
                  isPremium = @"premium";
 
-             [ConnectionData sendReq: @"linkRelation/getFormulaPrice": [self priceEstimation]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                                                                                 isPremium, @"type",
-                                                                                               [NSString stringWithFormat:@"%f", rout.distance / 1000],  @"distance"
-                                                                                                ,nil]];
+
+             
+             [[ConnectionData sharedConnectionData] beginService: @"linkRelation/getFormulaPrice":[[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                                                                   isPremium, @"type",
+                                                                                                   [NSString stringWithFormat:@"%f", rout.distance / 1000],  @"distance"
+                                                                                                   ,nil] :@selector(callBackController:):self];
          
          }];
      }];
@@ -115,12 +117,11 @@
 
 
 
-- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error)) priceEstimation
+- (void)callBackController:(NSDictionary *)dict
 {
-    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
         
         NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
         
  
         NSString *isPremium = @"standard";
@@ -138,8 +139,7 @@
                                                   otherButtonTitles:nil];
             [alert show];
         }
-        
-    };
+    
 
 }
 
@@ -212,12 +212,10 @@
     [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
 }
 
-- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))sendResa
+- (void)sendResa:(NSDictionary *)dict
 {
-    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
-        
        NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
         
         NSLog(@"%@", dict);
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
@@ -244,19 +242,16 @@
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];
             [alert show];
-            NSString* dataStr = [[NSString alloc] initWithData:_data encoding:NSASCIIStringEncoding];
-            NSLog(@"wat:%@", dataStr);
+
         }
       
-    };
 }
 
-- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))updateResa
+- (void)updateResa:(NSDictionary *)dict
 {
-    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
         
         NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
         
         NSLog(@"%@", dict);
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
@@ -284,8 +279,6 @@
                                                   otherButtonTitles:nil];
             [alert show];
         }
-        
-    };
 }
 
 
@@ -332,15 +325,14 @@
 
     //NSLog(@"%@/%@", params , self.passenger.text);
     if (self.resaCtrl.isResa)
-        [ConnectionData sendReq: @"reservation/update": [self updateResa]: self: params];
+         [[ConnectionData sharedConnectionData] beginService: @"reservation/update" :params :@selector(updateResa:):self];
     else
-        [ConnectionData sendReq: @"reservation/create": [self sendResa]: self: params];
-    
-}
+          [[ConnectionData sharedConnectionData] beginService: @"reservation/create" :params :@selector(sendResa:):self];
+  }
 
 - (void)goBack
 {
-              [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
     

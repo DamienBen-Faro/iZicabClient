@@ -92,12 +92,10 @@
 
 
 
-- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))checkAcc
+- (void)callBackController:(NSDictionary *)dict
 {
-    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
-        
         NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
         
         NSLog(@"%@", dict);
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
@@ -132,11 +130,9 @@
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];
             [alert show];
-            NSString* dataStr = [[NSString alloc] initWithData:_data encoding:NSASCIIStringEncoding];
-            NSLog(@"%@", dataStr);
+
         }
-        
-    };
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -147,13 +143,14 @@
 
 - (IBAction)sendSubscribe:(id)sender
 {
-        [ConnectionData sendReq: @"account/createPrivateUser": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:_phone.text, @"login" , @"ios" ,@"idDevice", _password.text,
-                                                                                       @"password", _email.text, @"email", _firstName.text,  @"name", _familyName.text,  @"familyName" ,nil]];
+    
+    [[ConnectionData sharedConnectionData] beginService: @"account/createPrivateUser": [[NSMutableDictionary alloc] initWithObjectsAndKeys:_phone.text, @"login" , @"ios" ,@"idDevice", _password.text, @"password", _email.text, @"email", _firstName.text,  @"name", _familyName.text,  @"familyName" ,nil] :@selector(callBackController:):self];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
+        [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];

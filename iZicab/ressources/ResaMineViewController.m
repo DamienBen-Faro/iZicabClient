@@ -12,6 +12,8 @@
 #import "ReservationViewController.h"
 #import "InvoiceViewController.h"
 #import "ConnectionData.h"
+#import "DashboardViewController.h"
+
 
 @implementation ResaMineViewController
 
@@ -30,24 +32,15 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    
-    [ConnectionData sendReq: @"reservation/readAllMinePrivateUser": [self readMine]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                                                                             [defaults objectForKey:@"userId"], @"userId"
-                                                                                             ,nil]];
+    [[ConnectionData sharedConnectionData] beginService: @"reservation/readAllMinePrivateUser":[[NSMutableDictionary alloc] initWithObjectsAndKeys:                                                                                                                 [defaults objectForKey:@"userId"], @"userId", nil] :@selector(callBackController:):self];
+
 }
 
-
-
-- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))readMine
+- (void)callBackController:(NSDictionary *)dict
 {
  
-     return ^(NSURLResponse *_response, NSData *_data, NSError *_error)
-    {
         NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
-        
-        NSLog(@"%@", dict);
-        
+    
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
             [self.arr removeAllObjects];
@@ -69,7 +62,7 @@
             [alert show];
         }
 
-    };
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -120,7 +113,13 @@
 }
 
 
-
+- (void) goToDash
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
+    [self.navigationController pushViewController:ctrl animated:YES];
+    
+}
 
 - (void)goBack
 {
@@ -136,6 +135,8 @@
     [CATransaction commit];
     
 }
+
+
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -214,22 +215,22 @@
 }
 
 
-- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))delResa
+- (void)delResa:(NSDictionary *)dict
 {
     
-    return ^(NSURLResponse *_response, NSData *_data, NSError *_error)
-    {
+
         NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
         
         NSLog(@"%@", dict);
         
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
              NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [ConnectionData sendReq: @"reservation/readAllMinePrivateUser": [self readMine]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                                                                                    [defaults objectForKey:@"userId"],  @"userId"
-                                                                                                    ,nil]];
+            [[ConnectionData sharedConnectionData] beginService: @"reservation/readAllMinePrivateUser":[[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                                                                        [defaults objectForKey:@"userId"],  @"userId"
+                                                                                                        ,nil] :@selector(callBackController:):self];
+
         }
         else
         {
@@ -242,16 +243,18 @@
 
         }
         
-    };
+
 }
 
 
 - (IBAction)deleteResa:(id)sender
 {
     NSLog(@"%@", self.arr[[sender tag]][@"id"]);
-    [ConnectionData sendReq: @"reservation/delete": [self delResa]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                                                                              self.arr[[sender tag]][@"id"],@"resaId"
-                                                                                            ,nil]];
+
+    
+    [[ConnectionData sharedConnectionData] beginService: @"reservation/delete":[[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                                                self.arr[[sender tag]][@"id"],@"resaId"
+                                                                                ,nil] :@selector(callBackController:):self];
    
     
 }

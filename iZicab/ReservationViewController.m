@@ -15,14 +15,7 @@
 
 @implementation ReservationViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-    }
-    return self;
-}
+
 
 - (void)viewDidLoad
 {
@@ -81,7 +74,7 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    self.tiers.on = NO;
+    self.tiers.selected = NO;
     self.name.text = [defaults objectForKey:@"userName"];
     self.name.enabled = NO;
     self.name.backgroundColor = [UIColor lightGrayColor];
@@ -221,11 +214,13 @@
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
+
+
 - (IBAction)tiersAct:(id)sender
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    if (self.tiers.on)
+    if (!self.tiers.selected)
     {
         self.name.text = [defaults objectForKey:@"userName"];
         self.name.enabled = YES;
@@ -233,6 +228,7 @@
         self.phone.text = [defaults objectForKey:@"phone"];
         self.phone.enabled = YES;
         self.phone.backgroundColor = [UIColor whiteColor];
+        self.tiers.selected = YES;
     }
     else
     {
@@ -242,6 +238,7 @@
         self.phone.text = [defaults objectForKey:@"phone"];
         self.phone.enabled = NO;
         self.phone.backgroundColor = [UIColor lightGrayColor];
+        self.tiers.selected = NO;
     }
 }
 
@@ -321,7 +318,7 @@
 
 - (void)goBack
 {
-              [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
     

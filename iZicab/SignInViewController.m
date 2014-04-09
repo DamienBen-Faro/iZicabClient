@@ -107,9 +107,8 @@
 - (IBAction)connexion:(id)sender
 {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [ConnectionData sendReq: @"auth/log": [self checkCo]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys: _phone.text, @"login",  [defaults objectForKey:@"token"] , @"idDevice",  _password.text, @"password", @"privateUser", @"userType", nil]];
     
-    
+        [[ConnectionData sharedConnectionData] beginService: @"auth/log" :[[NSMutableDictionary alloc] initWithObjectsAndKeys: _phone.text, @"login",  [defaults objectForKey:@"token"] ? [defaults objectForKey:@"token"] : @"" , @"idDevice",  _password.text, @"password", @"privateUser", @"userType", nil] :@selector(callBackController:):self];
     
 
     [defaults setValue:_phone.text forKey:@"phone"];
@@ -117,12 +116,12 @@
 }
 
 
-- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))checkCo
+- (void)callBackController:(NSDictionary *)dict
 {
-    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
+
         
         NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
             dict = [dict objectForKey:@"data"];
@@ -149,11 +148,10 @@
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];
             [alert show];
-            NSString* dataStr = [[NSString alloc] initWithData:_data encoding:NSASCIIStringEncoding];
-            NSLog(@"%@", dataStr);
+
             
         }
-    };
+    
 }
 
 
@@ -161,7 +159,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     
-    
+        [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backBtnImage = [UIImage imageNamed:@"backButton@2x.png"];

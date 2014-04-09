@@ -27,7 +27,7 @@
     [super viewDidLoad];
     _datstop = NO;
    // self.mapView.hidden = YES;
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
     self.mapView.showsUserLocation = YES;
@@ -43,9 +43,11 @@
     
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [ConnectionData sendReq: @"reservation/readAllMinePrivateUser": [self readMine]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                                                                            [defaults objectForKey:@"userId"],  @"userId"
-                                                                                            ,nil]];
+    
+    [[ConnectionData sharedConnectionData] beginService: @"reservation/readAllMinePrivateUser" :[[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                                       [defaults objectForKey:@"userId"],  @"userId"
+                                                                       ,nil] :@selector(callBackController:):self];
+    
 
 
     
@@ -56,13 +58,10 @@
     return YES;
 }
 
-- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))readMine
+- (void)callBackController:(NSDictionary *)dict
 {
-    
-    return ^(NSURLResponse *_response, NSData *_data, NSError *_error)
-    {
         NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
         
         NSLog(@"%@", dict);
         
@@ -113,7 +112,6 @@
             [alert show];
         }
         
-    };
 }
 
 
@@ -266,9 +264,9 @@
                         {
                                  //[NSThread sleepForTimeInterval:5.5];
                         if (isFirst)
-                            [self performSelector:@selector(actuAnim) withObject:nil afterDelay:5.5];
+                            [self performSelector:@selector(actuAnim) withObject:nil afterDelay:15.5];
                         else
-                            [self performSelector:@selector(actuAnim) withObject:nil afterDelay:5.5];
+                            [self performSelector:@selector(actuAnim) withObject:nil afterDelay:18.5];
                     }];
     
 }
@@ -302,9 +300,9 @@
                     completion:^(BOOL finished)
                     {
                         if (isFirst)
-                            [self performSelector:@selector(mapAnim) withObject:nil afterDelay:5.5];
+                            [self performSelector:@selector(mapAnim) withObject:nil afterDelay:15.5];
                         else
-                            [self performSelector:@selector(mapAnim) withObject:nil afterDelay:5.5];
+                            [self performSelector:@selector(mapAnim) withObject:nil afterDelay:18.5];
                     }];
     
 }
@@ -339,9 +337,9 @@
                     completion:^(BOOL finished) {
                         //[NSThread sleepForTimeInterval:5.5];
                         if (isFirst)
-                            [self performSelector:@selector(resaMineAnim) withObject:nil afterDelay:1.5];
+                            [self performSelector:@selector(resaMineAnim) withObject:nil afterDelay:17.5];
                         else
-                            [self performSelector:@selector(resaMineAnim) withObject:nil afterDelay:1.5];
+                            [self performSelector:@selector(resaMineAnim) withObject:nil afterDelay:17.5];
                     }];
 }
 
@@ -364,9 +362,10 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
+  //  [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
+
 
 
 

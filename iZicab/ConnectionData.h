@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ConnectionData : NSObject
+@interface ConnectionData : NSObject<NSURLConnectionDelegate>
 {}
 
 @property (strong) IBOutlet UITextField *phone;
 @property (strong) IBOutlet UITextField *code;
+@property (strong)          UIActivityIndicatorView* spinner;
+@property (assign)          SEL pointeeFunction;
+@property (strong)          id  delegateController;
 
-+ (void)sendReq:(NSString *)serviceName:(void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))completion:(id)delegateController:(NSMutableDictionary *)params;
+- (void)beginService:(NSString *)serviceName:(NSMutableDictionary *)params:(SEL)pointeeFunction:(id)delegateController;
++ (id)sharedConnectionData;
 
 @end

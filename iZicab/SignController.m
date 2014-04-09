@@ -19,43 +19,25 @@
     [super viewDidLoad];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [ConnectionData sendReq: @"auth/checkUserActivated": [self checkAcc]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys: [defaults objectForKey:@"phone"] ? [defaults objectForKey:@"phone"] : @"", @"phone",  [defaults objectForKey:@"token"] , @"idDevice", nil]];
+    
+    [[ConnectionData sharedConnectionData] beginService: @"auth/checkUserActivated" :[[NSMutableDictionary alloc] initWithObjectsAndKeys: [defaults objectForKey:@"phone"] ? [defaults objectForKey:@"phone"] : @"", @"phone",  [defaults objectForKey:@"token"] , @"idDevice", nil] :@selector(callBackController:):self];
+
 
 }
 
 
-- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))checkAcc
+- (void)callBackController:(NSDictionary *)dict
 {
-    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
-        
+
         NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             if (((NSString *)[defaults objectForKey:@"phone"]).length  != 0 && [[defaults objectForKey:@"isActivated"] isEqualToString:@"YES"])
                 [self noNeedToSign];
         }
-        /*else
-        {
-            NSLog(@"%@",  [[NSString alloc] initWithData:_data encoding:NSUTF8StringEncoding]);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"ok"
-                                                  otherButtonTitles:nil];
-            [alert show];
-            
-            
-            if ([dict objectForKey:@"error"])
-            {
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-                DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CodeViewController"];
-                [self.navigationController pushViewController:ctrl animated:YES];
-            }
-        }*/
 
-    };
 }
 
 - (void)goBack
@@ -79,15 +61,18 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
     
-    [self.navigationController pushViewController:ctrl animated:YES];
+    [self.navigationController pushViewController:ctrl  animated:YES];
+     [UIView transitionWithView:self.navigationController.view duration:0.7 options:UIViewAnimationOptionTransitionFlipFromRight animations:nil completion:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    self.view.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-
-    CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
-	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@""];
+  [[self navigationController] setNavigationBarHidden:YES animated:NO];
     
 }
 

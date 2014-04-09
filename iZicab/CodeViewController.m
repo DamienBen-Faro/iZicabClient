@@ -37,12 +37,11 @@
 }
 
 
-- (void(^)(NSURLResponse *_response, NSData *_data, NSError *_error))finishSignup
+- (void)callBackController:(NSDictionary *)dict
 {
-    return ^(NSURLResponse *_response, NSData *_data, NSError *_error) {
-        
+    
         NSError *error;
-        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:_data options:NSJSONReadingMutableContainers error:&error];
+        
         
         
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
@@ -74,14 +73,16 @@
             [alert show];
         }
         
-    };
+
 }
 
 
 -(IBAction)activateAccount:(id)sender
 {
      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [ConnectionData sendReq: @"account/activePrivateUser": [self finishSignup]: self: [[NSMutableDictionary alloc] initWithObjectsAndKeys: [defaults objectForKey:@"userId"], @"userId", _code.text , @"code",nil]];
+
+    
+    [[ConnectionData sharedConnectionData] beginService: @"account/activePrivateUser":  [[NSMutableDictionary alloc] initWithObjectsAndKeys: [defaults objectForKey:@"userId"], @"userId", _code.text , @"code",nil] :@selector(callBackController:):self];
 
 }
 
