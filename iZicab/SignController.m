@@ -65,10 +65,7 @@
      [UIView transitionWithView:self.navigationController.view duration:0.7 options:UIViewAnimationOptionTransitionFlipFromRight animations:nil completion:nil];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    self.view.hidden = YES;
-}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {

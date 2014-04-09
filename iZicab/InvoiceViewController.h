@@ -22,8 +22,11 @@
 @property (strong) IBOutlet UILabel*        baby;
 @property (strong) IBOutlet UILabel*        passenger;
 @property (strong) IBOutlet UILabel*        paper;
+@property (strong) IBOutlet UILabel*        name;
+@property (strong) IBOutlet UILabel*        idResa;
 @property (strong) IBOutlet UILabel*        luggage;
 @property (strong) IBOutlet UILabel*        price;
+@property (strong) IBOutlet UILabel*        datId;
 @property (strong) IBOutlet UIButton*       standard;
 @property (strong) IBOutlet UIButton*       premium;
 @property (strong) IBOutlet UIButton*       validate;

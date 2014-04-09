@@ -31,6 +31,7 @@
     self.end.text = self.resaCtrl.endAddress.text;
     self.passenger.text = self.resaCtrl.passBtn.titleLabel.text;
     self.luggage.text = self.resaCtrl.luggBtn.titleLabel.text;
+    self.name.text = self.resaCtrl.name.text;
     
         self.start.font     = [UIFont fontWithName:@"Roboto-Thin" size:12.0];
         self.end.font       = [UIFont fontWithName:@"Roboto-Thin" size:12.0];
@@ -52,14 +53,19 @@
 
     
     [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
-    
+    self.datId.hidden = YES;
+    self.idResa.hidden = YES;
     if (self.isSeeing)
         [self showResaM];
+    
 
 }
 
 - (void) showResaM
 {
+    self.datId.hidden = NO;
+    self.idResa.hidden = NO;
+    
     self.date.text = self.resa[@"tripdatetime"];
         self.start.text = self.resa[@"startposition"];
         self.end.text = self.resa[@"endposition"];
@@ -67,7 +73,8 @@
        self.passenger.text = [NSString stringWithFormat:@"%@", self.resa[@"seat"]];
         self.luggage.text = [NSString stringWithFormat:@"%@", self.resa[@"luggage"]];
     self.price.text = [NSString stringWithFormat:@"%@ €", self.resa[@"invoicing"]];
-    
+      self.name.text = [NSString stringWithFormat:@"%@", self.resa[@"contactname"]];
+      self.idResa.text = [NSString stringWithFormat:@"%@", self.resa[@"id"]];
     self.validate.hidden = YES;
     self.premium.hidden = YES;
     self.standard.hidden = YES;
@@ -307,17 +314,17 @@
     [params setObject:isPremium forKey:@"tripType"];
     [params setObject:[NSString stringWithFormat:@"%@%@", [self.date.text componentsSeparatedByString:@" "][0], [self.date.text componentsSeparatedByString:@" "][1]] forKey: @"tripDateTime"];
     [params setObject: @"cash" forKey:@"paymentMode"];
-    [params setObject: _passenger.text forKey:@"seat"];
-    [params setObject: _luggage.text forKey:@"luggage"];
+    [params setObject: self.resaCtrl.passBtn.titleLabel.text forKey:@"seat"];
+    [params setObject: self.resaCtrl.luggBtn.titleLabel.text forKey:@"luggage"];
      [params setObject:@"no convention" forKey:@"convention"];
      [params setObject:@"waiting" forKey:@"status"];
      [params setObject: self.resaCtrl.name.text forKey:@"contactName"];
      [params setObject:@"empty" forKey:@"contactEmail"];
      [params setObject:self.resaCtrl.phone.text forKey:@"contactPhone"];
-    [params setObject:self.wifi.text forKey:@"wifi"];
+    [params setObject:[NSString stringWithFormat:@"%i", self.resaCtrl.wifi.selected] forKey:@"wifi"];
      [params setObject:self.price.text forKey:@"invoicing"];
-    [params setObject:self.paper.text forKey:@"magazine"];
-    [params setObject:self.baby.text forKey:@"babysit"];
+    [params setObject:[NSString stringWithFormat:@"%i", self.resaCtrl.paper.selected]  forKey:@"magazine"];
+    [params setObject:[NSString stringWithFormat:@"%i", self.resaCtrl.babySeat.selected]  forKey:@"babysit"];
     [params setObject:self.resaCtrl.resaUpdate[@"id"] ? self.resaCtrl.resaUpdate[@"id"] : @"0" forKey:@"resaId"];
 
     
@@ -332,7 +339,7 @@
 
 - (void)goBack
 {
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
     

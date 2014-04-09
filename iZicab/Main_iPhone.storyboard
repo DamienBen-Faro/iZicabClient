@@ -137,7 +137,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drm-ue-p9V">
-                                        <rect key="frame" x="0.0" y="30" width="320" height="1000"/>
+                                        <rect key="frame" x="0.0" y="-500" width="320" height="1000"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jKU-Dr-m3O" userLabel="nameView">
@@ -421,6 +421,8 @@
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DS6-9Y-2EY" userLabel="Button - baby">
                                                                 <rect key="frame" x="105" y="205" width="90" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <state key="normal" backgroundImage="paperOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -432,6 +434,8 @@
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iph-EW-0uc" userLabel="Button - paper">
                                                                 <rect key="frame" x="10" y="205" width="90" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <state key="normal" backgroundImage="babyOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -443,6 +447,8 @@
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfE-Me-ss1" userLabel="Button - wifi">
                                                                 <rect key="frame" x="200" y="205" width="90" height="90"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                                 <state key="normal" backgroundImage="wifiOff.png">
                                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                                 </state>
@@ -545,12 +551,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
         <!--Invoice View Controller-->
         <scene sceneID="oEj-Bi-1FW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZCw-tJ-hDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="K5D-Hb-uew">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="2"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                </imageView>
                 <viewController restorationIdentifier="InvoiceViewController" storyboardIdentifier="InvoiceViewController" id="WTm-sb-bGq" customClass="InvoiceViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D0r-fp-O7L"/>
@@ -754,8 +754,11 @@ Roissy-en-France 95700</string>
                     </view>
                     <navigationItem key="navigationItem" id="S3c-g6-X8j"/>
                     <connections>
+                        <outlet property="datId" destination="tn4-Z8-8aC" id="a6c-0n-rlJ"/>
                         <outlet property="date" destination="dpY-iZ-fFs" id="jd4-jY-NtS"/>
                         <outlet property="end" destination="m73-Z6-5bu" id="vUE-tA-8nj"/>
+                        <outlet property="idResa" destination="MbY-Bs-h4g" id="Vm5-s1-iph"/>
+                        <outlet property="name" destination="tSE-04-vAK" id="Agn-2K-0Kq"/>
                         <outlet property="premium" destination="jcv-tI-7gA" id="63W-Db-7dF"/>
                         <outlet property="price" destination="IIw-Yk-CiB" id="iN6-vV-VGv"/>
                         <outlet property="standard" destination="QN6-pt-upo" id="OKW-pD-wQf"/>
@@ -763,6 +766,12 @@ Roissy-en-France 95700</string>
                         <outlet property="validate" destination="ZGP-P4-klu" id="gkd-mz-NAp"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZCw-tJ-hDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="K5D-Hb-uew">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
             </objects>
             <point key="canvasLocation" x="1950" y="-642"/>
         </scene>
