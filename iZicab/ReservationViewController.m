@@ -180,8 +180,6 @@
    
     ctrl.fromResa = YES;
 
-    
-
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
