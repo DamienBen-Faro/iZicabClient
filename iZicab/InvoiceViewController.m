@@ -327,10 +327,7 @@
     [params setObject:[NSString stringWithFormat:@"%i", self.resaCtrl.babySeat.selected]  forKey:@"babysit"];
     [params setObject:self.resaCtrl.resaUpdate[@"id"] ? self.resaCtrl.resaUpdate[@"id"] : @"0" forKey:@"resaId"];
 
-    
-    
 
-    //NSLog(@"%@/%@", params , self.passenger.text);
     if (self.resaCtrl.isResa)
          [[ConnectionData sharedConnectionData] beginService: @"reservation/update" :params :@selector(updateResa:):self];
     else
