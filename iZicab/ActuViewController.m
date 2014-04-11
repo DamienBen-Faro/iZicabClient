@@ -34,10 +34,19 @@
     
 }
 
+- (void) viewWillDisappear:(BOOL)animated
+{
+      [[UIApplication sharedApplication] setStatusBarHidden:YES];
+     [super viewWillDisappear:animated];
+}
+
+
+
 - (void)goBack
 {
     
-          [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
     
@@ -47,6 +56,8 @@
     
     [self.navigationController popViewControllerAnimated:YES];
     [CATransaction commit];
+    
+
     
 }
 
@@ -63,8 +74,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 
-       [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    
+       [[self navigationController] setNavigationBarHidden:NO animated:NO];
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backBtnImage = [UIImage imageNamed:@"backButton@2x.png"];
     UIImage *backBtnImagePressed = [UIImage imageNamed:@"backButton@2x.png"];

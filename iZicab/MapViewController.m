@@ -33,12 +33,96 @@
     [imgV setFrame:CGRectMake(self.mapView.frame.size.width / 2 , (self.mapView.frame.size.height / 2) * coef, imgV.frame.size.width, imgV.frame.size.height)];
     [self.mapView addSubview:imgV];
    
-    
+
     self.startAddress.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     self.endAddress.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
 
+    if (self.fromResa)
+        [self infoFromResa];
 }
 
+
+- (void)infoFromResa
+{
+    CLLocationCoordinate2D  ctrpointStart;
+    CLLocationCoordinate2D  ctrpointEnd;
+    
+    self.startAddress.text = self.start;
+    self.endAddress.text = self.end;
+    
+    ctrpointStart.latitude = [self.latStartCo floatValue];
+        ctrpointStart.longitude = [self.lngStartCo floatValue];
+    
+        ctrpointEnd.latitude = [self.latEndCo floatValue];
+        ctrpointEnd.longitude = [self.lngEndCo floatValue];
+    
+    CLGeocoder *ceo = [[CLGeocoder alloc]init];
+    CLLocation *locStart = [[CLLocation alloc]initWithLatitude:ctrpointStart.latitude longitude:ctrpointStart.longitude];
+        CLLocation *locEnd = [[CLLocation alloc]initWithLatitude:ctrpointEnd.latitude longitude:ctrpointEnd.longitude];
+    
+    UIActivityIndicatorView *  spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [spin setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 2)];
+    [spin setColor:[UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1]];
+    [spin startAnimating];
+    spin.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2, 2);
+    [spin startAnimating];
+    [self.view addSubview:spin];
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
+    [ceo reverseGeocodeLocation: locStart completionHandler:
+     ^(NSArray *placemarks, NSError *error)
+     {
+         CLPlacemark *placemark = [placemarks objectAtIndex:0];
+         NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+         self.startAddress.text =locatedAt;
+         self.annotationFirst = [[MKPointAnnotation alloc] init];
+         [self.annotationFirst setCoordinate:ctrpointStart];
+         [self.annotationFirst setTitle:locatedAt];
+         [self.annotationFirst setSubtitle:@"Départ"];
+         [self.mapView addAnnotation:self.annotationFirst];
+         
+         
+
+         
+         [ceo reverseGeocodeLocation: locEnd completionHandler:
+          ^(NSArray *placemarks, NSError *error) {
+              CLPlacemark *placemark = [placemarks objectAtIndex:0];
+              NSLog(@"placemark %@",placemark);
+              //String to hold address
+              NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+              self.annotationSecond = [[MKPointAnnotation alloc] init];
+              [self.annotationSecond setCoordinate:ctrpointEnd];
+              [self.annotationSecond setTitle:locatedAt];
+              [self.annotationSecond setSubtitle:@"Arrivée"];
+              
+              
+              [self.mapView addAnnotation:self.annotationSecond];
+              
+              
+              
+              self.endAddress.text =locatedAt;
+              if (self.annotationSecond)
+                  [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
+              [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+              [spin stopAnimating];
+              [spin removeFromSuperview];
+              [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
+              
+              [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+              [spin stopAnimating];
+              [spin removeFromSuperview];
+              
+          }
+          
+          ];
+
+     }
+  ];
+    
+
+
+    
+}
 
 - (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation
 {
@@ -97,33 +181,39 @@
 
     ctrpoint = [self.mapView centerCoordinate];
     
-        [self.mapView removeAnnotation:self.annotationFirst];
+    [self.mapView removeAnnotation:self.annotationFirst];
     
-
-
-
     CLGeocoder *ceo = [[CLGeocoder alloc]init];
-    CLLocation *loc = [[CLLocation alloc]initWithLatitude:ctrpoint.latitude longitude:ctrpoint.longitude]; //insert your coordinates
+    CLLocation *loc = [[CLLocation alloc]initWithLatitude:ctrpoint.latitude longitude:ctrpoint.longitude];
+    
+    UIActivityIndicatorView *  spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [spin setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 2)];
+    [spin setColor:[UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1]];
+    [spin startAnimating];
+    spin.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2, 2);
+    [spin startAnimating];
+    [self.view addSubview:spin];
+  [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
     
     [ceo reverseGeocodeLocation: loc completionHandler:
      ^(NSArray *placemarks, NSError *error)
     {
          CLPlacemark *placemark = [placemarks objectAtIndex:0];
-
-        
          NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
          self.startAddress.text =locatedAt;
          self.annotationFirst = [[MKPointAnnotation alloc] init];
          [self.annotationFirst setCoordinate:ctrpoint];
          [self.annotationFirst setTitle:locatedAt];
          [self.annotationFirst setSubtitle:@"Départ"];
-
          [self.mapView addAnnotation:self.annotationFirst];
      
 
-        
-        
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+        [spin stopAnimating];
+        [spin removeFromSuperview];
          [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
+        
+        
      }
      
      ];
@@ -145,7 +235,15 @@
     // MKPinAnnotationView *result = [[MKPinAnnotationView alloc] initWithAnnotation:self.annotationSecond reuseIdentifier:Nil];
     // result.pinColor = 244;
     
-    
+    UIActivityIndicatorView *  spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [spin setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 2)];
+    [spin setColor:[UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1]];
+    [spin startAnimating];
+    spin.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2, 2);
+    [spin startAnimating];
+    [self.view addSubview:spin];
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+
     
     
     CLGeocoder *ceo = [[CLGeocoder alloc]init];
@@ -170,6 +268,12 @@
          self.endAddress.text =locatedAt;
          if (self.annotationSecond)
          [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
+         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+         [spin stopAnimating];
+         [spin removeFromSuperview];
+         [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
+         
+
          
      }
      
@@ -251,8 +355,6 @@
 
 -(IBAction)sendResa:(id)sender
 {
-
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     ReservationViewController* ctrl = (ReservationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ReservationViewController"];
     ctrl.startLat = self.annotationFirst.coordinate.latitude;
@@ -264,9 +366,13 @@
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
+
+
+
 - (IBAction)goBack:(id)sender
 {
-          [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    if (self.fromResa)
+          [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
     
@@ -292,7 +398,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     
-            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
 

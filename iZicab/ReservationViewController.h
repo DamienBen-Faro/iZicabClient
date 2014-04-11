@@ -25,7 +25,7 @@
 @property (strong)IBOutlet UIButton    *babySeat;
 @property (strong)IBOutlet UIButton    *paper;
 @property (strong)IBOutlet UIButton    *wifi;
-@property (strong)IBOutlet UIDatePicker*datePicker;
+@property (strong)         UIDatePicker*datePicker;
 @property (strong)         UITableView *autocompleteTableView;
 @property (strong)         NSMutableArray *autocompleteUrls;
 @property (assign)         BOOL isStartAddr;
@@ -38,6 +38,7 @@
 @property (strong)         NSMutableArray *latLng;
 @property (assign)         BOOL isResa;
 @property (strong)         NSMutableDictionary *resaUpdate;
+@property (strong)         UILabel *wroteAddr;
 
 
 - (IBAction)goToMap:(id)sender;

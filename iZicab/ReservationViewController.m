@@ -27,14 +27,31 @@
     self.endAddress.tag = 222;
     self.startAddress.text = self.startAddr;
     self.endAddress.text = self.endAddr;
-    [self.startAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [self.endAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.startAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventAllEditingEvents];
+    [self.endAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventAllEditingEvents];
 
     self.datePicker.hidden = YES;
     self.datePicker.backgroundColor = [UIColor whiteColor];
     self.latLng = [[NSMutableArray alloc] init];
     if (self.isResa)
         [self updateResa];
+
+    
+    NSDate *now = [NSDate date];
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
+    [components setHour:components.hour + 1];
+    NSDate *datDate = [calendar dateFromComponents:components];
+    
+    self.datePicker = [[UIDatePicker alloc] init];
+    self.datePicker.minimumDate = datDate;
+    self.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
+    self.datePicker.hidden = YES;
+    self.datePicker.backgroundColor = [UIColor whiteColor];
+    self.datePicker.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - self.datePicker.frame.size.height,  self.datePicker.frame.size.width,  self.datePicker.frame.size.height);
+    [self.view addSubview:self.datePicker];
+    
+    
 }
 
 
@@ -45,7 +62,8 @@
 {
     [self loadUserData];
     self.autocompleteTableView = [[UITableView alloc] initWithFrame:
-                             CGRectMake(0, 99, 320, 500) style:UITableViewStylePlain];
+                             CGRectMake(0, 130, 320, 500) style:UITableViewStylePlain];
+    
     self.autocompleteTableView.delegate = self;
     self.autocompleteTableView.dataSource = self;
     self.autocompleteTableView.scrollEnabled = YES;
@@ -53,6 +71,13 @@
     self.autocompleteUrls = [[NSMutableArray alloc] init];
     
 
+    self.wroteAddr = [[UILabel alloc] initWithFrame:CGRectMake(0, 90, 320, 40)];
+    self.wroteAddr.textAlignment = NSTextAlignmentCenter;
+    self.wroteAddr.font = [UIFont fontWithName:@"Roboto-Light" size:20.0];
+    self.wroteAddr.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:0.8];
+    self.wroteAddr.textColor = [UIColor whiteColor];
+    self.wroteAddr.hidden = YES;
+     [self.view addSubview:self.wroteAddr];
     
     [self.view addSubview:self.autocompleteTableView];
     UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(offAll:)];
@@ -104,7 +129,10 @@
         self.isStartAddr = NO;
         fieldSelected = self.endAddress.text;
     }
-    
+    self.wroteAddr.hidden = NO;
+    self.wroteAddr.text = ((UITextField *)sender).text;
+    if ( self.wroteAddr.text.length == 0)
+        self.wroteAddr.text = @"Annuler";
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:fieldSelected completionHandler:^(NSArray *placemarks, NSError *error) {
        
@@ -140,6 +168,20 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     MapViewController* ctrl = (MapViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+    
+    ctrl.start = self.startAddress.text;
+    ctrl.end = self.endAddress.text;
+
+    ctrl.latStartCo = [NSString stringWithFormat:@"%f", self.startLat ];
+    ctrl.lngStartCo = [NSString stringWithFormat:@"%f", self.startLng ];
+    
+    ctrl.latEndCo = [NSString stringWithFormat:@"%f", self.endLat ];
+    ctrl.lngEndCo = [NSString stringWithFormat:@"%f", self.endLng ];
+   
+    ctrl.fromResa = YES;
+
+    
+
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
@@ -152,10 +194,16 @@
 - (IBAction)offAll:(id)sender
 {
     self.datePicker.hidden = YES;
+   
+    
+    self.wroteAddr.hidden = YES;
     [self.startAddress resignFirstResponder];
     [self.endAddress resignFirstResponder];
     [self.phone resignFirstResponder];
     [self.phone resignFirstResponder];
+    if ([self.wroteAddr.text isEqual:@"Annuler"] || self.wroteAddr.text.length == 0)
+        self.autocompleteTableView.hidden = YES;
+  
 }
 
 
@@ -277,7 +325,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.autocompleteTableView.hidden = YES;
-    
+        self.wroteAddr.hidden = YES;
     if (self.isStartAddr)
     {
         self.startAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
@@ -298,7 +346,7 @@
 - (IBAction)selectAddr:(id)sender
 {
     self.autocompleteTableView.hidden = YES;
-    
+        self.wroteAddr.hidden = YES;
     if (self.isStartAddr)
     {
         self.startAddress.text = [self.autocompleteUrls objectAtIndex:[sender tag]];

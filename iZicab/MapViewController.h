@@ -20,4 +20,12 @@
 @property (assign)BOOL      isFirstPlacement;
 @property (strong)MKPolyline *line;
 
+//from resa
+@property (strong) NSString *start;
+@property (strong) NSString *end;
+@property (strong) NSString  *latStartCo;
+@property (strong) NSString  *lngStartCo;
+@property (strong) NSString  *latEndCo;
+@property (strong) NSString  *lngEndCo;
+@property (assign) BOOL       fromResa;
 @end

@@ -61,9 +61,30 @@
                                                   otherButtonTitles:nil];
             [alert show];
         }
-
-
 }
+
+- (void)callBackControllerDelete:(NSDictionary *)dict
+{
+    
+    NSError *error;
+    
+    if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+    {
+           NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [[ConnectionData sharedConnectionData] beginService: @"reservation/readAllMinePrivateUser":[[NSMutableDictionary alloc] initWithObjectsAndKeys:                                                                                                                 [defaults objectForKey:@"userId"], @"userId", nil] :@selector(callBackController:):self];
+
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -254,7 +275,9 @@
     
     [[ConnectionData sharedConnectionData] beginService: @"reservation/delete":[[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                                                                 self.arr[[sender tag]][@"id"],@"resaId"
-                                                                                ,nil] :@selector(callBackController:):self];
+                                                                                ,nil] :@selector(callBackControllerDelete:):self];
+    
+    
    
     
 }

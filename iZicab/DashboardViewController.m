@@ -352,7 +352,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
+        [[UIApplication sharedApplication] setStatusBarHidden:YES];
  //[NSThread detachNewThreadSelector:@selector(firstAnim) toTarget:self withObject:nil];
    _datstop = NO;
    [self performSelector:@selector(mapAnim) withObject:nil afterDelay:2.5];
@@ -362,7 +362,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-  //  [super viewWillAppear:animated];
+    [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 
