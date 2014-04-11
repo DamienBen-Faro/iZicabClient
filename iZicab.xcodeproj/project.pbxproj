@@ -97,14 +97,28 @@
 		E31C5F2A18E9B9B900727ABD /* ButtonView.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2718E9B9B900727ABD /* ButtonView.png */; };
 		E31C5F2B18E9B9B900727ABD /* ButtonDelete.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2818E9B9B900727ABD /* ButtonDelete.png */; };
 		E31C5F2C18E9B9B900727ABD /* ButtonChange.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2918E9B9B900727ABD /* ButtonChange.png */; };
+		E31D9AEC18F7DD40007BE3FD /* perso.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9AEB18F7DD40007BE3FD /* perso.png */; };
+		E31D9AEE18F7DFEC007BE3FD /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9AED18F7DFEC007BE3FD /* phone.png */; };
+		E31D9AF118F7E293007BE3FD /* buttonOn.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9AEF18F7E293007BE3FD /* buttonOn.png */; };
+		E31D9AF218F7E293007BE3FD /* buttonOff.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9AF018F7E293007BE3FD /* buttonOff.png */; };
+		E31D9AF518F7E3E4007BE3FD /* littlePin.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9AF318F7E3E4007BE3FD /* littlePin.png */; };
+		E31D9AF618F7E3E4007BE3FD /* flag.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9AF418F7E3E4007BE3FD /* flag.png */; };
+		E31D9AF818F7E7DD007BE3FD /* watch.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9AF718F7E7DD007BE3FD /* watch.png */; };
+		E31D9B0518F7F216007BE3FD /* carteOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0118F7F216007BE3FD /* carteOff@2x.png */; };
+		E31D9B0618F7F216007BE3FD /* especeOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0218F7F216007BE3FD /* especeOff@2x.png */; };
+		E31D9B0718F7F216007BE3FD /* carteOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0318F7F216007BE3FD /* carteOn@2x.png */; };
+		E31D9B0818F7F216007BE3FD /* especeOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0418F7F216007BE3FD /* especeOn@2x.png */; };
+		E31D9B0A18F7FCBF007BE3FD /* pinChauffeur@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0918F7FCBF007BE3FD /* pinChauffeur@2x.png */; };
+		E31D9B0C18F8002E007BE3FD /* retourPosition.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0B18F8002E007BE3FD /* retourPosition.png */; };
+		E31D9B0E18F80199007BE3FD /* cibleMap.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0D18F80199007BE3FD /* cibleMap.png */; };
+		E31D9B1018F801F7007BE3FD /* logoMap.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0F18F801F7007BE3FD /* logoMap.png */; };
+		E31D9B1218F806E3007BE3FD /* mail.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B1118F806E3007BE3FD /* mail.png */; };
 		E3249CA218E985D700BD23B1 /* ActuImage-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA118E985D700BD23B1 /* ActuImage-01.png */; };
 		E3249CA718E9973700BD23B1 /* Account@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA318E9973700BD23B1 /* Account@2X.png */; };
 		E3249CA818E9973700BD23B1 /* MesResa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA418E9973700BD23B1 /* MesResa@2x.png */; };
 		E3249CA918E9973700BD23B1 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA518E9973700BD23B1 /* map@2x.png */; };
 		E3249CAA18E9973700BD23B1 /* actu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA618E9973700BD23B1 /* actu@2x.png */; };
 		E3249CAC18E9998100BD23B1 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CAB18E9998100BD23B1 /* bg.png */; };
-		E32A6F7F18EAB78400460F78 /* buttonOn.png in Resources */ = {isa = PBXBuildFile; fileRef = E32A6F7D18EAB78400460F78 /* buttonOn.png */; };
-		E32A6F8018EAB78400460F78 /* buttonOff.png in Resources */ = {isa = PBXBuildFile; fileRef = E32A6F7E18EAB78400460F78 /* buttonOff.png */; };
 		E333E4A718F4131C007D5490 /* fondu@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E333E4A618F4131C007D5490 /* fondu@2X.png */; };
 		E333E4AA18F4133D007D5490 /* backButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E333E4A818F4133D007D5490 /* backButton@2x.png */; };
 		E333E4AB18F4133D007D5490 /* menuButton@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E333E4A918F4133D007D5490 /* menuButton@2X.png */; };
@@ -258,14 +272,28 @@
 		E31C5F2718E9B9B900727ABD /* ButtonView.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonView.png; sourceTree = "<group>"; };
 		E31C5F2818E9B9B900727ABD /* ButtonDelete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonDelete.png; sourceTree = "<group>"; };
 		E31C5F2918E9B9B900727ABD /* ButtonChange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonChange.png; sourceTree = "<group>"; };
+		E31D9AEB18F7DD40007BE3FD /* perso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perso.png; sourceTree = "<group>"; };
+		E31D9AED18F7DFEC007BE3FD /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		E31D9AEF18F7E293007BE3FD /* buttonOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonOn.png; sourceTree = "<group>"; };
+		E31D9AF018F7E293007BE3FD /* buttonOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonOff.png; sourceTree = "<group>"; };
+		E31D9AF318F7E3E4007BE3FD /* littlePin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = littlePin.png; sourceTree = "<group>"; };
+		E31D9AF418F7E3E4007BE3FD /* flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flag.png; sourceTree = "<group>"; };
+		E31D9AF718F7E7DD007BE3FD /* watch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch.png; sourceTree = "<group>"; };
+		E31D9B0118F7F216007BE3FD /* carteOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carteOff@2x.png"; sourceTree = "<group>"; };
+		E31D9B0218F7F216007BE3FD /* especeOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "especeOff@2x.png"; sourceTree = "<group>"; };
+		E31D9B0318F7F216007BE3FD /* carteOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carteOn@2x.png"; sourceTree = "<group>"; };
+		E31D9B0418F7F216007BE3FD /* especeOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "especeOn@2x.png"; sourceTree = "<group>"; };
+		E31D9B0918F7FCBF007BE3FD /* pinChauffeur@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pinChauffeur@2x.png"; sourceTree = "<group>"; };
+		E31D9B0B18F8002E007BE3FD /* retourPosition.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retourPosition.png; sourceTree = "<group>"; };
+		E31D9B0D18F80199007BE3FD /* cibleMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cibleMap.png; sourceTree = "<group>"; };
+		E31D9B0F18F801F7007BE3FD /* logoMap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoMap.png; sourceTree = "<group>"; };
+		E31D9B1118F806E3007BE3FD /* mail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail.png; sourceTree = "<group>"; };
 		E3249CA118E985D700BD23B1 /* ActuImage-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActuImage-01.png"; sourceTree = "<group>"; };
 		E3249CA318E9973700BD23B1 /* Account@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Account@2X.png"; sourceTree = "<group>"; };
 		E3249CA418E9973700BD23B1 /* MesResa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MesResa@2x.png"; sourceTree = "<group>"; };
 		E3249CA518E9973700BD23B1 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
 		E3249CA618E9973700BD23B1 /* actu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actu@2x.png"; sourceTree = "<group>"; };
 		E3249CAB18E9998100BD23B1 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
-		E32A6F7D18EAB78400460F78 /* buttonOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonOn.png; sourceTree = "<group>"; };
-		E32A6F7E18EAB78400460F78 /* buttonOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonOff.png; sourceTree = "<group>"; };
 		E333E4A618F4131C007D5490 /* fondu@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondu@2X.png"; sourceTree = "<group>"; };
 		E333E4A818F4133D007D5490 /* backButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backButton@2x.png"; sourceTree = "<group>"; };
 		E333E4A918F4133D007D5490 /* menuButton@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuButton@2X.png"; sourceTree = "<group>"; };
@@ -466,18 +494,32 @@
 		6DCF530018E43C400037A10C /* ressources */ = {
 			isa = PBXGroup;
 			children = (
+				E31D9B0918F7FCBF007BE3FD /* pinChauffeur@2x.png */,
 				E30D1CC718EC31FE00252F1C /* inscription@2x.png */,
-				E32A6F7D18EAB78400460F78 /* buttonOn.png */,
-				E32A6F7E18EAB78400460F78 /* buttonOff.png */,
 				E31C5F2718E9B9B900727ABD /* ButtonView.png */,
 				E3EF8E3118EAE58A0068EC03 /* minus.png */,
 				E3EF8E3218EAE58A0068EC03 /* plus.png */,
+				E31D9B0118F7F216007BE3FD /* carteOff@2x.png */,
+				E31D9B0218F7F216007BE3FD /* especeOff@2x.png */,
+				E31D9B0318F7F216007BE3FD /* carteOn@2x.png */,
+				E31D9B0B18F8002E007BE3FD /* retourPosition.png */,
+				E31D9B0418F7F216007BE3FD /* especeOn@2x.png */,
+				E31D9B1118F806E3007BE3FD /* mail.png */,
 				E3EF8E2D18EAE2780068EC03 /* buttonPassenger@2x.png */,
 				E365EDC918EAFC4C00E90D14 /* logoBlack@2x.png */,
+				E31D9B0F18F801F7007BE3FD /* logoMap.png */,
+				E31D9AED18F7DFEC007BE3FD /* phone.png */,
 				E333E4AC18F41688007D5490 /* backButtonBlue@2x.png */,
+				E31D9B0D18F80199007BE3FD /* cibleMap.png */,
 				E333E4AD18F41688007D5490 /* menuBackBlue@2x.png */,
+				E31D9AF718F7E7DD007BE3FD /* watch.png */,
+				E31D9AF318F7E3E4007BE3FD /* littlePin.png */,
+				E31D9AF418F7E3E4007BE3FD /* flag.png */,
+				E31D9AEF18F7E293007BE3FD /* buttonOn.png */,
+				E31D9AF018F7E293007BE3FD /* buttonOff.png */,
 				E314213F18EEC1C600A52D0D /* loader.gif */,
 				E333E4A618F4131C007D5490 /* fondu@2X.png */,
+				E31D9AEB18F7DD40007BE3FD /* perso.png */,
 				E31C5F2818E9B9B900727ABD /* ButtonDelete.png */,
 				E30D1CCD18EC663000252F1C /* mail@2x.png */,
 				6DAF56AE18F41EEF00E5C844 /* bg@2x.png */,
@@ -622,27 +664,32 @@
 				6D53B97718E586FC0012C12A /* RobotoCondensed-BoldItalic.ttf in Resources */,
 				E314213E18EEB19800A52D0D /* standardOn@2x.png in Resources */,
 				E30D1CCC18EC33A400252F1C /* connexion@2x.png in Resources */,
-				E32A6F7F18EAB78400460F78 /* buttonOn.png in Resources */,
 				6D53B97018E586FC0012C12A /* Roboto-LightItalic.ttf in Resources */,
 				E3249CAC18E9998100BD23B1 /* bg.png in Resources */,
-				E32A6F8018EAB78400460F78 /* buttonOff.png in Resources */,
 				6D83737818E49739005A6709 /* bgbar.png in Resources */,
 				E314213C18EEB19800A52D0D /* premiumOn@2x.png in Resources */,
 				E333E4AB18F4133D007D5490 /* menuButton@2X.png in Resources */,
 				E3EF8E3B18EAE99B0068EC03 /* babyOn@2x.png in Resources */,
 				6D53B97518E586FC0012C12A /* Roboto-ThinItalic.ttf in Resources */,
+				E31D9AF618F7E3E4007BE3FD /* flag.png in Resources */,
 				6D53B97B18E586FC0012C12A /* RobotoCondensed-Regular.ttf in Resources */,
 				E3EF8E3418EAE58A0068EC03 /* plus.png in Resources */,
 				E333E4AF18F41688007D5490 /* menuBackBlue@2x.png in Resources */,
 				6D83737A18E49EAF005A6709 /* datB.png in Resources */,
 				E31C5F2618E9AF8300727ABD /* pinDepart.png in Resources */,
 				6D53B99518E5A7A50012C12A /* ActuCellView.xib in Resources */,
+				E31D9B1218F806E3007BE3FD /* mail.png in Resources */,
+				E31D9B0518F7F216007BE3FD /* carteOff@2x.png in Resources */,
+				E31D9AEC18F7DD40007BE3FD /* perso.png in Resources */,
 				E35AA12518EDB41D005F1178 /* wifiOn@2x.png in Resources */,
 				E3EF8E3018EAE4930068EC03 /* rond.png in Resources */,
 				E3249CA918E9973700BD23B1 /* map@2x.png in Resources */,
+				E31D9B1018F801F7007BE3FD /* logoMap.png in Resources */,
 				E30010F118EC110000551FA7 /* resa@2x.png in Resources */,
 				6D0039F718E314EC00D6C9E3 /* Main_iPad.storyboard in Resources */,
 				E3EF8E2C18EAD05C0068EC03 /* Fleche.png in Resources */,
+				E31D9B0618F7F216007BE3FD /* especeOff@2x.png in Resources */,
+				E31D9B0818F7F216007BE3FD /* especeOn@2x.png in Resources */,
 				E30D1CD218EC663000252F1C /* mail@2x.png in Resources */,
 				6D53B97418E586FC0012C12A /* Roboto-Thin.ttf in Resources */,
 				6D0039FC18E314EC00D6C9E3 /* Images.xcassets in Resources */,
@@ -659,8 +706,10 @@
 				E314213D18EEB19800A52D0D /* standardOff@2x.png in Resources */,
 				E314213B18EEB19800A52D0D /* premiumOff@2x.png in Resources */,
 				E30D1CD618EC663000252F1C /* facebook@2x.png in Resources */,
+				E31D9AEE18F7DFEC007BE3FD /* phone.png in Resources */,
 				6D83736318E47586005A6709 /* ElementAppli-01.png in Resources */,
 				6D53B97818E586FC0012C12A /* RobotoCondensed-Italic.ttf in Resources */,
+				E31D9AF218F7E293007BE3FD /* buttonOff.png in Resources */,
 				E30D1CD418EC663000252F1C /* twitter@2x.png in Resources */,
 				6D53B99718E5BBBB0012C12A /* Main_iPhone.storyboard in Resources */,
 				E30D1CD518EC663000252F1C /* linkedin@2x.png in Resources */,
@@ -677,9 +726,11 @@
 				E3EF8E2E18EAE2780068EC03 /* buttonPassenger@2x.png in Resources */,
 				E365EDCC18EAFD8800E90D14 /* separateurDouble.png in Resources */,
 				E31C5F2C18E9B9B900727ABD /* ButtonChange.png in Resources */,
+				E31D9B0A18F7FCBF007BE3FD /* pinChauffeur@2x.png in Resources */,
 				E365EDC618EAF0E200E90D14 /* resa@2x.png in Resources */,
 				E3249CAA18E9973700BD23B1 /* actu@2x.png in Resources */,
 				E3249CA218E985D700BD23B1 /* ActuImage-01.png in Resources */,
+				E31D9B0E18F80199007BE3FD /* cibleMap.png in Resources */,
 				6D53B97118E586FC0012C12A /* Roboto-Medium.ttf in Resources */,
 				E3EF8E2618EAC4040068EC03 /* ButtonMap@2x.png in Resources */,
 				E3EF8E2A18EACFCA0068EC03 /* ButtonOption.png in Resources */,
@@ -693,12 +744,17 @@
 				E30010ED18EC06EB00551FA7 /* Pin.png in Resources */,
 				E30010EF18EC073E00551FA7 /* Pin.png in Resources */,
 				6DAF56AC18F4198100E5C844 /* fondu.png in Resources */,
+				E31D9AF118F7E293007BE3FD /* buttonOn.png in Resources */,
+				E31D9B0C18F8002E007BE3FD /* retourPosition.png in Resources */,
 				6D53B97318E586FC0012C12A /* Roboto-Regular.ttf in Resources */,
 				E3EF8E4218EAEBF10068EC03 /* suitcase.png in Resources */,
 				E31C5F2518E9AF8300727ABD /* pinArrive.png in Resources */,
 				E333E4A718F4131C007D5490 /* fondu@2X.png in Resources */,
+				E31D9AF518F7E3E4007BE3FD /* littlePin.png in Resources */,
+				E31D9B0718F7F216007BE3FD /* carteOn@2x.png in Resources */,
 				E365EDCA18EAFC4C00E90D14 /* logoBlack@2x.png in Resources */,
 				E30D1CC318EC1EFE00252F1C /* pinArrive@2x.png in Resources */,
+				E31D9AF818F7E7DD007BE3FD /* watch.png in Resources */,
 				E30D1CD818EC673A00252F1C /* googlePlus@2x.png in Resources */,
 				6D53B96C18E586FC0012C12A /* Roboto-Bold.ttf in Resources */,
 				E3EF8E4018EAE99B0068EC03 /* wifiOff@2x.png in Resources */,
