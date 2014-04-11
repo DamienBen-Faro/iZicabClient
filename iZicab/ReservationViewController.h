@@ -19,7 +19,7 @@
 @property (strong)IBOutlet UITextField *startAddress;
 @property (strong)IBOutlet UITextField *endAddress;
 @property (strong)IBOutlet UIButton    *tiers;
-@property (strong)IBOutlet UIButton    *startDate;
+@property (strong)         UIButton    *startDate;
 @property (strong)IBOutlet UIButton    *passBtn;
 @property (strong)IBOutlet UIButton    *luggBtn;
 @property (strong)IBOutlet UIButton    *babySeat;
@@ -39,6 +39,8 @@
 @property (assign)         BOOL isResa;
 @property (strong)         NSMutableDictionary *resaUpdate;
 @property (strong)         UILabel *wroteAddr;
+@property (strong)         UIButton *dpBtn;
+@property (assign)         BOOL wasSelected;
 
 
 - (IBAction)goToMap:(id)sender;

@@ -27,8 +27,9 @@
     self.endAddress.tag = 222;
     self.startAddress.text = self.startAddr;
     self.endAddress.text = self.endAddr;
-    [self.startAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventAllEditingEvents];
-    [self.endAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventAllEditingEvents];
+    [self.startAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [self.endAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+
 
     self.datePicker.hidden = YES;
     self.datePicker.backgroundColor = [UIColor whiteColor];
@@ -49,9 +50,21 @@
     self.datePicker.hidden = YES;
     self.datePicker.backgroundColor = [UIColor whiteColor];
     self.datePicker.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - self.datePicker.frame.size.height,  self.datePicker.frame.size.width,  self.datePicker.frame.size.height);
+    
+    
+    self.dpBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [self.dpBtn addTarget:self
+               action:@selector(dateSelected:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [self.dpBtn setTitle:@"" forState:UIControlStateNormal];
+     self.dpBtn.frame = CGRectMake(0, self.datePicker.frame.origin.y - 40, 320, 40);
+    [self.dpBtn setBackgroundImage:[UIImage imageNamed:@"validDate"] forState:UIControlStateNormal];
+    self.dpBtn.hidden = YES;
+    
+    [self.view addSubview:self.dpBtn];
     [self.view addSubview:self.datePicker];
     
-    
+
 }
 
 
@@ -83,6 +96,11 @@
     UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(offAll:)];
     tapGestureRecognize.numberOfTapsRequired = 1;
     [self.view addGestureRecognizer:tapGestureRecognize];
+    
+    UITapGestureRecognizer* canc = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelStreet:)];
+    [self.wroteAddr setUserInteractionEnabled:YES];
+    [self.wroteAddr addGestureRecognizer:canc];
+    self.wasSelected = NO;
 }
 
 
@@ -122,7 +140,6 @@
 {
      NSString *fieldSelected = self.startAddress.text;
     if ([sender tag] == 111)
-        
         self.isStartAddr = YES;
     else
     {
@@ -136,8 +153,13 @@
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
     [geocoder geocodeAddressString:fieldSelected completionHandler:^(NSArray *placemarks, NSError *error) {
        
-        
-        self.autocompleteTableView.hidden = NO;
+       if (self.wasSelected)
+       {
+        self.autocompleteTableView.hidden = YES;
+           self.wasSelected = NO;
+       }
+        else
+            self.autocompleteTableView.hidden = NO;
         [self.autocompleteUrls removeAllObjects];
         [self.latLng removeAllObjects];
         for(CLPlacemark *curString in placemarks)
@@ -185,26 +207,41 @@
 
 - (IBAction)selectDate:(id)sender
 {
+    self.dpBtn.hidden = NO;
     self.datePicker.hidden = NO;
-    [self.startDate setTitle: [NSString stringWithFormat:@"%@",self.datePicker.date] forState:UIControlStateNormal];
+   
+}
+
+- (IBAction)dateSelected:(id)sender
+{
+        self.datePicker.hidden = YES;
+        self.dpBtn.hidden = YES;
+     [self.startDate setTitle: [NSString stringWithFormat:@"%@",self.datePicker.date] forState:UIControlStateNormal];
 }
 
 - (IBAction)offAll:(id)sender
 {
-    self.datePicker.hidden = YES;
-   
     
-    self.wroteAddr.hidden = YES;
-    [self.startAddress resignFirstResponder];
-    [self.endAddress resignFirstResponder];
+
+
     [self.phone resignFirstResponder];
-    [self.phone resignFirstResponder];
-    if ([self.wroteAddr.text isEqual:@"Annuler"] || self.wroteAddr.text.length == 0)
-        self.autocompleteTableView.hidden = YES;
+    [self.name resignFirstResponder];
+
+
   
 }
 
-
+- (IBAction)cancelStreet:(id)sender
+{
+    [self offAll:nil];
+    if ([self.wroteAddr.text isEqual:@"Annuler"])
+    {
+    [self.startAddress resignFirstResponder];
+    [self.endAddress resignFirstResponder];
+     self.wroteAddr.hidden = YES;
+     self.autocompleteTableView.hidden = YES;
+    }
+}
 
 
 - (IBAction)more:(id)sender
@@ -307,23 +344,19 @@
     
     cell.textLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     cell.textLabel.textColor = [UIColor darkGrayColor];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.tag = [indexPath row];
-    [button addTarget:self
-               action:@selector(selectAddr:)
-     forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"" forState:UIControlStateNormal];
-    [button setBackgroundColor:[UIColor clearColor]];
-    button.frame = cell.frame;
-    [cell addSubview:button];
+
+
     cell.textLabel.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.autocompleteTableView.hidden = YES;
-        self.wroteAddr.hidden = YES;
+    self.wroteAddr.hidden = YES;
+    self.wasSelected = YES;
+    [self.startAddress resignFirstResponder];
+    [self.endAddress resignFirstResponder];
     if (self.isStartAddr)
     {
         self.startAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
@@ -338,29 +371,11 @@
     }
     [self.startAddress resignFirstResponder];
     [self.endAddress resignFirstResponder];
+    
+    return NO;
 
 }
 
-- (IBAction)selectAddr:(id)sender
-{
-    self.autocompleteTableView.hidden = YES;
-        self.wroteAddr.hidden = YES;
-    if (self.isStartAddr)
-    {
-        self.startAddress.text = [self.autocompleteUrls objectAtIndex:[sender tag]];
-        self.startLat = [[((NSDictionary *)[self.latLng objectAtIndex:[sender tag]]) objectForKey:@"lat"] floatValue ];
-        self.startLng = [[((NSDictionary *)[self.latLng objectAtIndex:[sender tag]]) objectForKey:@"lng"] floatValue ];
-
-    }
-    else
-    {
-        self.endAddress.text = [self.autocompleteUrls objectAtIndex:[sender tag]];
-        self.endLat = [[((NSDictionary *)[self.latLng objectAtIndex:[sender tag]]) objectForKey:@"lat"] floatValue ];
-        self.endLng = [[((NSDictionary *)[self.latLng objectAtIndex:[sender tag]]) objectForKey:@"lng"] floatValue ];
-    }
-    [self.startAddress resignFirstResponder];
-    [self.endAddress resignFirstResponder];
-}
 
 - (void)goBack
 {

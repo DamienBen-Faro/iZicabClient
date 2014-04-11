@@ -545,15 +545,7 @@
     [cell setExclusiveTouch:YES];
     cell.textLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     cell.textLabel.textColor = [UIColor darkGrayColor];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.tag = [indexPath row];
-    [button addTarget:self
-               action:@selector(selectAddr:)
-     forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"" forState:UIControlStateNormal];
-    [button setBackgroundColor:[UIColor clearColor]];
-    button.frame = cell.frame;
-    //[cell addSubview:button];
+
     cell.textLabel.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
     return cell;
 }
