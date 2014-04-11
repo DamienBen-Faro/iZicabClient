@@ -61,6 +61,7 @@
      NSLog(@"delegate:%@ dataSource:%@", self.autocompleteTableView.delegate, self.autocompleteTableView.dataSource);
 }
 
+
 - (void)viewDidAppear:(BOOL)animated
 {
     self.autocompleteTableView = [[UITableView alloc] initWithFrame:
@@ -515,7 +516,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
+         self.autocompleteTableView.hidden = YES;
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
