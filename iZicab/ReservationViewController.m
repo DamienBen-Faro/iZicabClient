@@ -79,7 +79,7 @@
 {
  
     textF.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
-    textF.leftView.frame = CGRectMake(0, 0, 30, 20);
+    textF.leftView.frame = CGRectMake(0, 0, 60, 40);
     textF.leftViewMode = UITextFieldViewModeAlways;
 }
 
@@ -151,8 +151,29 @@
 }
 
 
+- (void) getLocation
+{
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied ||
+        [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted)
+    {
+        return;
+    }
+    
+    // if locationManager does not currently exist, create it.
+    if (!self.locationManager)
+    {
+        self.locationManager = [[CLLocationManager alloc] init];
+        [self.locationManager setDelegate:self];
+        self.locationManager.distanceFilter = 10.0f; //we don't need to be any more accurate than 10m
+    }
+    
+    [self.locationManager startUpdatingLocation];
+
+}
+
 - (void)textFieldDidChange:(id)sender
 {
+    [self getLocation];
      NSString *fieldSelected = self.startAddress.text;
     if ([sender tag] == 111)
         self.isStartAddr = YES;
@@ -166,8 +187,8 @@
     if ( self.wroteAddr.text.length == 0)
         self.wroteAddr.text = @"Annuler";
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:fieldSelected completionHandler:^(NSArray *placemarks, NSError *error) {
-       
+    [geocoder geocodeAddressString:fieldSelected completionHandler:^(NSArray *placemarks, NSError *error)
+    {
        if (self.wasSelected)
        {
         self.autocompleteTableView.hidden = YES;
@@ -179,7 +200,9 @@
         [self.latLng removeAllObjects];
         for(CLPlacemark *curString in placemarks)
         {
-             if(self.isStartAddr)
+         //   NSLog(@"admarea:%@ / subadm:%@/ locality:@ / sublocality:%@",    curString.administrativeArea, curString.subAdministrativeArea, curString.locality, curString.subLocality );
+             NSLog(@"admarea:%@ ",    curString.administrativeArea );
+             if(self.isStartAddr )
              {
                  self.startLat = curString.region.center.latitude;
                  self.startLng = curString.region.center.longitude;
@@ -189,12 +212,15 @@
                 self.endLat = curString.region.center.latitude;
                 self.endLng = curString.region.center.longitude;
             }
-            NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys:[ NSString stringWithFormat:@"%f", curString.region.center.latitude], @"lat",
+            NSDictionary *tmp = nil;
+            if ( [curString.administrativeArea isEqual:@"Île-de-France"])
+            {
+              tmp = [[NSDictionary alloc] initWithObjectsAndKeys:[ NSString stringWithFormat:@"%f", curString.region.center.latitude], @"lat",
                                   [ NSString stringWithFormat:@"%f", curString.region.center.longitude], @"lng",nil];
 
-            [self.latLng addObject:tmp];
-            
-          [self.autocompleteUrls addObject:[[curString.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "]];
+              [self.latLng addObject:tmp];
+              [self.autocompleteUrls addObject:[[curString.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "]];
+            }
         }
         
         [self.autocompleteTableView reloadData];
@@ -409,9 +435,14 @@
 
 - (void) goToDash
 {
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-    [self.navigationController pushViewController:ctrl animated:YES];
+    [UIView  beginAnimations:@"ShowDetails" context: nil];
+    [UIView setAnimationDuration:0.5];
+    [self.navigationController pushViewController:ctrl animated:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+    [UIView commitAnimations];
     
 }
 

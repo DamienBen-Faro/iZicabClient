@@ -153,9 +153,14 @@
 
 - (void) goToDash
 {
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-    [self.navigationController pushViewController:ctrl animated:YES];
+    [UIView  beginAnimations:@"ShowDetails" context: nil];
+    [UIView setAnimationDuration:0.5];
+    [self.navigationController pushViewController:ctrl animated:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+    [UIView commitAnimations];
     
 }
 

@@ -69,9 +69,14 @@
 
 - (void) goToDash
 {
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-    [self.navigationController pushViewController:ctrl animated:YES];
+    [UIView  beginAnimations:@"ShowDetails" context: nil];
+    [UIView setAnimationDuration:0.5];
+    [self.navigationController pushViewController:ctrl animated:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+    [UIView commitAnimations];
     
 }
 
@@ -115,10 +120,22 @@
     [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"ACCOUNT"];
     
     
-    
-    
+    [self setLeftV:self.name :@"perso"];
+    [self setLeftV:self.phone :@"phone"];
+    [self setLeftV:self.email :@"mailAcc"];
+
     
 }
+
+- (void)setLeftV: (UITextField *)textF
+                :(NSString *)imgName
+{
+    
+    textF.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
+    textF.leftView.frame = CGRectMake(0, 0, 60, 40);
+    textF.leftViewMode = UITextFieldViewModeAlways;
+}
+
 
 - (IBAction)more:(id)sender
 {

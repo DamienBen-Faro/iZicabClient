@@ -30,15 +30,15 @@
     self.endAddress.tag = 1002;
     self.latLng = [[NSMutableArray alloc] init];
     
-    UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pinDepart"]];
-
+    UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cibleMap"]];
+    
     
     float coef = 1.1833333;
     if (!IS_IPHONE_5)
         coef = 1;
-    [imgV setFrame:CGRectMake(self.mapView.frame.size.width / 2,
-                              (self.mapView.frame.size.height / 2) * coef - [UIImage imageNamed:@"pinDepart"].size.height ,
-                              imgV.frame.size.width, imgV.frame.size.height)];
+    [imgV setFrame:CGRectMake(self.mapView.frame.size.width / 2 - 12 ,
+                              (self.mapView.frame.size.height / 2) * coef - [UIImage imageNamed:@"cibleMap"].size.height / 2 + 16 ,
+                              imgV.frame.size.width / 2, imgV.frame.size.height / 2)];
     
     [self.mapView addSubview:imgV];
     self.startAddress.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
@@ -57,7 +57,7 @@
 
     
     self.autocompleteUrls = [[NSMutableArray alloc] init];
- 
+     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
      NSLog(@"delegate:%@ dataSource:%@", self.autocompleteTableView.delegate, self.autocompleteTableView.dataSource);
 }
 
@@ -148,9 +148,12 @@
 
             NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys:[ NSString stringWithFormat:@"%f", curString.region.center.latitude], @"lat",
                                  [ NSString stringWithFormat:@"%f", curString.region.center.longitude], @"lng",nil];
-            
+          
+            if ( [curString.administrativeArea isEqual:@"Île-de-France"])
+            {
             [self.latLng addObject:tmp];
             [self.autocompleteUrls addObject:[[curString.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "]];
+            }
         }
         
         [self.autocompleteTableView reloadData];
@@ -510,11 +513,17 @@
 
 - (IBAction)goToDash:(id)sender
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+
+       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-    [self.navigationController pushViewController:ctrl animated:YES];
-    
+    [UIView  beginAnimations:@"ShowDetails" context: nil];
+    [UIView setAnimationDuration:0.5];
+    [self.navigationController pushViewController:ctrl animated:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+    [UIView commitAnimations]; 
 }
+
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {

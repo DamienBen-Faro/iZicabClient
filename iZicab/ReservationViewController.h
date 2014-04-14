@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 
 
-@interface ReservationViewController : UIViewController<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ReservationViewController : UIViewController<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>
 
 
 @property (strong)IBOutlet UIScrollView *scrollView;
@@ -41,6 +41,7 @@
 @property (strong)         UILabel *wroteAddr;
 @property (strong)         UIButton *dpBtn;
 @property (assign)         BOOL wasSelected;
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 
 - (IBAction)goToMap:(id)sender;

@@ -60,9 +60,15 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-    
-    [self.navigationController pushViewController:ctrl  animated:YES];
-     [UIView transitionWithView:self.navigationController.view duration:0.7 options:UIViewAnimationOptionTransitionFlipFromRight animations:nil completion:nil];
+
+//    [self.navigationController pushViewController:ctrl  animated:YES];
+ //   [UIView transitionWithView:self.navigationController.view duration:0.7 options:UIViewAnimationOptionTransitionFlipFromRight animations:nil completion:nil];
+
+    [UIView  beginAnimations:@"ShowDetails" context: nil];
+    [UIView setAnimationDuration:0.5];
+    [self.navigationController pushViewController:ctrl animated:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+    [UIView commitAnimations];
 }
 
 
