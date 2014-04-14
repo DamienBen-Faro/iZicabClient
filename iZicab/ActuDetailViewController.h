@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface ActuDetailViewController : UIViewController
 
+@property(strong) NSDictionary *arr;
+@property (strong) IBOutlet UITextView *textView;
+@property (strong) IBOutlet UILabel *date;
+@property (strong) IBOutlet UILabel *hour;
 @end

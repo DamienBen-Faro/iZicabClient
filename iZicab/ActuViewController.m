@@ -11,6 +11,7 @@
 #import "ActuCell.h"
 #import "ActuDetailViewController.h"
 #import "DashboardViewController.h"
+#import "ConnectionData.h"
 
 @implementation ActuViewController
 
@@ -29,9 +30,36 @@
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     self.tableView.delegate = self;
-    self.arr = [[NSMutableArray alloc] initWithObjects:@"1", @"2", @"3", nil];
     self.tableView.dataSource = self;
+ 
+    [[ConnectionData sharedConnectionData] beginService: @"ride/infos":[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"s", @"lat",nil]  :@selector(callBackController:):self];
+}
+
+- (void)callBackController:(NSDictionary *)dict
+{
     
+    NSError *error;
+    
+    if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+    {
+        [self.arr removeAllObjects];
+        if ([dict objectForKey:@"data"]  > 0 && [[dict objectForKey:@"data"] isKindOfClass:[NSArray class]])
+        {
+            self.arr = [[NSMutableArray alloc] init];
+            for (NSMutableArray * it in ((NSMutableArray*)dict[@"data"]))
+                [self.arr addObject:it];
+        }
+        [self.tableView reloadData];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                        message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void) viewWillDisappear:(BOOL)animated
@@ -133,22 +161,25 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ActuCellView" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
-    
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
 
     //cell.infoType.text = @"infoType";//[tableData objectAtIndex:indexPath.row];
 
     cell.infoType.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     cell.infoType.textColor = [UIColor darkGrayColor];
+        cell.infoType.text = self.arr[[indexPath row]][@"type"];
     
     cell.date.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     cell.date.textColor = [UIColor darkGrayColor];
+    cell.date.text = self.arr[[indexPath row]][@"date"];
 
     cell.hour.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     cell.hour.textColor = [UIColor darkGrayColor];
+        cell.hour.text = self.arr[[indexPath row]][@"hour"];
     
     cell.desc.font = [UIFont fontWithName:@"Roboto-Thin" size:15.0];
     cell.desc.textColor = [UIColor darkGrayColor];
-    
+        cell.desc.text = self.arr[[indexPath row]][@"value"];
 
     
     return cell;
@@ -160,6 +191,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     ActuDetailViewController* ctrl = (ActuDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ActuDetailViewController"];
+    ctrl.arr = self.arr[[indexPath row]];
     [self.navigationController pushViewController:ctrl animated:YES];
 
 }

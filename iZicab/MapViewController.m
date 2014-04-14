@@ -482,6 +482,8 @@
     ctrl.endLng = self.annotationSecond.coordinate.longitude;
     ctrl.startAddr = self.startAddress.text;
     ctrl.endAddr = self.endAddress.text;
+
+
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
@@ -514,14 +516,22 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [self.startAddress resignFirstResponder];
+    [self.endAddress resignFirstResponder];
+    [self.autocompleteTableView removeFromSuperview];
+}
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
-         self.autocompleteTableView.hidden = YES;
+    
+    
+    self.autocompleteTableView.hidden = YES;
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
-
-
     self.isFirstPlacement = NO;
 
 }

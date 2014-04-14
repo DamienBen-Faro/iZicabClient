@@ -7,6 +7,6 @@
 //
 
 
-NSString * const __CONST_ADDR_SERVER = @"http://199.16.131.147/~izicat/102/Website/index.php/ws/";
+NSString * const __CONST_ADDR_SERVER = @"http://199.16.131.147/~izicat/105/Website/index.php/ws/";
 
 

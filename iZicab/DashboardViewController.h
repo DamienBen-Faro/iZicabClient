@@ -38,6 +38,8 @@
 @property(strong) IBOutlet UILabel *hourResaMine;
 @property(strong) IBOutlet UILabel *addressResaMine;
 
+@property(strong) IBOutlet UILabel *infoTitle;
+@property(strong) IBOutlet UILabel *infoValue;
 
 
 

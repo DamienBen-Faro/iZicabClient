@@ -26,8 +26,13 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+
+    self.textView.text = self.arr[@"value"];
+    self.hour.text = self.arr[@"hour"];
+    self.date.text = self.arr[@"date"];
     
 }
+
 
 - (void)goBack
 {

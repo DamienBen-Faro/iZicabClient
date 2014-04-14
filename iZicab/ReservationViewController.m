@@ -65,8 +65,23 @@
     [self.view addSubview:self.datePicker];
     
 
+    
+    
+    [self setLeftV:self.name :@"perso"];
+    [self setLeftV:self.phone :@"phone"];
+    [self setLeftV:self.startAddress :@"littlePin"];
+    [self setLeftV:self.endAddress :@"flag"];
+    
 }
 
+- (void)setLeftV: (UITextField *)textF
+                  :(NSString *)imgName
+{
+ 
+    textF.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
+    textF.leftView.frame = CGRectMake(0, 0, 30, 20);
+    textF.leftViewMode = UITextFieldViewModeAlways;
+}
 
 
 
@@ -120,10 +135,10 @@
     self.tiers.selected = NO;
     self.name.text = [defaults objectForKey:@"userName"];
     self.name.enabled = NO;
-    self.name.backgroundColor = [UIColor lightGrayColor];
+    self.name.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1];
     self.phone.text = [defaults objectForKey:@"phone"];
     self.phone.enabled = NO;
-    self.phone.backgroundColor = [UIColor lightGrayColor];
+    self.phone.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1];
     
     self.passBtn.titleLabel.text = [defaults objectForKey:@"passBtn"] ?  [defaults objectForKey:@"passBtn"] : @"1";
     self.luggBtn.titleLabel.text = [defaults objectForKey:@"luggBtn"] ?  [defaults objectForKey:@"luggBtn"] : @"1";
@@ -207,6 +222,8 @@
 
 - (IBAction)selectDate:(id)sender
 {
+    [self.startAddress resignFirstResponder];
+    [self.endAddress resignFirstResponder];
     self.dpBtn.hidden = NO;
     self.datePicker.hidden = NO;
    
@@ -214,6 +231,7 @@
 
 - (IBAction)dateSelected:(id)sender
 {
+ 
         self.datePicker.hidden = YES;
         self.dpBtn.hidden = YES;
      [self.startDate setTitle: [NSString stringWithFormat:@"%@",self.datePicker.date] forState:UIControlStateNormal];
@@ -226,9 +244,6 @@
 
     [self.phone resignFirstResponder];
     [self.name resignFirstResponder];
-
-
-  
 }
 
 - (IBAction)cancelStreet:(id)sender
@@ -317,10 +332,10 @@
     {
         self.name.text = [defaults objectForKey:@"userName"];
         self.name.enabled = NO;
-        self.name.backgroundColor = [UIColor lightGrayColor];
+        self.name.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1];
         self.phone.text = [defaults objectForKey:@"phone"];
         self.phone.enabled = NO;
-        self.phone.backgroundColor = [UIColor lightGrayColor];
+        self.phone.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1];
         self.tiers.selected = NO;
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cor-LO-qsg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cor-LO-qsg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -163,12 +163,8 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="perso.png" translatesAutoresizingMaskIntoConstraints="NO" id="CO3-GD-ajD">
-                                                        <rect key="frame" x="13" y="13" width="34" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pPV-gi-czO">
-                                                        <rect key="frame" x="59" y="11" width="230" height="38"/>
+                                                        <rect key="frame" x="10" y="11" width="279" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
@@ -186,17 +182,13 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </imageView>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r1Y-gJ-S7x">
-                                                        <rect key="frame" x="59" y="61" width="230" height="38"/>
+                                                        <rect key="frame" x="11" y="61" width="278" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="phone.png" translatesAutoresizingMaskIntoConstraints="NO" id="65O-yi-nvr">
-                                                        <rect key="frame" x="13" y="63" width="34" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PRENDRE UNE RÉSERVATIONS POUR UN TIERS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-Kz-Ecd">
                                                         <rect key="frame" x="13" y="114" width="242" height="21"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -289,12 +281,8 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="littlePin.png" translatesAutoresizingMaskIntoConstraints="NO" id="ufl-WX-yZd">
-                                                        <rect key="frame" x="14" y="14" width="34" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MuH-NO-8x3">
-                                                        <rect key="frame" x="51" y="11" width="198" height="38"/>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="MuH-NO-8x3">
+                                                        <rect key="frame" x="11" y="11" width="238" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
@@ -311,12 +299,8 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flag.png" translatesAutoresizingMaskIntoConstraints="NO" id="lKG-KP-ntZ">
-                                                        <rect key="frame" x="14" y="64" width="34" height="34"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </imageView>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZVB-FY-RNJ">
-                                                        <rect key="frame" x="51" y="61" width="198" height="38"/>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ZVB-FY-RNJ">
+                                                        <rect key="frame" x="11" y="61" width="238" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
@@ -831,27 +815,33 @@ Roissy-en-France 95700</string>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <segmentedControl key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="1Ns-As-SBi">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="29"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <segments>
-                                        <segment title="" image="ResaOff.png" enabled="NO"/>
-                                        <segment title="" image="HistoOff.png"/>
-                                    </segments>
-                                </segmentedControl>
                                 <connections>
                                     <outlet property="dataSource" destination="gwn-XK-Ppc" id="V1A-K6-qpS"/>
                                     <outlet property="delegate" destination="gwn-XK-Ppc" id="Xbj-lY-7Nx"/>
                                 </connections>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="otY-w8-Pow">
+                                <rect key="frame" x="10" y="45" width="300" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Reservation"/>
+                                    <segment title="Historique"/>
+                                </segments>
+                                <color key="tintColor" red="0.34901960780000002" green="0.7843137255" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <action selector="changeRes:" destination="bOg-f8-0qy" eventType="valueChanged" id="rJ6-Jh-wR0"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mRX-VU-XyX" firstAttribute="top" secondItem="XuZ-AZ-kPZ" secondAttribute="bottom" constant="-20" id="bhf-dM-TO7"/>
+                            <constraint firstItem="otY-w8-Pow" firstAttribute="top" secondItem="XuZ-AZ-kPZ" secondAttribute="bottom" constant="45" id="O8C-VI-ALJ"/>
+                            <constraint firstItem="mRX-VU-XyX" firstAttribute="top" secondItem="XuZ-AZ-kPZ" secondAttribute="bottom" constant="30" id="bhf-dM-TO7"/>
                             <constraint firstItem="9dM-Yf-aDT" firstAttribute="top" secondItem="mRX-VU-XyX" secondAttribute="bottom" constant="10" id="zwu-oG-rZL"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="segment" destination="otY-w8-Pow" id="uaa-87-ziU"/>
                         <outlet property="tableView" destination="mRX-VU-XyX" id="WB0-7O-jNg"/>
                     </connections>
                 </viewController>
@@ -1094,9 +1084,10 @@ Roissy-en-France 95700</string>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mail.png" translatesAutoresizingMaskIntoConstraints="NO" id="ENg-7b-jOO">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mailAcc.png" translatesAutoresizingMaskIntoConstraints="NO" id="ENg-7b-jOO">
                                                                 <rect key="frame" x="14" y="113" width="34" height="34"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </imageView>
                                                             <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="  Mail" placeholder="Mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f12-ZJ-zvZ">
                                                                 <rect key="frame" x="49" y="111" width="240" height="38"/>
@@ -1458,6 +1449,11 @@ Roissy-en-France 95700</string>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.50991149020000004" green="1" blue="0.80705781430000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="date" destination="zcH-8V-M8o" id="aVi-Q8-gDM"/>
+                        <outlet property="hour" destination="DQ1-OG-kGu" id="IAV-a1-ZlY"/>
+                        <outlet property="textView" destination="jgF-HY-0j8" id="tFF-qW-DSd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rq0-Op-HHL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1639,7 +1635,7 @@ Roissy-en-France 95700</string>
                                         <color key="textColor" red="0.9960784912109375" green="0.9960784912109375" blue="0.99215692281723022" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="Ou8-yE-qdT">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="140" translatesAutoresizingMaskIntoConstraints="NO" id="Ou8-yE-qdT">
                                         <rect key="frame" x="10" y="50" width="140" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1723,6 +1719,8 @@ Roissy-en-France 95700</string>
                         <outlet property="addressResaMine" destination="Ly3-Sh-PVM" id="mZt-lQ-GrM"/>
                         <outlet property="dateResaMine" destination="bTi-Fl-t4d" id="oe5-3d-4nf"/>
                         <outlet property="hourResaMine" destination="Yo8-cb-xtJ" id="tql-0y-X34"/>
+                        <outlet property="infoTitle" destination="lw6-bn-vqG" id="nyP-mW-pLN"/>
+                        <outlet property="infoValue" destination="Ou8-yE-qdT" id="dzm-ac-9ay"/>
                         <outlet property="logoDecal" destination="VMH-WE-fJE" id="0OE-VN-3uc"/>
                         <outlet property="logoH" destination="XrA-n3-d7J" id="X1M-pt-6Cu"/>
                         <outlet property="logoW" destination="Z5V-tW-M2M" id="DEW-c5-rcB"/>
@@ -1914,8 +1912,6 @@ Roissy-en-France 95700</string>
         <image name="ActuImageFull.png" width="300" height="210"/>
         <image name="ButtonMap.png" width="30" height="30"/>
         <image name="ElementAppli-01.png" width="263" height="262"/>
-        <image name="HistoOff.png" width="320" height="60"/>
-        <image name="ResaOff.png" width="320" height="60"/>
         <image name="babyOff.png" width="130" height="130"/>
         <image name="babyOn.png" width="130" height="130"/>
         <image name="backButtonBlue.png" width="50" height="65"/>
@@ -1929,14 +1925,13 @@ Roissy-en-France 95700</string>
         <image name="especeOff.png" width="130" height="40"/>
         <image name="especeOn.png" width="130" height="40"/>
         <image name="facebook.png" width="72" height="72"/>
-        <image name="flag.png" width="40" height="40"/>
         <image name="googlePlus" width="129" height="120"/>
         <image name="inscription.png" width="146" height="30"/>
         <image name="linkedin.png" width="72" height="72"/>
-        <image name="littlePin.png" width="40" height="40"/>
         <image name="logoBlack.png" width="206" height="30"/>
         <image name="logoMap.png" width="241" height="35"/>
-        <image name="mail.png" width="40" height="40"/>
+        <image name="mail.png" width="72" height="72"/>
+        <image name="mailAcc.png" width="40" height="40"/>
         <image name="menuButtonBlue.png" width="50" height="65"/>
         <image name="minus.png" width="52" height="52"/>
         <image name="paperOff.png" width="130" height="130"/>

@@ -13,5 +13,7 @@
 
 @property (strong) NSMutableArray *arr;
 @property (strong) IBOutlet UITableView *tableView;
+@property (assign) int idToDelete;
+@property (strong) UISegmentedControl *segment;
 
 @end

@@ -74,7 +74,7 @@
         self.luggage.text = [NSString stringWithFormat:@"%@", self.resa[@"luggage"]];
     self.price.text = [NSString stringWithFormat:@"%@ €", self.resa[@"invoicing"]];
       self.name.text = [NSString stringWithFormat:@"%@", self.resa[@"contactname"]];
-      self.idResa.text = [NSString stringWithFormat:@"%@", self.resa[@"id"]];
+      self.idResa.text = [NSString stringWithFormat:@"ref#100%@", self.resa[@"id"]];
     self.validate.hidden = YES;
     self.premium.hidden = YES;
     self.standard.hidden = YES;

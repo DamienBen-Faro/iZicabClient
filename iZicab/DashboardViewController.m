@@ -92,6 +92,7 @@
                 
                [self mapResa: startMap: endMap];
                 [self resaMineAnim];
+                [[ConnectionData sharedConnectionData] beginService: @"ride/infos":[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"s", @"lat",nil]  :@selector(callBackControllerInfo:):self];
             }
             else
             {
@@ -230,6 +231,32 @@
 }
 
 
+- (void)callBackControllerInfo:(NSDictionary *)dict
+{
+    
+    NSError *error;
+    
+    if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+    {
+        
+        if ([dict objectForKey:@"data"]  > 0 && [[dict objectForKey:@"data"] isKindOfClass:[NSArray class]])
+        {
+            NSLog(@"%@", [dict objectForKey:@"data"][0]);
+            self.infoTitle.text = [dict objectForKey:@"data"][0][@"type"];
+            self.infoValue.text = [dict objectForKey:@"data"][0][@"value"];
+        }
+        
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                        message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
 
 
     
