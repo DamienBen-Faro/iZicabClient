@@ -118,6 +118,7 @@
 		E31D9B2418F82D73007BE3FD /* ResaOff.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B1F18F82D73007BE3FD /* ResaOff.png */; };
 		E31D9B2518F82D73007BE3FD /* ResaOn.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B2018F82D73007BE3FD /* ResaOn.png */; };
 		E31D9B2618F82D73007BE3FD /* validDate.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B2118F82D73007BE3FD /* validDate.png */; };
+		E31D9B2818F83A02007BE3FD /* signalResa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B2718F83A02007BE3FD /* signalResa@2x.png */; };
 		E3249CA218E985D700BD23B1 /* ActuImage-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA118E985D700BD23B1 /* ActuImage-01.png */; };
 		E3249CA718E9973700BD23B1 /* Account@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA318E9973700BD23B1 /* Account@2X.png */; };
 		E3249CA818E9973700BD23B1 /* MesResa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3249CA418E9973700BD23B1 /* MesResa@2x.png */; };
@@ -298,6 +299,7 @@
 		E31D9B1F18F82D73007BE3FD /* ResaOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResaOff.png; sourceTree = "<group>"; };
 		E31D9B2018F82D73007BE3FD /* ResaOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ResaOn.png; sourceTree = "<group>"; };
 		E31D9B2118F82D73007BE3FD /* validDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = validDate.png; sourceTree = "<group>"; };
+		E31D9B2718F83A02007BE3FD /* signalResa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signalResa@2x.png"; sourceTree = "<group>"; };
 		E3249CA118E985D700BD23B1 /* ActuImage-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActuImage-01.png"; sourceTree = "<group>"; };
 		E3249CA318E9973700BD23B1 /* Account@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Account@2X.png"; sourceTree = "<group>"; };
 		E3249CA418E9973700BD23B1 /* MesResa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MesResa@2x.png"; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 				E31D9B1118F806E3007BE3FD /* mailAcc.png */,
 				E3EF8E2D18EAE2780068EC03 /* buttonPassenger@2x.png */,
 				E365EDC918EAFC4C00E90D14 /* logoBlack@2x.png */,
+				E31D9B2718F83A02007BE3FD /* signalResa@2x.png */,
 				E31D9B0F18F801F7007BE3FD /* logoMap.png */,
 				E31D9AED18F7DFEC007BE3FD /* phone.png */,
 				E333E4AC18F41688007D5490 /* backButtonBlue@2x.png */,
@@ -712,6 +715,7 @@
 				6D53B97418E586FC0012C12A /* Roboto-Thin.ttf in Resources */,
 				6D0039FC18E314EC00D6C9E3 /* Images.xcassets in Resources */,
 				E3EF8E3F18EAE99B0068EC03 /* paperOff@2x.png in Resources */,
+				E31D9B2818F83A02007BE3FD /* signalResa@2x.png in Resources */,
 				E333E4AE18F41688007D5490 /* backButtonBlue@2x.png in Resources */,
 				6D53B97A18E586FC0012C12A /* RobotoCondensed-LightItalic.ttf in Resources */,
 				6D53B96B18E586FC0012C12A /* Roboto-BlackItalic.ttf in Resources */,
