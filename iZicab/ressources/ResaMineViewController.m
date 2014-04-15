@@ -142,7 +142,7 @@
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
     
     
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"MES RESERVATIONS"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"MES RÉSERVATIONS"];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

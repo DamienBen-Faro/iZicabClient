@@ -201,7 +201,7 @@
     [navigationBar addSubview:backButtonView];
     [navigationBar addSubview:homeButtonView];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"INVOICE"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"RÉCAPITULATIF"];
     
     
 }

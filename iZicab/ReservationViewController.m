@@ -483,7 +483,7 @@
     [navigationBar addSubview:backButtonView];
     [navigationBar addSubview:homeButtonView];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"RESERVATION"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"RÉSERVATION"];
     
     
     

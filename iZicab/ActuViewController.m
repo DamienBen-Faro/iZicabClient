@@ -139,7 +139,7 @@
     [navigationBar addSubview:backButtonView];
     [navigationBar addSubview:homeButtonView];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"ACTU"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"ACTUALITÉ"];
     
 
 }

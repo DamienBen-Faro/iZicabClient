@@ -820,11 +820,16 @@ Roissy-en-France 95700</string>
                                     <outlet property="delegate" destination="gwn-XK-Ppc" id="Xbj-lY-7Nx"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7y-Mp-e2r">
+                                <rect key="frame" x="0.0" y="45" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="otY-w8-Pow">
-                                <rect key="frame" x="10" y="45" width="300" height="29"/>
+                                <rect key="frame" x="30" y="55" width="260" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
-                                    <segment title="Reservation"/>
+                                    <segment title="Réservation"/>
                                     <segment title="Historique"/>
                                 </segments>
                                 <color key="tintColor" red="0.34901960780000002" green="0.7843137255" blue="0.86274509799999999" alpha="1" colorSpace="deviceRGB"/>
@@ -835,7 +840,8 @@ Roissy-en-France 95700</string>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="otY-w8-Pow" firstAttribute="top" secondItem="XuZ-AZ-kPZ" secondAttribute="bottom" constant="45" id="O8C-VI-ALJ"/>
+                            <constraint firstItem="k7y-Mp-e2r" firstAttribute="top" secondItem="XuZ-AZ-kPZ" secondAttribute="bottom" constant="25" id="DTY-Pt-ehm"/>
+                            <constraint firstItem="otY-w8-Pow" firstAttribute="top" secondItem="XuZ-AZ-kPZ" secondAttribute="bottom" constant="35" id="O8C-VI-ALJ"/>
                             <constraint firstItem="mRX-VU-XyX" firstAttribute="top" secondItem="XuZ-AZ-kPZ" secondAttribute="bottom" constant="30" id="bhf-dM-TO7"/>
                             <constraint firstItem="9dM-Yf-aDT" firstAttribute="top" secondItem="mRX-VU-XyX" secondAttribute="bottom" constant="10" id="zwu-oG-rZL"/>
                         </constraints>
