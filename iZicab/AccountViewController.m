@@ -117,7 +117,7 @@
     [navigationBar addSubview:backButtonView];
     [navigationBar addSubview:homeButtonView];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"ACCOUNT"];
+    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"MON COMPTE"];
     
     
     [self setLeftV:self.name :@"perso"];
