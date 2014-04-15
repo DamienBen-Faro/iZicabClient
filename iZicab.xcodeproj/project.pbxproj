@@ -63,6 +63,7 @@
 		6D83737018E48A4D005A6709 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83736F18E48A4D005A6709 /* MapViewController.m */; };
 		6D83737818E49739005A6709 /* bgbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83737718E49739005A6709 /* bgbar.png */; };
 		6D83737A18E49EAF005A6709 /* datB.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83737918E49EAF005A6709 /* datB.png */; };
+		6DA2AF8A18FD314300E91C5A /* SearchAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2AF8918FD314300E91C5A /* SearchAddressTableViewController.m */; };
 		6DAF56AC18F4198100E5C844 /* fondu.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAF56AA18F4198100E5C844 /* fondu.png */; };
 		6DAF56AD18F4198100E5C844 /* fondu@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAF56AB18F4198100E5C844 /* fondu@2X.png */; };
 		6DAF56AF18F41EEF00E5C844 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAF56AE18F41EEF00E5C844 /* bg@2x.png */; };
@@ -240,6 +241,8 @@
 		6D83736F18E48A4D005A6709 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		6D83737718E49739005A6709 /* bgbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgbar.png; sourceTree = "<group>"; };
 		6D83737918E49EAF005A6709 /* datB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = datB.png; sourceTree = "<group>"; };
+		6DA2AF8818FD314300E91C5A /* SearchAddressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchAddressTableViewController.h; path = iZicab/SearchAddressTableViewController.h; sourceTree = "<group>"; };
+		6DA2AF8918FD314300E91C5A /* SearchAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchAddressTableViewController.m; path = iZicab/SearchAddressTableViewController.m; sourceTree = "<group>"; };
 		6DAF56AA18F4198100E5C844 /* fondu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fondu.png; sourceTree = "<group>"; };
 		6DAF56AB18F4198100E5C844 /* fondu@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondu@2X.png"; sourceTree = "<group>"; };
 		6DAF56AE18F41EEF00E5C844 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
@@ -360,6 +363,8 @@
 		6D0039D418E314EC00D6C9E3 = {
 			isa = PBXGroup;
 			children = (
+				6DA2AF8818FD314300E91C5A /* SearchAddressTableViewController.h */,
+				6DA2AF8918FD314300E91C5A /* SearchAddressTableViewController.m */,
 				6D0039E618E314EC00D6C9E3 /* iZicab */,
 				6D003A0818E314EC00D6C9E3 /* iZicabTests */,
 				6D0039DF18E314EC00D6C9E3 /* Frameworks */,
@@ -818,6 +823,7 @@
 				6D53B98418E5901D0012C12A /* RecapViewController.m in Sources */,
 				6DCF52FF18E43BAD0037A10C /* NavigationControlViewController.m in Sources */,
 				6DCF530E18E451530037A10C /* CodeViewController.m in Sources */,
+				6DA2AF8A18FD314300E91C5A /* SearchAddressTableViewController.m in Sources */,
 				6D53B95418E578370012C12A /* CustomNavBar.m in Sources */,
 				6D83737018E48A4D005A6709 /* MapViewController.m in Sources */,
 				6D3161DC18E98505005ABB3E /* ConnectionData.m in Sources */,

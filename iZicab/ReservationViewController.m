@@ -12,6 +12,7 @@
 #import "UserInfoSingleton.h"
 #import "InvoiceViewController.h"
 #import "DashboardViewController.h"
+#import "SearchAddressTableViewController.h"
 
 @implementation ReservationViewController
 
@@ -27,9 +28,12 @@
     self.endAddress.tag = 222;
     self.startAddress.text = self.startAddr;
     self.endAddress.text = self.endAddr;
-    [self.startAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-    [self.endAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+   // [self.startAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+   // [self.endAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 
+    [self.startAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
+    [self.endAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
+    
 
     self.datePicker.hidden = YES;
     self.datePicker.backgroundColor = [UIColor whiteColor];
@@ -38,19 +42,27 @@
         [self updateResa];
 
     
-    NSDate *now = [NSDate date];
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-    NSDateComponents *components = [calendar components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
-    [components setHour:components.hour + 1];
-    NSDate *datDate = [calendar dateFromComponents:components];
+
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init] ;
+    dayComponent.hour = 1;
+    
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDate *minimumDate = [[NSDate alloc] init];
+    minimumDate = [theCalendar dateByAddingComponents:dayComponent toDate:minimumDate options:0];
+
+    
     
     self.datePicker = [[UIDatePicker alloc] init];
-    self.datePicker.minimumDate = datDate;
+ 
+    self.datePicker.minimumDate = minimumDate;
     self.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     self.datePicker.hidden = YES;
     self.datePicker.backgroundColor = [UIColor whiteColor];
     self.datePicker.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - self.datePicker.frame.size.height,  self.datePicker.frame.size.width,  self.datePicker.frame.size.height);
     
+    
+
+    self.datePicker.date = minimumDate;
     
     self.dpBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [self.dpBtn addTarget:self
@@ -64,8 +76,9 @@
     [self.view addSubview:self.dpBtn];
     [self.view addSubview:self.datePicker];
     
-
-    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    [self.startDate setTitle: [dateFormatter stringFromDate:self.datePicker.date ] forState:UIControlStateNormal];
     
     [self setLeftV:self.name :@"perso"];
     [self setLeftV:self.phone :@"phone"];
@@ -79,7 +92,7 @@
 {
  
     textF.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
-    textF.leftView.frame = CGRectMake(0, 0, 60, 40);
+    textF.leftView.frame = CGRectMake(0, 0, 47, 40);
     textF.leftViewMode = UITextFieldViewModeAlways;
 }
 
@@ -171,6 +184,23 @@
 
 }
 
+- (void)textFieldBegin:(id)sender
+{
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    SearchAddressTableViewController* ctrl = (SearchAddressTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SearchAddressTableViewController"];
+
+    if ([sender tag] == 111)
+    {
+        ctrl.isStartAddr = YES;
+        ctrl.memoryFromReservation = [[NSMutableDictionary alloc] initWithObjectsAndKeys:self.endAddr ,@"addr", [NSString stringWithFormat:@"%f", self.endLat], @"lat",  [NSString stringWithFormat:@"%f", self.endLng], @"lng" , nil];
+    }
+    else
+         ctrl.memoryFromReservation = [[NSMutableDictionary alloc] initWithObjectsAndKeys:self.startAddr ,@"addr", [NSString stringWithFormat:@"%f",  self.startLat], @"lat",  [NSString stringWithFormat:@"%f", self.startLng], @"lng" , nil];
+
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
+
 - (void)textFieldDidChange:(id)sender
 {
     [self getLocation];
@@ -260,7 +290,11 @@
  
         self.datePicker.hidden = YES;
         self.dpBtn.hidden = YES;
-     [self.startDate setTitle: [NSString stringWithFormat:@"%@",self.datePicker.date] forState:UIControlStateNormal];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    [self.startDate setTitle: [dateFormatter stringFromDate:self.datePicker.date ] forState:UIControlStateNormal];
+
 }
 
 - (IBAction)offAll:(id)sender
@@ -334,8 +368,33 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     InvoiceViewController* ctrl = (InvoiceViewController *)[storyboard instantiateViewControllerWithIdentifier:@"InvoiceViewController"];
-    ctrl.resaCtrl = self;
-    [self.navigationController pushViewController:ctrl animated:YES];
+    
+    NSDateComponents *dayComponent = [[NSDateComponents alloc] init] ;
+    dayComponent.hour = 1;
+    
+    NSCalendar *theCalendar = [NSCalendar currentCalendar];
+    NSDate *minimumDate = [[NSDate alloc] init];
+    minimumDate = [theCalendar dateByAddingComponents:dayComponent toDate:minimumDate options:0];
+    
+    NSLog(@"%@", self.datePicker.date );
+    
+    if (self.startAddress.text.length == 0 || self.endAddress.text.length == 0
+      || [self.datePicker.date compare:minimumDate] == NSOrderedAscending)
+    {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                        message:@"Veuillez remplir tous les champs et mettre une date adéquate"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+
+    }
+    else
+    {
+       ctrl.resaCtrl = self;
+       [self.navigationController pushViewController:ctrl animated:YES];
+    }
 }
 
 
