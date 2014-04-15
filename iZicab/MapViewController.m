@@ -10,6 +10,7 @@
 #import "CustomNavBar.h"
 #import "ReservationViewController.h"
 #import "DashboardViewController.h"
+#import "SearchAddressTableViewController.h"
 
 @implementation MapViewController
 
@@ -51,14 +52,31 @@
     if (self.fromResa)
         [self infoFromResa];
 
-    
-    [self.startAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventAllEditingEvents];
-    [self.endAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventAllEditingEvents];
+
+    [self.startAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
+    [self.endAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
 
     
     self.autocompleteUrls = [[NSMutableArray alloc] init];
-     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
      NSLog(@"delegate:%@ dataSource:%@", self.autocompleteTableView.delegate, self.autocompleteTableView.dataSource);
+}
+
+- (void)textFieldBegin:(id)sender
+{
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    SearchAddressTableViewController* ctrl = (SearchAddressTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SearchAddressTableViewController"];
+    
+    if ([sender tag] == 1001)
+    {
+        ctrl.isStartAddr = YES;
+        ctrl.memoryFromReservation = [[NSMutableDictionary alloc] initWithObjectsAndKeys:self.end ,@"addr",  self.endLat, @"lat",  self.endLng, @"lng" , nil];
+    }
+    else
+        ctrl.memoryFromReservation = [[NSMutableDictionary alloc] initWithObjectsAndKeys:self.start ,@"addr",  self.startLat, @"lat",  self.startLng, @"lng" , nil];
+    
+    ctrl.isFromMap = YES;
+    [self.navigationController pushViewController:ctrl animated:YES];
 }
 
 
@@ -168,14 +186,18 @@
     
     self.startAddress.text = self.start;
     self.endAddress.text = self.end;
+    NSLog(@"%@/%@", self.start, self.end);
         [self.mapView removeAnnotation:self.annotationFirst];
         [self.mapView removeAnnotation:self.annotationSecond];
     
-    ctrpointStart.latitude = [self.latStartCo floatValue];
-        ctrpointStart.longitude = [self.lngStartCo floatValue];
+    ctrpointStart.latitude = [self.startLat floatValue];
+        ctrpointStart.longitude = [self.startLng floatValue];
     
-        ctrpointEnd.latitude = [self.latEndCo floatValue];
-        ctrpointEnd.longitude = [self.lngEndCo floatValue];
+        ctrpointEnd.latitude = [self.endLat floatValue];
+        ctrpointEnd.longitude = [self.endLng floatValue];
+    
+        NSLog(@"%@/%@/%@/%@", self.startLat, self.startLng, self.endLat, self.endLng);
+    
     
     CLGeocoder *ceo = [[CLGeocoder alloc]init];
     CLLocation *locStart = [[CLLocation alloc]initWithLatitude:ctrpointStart.latitude longitude:ctrpointStart.longitude];
@@ -263,8 +285,8 @@
         
         if (!self.fromResa)
         {
-            self.latStartCo = [NSString stringWithFormat:@"%f", location.latitude ];
-          self.lngStartCo =  [NSString stringWithFormat:@"%f", location.longitude];
+            self.startLat = [NSString stringWithFormat:@"%f", location.latitude ];
+          self.startLng =  [NSString stringWithFormat:@"%f", location.longitude];
         }
             
     }
@@ -411,6 +433,78 @@
     }
 }
 
+- (void) getLocation
+{
+    if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied ||
+        [CLLocationManager authorizationStatus] == kCLAuthorizationStatusRestricted)
+    {
+        return;
+    }
+    
+    // if locationManager does not currently exist, create it.
+    if (!self.locationManager)
+    {
+        self.locationManager = [[CLLocationManager alloc] init];
+        [self.locationManager setDelegate:self];
+        self.locationManager.distanceFilter = 10.0f; //we don't need to be any more accurate than 10m
+    }
+    
+    [self.locationManager startUpdatingLocation];
+    
+    
+    
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:   (CLLocation*)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    
+    if (!self.fromResa && self.startAddress.text.length == 0)
+    {
+    NSString * tLatitude  = [NSString stringWithFormat:@"%3.5f", newLocation.coordinate.latitude];
+    NSString * tLongitude = [NSString stringWithFormat:@"%3.5f", newLocation.coordinate.longitude];
+    
+        UIActivityIndicatorView *  spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        [spin setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 2)];
+        [spin setColor:[UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1]];
+        [spin startAnimating];
+        spin.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2, 2);
+        [spin startAnimating];
+        [self.view addSubview:spin];
+        [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+        
+
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error)
+     {
+         for(CLPlacemark *curString in placemarks)
+         {
+             
+             
+             CLPlacemark *placemark = [placemarks objectAtIndex:0];
+             NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+             self.startAddress.text =locatedAt;
+             self.annotationFirst = [[MKPointAnnotation alloc] init];
+             [self.annotationFirst setCoordinate:newLocation.coordinate];
+             [self.annotationFirst setTitle:locatedAt];
+             [self.annotationFirst setSubtitle:@"Départ"];
+             [self.mapView addAnnotation:self.annotationFirst];
+             
+             
+             [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+             [spin stopAnimating];
+             [spin removeFromSuperview];
+
+             
+             self.startAddress.text = [[curString.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+             self.start = self.startAddress.text;
+             self.startLat = tLatitude;
+             self.startLng = tLongitude;
+             
+         }
+     }];
+    }
+}
+
 
 - (void)traceRoute:(CLLocationCoordinate2D)southWest:(CLLocationCoordinate2D)northEast
 {
@@ -539,8 +633,9 @@
     
     self.autocompleteTableView.hidden = YES;
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
-    
+    [self getLocation];
     self.isFirstPlacement = NO;
 
 }
@@ -578,20 +673,20 @@
     if (self.isStartAddr)
     {
         self.startAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
-        self.latStartCo = self.latLng[[indexPath row]][@"lat"] ;
-        self.lngStartCo =self.latLng[[indexPath row]][@"lng"] ;
+        self.startLat = self.latLng[[indexPath row]][@"lat"] ;
+        self.startLng =self.latLng[[indexPath row]][@"lng"] ;
 
         
     }
     else
     {
         self.endAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
-        self.latEndCo = self.latLng[[indexPath row]][@"lat"] ;
-        self.lngEndCo =self.latLng[[indexPath row]][@"lng"] ;
+        self.endLat = self.latLng[[indexPath row]][@"lat"] ;
+        self.endLng =self.latLng[[indexPath row]][@"lng"] ;
 
 
     }
-    if (self.latEndCo.length > 0)
+    if (self.endLat.length > 0)
     [self infoFromResa];
 
 

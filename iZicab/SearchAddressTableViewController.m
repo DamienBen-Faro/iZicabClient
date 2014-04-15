@@ -8,6 +8,7 @@
 
 #import "SearchAddressTableViewController.h"
 #import "CustomNavBar.h"
+#import "MapViewController.h"
 #import "ReservationViewController.h"
 #import "DashboardViewController.h"
 
@@ -26,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+              [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 27, 320, 0)];
     self.searchBar.delegate = self;
     [self.searchBar sizeToFit];
@@ -252,37 +253,72 @@
 
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    ReservationViewController* ctrl = (ReservationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ReservationViewController"];
+ 
+
+    if (self.isFromMap)
+    {
+         MapViewController *  ctrl = (MapViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+        if (self.isStartAddr)
+        {
+            ctrl.start = [self.data objectAtIndex:indexPath.section][indexPath.row][@"name"];
+            ctrl.startLat = [self.data objectAtIndex:indexPath.section][indexPath.row][@"lat"] ;
+            ctrl.startLng = [self.data objectAtIndex:indexPath.section][indexPath.row][@"lng"] ;
+            
+            ctrl.end = self.memoryFromReservation[@"addr"];
+            ctrl.endLat = self.memoryFromReservation[@"lat"];
+            ctrl.endLng = self.memoryFromReservation[@"lng"];
+        }
+        else
+        {
+            ctrl.end = [self.data objectAtIndex:indexPath.section][indexPath.row][@"name"];
+            ctrl.endLat = [self.data objectAtIndex:indexPath.section][indexPath.row][@"lat"] ;
+            ctrl.endLng = [self.data objectAtIndex:indexPath.section][indexPath.row][@"lng"] ;
+            
+            ctrl.start = self.memoryFromReservation[@"addr"];
+            ctrl.startLat = self.memoryFromReservation[@"lat"] ;
+            ctrl.startLng = self.memoryFromReservation[@"lng"] ;
+            
+            NSLog(@"%@/%@", ctrl.startLat, ctrl.startLng);
+        }
+        ctrl.fromResa = YES;
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self.navigationController pushViewController:ctrl animated:YES];
+        
+     
+    }
+    else
+    {
+         ReservationViewController*     ctrl = (ReservationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ReservationViewController"];
+        if (self.isStartAddr)
+        {
+            ctrl.startAddr = [self.data objectAtIndex:indexPath.section][indexPath.row][@"name"];
+            ctrl.startLat = [[self.data objectAtIndex:indexPath.section][indexPath.row][@"lat"] floatValue];
+            ctrl.startLng = [[self.data objectAtIndex:indexPath.section][indexPath.row][@"lng"] floatValue];
+            
+            ctrl.endAddr = self.memoryFromReservation[@"addr"];
+            ctrl.endLat = [self.memoryFromReservation[@"lat"] floatValue];
+            ctrl.endLng = [self.memoryFromReservation[@"lng"] floatValue];
+        }
+        else
+        {
+            ctrl.endAddr = [self.data objectAtIndex:indexPath.section][indexPath.row][@"name"];
+            ctrl.endLat = [[self.data objectAtIndex:indexPath.section][indexPath.row][@"lat"] floatValue];
+            ctrl.endLng = [[self.data objectAtIndex:indexPath.section][indexPath.row][@"lng"] floatValue];
+            
+            ctrl.startAddr = self.memoryFromReservation[@"addr"];
+            ctrl.startLat = [self.memoryFromReservation[@"lat"] floatValue];
+            ctrl.startLng = [self.memoryFromReservation[@"lng"] floatValue];
+        }
+        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self.navigationController pushViewController:ctrl animated:YES];
+        
+
+    }
+
 
     
-    if (self.isStartAddr)
-    {
-        ctrl.startAddr = [self.data objectAtIndex:indexPath.section][indexPath.row][@"name"];
-        ctrl.startLat = [[self.data objectAtIndex:indexPath.section][indexPath.row][@"lat"] floatValue];
-        ctrl.startLng = [[self.data objectAtIndex:indexPath.section][indexPath.row][@"lng"] floatValue];
-        
-        ctrl.endAddr = self.memoryFromReservation[@"addr"];
-        ctrl.endLat = [self.memoryFromReservation[@"lat"] floatValue];
-        ctrl.endLng = [self.memoryFromReservation[@"lng"] floatValue];
-    }
-   else
-   {
-       ctrl.endAddr = [self.data objectAtIndex:indexPath.section][indexPath.row][@"name"];
-       ctrl.endLat = [[self.data objectAtIndex:indexPath.section][indexPath.row][@"lat"] floatValue];
-       ctrl.endLng = [[self.data objectAtIndex:indexPath.section][indexPath.row][@"lng"] floatValue];
-       
-       ctrl.startAddr = self.memoryFromReservation[@"addr"];
-       ctrl.startLat = [self.memoryFromReservation[@"lat"] floatValue];
-       ctrl.startLng = [self.memoryFromReservation[@"lng"] floatValue];
-   }
     
-            NSLog(@"dico:%@", self.memoryFromReservation);
-    
-    NSLog(@"lat:%@ / lng:%@", [self.data objectAtIndex:indexPath.section][indexPath.row][@"lat"] , [self.data objectAtIndex:indexPath.section][indexPath.row][@"lng"]);
-    
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:ctrl animated:YES];
-    
+
 }
 
 

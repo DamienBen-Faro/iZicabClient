@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface MapViewController : UIViewController<MKMapViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface MapViewController : UIViewController<MKMapViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
 
 @property (strong)IBOutlet MKMapView *mapView;
@@ -27,14 +27,15 @@
 @property (assign)         BOOL isStartAddr;
 @property (strong)         NSMutableArray *latLng;
 @property (assign)          CLLocationCoordinate2D userLocation;
+@property (strong)                  CLLocationManager   *locationManager;
 
 //from resa
 @property (strong) NSString *start;
 @property (strong) NSString *end;
-@property (strong) NSString  *latStartCo;
-@property (strong) NSString  *lngStartCo;
-@property (strong) NSString  *latEndCo;
-@property (strong) NSString  *lngEndCo;
+@property (strong) NSString  *startLng;
+@property (strong) NSString  *startLat;
+@property (strong) NSString  *endLat;
+@property (strong) NSString  *endLng;
 @property (assign) BOOL       fromResa;
 
 

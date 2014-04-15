@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 
 
-@interface ReservationViewController : UIViewController<UIScrollViewDelegate, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate>
+@interface ReservationViewController : UIViewController<UIScrollViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
 
 
 @property (strong)IBOutlet UIScrollView *scrollView;
@@ -26,8 +26,6 @@
 @property (strong)IBOutlet UIButton    *paper;
 @property (strong)IBOutlet UIButton    *wifi;
 @property (strong)         UIDatePicker*datePicker;
-@property (strong)         UITableView *autocompleteTableView;
-@property (strong)         NSMutableArray *autocompleteUrls;
 @property (assign)         BOOL isStartAddr;
 @property (strong)         NSString *startAddr;
 @property (strong)         NSString *endAddr;
@@ -38,9 +36,7 @@
 @property (strong)         NSMutableArray *latLng;
 @property (assign)         BOOL isResa;
 @property (strong)         NSMutableDictionary *resaUpdate;
-@property (strong)         UILabel *wroteAddr;
 @property (strong)         UIButton *dpBtn;
-@property (assign)         BOOL wasSelected;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
 

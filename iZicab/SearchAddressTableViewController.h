@@ -19,6 +19,7 @@
 @property (strong)                  NSMutableArray      *data;
 @property (strong)                  CLLocationManager   *locationManager;
 @property (assign)                  BOOL                isStartAddr;
+@property (assign)                  BOOL                isFromMap;
 @property (strong)                  NSMutableDictionary *memoryFromReservation;
 
 @end

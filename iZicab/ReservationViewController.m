@@ -28,8 +28,6 @@
     self.endAddress.tag = 222;
     self.startAddress.text = self.startAddr;
     self.endAddress.text = self.endAddr;
-   // [self.startAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
-   // [self.endAddress addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
 
     [self.startAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
     [self.endAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
@@ -102,33 +100,6 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [self loadUserData];
-    self.autocompleteTableView = [[UITableView alloc] initWithFrame:
-                             CGRectMake(0, 130, 320, 500) style:UITableViewStylePlain];
-    
-    self.autocompleteTableView.delegate = self;
-    self.autocompleteTableView.dataSource = self;
-    self.autocompleteTableView.scrollEnabled = YES;
-    self.autocompleteTableView.hidden = YES;
-    self.autocompleteUrls = [[NSMutableArray alloc] init];
-    
-
-    self.wroteAddr = [[UILabel alloc] initWithFrame:CGRectMake(0, 90, 320, 40)];
-    self.wroteAddr.textAlignment = NSTextAlignmentCenter;
-    self.wroteAddr.font = [UIFont fontWithName:@"Roboto-Light" size:20.0];
-    self.wroteAddr.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:0.8];
-    self.wroteAddr.textColor = [UIColor whiteColor];
-    self.wroteAddr.hidden = YES;
-     [self.view addSubview:self.wroteAddr];
-    
-    [self.view addSubview:self.autocompleteTableView];
-    UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(offAll:)];
-    tapGestureRecognize.numberOfTapsRequired = 1;
-    [self.view addGestureRecognizer:tapGestureRecognize];
-    
-    UITapGestureRecognizer* canc = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelStreet:)];
-    [self.wroteAddr setUserInteractionEnabled:YES];
-    [self.wroteAddr addGestureRecognizer:canc];
-    self.wasSelected = NO;
 }
 
 
@@ -201,61 +172,6 @@
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
-- (void)textFieldDidChange:(id)sender
-{
-    [self getLocation];
-     NSString *fieldSelected = self.startAddress.text;
-    if ([sender tag] == 111)
-        self.isStartAddr = YES;
-    else
-    {
-        self.isStartAddr = NO;
-        fieldSelected = self.endAddress.text;
-    }
-    self.wroteAddr.hidden = NO;
-    self.wroteAddr.text = ((UITextField *)sender).text;
-    if ( self.wroteAddr.text.length == 0)
-        self.wroteAddr.text = @"Annuler";
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:fieldSelected completionHandler:^(NSArray *placemarks, NSError *error)
-    {
-       if (self.wasSelected)
-       {
-        self.autocompleteTableView.hidden = YES;
-           self.wasSelected = NO;
-       }
-        else
-            self.autocompleteTableView.hidden = NO;
-        [self.autocompleteUrls removeAllObjects];
-        [self.latLng removeAllObjects];
-        for(CLPlacemark *curString in placemarks)
-        {
-         //   NSLog(@"admarea:%@ / subadm:%@/ locality:@ / sublocality:%@",    curString.administrativeArea, curString.subAdministrativeArea, curString.locality, curString.subLocality );
-             NSLog(@"admarea:%@ ",    curString.administrativeArea );
-             if(self.isStartAddr )
-             {
-                 self.startLat = curString.region.center.latitude;
-                 self.startLng = curString.region.center.longitude;
-             }
-            else
-            {
-                self.endLat = curString.region.center.latitude;
-                self.endLng = curString.region.center.longitude;
-            }
-            NSDictionary *tmp = nil;
-            if ( [curString.administrativeArea isEqual:@"Île-de-France"])
-            {
-              tmp = [[NSDictionary alloc] initWithObjectsAndKeys:[ NSString stringWithFormat:@"%f", curString.region.center.latitude], @"lat",
-                                  [ NSString stringWithFormat:@"%f", curString.region.center.longitude], @"lng",nil];
-
-              [self.latLng addObject:tmp];
-              [self.autocompleteUrls addObject:[[curString.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "]];
-            }
-        }
-        
-        [self.autocompleteTableView reloadData];
-    }];
-}
 
 - (IBAction)goToMap:(id)sender
 {
@@ -265,11 +181,11 @@
     ctrl.start = self.startAddress.text;
     ctrl.end = self.endAddress.text;
 
-    ctrl.latStartCo = [NSString stringWithFormat:@"%f", self.startLat ];
-    ctrl.lngStartCo = [NSString stringWithFormat:@"%f", self.startLng ];
+    ctrl.startLat = [NSString stringWithFormat:@"%f", self.startLat ];
+    ctrl.startLng = [NSString stringWithFormat:@"%f", self.startLng ];
     
-    ctrl.latEndCo = [NSString stringWithFormat:@"%f", self.endLat ];
-    ctrl.lngEndCo = [NSString stringWithFormat:@"%f", self.endLng ];
+    ctrl.endLat = [NSString stringWithFormat:@"%f", self.endLat ];
+    ctrl.endLng = [NSString stringWithFormat:@"%f", self.endLng ];
    
     ctrl.fromResa = YES;
 
@@ -299,24 +215,12 @@
 
 - (IBAction)offAll:(id)sender
 {
-    
 
 
     [self.phone resignFirstResponder];
     [self.name resignFirstResponder];
 }
 
-- (IBAction)cancelStreet:(id)sender
-{
-    [self offAll:nil];
-    if ([self.wroteAddr.text isEqual:@"Annuler"])
-    {
-    [self.startAddress resignFirstResponder];
-    [self.endAddress resignFirstResponder];
-     self.wroteAddr.hidden = YES;
-     self.autocompleteTableView.hidden = YES;
-    }
-}
 
 
 - (IBAction)more:(id)sender
@@ -423,57 +327,6 @@
         self.phone.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1];
         self.tiers.selected = NO;
     }
-}
-
-
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    return [self.autocompleteUrls count];
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"] ;
-    }
-    
-    cell.textLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
-    cell.textLabel.textColor = [UIColor darkGrayColor];
-
-
-    cell.textLabel.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
-    return cell;
-}
-
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    self.autocompleteTableView.hidden = YES;
-    self.wroteAddr.hidden = YES;
-    self.wasSelected = YES;
-    [self.startAddress resignFirstResponder];
-    [self.endAddress resignFirstResponder];
-    if (self.isStartAddr)
-    {
-        self.startAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
-        self.startLat = [self.latLng[[indexPath row]][@"lat"] floatValue];
-         self.startLng = [self.latLng[[indexPath row]][@"lng"] floatValue];
-    }
-    else
-    {
-        self.endAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
-        self.endLat = [self.latLng[[indexPath row]][@"lat"] floatValue];
-        self.endLng = [self.latLng[[indexPath row]][@"lng"] floatValue];
-    }
-    [self.startAddress resignFirstResponder];
-    [self.endAddress resignFirstResponder];
-    
-    return NO;
-
 }
 
 
