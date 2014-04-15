@@ -32,7 +32,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
  
-    [[ConnectionData sharedConnectionData] beginService: @"ride/infos":[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"s", @"lat",nil]  :@selector(callBackController:):self];
+    [[ConnectionData sharedConnectionData] beginService: @"info/infos":[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"s", @"lat",nil]  :@selector(callBackController:):self];
 }
 
 - (void)callBackController:(NSDictionary *)dict

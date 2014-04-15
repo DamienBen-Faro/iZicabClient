@@ -30,9 +30,9 @@
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
-    self.mapView.showsUserLocation = YES;
+    self.mapView.showsUserLocation = NO;
     self.mapView.delegate = self;
-    self.isFirstPlacement = NO;
+
     
     if (!IS_IPHONE_5)
     {
@@ -61,15 +61,9 @@
 - (void)callBackController:(NSDictionary *)dict
 {
         NSError *error;
-        
-        
-        NSLog(@"%@", dict);
-        
-        
+
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
-            
-            
            
             if ([dict objectForKey:@"data"]  > 0 && [[dict objectForKey:@"data"] isKindOfClass:[NSArray class]])
             {
@@ -82,17 +76,14 @@
              
                 
                 CLLocationCoordinate2D startMap, endMap;
-                startMap.latitude =  [((NSString *)[dict objectForKey:@"data"][0][@"startLat"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"startLat"]) floatValue] : 0.0;
-                startMap.longitude =  [((NSString *)[dict objectForKey:@"data"][0][@"startLng"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"startLng"]) floatValue] : 0.0;
-                endMap.latitude =  [((NSString *)[dict objectForKey:@"data"][0][@"endLat"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"endLat"]) floatValue] : 0.0;
-                endMap.longitude =  [((NSString *)[dict objectForKey:@"data"][0][@"endLng"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"endLng"]) floatValue] : 0.0;
+                startMap.latitude   =  [((NSString *)[dict objectForKey:@"data"][0][@"startLat"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"startLat"]) floatValue] : 0.0;
+                startMap.longitude  =  [((NSString *)[dict objectForKey:@"data"][0][@"startLng"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"startLng"]) floatValue] : 0.0;
+                endMap.latitude     =  [((NSString *)[dict objectForKey:@"data"][0][@"endLat"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"endLat"]) floatValue] : 0.0;
+                endMap.longitude    =  [((NSString *)[dict objectForKey:@"data"][0][@"endLng"]) floatValue] ? [((NSString *)[dict objectForKey:@"data"][0][@"endLng"]) floatValue] : 0.0;
                 
-  
-          
-                
-               [self mapResa: startMap: endMap];
+                [self mapResa: startMap: endMap];
                 [self resaMineAnim];
-                [[ConnectionData sharedConnectionData] beginService: @"ride/infos":[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"s", @"lat",nil]  :@selector(callBackControllerInfo:):self];
+                [[ConnectionData sharedConnectionData] beginService: @"info/infos":[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"s", @"lat",nil]  :@selector(callBackControllerInfo:):self];
             }
             else
             {
@@ -117,10 +108,10 @@
 
 
 
--(void)mapResa: (CLLocationCoordinate2D ) locationFirst:(CLLocationCoordinate2D )locationSecond
+-(void)mapResa: (CLLocationCoordinate2D ) locationFirst
+              :(CLLocationCoordinate2D )locationSecond
 {
-
-    
+   
     CLLocationCoordinate2D southWest = locationFirst;
     CLLocationCoordinate2D northEast = locationSecond;
     
@@ -150,30 +141,6 @@
 
 }
 
-
-- (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation
-{
-    MKCoordinateRegion region;
-    MKCoordinateSpan span;
-    span.latitudeDelta = 0.005;
-    span.longitudeDelta = 0.005;
-    CLLocationCoordinate2D location;
-    location.latitude = aUserLocation.coordinate.latitude;
-    location.longitude = aUserLocation.coordinate.longitude;
-    region.span = span;
-    region.center = location;
-    
-    if (!self.isFirstPlacement)
-    {
-        [aMapView setRegion:region animated:YES];
-        self.isFirstPlacement = YES;
-        
-        CLLocationCoordinate2D locationFirst;
-        CLLocationCoordinate2D locationSecond;
-        
-
-    }
-}
 
 - (void)traceRoute:(CLLocationCoordinate2D)southWest:(CLLocationCoordinate2D)northEast
 {
