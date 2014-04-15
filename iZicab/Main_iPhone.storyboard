@@ -163,7 +163,7 @@
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </imageView>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="pPV-gi-czO">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pPV-gi-czO">
                                                         <rect key="frame" x="11" y="11" width="278" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -890,79 +890,53 @@ Roissy-en-France 95700</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="47h-FS-Enb">
-                                <rect key="frame" x="0.0" y="-20" width="320" height="378"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1XD-EF-935">
-                                <rect key="frame" x="20" y="24" width="280" height="42"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1XD-EF-935">
+                                <rect key="frame" x="0.0" y="199" width="43" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logoMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="jYp-Zh-pBH">
-                                        <rect key="frame" x="63" y="10" width="154" height="22"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="encartMenuMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="ecV-ap-jDy">
+                                        <rect key="frame" x="0.0" y="0.0" width="43" height="83"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krz-dN-kBD">
+                                        <rect key="frame" x="6" y="8" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="backButtonBlue.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBack:" destination="JG4-dv-4I9" eventType="touchUpInside" id="3mn-Be-sJd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fu-wf-WpR">
+                                        <rect key="frame" x="6" y="48" width="27" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" backgroundImage="menuButtonBlue.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goToDash:" destination="JG4-dv-4I9" eventType="touchUpInside" id="wyY-kQ-dfu"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.70000000000000007" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="krz-dN-kBD">
-                                <rect key="frame" x="16" y="10" width="50" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="backButtonBlue.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goBack:" destination="JG4-dv-4I9" eventType="touchUpInside" id="3mn-Be-sJd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6fu-wf-WpR">
-                                <rect key="frame" x="254" y="10" width="50" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="menuButtonBlue.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToDash:" destination="JG4-dv-4I9" eventType="touchUpInside" id="wyY-kQ-dfu"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2i-P1-bn5">
-                                <rect key="frame" x="0.0" y="357" width="320" height="126"/>
+                                <rect key="frame" x="10" y="20" width="320" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NI3-Q8-ZpO">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="encartMap.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ryd-CU-bKq">
+                                        <rect key="frame" x="0.0" y="0.0" width="302" height="62"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7MM-qd-CLb">
-                                        <rect key="frame" x="1" y="1" width="318" height="124"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BR-R7-e2E">
+                                        <rect key="frame" x="260" y="16" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uoj-8k-tb4">
-                                        <rect key="frame" x="20" y="10" width="23" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="pinDepart.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="setFirstPin:" destination="JG4-dv-4I9" eventType="touchUpInside" id="MMM-N0-sXA"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0V-T6-a1N">
-                                        <rect key="frame" x="20" y="51" width="23" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="pinArrive.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="setSecondPin:" destination="JG4-dv-4I9" eventType="touchUpInside" id="i1w-dw-pcx"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BR-R7-e2E">
-                                        <rect key="frame" x="69" y="86" width="182" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Valider">
+                                        <state key="normal" title="Valider" image="validMap.png">
                                             <color key="titleColor" red="0.36470589040000001" green="0.78039222959999999" blue="0.84705889229999998" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -970,25 +944,55 @@ Roissy-en-France 95700</string>
                                             <action selector="sendResa:" destination="JG4-dv-4I9" eventType="touchUpInside" id="KPa-UM-Bzg"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" Adresse depart" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cJM-GG-NrX">
-                                        <rect key="frame" x="60" y="10" width="240" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Adresse départ" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cJM-GG-NrX">
+                                        <rect key="frame" x="57" y="1" width="195" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.99974147300000005" green="1" blue="0.9812407944" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="backgroundColor" red="0.99607849120000003" green="0.99607849120000003" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder=" Adresse Arrive" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="1Mr-g9-hOC">
-                                        <rect key="frame" x="60" y="48" width="240" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Adresse Arrivée" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="1Mr-g9-hOC">
+                                        <rect key="frame" x="57" y="31" width="195" height="28"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uoj-8k-tb4">
+                                        <rect key="frame" x="3" y="3" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="pinMapStart.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="setFirstPin:" destination="JG4-dv-4I9" eventType="touchUpInside" id="MMM-N0-sXA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0V-T6-a1N">
+                                        <rect key="frame" x="3" y="30" width="25" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="pinMapEnd.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="setSecondPin:" destination="JG4-dv-4I9" eventType="touchUpInside" id="i1w-dw-pcx"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loupe.png" translatesAutoresizingMaskIntoConstraints="NO" id="zkm-16-Lt1">
+                                        <rect key="frame" x="35" y="5" width="14" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loupe.png" translatesAutoresizingMaskIntoConstraints="NO" id="J2a-2E-Vt5">
+                                        <rect key="frame" x="35" y="35" width="14" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oyc-28-1g5">
-                                <rect key="frame" x="264" y="303" width="40" height="40"/>
+                                <rect key="frame" x="261" y="421" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1007,11 +1011,12 @@ Roissy-en-France 95700</string>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="o2i-P1-bn5" secondAttribute="bottom" id="NU9-JM-s2S"/>
-                            <constraint firstAttribute="bottom" secondItem="Oyc-28-1g5" secondAttribute="bottom" constant="137" id="OjA-yf-KXP"/>
-                            <constraint firstItem="47h-FS-Enb" firstAttribute="top" secondItem="JuX-Ns-WCS" secondAttribute="bottom" constant="-20" id="b72-9n-HTN"/>
-                            <constraint firstItem="jkJ-Ob-Byj" firstAttribute="top" secondItem="47h-FS-Enb" secondAttribute="bottom" constant="122" id="m9e-Kd-Axx"/>
-                            <constraint firstAttribute="trailing" secondItem="Oyc-28-1g5" secondAttribute="trailing" constant="16" id="sby-mE-4gh"/>
+                            <constraint firstItem="o2i-P1-bn5" firstAttribute="leading" secondItem="dQ7-yW-LBl" secondAttribute="leading" constant="10" id="0JX-5P-AcD"/>
+                            <constraint firstItem="jkJ-Ob-Byj" firstAttribute="top" secondItem="47h-FS-Enb" secondAttribute="bottom" id="ZgH-bn-Mf7"/>
+                            <constraint firstAttribute="bottom" secondItem="Oyc-28-1g5" secondAttribute="bottom" constant="19" id="jBi-Bh-kBm"/>
+                            <constraint firstItem="1XD-EF-935" firstAttribute="top" secondItem="dQ7-yW-LBl" secondAttribute="top" constant="199" id="lHS-xO-iAN"/>
+                            <constraint firstAttribute="trailing" secondItem="Oyc-28-1g5" secondAttribute="trailing" constant="19" id="wuz-Pc-LES"/>
+                            <constraint firstItem="47h-FS-Enb" firstAttribute="top" secondItem="dQ7-yW-LBl" secondAttribute="top" id="yuC-Ql-yAd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fwf-5T-V9H"/>
@@ -1932,7 +1937,7 @@ Roissy-en-France 95700</string>
         <image name="ElementAppli-01.png" width="263" height="262"/>
         <image name="babyOff.png" width="130" height="130"/>
         <image name="babyOn.png" width="130" height="130"/>
-        <image name="backButtonBlue.png" width="50" height="65"/>
+        <image name="backButtonBlue.png" width="29" height="29"/>
         <image name="bigLogo.png" width="129" height="120"/>
         <image name="buttonOff.png" width="40" height="40"/>
         <image name="buttonOn.png" width="40" height="40"/>
@@ -1940,6 +1945,8 @@ Roissy-en-France 95700</string>
         <image name="carteOff.png" width="130" height="40"/>
         <image name="carteOn.png" width="130" height="40"/>
         <image name="connexion.png" width="146" height="30"/>
+        <image name="encartMap.png" width="604" height="124"/>
+        <image name="encartMenuMap.png" width="83" height="163"/>
         <image name="especeOff.png" width="130" height="40"/>
         <image name="especeOn.png" width="130" height="40"/>
         <image name="facebook.png" width="72" height="72"/>
@@ -1947,18 +1954,18 @@ Roissy-en-France 95700</string>
         <image name="inscription.png" width="146" height="30"/>
         <image name="linkedin.png" width="72" height="72"/>
         <image name="logoBlack.png" width="206" height="30"/>
-        <image name="logoMap.png" width="241" height="35"/>
+        <image name="loupe.png" width="28" height="40"/>
         <image name="mail.png" width="72" height="72"/>
-        <image name="menuButtonBlue.png" width="50" height="65"/>
+        <image name="menuButtonBlue.png" width="29" height="29"/>
         <image name="minus.png" width="52" height="52"/>
         <image name="paperOff.png" width="130" height="130"/>
         <image name="paperOn.png" width="130" height="130"/>
-        <image name="pinArrive.png" width="23" height="30"/>
-        <image name="pinDepart.png" width="23" height="30"/>
+        <image name="pinMapEnd.png" width="25" height="25"/>
+        <image name="pinMapStart.png" width="25" height="25"/>
         <image name="plus.png" width="52" height="52"/>
         <image name="premiumOff.png" width="130" height="30"/>
         <image name="premiumOn.png" width="130" height="30"/>
-        <image name="retourPosition.png" width="81" height="81"/>
+        <image name="retourPosition.png" width="82" height="82"/>
         <image name="rond.png" width="82" height="82"/>
         <image name="separateurDouble.png" width="540" height="7"/>
         <image name="sms.png" width="72" height="72"/>
@@ -1966,6 +1973,7 @@ Roissy-en-France 95700</string>
         <image name="standardOn.png" width="130" height="30"/>
         <image name="suitcase.png" width="82" height="89"/>
         <image name="twitter.png" width="72" height="72"/>
+        <image name="validMap.png" width="60" height="60"/>
         <image name="validation.png" width="146" height="30"/>
         <image name="watch.png" width="40" height="40"/>
         <image name="wifiOff.png" width="130" height="130"/>

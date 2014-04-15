@@ -38,11 +38,11 @@
         coef = 1;
     [imgV setFrame:CGRectMake(self.mapView.frame.size.width / 2 - 12 ,
                               (self.mapView.frame.size.height / 2) * coef - [UIImage imageNamed:@"cibleMap"].size.height / 2 + 16 ,
-                              imgV.frame.size.width / 2, imgV.frame.size.height / 2)];
+                              imgV.frame.size.width / 1.5, imgV.frame.size.height / 1.5)];
     
     [self.mapView addSubview:imgV];
-    self.startAddress.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
-    self.endAddress.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    self.startAddress.font     = [UIFont fontWithName:@"Roboto-Light" size:20.0];
+    self.endAddress.font     = [UIFont fontWithName:@"Roboto-Light" size:20.0];
  
 
     //UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
