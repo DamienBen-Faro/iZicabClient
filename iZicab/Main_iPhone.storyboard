@@ -311,44 +311,8 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" red="0.16544094141864438" green="0.54940609056122447" blue="0.44171529067230669" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qa1-fY-u5U" userLabel="paiment view">
-                                                <rect key="frame" x="10" y="350" width="300" height="90"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mode de paiments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCt-ry-99f">
-                                                        <rect key="frame" x="25" y="10" width="250" height="21"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                                        <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6me-cW-sxv" userLabel="espece">
-                                                        <rect key="frame" x="10" y="40" width="130" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <state key="normal" image="especeOff.png" backgroundImage="especeOff.png">
-                                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <state key="selected" image="especeOn.png" backgroundImage="especeOn.png"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JPD-vd-4bc" userLabel="carte">
-                                                        <rect key="frame" x="160" y="40" width="130" height="40"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        <state key="normal" image="carteOff.png" backgroundImage="carteOff.png">
-                                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                        <state key="selected" image="carteOn.png" backgroundImage="carteOn.png">
-                                                            <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                        </state>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
-                                            </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bhz-Wg-P5c" userLabel="optionView">
-                                                <rect key="frame" x="10" y="460" width="300" height="550"/>
+                                                <rect key="frame" x="10" y="350" width="300" height="550"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KlX-PO-Vao">
@@ -820,11 +784,11 @@ Roissy-en-France 95700</string>
                                     <outlet property="delegate" destination="gwn-XK-Ppc" id="Xbj-lY-7Nx"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7y-Mp-e2r">
-                                <rect key="frame" x="0.0" y="45" width="320" height="50"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LKP-kv-zd6">
+                                <rect key="frame" x="0.0" y="90" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="otY-w8-Pow">
                                 <rect key="frame" x="30" y="55" width="260" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -840,17 +804,15 @@ Roissy-en-France 95700</string>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-
-                            <constraint firstItem="k7y-Mp-e2r" firstAttribute="top" secondItem="XuZ-AZ-kPZ" secondAttribute="bottom" constant="25" id="DTY-Pt-ehm"/>
                             <constraint firstItem="otY-w8-Pow" firstAttribute="top" secondItem="XuZ-AZ-kPZ" secondAttribute="bottom" constant="35" id="O8C-VI-ALJ"/>
                             <constraint firstItem="mRX-VU-XyX" firstAttribute="top" secondItem="XuZ-AZ-kPZ" secondAttribute="bottom" constant="30" id="bhf-dM-TO7"/>
-
                             <constraint firstItem="9dM-Yf-aDT" firstAttribute="top" secondItem="mRX-VU-XyX" secondAttribute="bottom" constant="10" id="zwu-oG-rZL"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="segment" destination="otY-w8-Pow" id="uaa-87-ziU"/>
                         <outlet property="tableView" destination="mRX-VU-XyX" id="WB0-7O-jNg"/>
+                        <outlet property="whiteV" destination="LKP-kv-zd6" id="6yD-uR-sxN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8s1-fX-pjn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1950,13 +1912,9 @@ Roissy-en-France 95700</string>
         <image name="buttonOff.png" width="40" height="40"/>
         <image name="buttonOn.png" width="40" height="40"/>
         <image name="buttonPassenger.png" width="41" height="44"/>
-        <image name="carteOff.png" width="130" height="40"/>
-        <image name="carteOn.png" width="130" height="40"/>
         <image name="connexion.png" width="146" height="30"/>
         <image name="encartMap.png" width="604" height="124"/>
         <image name="encartMenuMap.png" width="83" height="163"/>
-        <image name="especeOff.png" width="130" height="40"/>
-        <image name="especeOn.png" width="130" height="40"/>
         <image name="facebook.png" width="72" height="72"/>
         <image name="googlePlus" width="129" height="120"/>
         <image name="inscription.png" width="146" height="30"/>

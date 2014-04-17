@@ -47,7 +47,7 @@
     NSCalendar *theCalendar = [NSCalendar currentCalendar];
     NSDate *minimumDate = [[NSDate alloc] init];
     minimumDate = [theCalendar dateByAddingComponents:dayComponent toDate:minimumDate options:0];
-
+     
     
     
     self.datePicker = [[UIDatePicker alloc] init];
@@ -99,6 +99,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+      [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self loadUserData];
 }
 
@@ -298,6 +299,8 @@
     {
        ctrl.resaCtrl = self;
        [self.navigationController pushViewController:ctrl animated:YES];
+    
+
     }
 }
 

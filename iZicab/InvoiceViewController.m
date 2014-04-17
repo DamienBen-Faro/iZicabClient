@@ -44,7 +44,7 @@
         self.price.font     = [UIFont fontWithName:@"Roboto-Regular" size:45.0];
 
 
-    
+    self.firstURL = NO;
     self.baby.text = [NSString stringWithFormat:@"%i", self.resaCtrl.babySeat.selected];
     self.wifi.text = [NSString stringWithFormat:@"%i", self.resaCtrl.wifi.selected];
     self.paper.text = [NSString stringWithFormat:@"%i", self.resaCtrl.paper.selected];
@@ -58,7 +58,9 @@
     if (self.isSeeing)
         [self showResaM];
     
-
+    CGRect webFrame = CGRectMake(0.0, 90.0, 320.0, 460.0);
+    self.webView = [[UIWebView alloc] initWithFrame:webFrame];
+    self.webView.delegate = self;
 }
 
 - (void) showResaM
@@ -224,26 +226,28 @@
     [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
 }
 
+
+
 - (void)sendResa:(NSDictionary *)dict
 {
        NSError *error;
-        
+    
         
         NSLog(@"%@", dict);
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
 
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
-                                                            message:@"Reservation effectuée"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"ok"
-                                                  otherButtonTitles:nil];
-            [alert show];
+     
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSString *urlAddress = [NSString stringWithFormat:@"http://199.16.131.147/~izicat/105/Website/application/controllers/ws/CIC/Phase1Aller.php?email=%@&userId=%@&amount=%@", [defaults objectForKey:@"email"], [defaults objectForKey:@"userId"],[self.price.text substringToIndex:[self.price.text length] - 1]];
+            NSLog(@"waat:%@", urlAddress);
+            NSURL *url = [NSURL URLWithString:urlAddress];
+            NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+            [self.webView loadRequest:requestObj];
+            [self.view addSubview:self.webView];
             
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-            DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-            [self.navigationController pushViewController:ctrl animated:YES];
+
             
         }
         else
@@ -294,12 +298,61 @@
 }
 
 
+
+- (void) sendFinish
+{
+     [self.webView removeFromSuperview];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                    message:@"Reservation effectuée"
+                                                   delegate:self
+                                          cancelButtonTitle:@"ok"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
+
+-(BOOL) webView:(UIWebView *)inWeb shouldStartLoadWithRequest:(NSURLRequest *)inRequest   navigationType:(UIWebViewNavigationType)inType
+{
+    
+    
+    if (![[inRequest.URL.absoluteString substringToIndex:24] isEqual:@"https://ssl.paiement.cic"] && self.firstURL)
+        [self performSelector:@selector(sendFinish) withObject:nil afterDelay:3];
+    self.firstURL = YES;
+    return YES;
+}
+
+- (void) webViewDidStartLoad:(UIWebView *)webView
+{
+    NSLog(@"START");
+}
+
+- (void) webViewDidFinishLoad:(UIWebView *)webView
+{
+    NSLog(@"FINISH");
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    [self.webView removeFromSuperview];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Erreur"
+                                                    message:@"Une erreur est survenue veuillez réésayer plus tard."
+                                                   delegate:self
+                                          cancelButtonTitle:@"ok"
+                                          otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"Error : %@",error);
+}
+
 - (IBAction)send:(id)sender
 {
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    
+
     NSString *isPremium = @"standard";
     
     if ( self.premium.selected)

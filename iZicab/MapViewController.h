@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface MapViewController : UIViewController<MKMapViewDelegate, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
+@interface MapViewController : UIViewController<MKMapViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate>
 
 
 @property (strong)IBOutlet MKMapView *mapView;
@@ -18,7 +18,6 @@
 @property (strong)IBOutlet UITextField *startAddress;
 @property (strong)IBOutlet UITextField *endAddress;
 @property (strong)IBOutlet UIView *addrView;
-@property (strong) UITableView *autocompleteTableView;
 @property (assign)BOOL      isFirstPlacement;
 @property (strong)MKPolyline *line;
 

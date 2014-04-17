@@ -46,8 +46,7 @@
     self.endAddress.font     = [UIFont fontWithName:@"Roboto-Light" size:20.0];
  
 
-    //UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
-   // [self.view addGestureRecognizer:dismissKeyboard];
+
     
     if (self.fromResa)
         [self infoFromResa];
@@ -58,7 +57,7 @@
 
     
     self.autocompleteUrls = [[NSMutableArray alloc] init];
-     NSLog(@"delegate:%@ dataSource:%@", self.autocompleteTableView.delegate, self.autocompleteTableView.dataSource);
+    
 }
 
 - (void)textFieldBegin:(id)sender
@@ -80,19 +79,6 @@
 }
 
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    self.autocompleteTableView = [[UITableView alloc] initWithFrame:
-                                  CGRectMake(0, 0, 320, 500) style:UITableViewStylePlain];
-    
-    self.autocompleteTableView.delegate = self;
-    self.autocompleteTableView.dataSource = self;
-    self.autocompleteTableView.scrollEnabled = YES;
-    self.autocompleteTableView.hidden = YES;
-    self.autocompleteTableView.alpha = 0.8f;
-    [self.autocompleteTableView setUserInteractionEnabled:YES];
-       [self.view insertSubview:self.autocompleteTableView belowSubview:self.addrView];
-}
 
 - (void)offAll
 {
@@ -102,81 +88,6 @@
 }
 
 
-
-- (void) animateTextView:(BOOL) up
-{
-    if (up)
-        self.autocompleteTableView.hidden = NO;
-    else
-        self.autocompleteTableView.hidden = YES;
-    const int movementDistance = 215; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
-    int movement= movement = (up ? -movementDistance : movementDistance);
-    NSLog(@"%d",movement);
-    
-    [UIView beginAnimations: @"anim" context: nil];
-    [UIView setAnimationBeginsFromCurrentState: YES];
-    [UIView setAnimationDuration: movementDuration];
-    self.addrView.frame = CGRectMake(0, self.addrView.frame.origin.y + movement, self.addrView.frame.size.width, self.addrView.frame.size.height);
-    [UIView commitAnimations];
-}
-
-
-- (void)textFieldDidBeginEditing:(UITextView *)textView
-{
-    [self textFieldDidChange:textView];
-    [self animateTextView: YES];
-}
-
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
-{
-    return YES;
-}
-
-- (void)textFieldDidEndEditing:(UITextField *)textView
-{
-    [self animateTextView:NO ];
-}
-
-- (void)dismissKeyboard {
-    for (UIView *subView in self.addrView.subviews) {
-        if ([subView isKindOfClass:[UITextField class]]) {
-            [subView resignFirstResponder];
-        }
-    }
-}
-
-
-- (void)textFieldDidChange:(UITextView *)sender
-{
-    NSString *fieldSelected = sender.text;
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:fieldSelected completionHandler:^(NSArray *placemarks, NSError *error)
-     {
-    
-        [self.autocompleteUrls removeAllObjects];
-                [self.latLng removeAllObjects];
-        for(CLPlacemark *curString in placemarks)
-        {
-            if(sender.tag == 1001)
-                self.isStartAddr = YES;
-            else
-                self.isStartAddr = NO;
-
-            NSDictionary *tmp = [[NSDictionary alloc] initWithObjectsAndKeys:[ NSString stringWithFormat:@"%f", curString.region.center.latitude], @"lat",
-                                 [ NSString stringWithFormat:@"%f", curString.region.center.longitude], @"lng",nil];
-          
-            if ( [curString.administrativeArea isEqual:@"Île-de-France"])
-            {
-            [self.latLng addObject:tmp];
-            [self.autocompleteUrls addObject:[[curString.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "]];
-            }
-        }
-        
-        [self.autocompleteTableView reloadData];
-    }];
-}
 
 
 - (void)infoFromResa
@@ -201,7 +112,7 @@
     
     CLGeocoder *ceo = [[CLGeocoder alloc]init];
     CLLocation *locStart = [[CLLocation alloc]initWithLatitude:ctrpointStart.latitude longitude:ctrpointStart.longitude];
-        CLLocation *locEnd = [[CLLocation alloc]initWithLatitude:ctrpointEnd.latitude longitude:ctrpointEnd.longitude];
+    CLLocation *locEnd = [[CLLocation alloc]initWithLatitude:ctrpointEnd.latitude longitude:ctrpointEnd.longitude];
     
     UIActivityIndicatorView *  spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [spin setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 2)];
@@ -273,11 +184,19 @@
     span.latitudeDelta = 0.005;
     span.longitudeDelta = 0.005;
     CLLocationCoordinate2D location;
+  
     location.latitude = aUserLocation.coordinate.latitude;
     location.longitude = aUserLocation.coordinate.longitude;
     region.span = span;
     region.center = location;
-
+    
+    if (self.endLat.length > 0)
+    {
+        location.latitude = [self.endLat floatValue];
+        location.longitude = [self.endLng floatValue];
+            region.center = location;
+    }
+    
     if (!self.isFirstPlacement)
     {
         [aMapView setRegion:region animated:YES];
@@ -290,8 +209,6 @@
         }
             
     }
-    
-    
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
@@ -386,7 +303,7 @@
     spin.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2, 2);
     [spin startAnimating];
     [self.view addSubview:spin];
-    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+
 
     
     
@@ -412,7 +329,7 @@
          self.endAddress.text =locatedAt;
          if (self.annotationSecond)
          [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
-         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+
          [spin stopAnimating];
          [spin removeFromSuperview];
          [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
@@ -479,7 +396,7 @@
          for(CLPlacemark *curString in placemarks)
          {
              
-             
+                 [self.mapView removeAnnotation:self.annotationFirst];
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
              NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
              self.startAddress.text =locatedAt;
@@ -501,6 +418,27 @@
              self.startLng = tLongitude;
              
          }
+
+         
+         
+         MKCoordinateRegion region;
+         MKCoordinateSpan span;
+         span.latitudeDelta = 0.005;
+         span.longitudeDelta = 0.005;
+         CLLocationCoordinate2D location;
+         region.span = span;
+         region.center = location;
+         
+         if (self.endLat.length > 0)
+         {
+             location.latitude = [self.endLat floatValue];
+             location.longitude = [self.endLng floatValue];
+             region.center = location;
+            [self.mapView setRegion:region animated:YES];
+         }
+
+         
+         
      }];
     }
 }
@@ -623,7 +561,7 @@
 {
     [self.startAddress resignFirstResponder];
     [self.endAddress resignFirstResponder];
-    [self.autocompleteTableView removeFromSuperview];
+
 }
 
 
@@ -631,7 +569,7 @@
 {
     
     
-    self.autocompleteTableView.hidden = YES;
+
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
          [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
@@ -640,69 +578,11 @@
 
 }
 
-#pragma mark UITableViewDelegate Methods
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-    
-    return [self.autocompleteUrls count];
+      [self performSelector:@selector(setSecondPin:) withObject:nil afterDelay:1.0];
 }
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cellz"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellz"] ;
-    }
-    [cell setExclusiveTouch:YES];
-    cell.textLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
-    cell.textLabel.textColor = [UIColor darkGrayColor];
-
-    cell.textLabel.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
-    return cell;
-}
-
-
-
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-     self.autocompleteTableView.hidden = YES;
-    [self offAll];
-    if (self.isStartAddr)
-    {
-        self.startAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
-        self.startLat = self.latLng[[indexPath row]][@"lat"] ;
-        self.startLng =self.latLng[[indexPath row]][@"lng"] ;
-
-        
-    }
-    else
-    {
-        self.endAddress.text = [self.autocompleteUrls objectAtIndex:[indexPath row]];
-        self.endLat = self.latLng[[indexPath row]][@"lat"] ;
-        self.endLng =self.latLng[[indexPath row]][@"lng"] ;
-
-
-    }
-    if (self.endLat.length > 0)
-    [self infoFromResa];
-
-
-    
-    [self.startAddress resignFirstResponder];
-    [self.endAddress resignFirstResponder];
-
-    return NO;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 55;
-}
-
-
 
 
 @end
