@@ -90,7 +90,7 @@
 {
  
     textF.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imgName]];
-    textF.leftView.frame = CGRectMake(0, 0, 47, 40);
+    textF.leftView.frame = CGRectMake(0, 0, 33, 28);
     textF.leftViewMode = UITextFieldViewModeAlways;
 }
 
