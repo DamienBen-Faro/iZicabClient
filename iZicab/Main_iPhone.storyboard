@@ -61,7 +61,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1" y="740"/>
+            <point key="canvasLocation" x="-897" y="719"/>
         </scene>
         <!--Code View Controller-->
         <scene sceneID="Bt5-hA-kRo">
@@ -118,7 +118,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="elv-xy-HXP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16" y="1415"/>
+            <point key="canvasLocation" x="-904" y="1351"/>
         </scene>
         <!--Reservation View Controller-->
         <scene sceneID="1oz-zD-TYP">
@@ -538,7 +538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49M-hP-Yct" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1324" y="-642"/>
+            <point key="canvasLocation" x="1626" y="-1290"/>
         </scene>
         <!--Invoice View Controller-->
         <scene sceneID="oEj-Bi-1FW">
@@ -758,7 +758,7 @@ Roissy-en-France 95700</string>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
             </objects>
-            <point key="canvasLocation" x="1950" y="-642"/>
+            <point key="canvasLocation" x="2062" y="-1290"/>
         </scene>
         <!--Resa Mine View Controller-->
         <scene sceneID="AOe-zR-UeV">
@@ -819,7 +819,7 @@ Roissy-en-France 95700</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8s1-fX-pjn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1833" y="48"/>
+            <point key="canvasLocation" x="1633" y="-28"/>
         </scene>
         <!--Search Address Table View Controller-->
         <scene sceneID="1rc-nX-A7N">
@@ -847,7 +847,7 @@ Roissy-en-France 95700</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JFa-hE-pBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2230" y="45"/>
+            <point key="canvasLocation" x="2094" y="-28"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="IIR-he-WYM">
@@ -1001,7 +1001,7 @@ Roissy-en-France 95700</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCh-iz-5QK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1058" y="1415"/>
+            <point key="canvasLocation" x="1633" y="-666"/>
         </scene>
         <!--Account View Controller-->
         <scene sceneID="c84-ID-sxP">
@@ -1351,7 +1351,7 @@ Roissy-en-France 95700</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bc9-hE-feU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1810" y="732"/>
+            <point key="canvasLocation" x="1633" y="580"/>
         </scene>
         <!--Actu View Controller-->
         <scene sceneID="eAU-0r-ReL">
@@ -1389,7 +1389,7 @@ Roissy-en-France 95700</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AlY-ZO-fqZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1499" y="1243"/>
+            <point key="canvasLocation" x="1633" y="1185"/>
         </scene>
         <!--Actu Detail View Controller-->
         <scene sceneID="ZXD-mF-VIi">
@@ -1452,7 +1452,7 @@ Roissy-en-France 95700</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rq0-Op-HHL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1950" y="1273"/>
+            <point key="canvasLocation" x="2094" y="1185"/>
         </scene>
         <!--Share View Controller-->
         <scene sceneID="9y4-OJ-gp0">
@@ -1540,7 +1540,7 @@ Roissy-en-France 95700</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tug-EK-dLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2239" y="666"/>
+            <point key="canvasLocation" x="2086" y="580"/>
         </scene>
         <!--Navigation Control View Controller-->
         <scene sceneID="zrG-RB-tDZ">
@@ -1727,7 +1727,7 @@ Roissy-en-France 95700</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CF5-Rm-UOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="758" y="38"/>
+            <point key="canvasLocation" x="590" y="-28"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="RJy-Ln-fIX">
@@ -1797,7 +1797,7 @@ Roissy-en-France 95700</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mox-NA-kr3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515" y="1415"/>
+            <point key="canvasLocation" x="-157" y="1351"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="RZv-0s-gxe">
@@ -1881,7 +1881,7 @@ Roissy-en-France 95700</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Vk-h2-yKP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="515" y="740"/>
+            <point key="canvasLocation" x="-157" y="719"/>
         </scene>
         <!--Navigation Control View Controller-->
         <scene sceneID="51l-rO-3ZI">
@@ -1899,7 +1899,7 @@ Roissy-en-France 95700</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQf-WL-d0y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-646" y="740"/>
+            <point key="canvasLocation" x="-1342" y="719"/>
         </scene>
     </scenes>
     <resources>
