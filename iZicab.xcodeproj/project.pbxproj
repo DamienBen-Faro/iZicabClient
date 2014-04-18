@@ -159,6 +159,9 @@
 		E3EF8E3F18EAE99B0068EC03 /* paperOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EF8E3918EAE99B0068EC03 /* paperOff@2x.png */; };
 		E3EF8E4018EAE99B0068EC03 /* wifiOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EF8E3A18EAE99B0068EC03 /* wifiOff@2x.png */; };
 		E3EF8E4218EAEBF10068EC03 /* suitcase.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EF8E4118EAEBF10068EC03 /* suitcase.png */; };
+		E3F01AE419017935000F18C5 /* tuto2.png in Resources */ = {isa = PBXBuildFile; fileRef = E3F01AE119017935000F18C5 /* tuto2.png */; };
+		E3F01AE519017935000F18C5 /* tuto1.png in Resources */ = {isa = PBXBuildFile; fileRef = E3F01AE219017935000F18C5 /* tuto1.png */; };
+		E3F01AE619017935000F18C5 /* tuto3.png in Resources */ = {isa = PBXBuildFile; fileRef = E3F01AE319017935000F18C5 /* tuto3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -355,6 +358,9 @@
 		E3EF8E3918EAE99B0068EC03 /* paperOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paperOff@2x.png"; sourceTree = "<group>"; };
 		E3EF8E3A18EAE99B0068EC03 /* wifiOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wifiOff@2x.png"; sourceTree = "<group>"; };
 		E3EF8E4118EAEBF10068EC03 /* suitcase.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = suitcase.png; sourceTree = "<group>"; };
+		E3F01AE119017935000F18C5 /* tuto2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tuto2.png; sourceTree = "<group>"; };
+		E3F01AE219017935000F18C5 /* tuto1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tuto1.png; sourceTree = "<group>"; };
+		E3F01AE319017935000F18C5 /* tuto3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tuto3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -539,6 +545,9 @@
 		6DCF530018E43C400037A10C /* ressources */ = {
 			isa = PBXGroup;
 			children = (
+				E3F01AE119017935000F18C5 /* tuto2.png */,
+				E3F01AE219017935000F18C5 /* tuto1.png */,
+				E3F01AE319017935000F18C5 /* tuto3.png */,
 				E38CA75719012F2800B8ADEF /* validResa.png */,
 				E38CA7551901220800B8ADEF /* pinArrive@2x.png */,
 				E38CA753190121F300B8ADEF /* pinMapArrive@2x.png */,
@@ -731,6 +740,8 @@
 				E389BD3618FD64930071D6E6 /* cibleMap@2x.png in Resources */,
 				E397E03018FC2565003ACD8D /* mailAcc.png in Resources */,
 				E314213C18EEB19800A52D0D /* premiumOn@2x.png in Resources */,
+				E3F01AE619017935000F18C5 /* tuto3.png in Resources */,
+				E3F01AE519017935000F18C5 /* tuto1.png in Resources */,
 				E3EF8E3B18EAE99B0068EC03 /* babyOn@2x.png in Resources */,
 				6D53B97518E586FC0012C12A /* Roboto-ThinItalic.ttf in Resources */,
 				E389BD2318FD59D00071D6E6 /* pinMapStart@2x.png in Resources */,
@@ -824,6 +835,7 @@
 				E30D1CD818EC673A00252F1C /* googlePlus@2x.png in Resources */,
 				6D53B96C18E586FC0012C12A /* Roboto-Bold.ttf in Resources */,
 				E397E02E18FC2565003ACD8D /* flag.png in Resources */,
+				E3F01AE419017935000F18C5 /* tuto2.png in Resources */,
 				E3EF8E4018EAE99B0068EC03 /* wifiOff@2x.png in Resources */,
 				E31D9B2518F82D73007BE3FD /* ResaOn.png in Resources */,
 				6D53B97218E586FC0012C12A /* Roboto-MediumItalic.ttf in Resources */,
