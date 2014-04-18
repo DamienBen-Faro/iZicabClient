@@ -133,7 +133,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I80-a6-z5f">
-                                <rect key="frame" x="0.0" y="-334" width="320" height="1000"/>
+                                <rect key="frame" x="0.0" y="-41" width="320" height="1000"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drm-ue-p9V">
@@ -251,22 +251,22 @@
                                                         <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </view>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K4O-S3-b5h">
-                                                        <rect key="frame" x="10" y="10" width="279" height="40"/>
+                                                        <rect key="frame" x="10" y="10" width="280" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="feX-gR-yPa">
-                                                        <rect key="frame" x="11" y="11" width="279" height="38"/>
+                                                        <rect key="frame" x="11" y="11" width="278" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gs5-gn-mvp">
-                                                        <rect key="frame" x="10" y="60" width="279" height="40"/>
+                                                        <rect key="frame" x="10" y="60" width="280" height="40"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </imageView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9L-NQ-PTx">
-                                                        <rect key="frame" x="11" y="61" width="279" height="38"/>
+                                                        <rect key="frame" x="11" y="61" width="278" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </imageView>
@@ -297,9 +297,9 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HGh-FE-r6l">
-                                                        <rect key="frame" x="11" y="11" width="40" height="40"/>
+                                                        <rect key="frame" x="11" y="14" width="40" height="34"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="ButtonMap.png">
+                                                        <state key="normal" image="littlePin.png">
                                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
@@ -308,9 +308,9 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l18-rz-xU0">
-                                                        <rect key="frame" x="11" y="61" width="40" height="40"/>
+                                                        <rect key="frame" x="11" y="63" width="40" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <state key="normal" image="ButtonMap.png">
+                                                        <state key="normal" image="flag.png">
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
@@ -1825,7 +1825,6 @@ Roissy-en-France 95700</string>
     <resources>
         <image name="Account@2X.png" width="320" height="300"/>
         <image name="ActuImageFull.png" width="300" height="210"/>
-        <image name="ButtonMap.png" width="30" height="30"/>
         <image name="ElementAppli-01.png" width="263" height="262"/>
         <image name="babyOff.png" width="130" height="130"/>
         <image name="babyOn.png" width="130" height="130"/>
@@ -1838,9 +1837,11 @@ Roissy-en-France 95700</string>
         <image name="encartMap.png" width="604" height="124"/>
         <image name="encartMenuMap.png" width="83" height="163"/>
         <image name="facebook.png" width="72" height="72"/>
+        <image name="flag.png" width="94" height="80"/>
         <image name="googlePlus" width="129" height="120"/>
         <image name="inscription.png" width="146" height="30"/>
         <image name="linkedin.png" width="72" height="72"/>
+        <image name="littlePin.png" width="94" height="80"/>
         <image name="logoBlack.png" width="206" height="30"/>
         <image name="loupe.png" width="28" height="40"/>
         <image name="mail.png" width="72" height="72"/>
