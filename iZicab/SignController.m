@@ -34,7 +34,7 @@
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            if (((NSString *)[defaults objectForKey:@"phone"]).length  != 0 && [[defaults objectForKey:@"isActivated"] isEqualToString:@"YES"])
+            if (((NSString *)[defaults objectForKey:@"phone"]).length  != 0 && [[defaults objectForKey:@"isActivated"] isEqualToString:@"YES"] && !self.fromDash)
                 [self noNeedToSign];
         }
 

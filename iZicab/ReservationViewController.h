@@ -10,14 +10,14 @@
 #import <MapKit/MapKit.h>
 
 
-@interface ReservationViewController : UIViewController<UIScrollViewDelegate, UITableViewDataSource, CLLocationManagerDelegate>
+@interface ReservationViewController : UIViewController<UIScrollViewDelegate, CLLocationManagerDelegate>
 
 
 @property (strong)IBOutlet UIScrollView *scrollView;
 @property (strong)IBOutlet UITextField *name;
 @property (strong)IBOutlet UITextField *phone;
-@property (strong)IBOutlet UITextField *startAddress;
-@property (strong)IBOutlet UITextField *endAddress;
+@property (strong)IBOutlet UIButton *startAddress;
+@property (strong)IBOutlet UIButton *endAddress;
 @property (strong)IBOutlet UIButton    *tiers;
 @property (strong)         UIButton    *startDate;
 @property (strong)IBOutlet UIButton    *passBtn;

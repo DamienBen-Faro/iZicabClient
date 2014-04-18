@@ -25,6 +25,7 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.name.text = [defaults objectForKey:@"userName"];
@@ -38,9 +39,8 @@
     self.paper.selected = [[defaults objectForKey:@"paper"] boolValue] ?  [[defaults objectForKey:@"paper"] boolValue]: NO;
     self.wifi.selected = [[defaults objectForKey:@"wifi"] boolValue] ?  [[defaults objectForKey:@"wifi"] boolValue]: NO;
     
-    
-    //UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
-    //[self.view addGestureRecognizer:dismissKeyboard];
+
+
 }
 
 - (void)dismissKeyboard
@@ -83,7 +83,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     
-    
+
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backBtnImage = [UIImage imageNamed:@"backButton@2x.png"];
@@ -113,7 +113,7 @@
     
     
     CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
-        navigationBar.isDash = YES;
+    navigationBar.isDash = YES;
     [navigationBar addSubview:backButtonView];
     [navigationBar addSubview:homeButtonView];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
@@ -123,9 +123,12 @@
     [self setLeftV:self.name :@"perso"];
     [self setLeftV:self.phone :@"phone"];
     [self setLeftV:self.email :@"mailAcc"];
-
     
 }
+
+
+
+
 
 - (void)setLeftV: (UITextField *)textF
                 :(NSString *)imgName
@@ -202,8 +205,8 @@
                                           cancelButtonTitle:@"ok"
                                           otherButtonTitles:nil];
     [alert show];
-
-
+    
+    
     
 }
 
@@ -212,5 +215,6 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 @end

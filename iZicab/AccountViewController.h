@@ -10,6 +10,7 @@
 
 @interface AccountViewController : UIViewController
 
+
 @property (strong) IBOutlet UIScrollView *scrollView;
 @property (strong) IBOutlet UITextField *firstName;
 @property (strong) IBOutlet UITextField *familyName;
@@ -21,7 +22,5 @@
 @property (strong) IBOutlet UIButton    *babySeat;
 @property (strong) IBOutlet UIButton    *paper;
 @property (strong) IBOutlet UIButton    *wifi;
-
-
 
 @end

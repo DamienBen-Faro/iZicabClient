@@ -62,6 +62,10 @@
 		6D83737018E48A4D005A6709 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83736F18E48A4D005A6709 /* MapViewController.m */; };
 		6D83737A18E49EAF005A6709 /* datB.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83737918E49EAF005A6709 /* datB.png */; };
 		6DA2AF8A18FD314300E91C5A /* SearchAddressTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DA2AF8918FD314300E91C5A /* SearchAddressTableViewController.m */; };
+		6DAE0BB91901313F00E8158D /* TutoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE0BB81901313F00E8158D /* TutoViewController.m */; };
+		6DAE0BBC1901314E00E8158D /* TarifsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE0BBB1901314E00E8158D /* TarifsViewController.m */; };
+		6DAE0BBF1901315900E8158D /* CGUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE0BBE1901315900E8158D /* CGUViewController.m */; };
+		6DAE0BC219013ABA00E8158D /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE0BC119013ABA00E8158D /* PageViewController.m */; };
 		6DAF56AD18F4198100E5C844 /* fondu@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAF56AB18F4198100E5C844 /* fondu@2X.png */; };
 		6DAF56AF18F41EEF00E5C844 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAF56AE18F41EEF00E5C844 /* bg@2x.png */; };
 		6DCF52FC18E4394A0037A10C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FB18E4394A0037A10C /* SignUpViewController.m */; };
@@ -244,6 +248,14 @@
 		6D83737918E49EAF005A6709 /* datB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = datB.png; sourceTree = "<group>"; };
 		6DA2AF8818FD314300E91C5A /* SearchAddressTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchAddressTableViewController.h; path = iZicab/SearchAddressTableViewController.h; sourceTree = "<group>"; };
 		6DA2AF8918FD314300E91C5A /* SearchAddressTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchAddressTableViewController.m; path = iZicab/SearchAddressTableViewController.m; sourceTree = "<group>"; };
+		6DAE0BB71901313F00E8158D /* TutoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutoViewController.h; path = iZicab/TutoViewController.h; sourceTree = "<group>"; };
+		6DAE0BB81901313F00E8158D /* TutoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutoViewController.m; path = iZicab/TutoViewController.m; sourceTree = "<group>"; };
+		6DAE0BBA1901314E00E8158D /* TarifsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TarifsViewController.h; sourceTree = "<group>"; };
+		6DAE0BBB1901314E00E8158D /* TarifsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TarifsViewController.m; sourceTree = "<group>"; };
+		6DAE0BBD1901315900E8158D /* CGUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGUViewController.h; sourceTree = "<group>"; };
+		6DAE0BBE1901315900E8158D /* CGUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGUViewController.m; sourceTree = "<group>"; };
+		6DAE0BC019013ABA00E8158D /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
+		6DAE0BC119013ABA00E8158D /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		6DAF56AB18F4198100E5C844 /* fondu@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondu@2X.png"; sourceTree = "<group>"; };
 		6DAF56AE18F41EEF00E5C844 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		6DCF52FA18E4394A0037A10C /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -369,6 +381,12 @@
 		6D0039D418E314EC00D6C9E3 = {
 			isa = PBXGroup;
 			children = (
+				6DAE0BB71901313F00E8158D /* TutoViewController.h */,
+				6DAE0BB81901313F00E8158D /* TutoViewController.m */,
+				6DAE0BBA1901314E00E8158D /* TarifsViewController.h */,
+				6DAE0BBB1901314E00E8158D /* TarifsViewController.m */,
+				6DAE0BBD1901315900E8158D /* CGUViewController.h */,
+				6DAE0BBE1901315900E8158D /* CGUViewController.m */,
 				6DA2AF8818FD314300E91C5A /* SearchAddressTableViewController.h */,
 				6DA2AF8918FD314300E91C5A /* SearchAddressTableViewController.m */,
 				6D0039E618E314EC00D6C9E3 /* iZicab */,
@@ -405,6 +423,8 @@
 				6D3161D418E97AD8005ABB3E /* ResaMineCell.h */,
 				6D3161D518E97AE6005ABB3E /* ResaMineCell.m */,
 				6D53B99618E5BBBB0012C12A /* Main_iPhone.storyboard */,
+				6DAE0BC019013ABA00E8158D /* PageViewController.h */,
+				6DAE0BC119013ABA00E8158D /* PageViewController.m */,
 				6D53B99818E5BDCF0012C12A /* ActuDetailViewController.h */,
 				6D53B99918E5BDCF0012C12A /* ActuDetailViewController.m */,
 				6D53B99B18E5C2F70012C12A /* ResaMineCell.xib */,
@@ -820,6 +840,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6DCF530818E44A2B0037A10C /* SignInViewController.m in Sources */,
+				6DAE0BBC1901314E00E8158D /* TarifsViewController.m in Sources */,
 				6D0039FA18E314EC00D6C9E3 /* SignController.m in Sources */,
 				6D3161DF18E9AD89005ABB3E /* UserInfoSingleton.m in Sources */,
 				6D53B98118E58EAF0012C12A /* AccountViewController.m in Sources */,
@@ -838,11 +859,14 @@
 				6DA2AF8A18FD314300E91C5A /* SearchAddressTableViewController.m in Sources */,
 				6D53B95418E578370012C12A /* CustomNavBar.m in Sources */,
 				6D83737018E48A4D005A6709 /* MapViewController.m in Sources */,
+				6DAE0BBF1901315900E8158D /* CGUViewController.m in Sources */,
 				6D3161DC18E98505005ABB3E /* ConnectionData.m in Sources */,
+				6DAE0BB91901313F00E8158D /* TutoViewController.m in Sources */,
 				6D53B98718E591C60012C12A /* InvoiceViewController.m in Sources */,
 				6D3161D618E97AE6005ABB3E /* ResaMineCell.m in Sources */,
 				6D53B98D18E59D330012C12A /* ShareViewController.m in Sources */,
 				6D53B97E18E58E4E0012C12A /* ResaMineViewController.m in Sources */,
+				6DAE0BC219013ABA00E8158D /* PageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

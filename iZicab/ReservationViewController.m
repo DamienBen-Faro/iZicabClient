@@ -26,11 +26,13 @@
     self.scrollView.scrollEnabled = YES;
     self.startAddress.tag = 111;
     self.endAddress.tag = 222;
-    self.startAddress.text = self.startAddr;
-    self.endAddress.text = self.endAddr;
+    [self.startAddress setTitle: self.startAddr forState:UIControlStateNormal];
+    [self.endAddress setTitle: self.endAddr forState:UIControlStateNormal];
 
-    [self.startAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
-    [self.endAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
+    NSLog(@"%@/%@", self.startAddr, self.endAddr);
+    
+    //[self.startAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
+   // [self.endAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
     
 
     self.datePicker.hidden = YES;
@@ -51,17 +53,14 @@
     
     
     self.datePicker = [[UIDatePicker alloc] init];
- 
     self.datePicker.minimumDate = minimumDate;
     self.datePicker.datePickerMode = UIDatePickerModeDateAndTime;
     self.datePicker.hidden = YES;
     self.datePicker.backgroundColor = [UIColor whiteColor];
     self.datePicker.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].size.height - self.datePicker.frame.size.height,  self.datePicker.frame.size.width,  self.datePicker.frame.size.height);
     
-    
 
     self.datePicker.date = minimumDate;
-    
     self.dpBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [self.dpBtn addTarget:self
                action:@selector(dateSelected:)
@@ -80,8 +79,11 @@
     
     [self setLeftV:self.name :@"perso"];
     [self setLeftV:self.phone :@"phone"];
-    [self setLeftV:self.startAddress :@"littlePin"];
-    [self setLeftV:self.endAddress :@"flag"];
+
+    
+    [self offAll:nil];
+    
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
     
 }
 
@@ -99,6 +101,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
+    [self offAll:nil];
       [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self loadUserData];
 }
@@ -156,9 +159,9 @@
 
 }
 
-- (void)textFieldBegin:(id)sender
+- (IBAction)textFieldBegin:(id)sender
 {
-    
+    [self offAll:nil];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     SearchAddressTableViewController* ctrl = (SearchAddressTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"SearchAddressTableViewController"];
 
@@ -179,8 +182,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     MapViewController* ctrl = (MapViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
     
-    ctrl.start = self.startAddress.text;
-    ctrl.end = self.endAddress.text;
+    ctrl.start = self.startAddress.titleLabel.text;
+    ctrl.end = self.endAddress.titleLabel.text;
 
     ctrl.startLat = [NSString stringWithFormat:@"%f", self.startLat ];
     ctrl.startLng = [NSString stringWithFormat:@"%f", self.startLng ];
@@ -283,7 +286,7 @@
     
     NSLog(@"%@", self.datePicker.date );
     
-    if (self.startAddress.text.length == 0 || self.endAddress.text.length == 0
+    if (self.startAddress.titleLabel.text.length == 0 || self.endAddress.titleLabel.text.length == 0
       || [self.datePicker.date compare:minimumDate] == NSOrderedAscending)
     {
         
@@ -364,7 +367,8 @@
 {
     
     
-    
+    [self offAll:nil];
+        [[self navigationController] setNavigationBarHidden:NO animated:NO];
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backBtnImage = [UIImage imageNamed:@"backButton@2x.png"];
     UIImage *backBtnImagePressed = [UIImage imageNamed:@"backButton@2x.png"];

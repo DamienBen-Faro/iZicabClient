@@ -45,7 +45,7 @@
     self.startAddress.font     = [UIFont fontWithName:@"Roboto-Light" size:20.0];
     self.endAddress.font     = [UIFont fontWithName:@"Roboto-Light" size:20.0];
  
-
+    
 
     
     if (self.fromResa)
@@ -397,6 +397,7 @@
          {
              
                  [self.mapView removeAnnotation:self.annotationFirst];
+             [self.mapView removeAnnotation:self.annotationSecond];
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
              NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
              self.startAddress.text =locatedAt;

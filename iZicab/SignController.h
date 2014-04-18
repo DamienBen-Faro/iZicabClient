@@ -10,6 +10,7 @@
 
 @interface SignController : UIViewController
 
+@property (assign) BOOL fromDash;
 
 -(void)noNeedToSign;
 

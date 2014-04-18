@@ -8,6 +8,8 @@
 
 #import "DashboardViewController.h"
 #import "ConnectionData.h"
+#import "ReservationViewController.h"
+#import "SignController.h"
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
@@ -50,8 +52,68 @@
     
 
 
+    UISwipeGestureRecognizer *tapGestureRecognize = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(logout)];
+    tapGestureRecognize.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:tapGestureRecognize];
+    
+    UISwipeGestureRecognizer *tapGestureRecogniz = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(resa)];
+    tapGestureRecogniz.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:tapGestureRecogniz];
+}
+
+- (void)logout
+{
+    [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"logout"] forState:UIControlStateNormal];
+    [self.reservationButton addTarget:self action:@selector(goToSign:)
+     forControlEvents:UIControlEventTouchUpInside];
+
+   
+}
+
+- (void)resa
+{
+        [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"ElementAppli-01"] forState:UIControlStateNormal];
+    [self.reservationButton addTarget:self action:@selector(goToResa:)
+                     forControlEvents:UIControlEventTouchUpInside];
+
+}
+
+
+- (IBAction)goToSign:(id)sender
+{
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    SignController* ctrl = (SignController *)[storyboard instantiateViewControllerWithIdentifier:@"SignController"];
+    ctrl.fromDash = YES;
+    
+    [UIView  beginAnimations: @"Showinfo" context: nil];
+    [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.35];
+    [[self  navigationController]  pushViewController:ctrl animated:NO ] ;
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:[self navigationController].view  cache:NO];
+    [UIView commitAnimations];
+
+}
+
+
+- (IBAction)goToResa:(id)sender
+{
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    ReservationViewController* ctrl = (ReservationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ReservationViewController"];
+    
+    
+    [UIView  beginAnimations: @"Showinfo" context: nil];
+    [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.35];
+    [[self  navigationController]  pushViewController:ctrl animated:NO ] ;
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:[self navigationController].view  cache:NO];
+    [UIView commitAnimations];
     
 }
+
+
+
 
 - (BOOL)prefersStatusBarHidden
 {

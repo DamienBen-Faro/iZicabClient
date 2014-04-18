@@ -27,8 +27,8 @@
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     self.date.text = self.resaCtrl.startDate.titleLabel.text;
-    self.start.text = self.resaCtrl.startAddress.text;
-    self.end.text = self.resaCtrl.endAddress.text;
+    self.start.text = self.resaCtrl.startAddress.titleLabel.text;
+    self.end.text = self.resaCtrl.endAddress.titleLabel.text;
     self.passenger.text = self.resaCtrl.passBtn.titleLabel.text;
     self.luggage.text = self.resaCtrl.luggBtn.titleLabel.text;
     self.name.text = self.resaCtrl.name.text;
