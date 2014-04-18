@@ -229,7 +229,7 @@
    
     
     if ([[annotation subtitle]  isEqual: @"Arrivée" ])
-        pinView.image = [UIImage imageNamed:@"pinArrive"];
+        pinView.image = [UIImage imageNamed:@"pinMapArrive"];
     else if ([[annotation subtitle]  isEqual: @"Départ" ])
         pinView.image = [UIImage imageNamed:@"pinDepart"];
     else
@@ -345,7 +345,7 @@
         MKAnnotationView* anView = [self.mapView viewForAnnotation: annotation];
         if (anView && [[annotation subtitle]  isEqual: @"Arrivée" ])
         {
-            anView.image = [UIImage imageNamed:@"pinArrive"];
+            anView.image = [UIImage imageNamed:@"pinMapArrive"];
         }
     }
 }
