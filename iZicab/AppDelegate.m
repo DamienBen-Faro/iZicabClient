@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Constant.h"
+#import "ConnectionData.h"
 
 @implementation AppDelegate
 
@@ -14,8 +16,14 @@
 {
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    
+    [[ConnectionData sharedConnectionData] initService];
+
+    
     return YES;
 }
+
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {

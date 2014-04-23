@@ -26,7 +26,8 @@
 @property (assign)         BOOL isStartAddr;
 @property (strong)         NSMutableArray *latLng;
 @property (assign)          CLLocationCoordinate2D userLocation;
-@property (strong)                  CLLocationManager   *locationManager;
+@property (strong)               CLLocationManager   *locationManager;
+@property (strong)      MKUserLocation *keepLoc;
 
 //from resa
 @property (strong) NSString *start;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TutoViewController : UIPageViewController
+@interface TutoViewController : UIPageViewController<UIPageViewControllerDelegate, UIPageViewControllerDataSource>
 
 
 @property (strong, nonatomic) NSMutableArray *pageImages;

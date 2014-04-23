@@ -10,6 +10,7 @@
 #import "ConnectionData.h"
 #import "ReservationViewController.h"
 #import "SignController.h"
+#import "TutoViewController.h"
 
 #define IS_IPHONE_5 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
 
@@ -46,6 +47,8 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+
+    
     [[ConnectionData sharedConnectionData] beginService: @"reservation/readAllMinePrivateUser" :[[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                                                        [defaults objectForKey:@"userId"],  @"userId"
                                                                        ,nil] :@selector(callBackController:):self];
@@ -59,6 +62,18 @@
     UISwipeGestureRecognizer *tapGestureRecogniz = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(resa)];
     tapGestureRecogniz.direction = UISwipeGestureRecognizerDirectionRight;
     [self.view addGestureRecognizer:tapGestureRecogniz];
+}
+
+- (void) showTuto
+{
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"TutoViewController"];
+    [UIView  beginAnimations:@"ShowDetails" context: nil];
+    [UIView setAnimationDuration:0.5];
+    [self.navigationController pushViewController:ctrl animated:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+    [UIView commitAnimations];
 }
 
 - (void)logout
@@ -409,6 +424,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
         [[UIApplication sharedApplication] setStatusBarHidden:YES];
+        [[self navigationController] setNavigationBarHidden:YES animated:NO];
  //[NSThread detachNewThreadSelector:@selector(firstAnim) toTarget:self withObject:nil];
    _datstop = NO;
    [self performSelector:@selector(mapAnim) withObject:nil afterDelay:2.5];
@@ -418,6 +434,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"tutorialy"] == nil)
+        [self showTuto];
     [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }

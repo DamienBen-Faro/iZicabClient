@@ -66,6 +66,7 @@
 		6DAE0BBC1901314E00E8158D /* TarifsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE0BBB1901314E00E8158D /* TarifsViewController.m */; };
 		6DAE0BBF1901315900E8158D /* CGUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE0BBE1901315900E8158D /* CGUViewController.m */; };
 		6DAE0BC219013ABA00E8158D /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE0BC119013ABA00E8158D /* PageViewController.m */; };
+		6DAE0BC619018C2F00E8158D /* tuto4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAE0BC519018C2F00E8158D /* tuto4.png */; };
 		6DAF56AD18F4198100E5C844 /* fondu@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAF56AB18F4198100E5C844 /* fondu@2X.png */; };
 		6DAF56AF18F41EEF00E5C844 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAF56AE18F41EEF00E5C844 /* bg@2x.png */; };
 		6DCF52FC18E4394A0037A10C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FB18E4394A0037A10C /* SignUpViewController.m */; };
@@ -261,6 +262,7 @@
 		6DAE0BBE1901315900E8158D /* CGUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGUViewController.m; sourceTree = "<group>"; };
 		6DAE0BC019013ABA00E8158D /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		6DAE0BC119013ABA00E8158D /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+		6DAE0BC519018C2F00E8158D /* tuto4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tuto4.png; sourceTree = "<group>"; };
 		6DAF56AB18F4198100E5C844 /* fondu@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondu@2X.png"; sourceTree = "<group>"; };
 		6DAF56AE18F41EEF00E5C844 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		6DCF52FA18E4394A0037A10C /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 		6DCF530018E43C400037A10C /* ressources */ = {
 			isa = PBXGroup;
 			children = (
+				6DAE0BC519018C2F00E8158D /* tuto4.png */,
 				E3F01AE119017935000F18C5 /* tuto2.png */,
 				E3F01AE219017935000F18C5 /* tuto1.png */,
 				E3F01AE319017935000F18C5 /* tuto3.png */,
@@ -814,6 +817,7 @@
 				E397E02F18FC2565003ACD8D /* littlePin.png in Resources */,
 				E389BD3A18FD6C8B0071D6E6 /* backButton@2x.png in Resources */,
 				E3EF8E2A18EACFCA0068EC03 /* ButtonOption.png in Resources */,
+				6DAE0BC619018C2F00E8158D /* tuto4.png in Resources */,
 				E3249CA718E9973700BD23B1 /* Account@2X.png in Resources */,
 				E30D1CC818EC31FE00252F1C /* inscription@2x.png in Resources */,
 				E3EF8E2818EAC7640068EC03 /* validation@2x.png in Resources */,

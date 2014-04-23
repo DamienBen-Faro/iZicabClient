@@ -12,6 +12,6 @@
 
 @property(strong) IBOutlet UITableView *tableView;
 @property(strong) NSMutableArray *arr;
-
+@property(strong) UIActivityIndicatorView *spin;
 
 @end

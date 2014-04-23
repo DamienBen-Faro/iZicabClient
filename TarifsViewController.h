@@ -10,4 +10,6 @@
 
 @interface TarifsViewController : UIViewController
 
+@property IBOutlet UIWebView *webView;
+
 @end

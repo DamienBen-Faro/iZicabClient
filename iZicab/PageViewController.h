@@ -11,6 +11,7 @@
 @interface PageViewController : UIViewController
 
 @property (assign, nonatomic) NSInteger index;
-@property (strong) IBOutlet UILabel    *lab;
+@property (strong) IBOutlet UIImageView    *img;
+@property (strong) NSString *imgName;
 
 @end

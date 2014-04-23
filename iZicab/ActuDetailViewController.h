@@ -15,4 +15,5 @@
 @property (strong) IBOutlet UITextView *textView;
 @property (strong) IBOutlet UILabel *date;
 @property (strong) IBOutlet UILabel *hour;
+@property (strong) IBOutlet UIImageView *img;
 @end

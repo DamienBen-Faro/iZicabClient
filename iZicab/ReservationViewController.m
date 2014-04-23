@@ -29,22 +29,13 @@
     [self.startAddress setTitle: self.startAddr forState:UIControlStateNormal];
     [self.endAddress setTitle: self.endAddr forState:UIControlStateNormal];
 
-    NSLog(@"%@/%@", self.startAddr, self.endAddr);
-    
-    //[self.startAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
-   // [self.endAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
-    
-
     self.datePicker.hidden = YES;
     self.datePicker.backgroundColor = [UIColor whiteColor];
     self.latLng = [[NSMutableArray alloc] init];
-    if (self.isResa)
-        [self updateResa];
-
-    
 
     NSDateComponents *dayComponent = [[NSDateComponents alloc] init] ;
     dayComponent.hour = 1;
+    dayComponent.minute = 59;
     
     NSCalendar *theCalendar = [NSCalendar currentCalendar];
     NSDate *minimumDate = [[NSDate alloc] init];
@@ -82,7 +73,6 @@
 
     
     [self offAll:nil];
-    
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
     
 }
@@ -104,13 +94,33 @@
     [self offAll:nil];
       [[self navigationController] setNavigationBarHidden:NO animated:YES];
     [self loadUserData];
+    if (self.isResa)
+        [self updateResa];
 }
 
 
 - (void) updateResa
 {
-    //service need to return lat and long ...
- //   self.startAddress.text = self.resaUpdate[@"startposition"];
+    
+    self.startAddress.titleLabel.text   = self.resaUpdate[@"startposition"];
+    self.endAddress.titleLabel.text     = self.resaUpdate[@"endposition"];
+    
+    [self.startAddress setTitle:self.resaUpdate[@"startposition"] forState:UIControlStateNormal];
+    [self.endAddress setTitle:self.resaUpdate[@"endposition"] forState:UIControlStateNormal];
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"dd/MM/yyyy HH:mm"];
+    NSDate *dat = [format dateFromString:self.resaUpdate[@"tripdatetime"]];
+    
+    if (dat)
+    {
+        [self.datePicker setDate:dat];
+        [self.startDate setTitle:self.resaUpdate[@"tripdatetime"] forState:UIControlStateNormal];
+    }
+    
+    self.startLat = [self.resaUpdate[@"startLat"] floatValue];
+    self.startLng = [self.resaUpdate[@"startLng"] floatValue];
+    self.endLat   = [self.resaUpdate[@"endLat"] floatValue];
+    self.endLng   = [self.resaUpdate[@"endLng"] floatValue];
     
     
 }
@@ -152,9 +162,8 @@
     {
         self.locationManager = [[CLLocationManager alloc] init];
         [self.locationManager setDelegate:self];
-        self.locationManager.distanceFilter = 10.0f; //we don't need to be any more accurate than 10m
+        self.locationManager.distanceFilter = 10.0f;
     }
-    
     [self.locationManager startUpdatingLocation];
 
 }
@@ -192,7 +201,6 @@
     ctrl.endLng = [NSString stringWithFormat:@"%f", self.endLng ];
    
     ctrl.fromResa = YES;
-
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
@@ -404,6 +412,7 @@
     [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"RÉSERVATION"];
     
     
+
     
     
     

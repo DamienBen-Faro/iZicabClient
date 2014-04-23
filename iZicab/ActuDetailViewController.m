@@ -30,7 +30,10 @@
     self.textView.text = self.arr[@"value"];
     self.hour.text = self.arr[@"hour"];
     self.date.text = self.arr[@"date"];
-    
+    NSURL * imageURL = [NSURL URLWithString: self.arr[@"img"]];
+    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+    self.img.image  = [UIImage imageWithData:imageData];
+
 }
 
 
@@ -102,7 +105,8 @@
     [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"ACTUALITÉ DÉTAILS"];
     
     
-    
+
+
     
     
 }

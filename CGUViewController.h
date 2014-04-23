@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CGUViewController : UIViewController
-
+@property IBOutlet UIWebView *webView;
 @end

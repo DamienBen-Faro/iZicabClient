@@ -171,22 +171,17 @@
 
 }
 
-- (IBAction)userLoc:(id)sender
-{
-    self.isFirstPlacement = NO;
 
-}
-
-- (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation
+- (void)backToInitialPosition:(MKUserLocation *)aUserLocation
 {
     MKCoordinateRegion region;
     MKCoordinateSpan span;
     span.latitudeDelta = 0.005;
     span.longitudeDelta = 0.005;
     CLLocationCoordinate2D location;
-  
-    location.latitude = aUserLocation.coordinate.latitude;
-    location.longitude = aUserLocation.coordinate.longitude;
+    
+    location.latitude = self.keepLoc.coordinate.latitude;
+    location.longitude = self.keepLoc.coordinate.longitude;
     region.span = span;
     region.center = location;
     
@@ -194,21 +189,36 @@
     {
         location.latitude = [self.endLat floatValue];
         location.longitude = [self.endLng floatValue];
-            region.center = location;
+        region.center = location;
     }
     
     if (!self.isFirstPlacement)
     {
-        [aMapView setRegion:region animated:YES];
+        [self.mapView setRegion:region animated:YES];
         self.isFirstPlacement = YES;
         
+        if (aUserLocation)
+            self.keepLoc = aUserLocation;
         if (!self.fromResa)
         {
             self.startLat = [NSString stringWithFormat:@"%f", location.latitude ];
-          self.startLng =  [NSString stringWithFormat:@"%f", location.longitude];
+            self.startLng =  [NSString stringWithFormat:@"%f", location.longitude];
         }
-            
+        
     }
+
+}
+
+- (IBAction)userLoc:(id)sender
+{
+   self.isFirstPlacement = NO;
+    [self backToInitialPosition:nil];
+    
+}
+
+- (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation
+{
+     [self backToInitialPosition:aUserLocation];
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
@@ -292,6 +302,14 @@
 
 
     ctrpoint = [self.mapView centerCoordinate];
+    if(ctrpoint.latitude <= 0.000000)
+    {
+        CLLocationCoordinate2D coo;
+        coo.latitude = 48.8566140;
+        coo.longitude = 2.3522219;
+        [self.mapView setCenterCoordinate:coo];
+
+    }
     
     [self.mapView removeAnnotation:self.annotationSecond];
     
@@ -566,9 +584,9 @@
 }
 
 
+
 - (void)viewWillAppear:(BOOL)animated
 {
-    
     
 
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
@@ -576,7 +594,7 @@
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self getLocation];
     self.isFirstPlacement = NO;
-
+    
 }
 
 

@@ -27,13 +27,44 @@
     @synchronized(self)
     {
         if (sharedConnectionData == nil)
-        {
             sharedConnectionData = [[self alloc] init];
-        }
     }
     return sharedConnectionData;
 }
 
+
+- (void)initService
+{
+    NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:__GET_URL_DEV]];
+    [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [postRequest setHTTPMethod:@"POST"];
+    
+    NSURLResponse* response;
+    NSError* error = nil;
+    
+  
+     NSData *data = [NSURLConnection sendSynchronousRequest:postRequest  returningResponse:&response error:&error];
+
+      [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+
+   
+    NSString *responseData = [[NSString alloc] initWithData:data
+                                                   encoding:NSUTF8StringEncoding];
+    id tmp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    if (error == nil && [tmp isKindOfClass:[NSDictionary class]] && [[tmp objectForKey:@"error"] length] == 0)
+        [[ConnectionData sharedConnectionData] setUrlz: tmp[@"data"][@"services"]];
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:[tmp objectForKey:@"error"] ? [tmp objectForKey:@"error"] : @"internal server error"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+}
 
 
 
@@ -45,9 +76,9 @@
         [postString  appendString:[NSString stringWithFormat:@"%@=%@&", key, [params objectForKey:key]]];
     postString = (NSMutableString *)[postString stringByReplacingOccurrencesOfString:@"," withString:@" "];
     
+    NSLog(@"serv:%@", [[ConnectionData sharedConnectionData] urlz]);
     
-    
-    NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", __CONST_ADDR_SERVER, serviceName]]];
+    NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [[ConnectionData sharedConnectionData] urlz], serviceName]]];
     
     [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [postRequest setHTTPMethod:@"POST"];
@@ -67,9 +98,6 @@
     }
      [[delegateController view] addSubview:[[ConnectionData sharedConnectionData] spinner] ];
      [[[ConnectionData sharedConnectionData] spinner] startAnimating];
-    
-    
-
     
     [NSURLConnection connectionWithRequest:postRequest delegate:self];
 }
@@ -112,12 +140,14 @@
     
         NSString* dataStr = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
         NSLog(@"%@", dataStr);
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
 
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection
                   willCacheResponse:(NSCachedURLResponse*)cachedResponse {
         NSLog(@"cache");
+            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
     // Return nil to indicate not necessary to store a cached response for this connection
     return nil;
 }
@@ -125,7 +155,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
      NSLog(@"finish");
-    
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
     
@@ -133,6 +163,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
         NSLog(@"fail");
+        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
     // The request has failed for some reason!
     // Check the error var
 }

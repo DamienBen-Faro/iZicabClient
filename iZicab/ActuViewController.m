@@ -31,6 +31,14 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+   self.spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
+    
+    [self.spin setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 2)];
+    [self.spin setColor:[UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1]];
+    self.spin.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2, 2);
+
  
     [[ConnectionData sharedConnectionData] beginService: @"info/infos":[[NSMutableDictionary alloc] initWithObjectsAndKeys:@"s", @"lat",nil]  :@selector(callBackController:):self];
 }
@@ -183,8 +191,13 @@
     
     cell.desc.font = [UIFont fontWithName:@"Roboto-Thin" size:15.0];
     cell.desc.textColor = [UIColor darkGrayColor];
-        cell.desc.text = self.arr[[indexPath row]][@"value"];
+    cell.desc.text = self.arr[[indexPath row]][@"value"];
 
+
+    NSURL * imageURL = [NSURL URLWithString: self.arr[[indexPath row]][@"imgSmall"]];
+    NSData * imageData = [NSData dataWithContentsOfURL:imageURL];
+    UIImage * image = [UIImage imageWithData:imageData];
+    cell.img.image = image;
     
     return cell;
 }
@@ -196,8 +209,19 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     ActuDetailViewController* ctrl = (ActuDetailViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ActuDetailViewController"];
     ctrl.arr = self.arr[[indexPath row]];
+    [self.spin startAnimating];
+    [self.view addSubview:self.spin];
+
+    
     [self.navigationController pushViewController:ctrl animated:YES];
 
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    [self.spin stopAnimating];
+    [self.spin removeFromSuperview];
 }
 
 @end
