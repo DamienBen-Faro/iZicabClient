@@ -44,39 +44,53 @@
     
   
      NSData *data = [NSURLConnection sendSynchronousRequest:postRequest  returningResponse:&response error:&error];
-
       [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
 
-   
-    NSString *responseData = [[NSString alloc] initWithData:data
-                                                   encoding:NSUTF8StringEncoding];
-    id tmp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
-    if (error == nil && [tmp isKindOfClass:[NSDictionary class]] && [[tmp objectForKey:@"error"] length] == 0)
-        [[ConnectionData sharedConnectionData] setUrlz: tmp[@"data"][@"services"]];
-    else
+    id tmp = nil;
+    if (!data)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:[tmp objectForKey:@"error"] ? [tmp objectForKey:@"error"] : @"internal server error"
+                                                        message:@"pas de reseau"
                                                        delegate:self
                                               cancelButtonTitle:@"ok"
                                               otherButtonTitles:nil];
         [alert show];
+
+    }
+    else
+    {
+       tmp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+    
+        if (error == nil && tmp && [tmp isKindOfClass:[NSDictionary class]] && [[tmp objectForKey:@"error"] length] == 0)
+            [[ConnectionData sharedConnectionData] setUrlz: tmp[@"data"][@"services"]];
+        else
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:[tmp objectForKey:@"error"] ? [tmp objectForKey:@"error"] : @"internal server error"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ok"
+                                              otherButtonTitles:nil];
+            [alert show];
+        }
     }
     
-            [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+    [[UIApplication sharedApplication] endIgnoringInteractionEvents];
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self performSelector:@selector(initService) withObject:nil afterDelay:2];
+}
 
 
 
 - (void)beginService:(NSString *)serviceName:(NSMutableDictionary *)params:(SEL)pointeeFunction:(id)delegateController
 {
+
     NSMutableString *postString = [[NSMutableString alloc] initWithString:@""];
     for (NSString* key in params)
         [postString  appendString:[NSString stringWithFormat:@"%@=%@&", key, [params objectForKey:key]]];
     postString = (NSMutableString *)[postString stringByReplacingOccurrencesOfString:@"," withString:@" "];
-    
-    NSLog(@"serv:%@", [[ConnectionData sharedConnectionData] urlz]);
     
     NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@", [[ConnectionData sharedConnectionData] urlz], serviceName]]];
     
@@ -98,7 +112,6 @@
     }
      [[delegateController view] addSubview:[[ConnectionData sharedConnectionData] spinner] ];
      [[[ConnectionData sharedConnectionData] spinner] startAnimating];
-    
     [NSURLConnection connectionWithRequest:postRequest delegate:self];
 }
 
@@ -115,7 +128,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
 
-        [[[ConnectionData sharedConnectionData] spinner] stopAnimating];
+    [[[ConnectionData sharedConnectionData] spinner] stopAnimating];
     [[[ConnectionData sharedConnectionData] spinner] removeFromSuperview];
     
     
@@ -133,8 +146,6 @@
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];
             [alert show];
-            
-            
         
     }
     

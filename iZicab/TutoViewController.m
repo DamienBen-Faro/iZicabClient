@@ -92,7 +92,7 @@
         else
         {
             NSLog(@"waaaaaat");
-             [self goBack];
+             [self goToDash];
         }
     }
     

@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ReservationViewController.h"
+#import "CustomViewController.h"
 
-
-@interface InvoiceViewController : UIViewController<UIWebViewDelegate>
+@interface InvoiceViewController : CustomViewController<UIWebViewDelegate>
 {}
 
 @property (nonatomic, strong) ReservationViewController *resaCtrl;

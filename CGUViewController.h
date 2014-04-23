@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h" 
 
-@interface CGUViewController : UIViewController
+
+@interface CGUViewController : CustomViewController
 @property IBOutlet UIWebView *webView;
 @end

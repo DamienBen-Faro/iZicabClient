@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h"
 
-
-@interface ActuDetailViewController : UIViewController
+@interface ActuDetailViewController : CustomViewController
 
 @property(strong) NSDictionary *arr;
 @property (strong) IBOutlet UITextView *textView;

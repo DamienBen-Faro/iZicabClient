@@ -91,7 +91,7 @@
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2U-fW-uA0">
                                         <rect key="frame" x="56" y="58" width="146" height="30"/>
@@ -187,7 +187,7 @@
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                     </textField>
                                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PRENDRE UNE RÉSERVATIONS POUR UN TIERS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFp-Kz-Ecd">
                                                         <rect key="frame" x="13" y="114" width="242" height="21"/>
@@ -902,7 +902,7 @@ Roissy-en-France 95700</string>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="goToDash:" destination="JG4-dv-4I9" eventType="touchUpInside" id="wyY-kQ-dfu"/>
+                                            <action selector="goToDash:" destination="JG4-dv-4I9" eventType="touchUpInside" id="SQ4-gq-mS5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1303,10 +1303,10 @@ Roissy-en-France 95700</string>
         <!--Tuto View Controller-->
         <scene sceneID="O9K-3y-aha">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8yU-j5-Oru" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pageViewController restorationIdentifier="TutoViewController" storyboardIdentifier="TutoViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" doubleSided="YES" id="J3i-fW-Bcx" customClass="TutoViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ddP-Na-DBZ"/>
                 </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8yU-j5-Oru" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2531" y="907"/>
         </scene>

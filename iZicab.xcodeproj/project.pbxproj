@@ -54,6 +54,7 @@
 		6D53B99718E5BBBB0012C12A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B99618E5BBBB0012C12A /* Main_iPhone.storyboard */; };
 		6D53B99A18E5BDCF0012C12A /* ActuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B99918E5BDCF0012C12A /* ActuDetailViewController.m */; };
 		6D53B99C18E5C2F70012C12A /* ResaMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B99B18E5C2F70012C12A /* ResaMineCell.xib */; };
+		6D5EFC821907CE8300B69F31 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5EFC811907CE8300B69F31 /* CustomViewController.m */; };
 		6D83735018E46A94005A6709 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83734E18E46A94005A6709 /* DashboardViewController.m */; };
 		6D83735318E46C01005A6709 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D83735218E46C01005A6709 /* MapKit.framework */; };
 		6D83736318E47586005A6709 /* ElementAppli-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83735E18E47586005A6709 /* ElementAppli-01.png */; };
@@ -241,6 +242,8 @@
 		6D53B99818E5BDCF0012C12A /* ActuDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActuDetailViewController.h; sourceTree = "<group>"; };
 		6D53B99918E5BDCF0012C12A /* ActuDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActuDetailViewController.m; sourceTree = "<group>"; };
 		6D53B99B18E5C2F70012C12A /* ResaMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResaMineCell.xib; sourceTree = "<group>"; };
+		6D5EFC801907CE8200B69F31 /* CustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
+		6D5EFC811907CE8300B69F31 /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
 		6D83734D18E46A94005A6709 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		6D83734E18E46A94005A6709 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		6D83735218E46C01005A6709 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -472,6 +475,8 @@
 				6D53B98018E58EAF0012C12A /* AccountViewController.m */,
 				6D0039F818E314EC00D6C9E3 /* SignController.h */,
 				6D0039F918E314EC00D6C9E3 /* SignController.m */,
+				6D5EFC801907CE8200B69F31 /* CustomViewController.h */,
+				6D5EFC811907CE8300B69F31 /* CustomViewController.m */,
 				6D53B97C18E58E4E0012C12A /* ResaMineViewController.h */,
 				6D53B97D18E58E4E0012C12A /* ResaMineViewController.m */,
 				6D53B98518E591C60012C12A /* InvoiceViewController.h */,
@@ -868,6 +873,7 @@
 				6D0039FA18E314EC00D6C9E3 /* SignController.m in Sources */,
 				6D3161DF18E9AD89005ABB3E /* UserInfoSingleton.m in Sources */,
 				6D53B98118E58EAF0012C12A /* AccountViewController.m in Sources */,
+				6D5EFC821907CE8300B69F31 /* CustomViewController.m in Sources */,
 				6D0039F118E314EC00D6C9E3 /* AppDelegate.m in Sources */,
 				6D53B99A18E5BDCF0012C12A /* ActuDetailViewController.m in Sources */,
 				6D83735018E46A94005A6709 /* DashboardViewController.m in Sources */,

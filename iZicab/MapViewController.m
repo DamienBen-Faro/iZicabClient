@@ -164,10 +164,8 @@
           }
           
           ];
-
      }
   ];
-    
 
 }
 
@@ -208,6 +206,39 @@
     }
 
 }
+
+
+- (IBAction)goBack:(id)sender
+{
+    
+    
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
+    
+    CATransition *transition = [CATransition animation];
+    [transition setType:kCAAnimationCubicPaced];
+    [self.navigationController.view.layer addAnimation:transition forKey:@"someAnimation"];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    [CATransaction commit];
+    
+    
+}
+
+
+- (IBAction)goToDash:(id)sender
+{
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
+    [UIView  beginAnimations:@"ShowDetails" context: nil];
+    [UIView setAnimationDuration:0.5];
+    [self.navigationController pushViewController:ctrl animated:NO];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
+    [UIView commitAnimations];
+    
+}
+
 
 - (IBAction)userLoc:(id)sender
 {
@@ -539,39 +570,6 @@
 
 
     [self.navigationController pushViewController:ctrl animated:YES];
-}
-
-
-
-
-- (IBAction)goBack:(id)sender
-{
-    if (self.fromResa)
-          [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    [CATransaction begin];
-    [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
-    
-    CATransition *transition = [CATransition animation];
-    [transition setType:kCAAnimationCubicPaced];
-    [self.navigationController.view.layer addAnimation:transition forKey:@"someAnimation"];
-    
-    [self.navigationController popViewControllerAnimated:YES];
-    [CATransaction commit];
-    
-
-
-}
-
-- (IBAction)goToDash:(id)sender
-{
-
-       UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-    [UIView  beginAnimations:@"ShowDetails" context: nil];
-    [UIView setAnimationDuration:0.5];
-    [self.navigationController pushViewController:ctrl animated:NO];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
-    [UIView commitAnimations]; 
 }
 
 

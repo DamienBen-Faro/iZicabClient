@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h"
 
-@interface ResaMineViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface ResaMineViewController : CustomViewController<UITableViewDelegate, UITableViewDataSource>
 
 
 @property (strong) NSMutableArray *arr;

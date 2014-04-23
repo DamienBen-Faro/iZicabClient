@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "CustomViewController.h"
 
-@interface MapViewController : UIViewController<MKMapViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate>
+@interface MapViewController : CustomViewController<MKMapViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate>
 
 
 @property (strong)IBOutlet MKMapView *mapView;

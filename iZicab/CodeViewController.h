@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h"
 
-@interface CodeViewController : UIViewController
+@interface CodeViewController : CustomViewController
 
 @property(strong) IBOutlet UIView *subCodeView;
 @property (strong) IBOutlet UITextField *code;

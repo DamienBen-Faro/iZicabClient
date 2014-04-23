@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h"
 
-@interface TarifsViewController : UIViewController
+@interface TarifsViewController : CustomViewController
 
 @property IBOutlet UIWebView *webView;
 

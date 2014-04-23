@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h"
 
-@interface SignUpViewController : UIViewController<UITextFieldDelegate>
+@interface SignUpViewController : CustomViewController<UITextFieldDelegate>
 
 @property (strong) IBOutlet UITextField *familyName;
 @property (strong) IBOutlet UITextField *firstName;

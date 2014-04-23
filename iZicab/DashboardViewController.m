@@ -33,7 +33,7 @@
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
     
-    self.mapView.showsUserLocation = NO;
+    self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
 
     
@@ -303,7 +303,16 @@
 }
 
 
+
+- (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+
     
+    [defaults setObject:[NSString stringWithFormat:@"%f", aUserLocation.location.coordinate.latitude] forKey:@"lat"];
+    [defaults setObject:[NSString stringWithFormat:@"%f", aUserLocation.location.coordinate.longitude] forKey:@"lng"];
+}
 
 - (void) actuAnim
 {

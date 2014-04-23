@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h" 
 
-@interface SignController : UIViewController
+@interface SignController : CustomViewController
 
 @property (assign) BOOL fromDash;
 

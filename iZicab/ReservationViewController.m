@@ -70,11 +70,18 @@
     
     [self setLeftV:self.name :@"perso"];
     [self setLeftV:self.phone :@"phone"];
-
     
     [self offAll:nil];
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"lat"] && self.startAddress.titleLabel.text.length == 0)
+    {
+       self.startLat = [[defaults objectForKey:@"lat"] floatValue];
+        self.endLat = [[defaults objectForKey:@"lng"] floatValue];
+    
+        [self.startAddress setTitle:@"Ma position" forState:UIControlStateNormal];
+    }
 }
 
 - (void)setLeftV: (UITextField *)textF
@@ -344,77 +351,14 @@
 }
 
 
-- (void)goBack
-{
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-    [UIView  beginAnimations:@"ShowDetails" context: nil];
-    [UIView setAnimationDuration:0.5];
-    [self.navigationController pushViewController:ctrl animated:NO];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
-    [UIView commitAnimations];
 
-    
-}
-
-- (void) goToDash
-{
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-    DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-    [UIView  beginAnimations:@"ShowDetails" context: nil];
-    [UIView setAnimationDuration:0.5];
-    [self.navigationController pushViewController:ctrl animated:NO];
-    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.navigationController.view cache:NO];
-    [UIView commitAnimations];
-    
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
     
     
     [self offAll:nil];
-        [[self navigationController] setNavigationBarHidden:NO animated:NO];
-    UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *backBtnImage = [UIImage imageNamed:@"backButton@2x.png"];
-    UIImage *backBtnImagePressed = [UIImage imageNamed:@"backButton@2x.png"];
-    [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
-    [backBtn setBackgroundImage:backBtnImagePressed forState:UIControlStateHighlighted];
-    [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
-    backBtn.frame = CGRectMake(0, 0, 50, 70);
-    UIView *backButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 70)];
-    [backButtonView setFrame:CGRectMake(0, 20, 50, 70)];//25, 75
-    [backButtonView addSubview:backBtn];
-    self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.hidesBackButton = YES;
-    
-    UIButton *homeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *homeBtnImage = [UIImage imageNamed:@"menuButton@2X.png"];
-    UIImage *homeBtnImagePressed = [UIImage imageNamed:@"menuButton@2X.png"];
-    [homeBtn setBackgroundImage:homeBtnImage forState:UIControlStateNormal];
-    [homeBtn setBackgroundImage:homeBtnImagePressed forState:UIControlStateHighlighted];
-    [homeBtn addTarget:self action:@selector(goToDash) forControlEvents:UIControlEventTouchUpInside];
-    homeBtn.frame = CGRectMake(0, 0, 50, 70);
-    UIView *homeButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 70)];
-    [homeButtonView setFrame:CGRectMake(270, 20, 50, 70)];//25, 75
-    [homeButtonView addSubview:homeBtn];
-    
-    
-    
-    
-    CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
-    navigationBar.isDash = YES;
-    [navigationBar addSubview:backButtonView];
-    [navigationBar addSubview:homeButtonView];
-	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
-    [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"RÉSERVATION"];
-    
-    
-
-    
-    
+      [self setCustomTitle:@"RÉSERVATION"];
     
 }
 

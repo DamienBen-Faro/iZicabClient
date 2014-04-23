@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h"
 
-@interface RecapViewController : UIViewController
+@interface RecapViewController : CustomViewController
 
 @end

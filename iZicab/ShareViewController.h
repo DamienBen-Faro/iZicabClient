@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h" 
 
-@interface ShareViewController : UIViewController
+@interface ShareViewController : CustomViewController
 
 @end

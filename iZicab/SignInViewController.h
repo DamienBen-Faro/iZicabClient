@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h" 
 
-@interface SignInViewController : UIViewController<UITextFieldDelegate>
+@interface SignInViewController : CustomViewController<UITextFieldDelegate>
 
 
 @property (strong) IBOutlet UITextField *phone;
