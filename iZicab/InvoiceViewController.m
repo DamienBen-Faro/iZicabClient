@@ -49,12 +49,12 @@
     self.wifi.text = [NSString stringWithFormat:@"%i", self.resaCtrl.wifi.selected];
     self.paper.text = [NSString stringWithFormat:@"%i", self.resaCtrl.paper.selected];
     
-    self.premium.selected = YES;
-
+    
     
     [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
     self.datId.hidden = YES;
     self.idResa.hidden = YES;
+    self.isPremium = YES;
     if (self.isSeeing)
         [self showResaM];
     
@@ -78,8 +78,7 @@
       self.name.text = [NSString stringWithFormat:@"%@", self.resa[@"contactname"]];
       self.idResa.text = [NSString stringWithFormat:@"ref#100%@", self.resa[@"id"]];
     self.validate.hidden = YES;
-    self.premium.hidden = YES;
-    self.standard.hidden = YES;
+
 
 }
 
@@ -108,7 +107,7 @@
              MKRoute *rout = obj;
              NSString *isPremium = @"standard";
              
-             if ( self.premium.selected)
+             if ( self.isPremium)
                  isPremium = @"premium";
 
 
@@ -135,7 +134,7 @@
  
         NSString *isPremium = @"standard";
         
-        if ( self.premium.selected)
+        if ( self.isPremium)
             isPremium = @"premium";
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
             self.price.text = [NSString stringWithFormat:@"%.01f€", [dict[@"data"][isPremium] floatValue]];
@@ -158,31 +157,36 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     
-    
-    
     [self setCustomTitle:@"RÉCAPITULATIF"];
-
-    
-    
 }
 
-
-
-- (IBAction)standard:(id)sender
-{
-
-        self.premium.selected = NO;
-        self.standard.selected = YES;
-    [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
-}
-
-- (IBAction)premium:(id)sender
+- (IBAction)share:(id)sender
 {
     
-        self.premium.selected = YES;
-        self.standard.selected = NO;
-    [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
+    
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSString *shareString = @"capture facture";
+   
+    NSData *pdfData = UIImagePNGRepresentation(image);
+    NSArray *activityItems = [NSArray arrayWithObjects:shareString, pdfData, nil];
+    
+    
+
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    
+    
+    
 }
+
+
 
 
 
@@ -312,7 +316,7 @@
 
     NSString *isPremium = @"standard";
     
-    if ( self.premium.selected)
+    if ( self.isPremium)
         isPremium = @"premium";
     
 

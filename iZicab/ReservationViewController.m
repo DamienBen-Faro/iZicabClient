@@ -93,9 +93,19 @@
          }
      ];
 
-        
-       
     }
+
+    [self.slider addTarget:self
+                                action:@selector(sliderDidEndSliding:)
+                      forControlEvents:(UIControlEventTouchUpInside)];
+    
+   self.standardLabel.alpha = 0;
+    self.standardExplainLabel.alpha = 0;
+    UIImage *sliderTrackImage = [[UIImage imageNamed: @"menuButton@2X.png"] stretchableImageWithLeftCapWidth: 7 topCapHeight: 0];
+    
+    [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"menuButton@2X.png"] forState:UIControlStateNormal];
+        [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"menuButton@2X.png"] forState:UIControlStateHighlighted];
+
 }
 
 - (void)setLeftV: (UITextField *)textF
@@ -119,6 +129,31 @@
         [self updateResa];
 }
 
+- (void)sliderDidEndSliding:(NSNotification *)notification
+{
+    if (self.slider.value <= 0.5)
+        [self.slider setValue:0 animated:YES];
+   else
+      [self.slider setValue:1 animated:YES]; 
+
+    self.standardLabel.alpha = self.slider.value;
+    self.standardExplainLabel.alpha = self.slider.value;
+    
+    self.premiumLabel.alpha = 1 - self.slider.value;
+    self.premiumExplainLabel.alpha = 1 - self.slider
+    .value;
+}
+
+
+- (IBAction)sliderValueChanged:(UISlider *)sender
+{
+    
+    self.standardLabel.alpha = sender.value;
+    self.standardExplainLabel.alpha = sender.value;
+
+    self.premiumLabel.alpha = 1 - sender.value;
+    self.premiumExplainLabel.alpha = 1 - sender.value;
+}
 
 - (void) updateResa
 {

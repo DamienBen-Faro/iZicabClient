@@ -39,6 +39,11 @@
 @property (strong)         UIButton *dpBtn;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
+@property (strong)IBOutlet UISlider *slider;
+@property (strong)IBOutlet UILabel  *premiumLabel;
+@property (strong)IBOutlet UILabel  *premiumExplainLabel;
+@property (strong)IBOutlet UILabel  *standardLabel;
+@property (strong)IBOutlet UILabel  *standardExplainLabel;
 
 - (IBAction)goToMap:(id)sender;
 - (IBAction)selectDate:(id)sender;
