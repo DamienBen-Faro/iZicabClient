@@ -190,15 +190,13 @@
 {
        NSError *error;
     
-        
-        NSLog(@"%@", dict);
+    if ([self.price.text length] > 0)
+    {
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
-
-            
      
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *urlAddress = [NSString stringWithFormat:@"http://199.16.131.147/~izicat/105/Website/application/controllers/ws/CIC/Phase1Aller.php?email=%@&userId=%@&amount=%@", [defaults objectForKey:@"email"], [defaults objectForKey:@"userId"],[self.price.text substringToIndex:[self.price.text length] - 1]];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            NSString *urlAddress = [NSString stringWithFormat:@"http://199.16.131.147/~izicat/105/Website/application/controllers/ws/CIC/Phase1Aller.php?email=%@&userId=%@&amount=%@", [defaults objectForKey:@"email"], [defaults objectForKey:@"userId"],[self.price.text substringToIndex:[self.price.text length] - 1]];
             NSLog(@"waat:%@", urlAddress);
             NSURL *url = [NSURL URLWithString:urlAddress];
             NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
@@ -218,7 +216,8 @@
             [alert show];
 
         }
-      
+    }
+    
 }
 
 - (void)updateResa:(NSDictionary *)dict

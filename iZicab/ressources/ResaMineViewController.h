@@ -17,5 +17,6 @@
 @property (assign) int idToDelete;
 @property (strong) UISegmentedControl *segment;
 @property (strong) IBOutlet UIView *whiteV;
+@property (assign) int      segmentIdx;
 
 @end

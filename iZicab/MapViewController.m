@@ -11,6 +11,7 @@
 #import "ReservationViewController.h"
 #import "DashboardViewController.h"
 #import "SearchAddressTableViewController.h"
+#import "ConnectionData.h"
 
 @implementation MapViewController
 
@@ -24,11 +25,11 @@
 
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
-    self.startAddress.delegate = self;
-    self.endAddress.delegate = self;
     
-    self.startAddress.tag = 1001;
-    self.endAddress.tag = 1002;
+    
+    self.address.tag = 1001;
+    if (self.isStart)
+    self.address.tag = 1002;
     self.latLng = [[NSMutableArray alloc] init];
     
     UIImageView *imgV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cibleMap"]];
@@ -42,18 +43,14 @@
                               imgV.frame.size.width / 1.5, imgV.frame.size.height / 1.5)];
     
     [self.mapView addSubview:imgV];
-    self.startAddress.font     = [UIFont fontWithName:@"Roboto-Light" size:20.0];
-    self.endAddress.font     = [UIFont fontWithName:@"Roboto-Light" size:20.0];
- 
-    
+    self.address.font     = [UIFont fontWithName:@"Roboto-Light" size:20.0];
 
-    
     if (self.fromResa)
         [self infoFromResa];
 
 
-    [self.startAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
-    [self.endAddress addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
+    [self.address addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
+
 
     
     self.autocompleteUrls = [[NSMutableArray alloc] init];
@@ -83,8 +80,8 @@
 - (void)offAll
 {
 
-    [self.startAddress resignFirstResponder];
-    [self.endAddress resignFirstResponder];
+    [self.address resignFirstResponder];
+
 }
 
 
@@ -92,27 +89,27 @@
 
 - (void)infoFromResa
 {
+    self.isFirstPlacement = YES;
     CLLocationCoordinate2D  ctrpointStart;
-    CLLocationCoordinate2D  ctrpointEnd;
+    [self.mapView removeAnnotation:self.annotationFirst];
+
+    self.address.text = self.end;
+    ctrpointStart.latitude = [self.endLat floatValue];
+    ctrpointStart.longitude = [self.endLng floatValue];
+
     
-    self.startAddress.text = self.start;
-    self.endAddress.text = self.end;
-    NSLog(@"%@/%@", self.start, self.end);
-        [self.mapView removeAnnotation:self.annotationFirst];
-        [self.mapView removeAnnotation:self.annotationSecond];
-    
-    ctrpointStart.latitude = [self.startLat floatValue];
+    if (self.isStart)
+    {
+        self.address.text = self.start;
+        ctrpointStart.latitude = [self.startLat floatValue];
         ctrpointStart.longitude = [self.startLng floatValue];
-    
-        ctrpointEnd.latitude = [self.endLat floatValue];
-        ctrpointEnd.longitude = [self.endLng floatValue];
-    
-        NSLog(@"%@/%@/%@/%@", self.startLat, self.startLng, self.endLat, self.endLng);
-    
+
+    }
+
+
     
     CLGeocoder *ceo = [[CLGeocoder alloc]init];
     CLLocation *locStart = [[CLLocation alloc]initWithLatitude:ctrpointStart.latitude longitude:ctrpointStart.longitude];
-    CLLocation *locEnd = [[CLLocation alloc]initWithLatitude:ctrpointEnd.latitude longitude:ctrpointEnd.longitude];
     
     UIActivityIndicatorView *  spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [spin setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 2)];
@@ -128,42 +125,25 @@
      {
          CLPlacemark *placemark = [placemarks objectAtIndex:0];
          NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-         self.startAddress.text =locatedAt;
+         self.address.text = locatedAt;
          self.annotationFirst = [[MKPointAnnotation alloc] init];
          [self.annotationFirst setCoordinate:ctrpointStart];
          [self.annotationFirst setTitle:locatedAt];
          [self.annotationFirst setSubtitle:@"Départ"];
          [self.mapView addAnnotation:self.annotationFirst];
-         
-         
 
+         MKCoordinateRegion region;
+         MKCoordinateSpan span;
+         span.latitudeDelta = 0.005;
+         span.longitudeDelta = 0.005;
          
-         [ceo reverseGeocodeLocation: locEnd completionHandler:
-          ^(NSArray *placemarks, NSError *error) {
-              CLPlacemark *placemark = [placemarks objectAtIndex:0];
-              NSLog(@"placemark %@",placemark);
-              //String to hold address
-              NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-              self.annotationSecond = [[MKPointAnnotation alloc] init];
-              [self.annotationSecond setCoordinate:ctrpointEnd];
-              [self.annotationSecond setTitle:locatedAt];
-              [self.annotationSecond setSubtitle:@"Arrivée"];
-              
-              
-              [self.mapView addAnnotation:self.annotationSecond];
-              self.endAddress.text =locatedAt;
-              [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-              [spin stopAnimating];
-              [spin removeFromSuperview];
-              [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
-              
-              [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-              [spin stopAnimating];
-              [spin removeFromSuperview];
-              
-          }
-          
-          ];
+         region.span = span;
+         region.center = ctrpointStart;
+              [self.mapView setRegion:region animated:YES];
+         
+         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+         [spin stopAnimating];
+         [spin removeFromSuperview];
      }
   ];
 
@@ -172,38 +152,46 @@
 
 - (void)backToInitialPosition:(MKUserLocation *)aUserLocation
 {
+    if (aUserLocation)
+        self.keepLoc = aUserLocation;
+    
+    if (!self.isFirstPlacement)
+    {
     MKCoordinateRegion region;
     MKCoordinateSpan span;
     span.latitudeDelta = 0.005;
     span.longitudeDelta = 0.005;
     CLLocationCoordinate2D location;
     
+ 
+        
     location.latitude = self.keepLoc.coordinate.latitude;
     location.longitude = self.keepLoc.coordinate.longitude;
     region.span = span;
     region.center = location;
     
-    if (self.endLat.length > 0)
-    {
-        location.latitude = [self.endLat floatValue];
-        location.longitude = [self.endLng floatValue];
-        region.center = location;
-    }
+
     
-    if (!self.isFirstPlacement)
-    {
+   
         [self.mapView setRegion:region animated:YES];
         self.isFirstPlacement = YES;
         
-        if (aUserLocation)
-            self.keepLoc = aUserLocation;
+      
         if (!self.fromResa)
         {
-            self.startLat = [NSString stringWithFormat:@"%f", location.latitude ];
-            self.startLng =  [NSString stringWithFormat:@"%f", location.longitude];
+           
+            self.endLat = [NSString stringWithFormat:@"%f", location.latitude ];
+            self.endLng =  [NSString stringWithFormat:@"%f", location.longitude];
+
+             {
+                 self.startLat = [NSString stringWithFormat:@"%f", location.latitude ];
+                 self.endLng =  [NSString stringWithFormat:@"%f", location.longitude];
+                 
+             }
         }
         
     }
+  
 
 }
 
@@ -244,7 +232,7 @@
 {
    self.isFirstPlacement = NO;
     [self backToInitialPosition:nil];
-    
+
 }
 
 - (void)mapView:(MKMapView *)aMapView didUpdateUserLocation:(MKUserLocation *)aUserLocation
@@ -281,69 +269,109 @@
 
 }
 
+- (void) putVTC
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [[ConnectionData sharedConnectionData] beginService: @"map/getRefresh":[[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                                                                          [defaults  objectForKey:@"userId"], @"userId",
+                                                                                          [NSString stringWithFormat:@"%f", self.keepLoc.coordinate.latitude],  @"lat",
+                                                                                         [NSString stringWithFormat:@"%f", self.keepLoc.coordinate.longitude],  @"lng"
+                                                                                          ,nil] :@selector(callBackController:):self];
+
+}
+
+
+- (void)callBackController:(NSDictionary *)dict
+{
+    
+    NSError *error;
+    
+    if (error == nil && [[dict objectForKey:@"error"] length] == 0)
+    {
+       
+     if(dict[@"data"]
+        &&  [dict[@"data"] isKindOfClass:[NSDictionary class]]
+        && dict[@"data"][@"dataProvider"]
+        && [dict[@"data"][@"dataProvider"] isKindOfClass:[NSArray class]])
+     {
+     
+         
+         for (id<MKAnnotation> annotation in self.mapView.annotations)
+         {
+             MKAnnotationView* anView = [self.mapView viewForAnnotation: annotation];
+             if (anView && [[annotation subtitle]  isEqual: @"Chauffeur" ])
+                 [self.mapView removeAnnotation:annotation];
+         }
+         
+         for (NSDictionary *dic in dict[@"data"][@"dataProvider"])
+         {
+             CLLocationCoordinate2D  ctrpoint;
+             ctrpoint.latitude = [dic[@"lat"] floatValue];
+             ctrpoint.longitude = [dic[@"lng"] floatValue];
+             
+              MKPointAnnotation* anP = [[MKPointAnnotation alloc] init];
+             [anP setCoordinate:ctrpoint];
+             [anP setTitle: [NSString stringWithFormat:@"%@ %@ %@ ", dic[@"familyName"], dic[@"brand"], dic[@"model"] ]];
+             [anP setSubtitle:@"Chauffeur"];
+             
+             [self.mapView addAnnotation:anP];
+             
+            }
+   
+        }
+
+       
+      
+        for (id<MKAnnotation> annotation in self.mapView.annotations)
+        {
+            MKAnnotationView* anView = [self.mapView viewForAnnotation: annotation];
+            if (anView && [[annotation subtitle]  isEqual: @"Chauffeur" ])
+            {
+                anView.image = [UIImage imageNamed:@"pinChauffeur@2x.png"];
+            }
+        }
+    
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                       delegate:self
+                                              cancelButtonTitle:@"ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    
+}
+
+
 
 -(IBAction)setFirstPin:(id)sender
 {
     CLLocationCoordinate2D  ctrpoint;
+    
 
     ctrpoint = [self.mapView centerCoordinate];
-    
+    if(ctrpoint.latitude <= 0)
+    {
+        ctrpoint = self.mapView.userLocation.coordinate;
+        [self.mapView setCenterCoordinate:ctrpoint];
+        
+    }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSString stringWithFormat:@"%f",  self.mapView.userLocation.coordinate.latitude] forKey:@"lat"];
+    [defaults setObject:[NSString stringWithFormat:@"%f",  self.mapView.userLocation.coordinate.longitude] forKey:@"lng"];
+
     [self.mapView removeAnnotation:self.annotationFirst];
-    
-    CLGeocoder *ceo = [[CLGeocoder alloc]init];
-    CLLocation *loc = [[CLLocation alloc]initWithLatitude:ctrpoint.latitude longitude:ctrpoint.longitude];
-    
-    UIActivityIndicatorView *  spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    [spin setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 2)];
-    [spin setColor:[UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1]];
-    [spin startAnimating];
-    spin.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2, 2);
-    [spin startAnimating];
-    [self.view addSubview:spin];
-  [[UIApplication sharedApplication] beginIgnoringInteractionEvents];
-    
-    [ceo reverseGeocodeLocation: loc completionHandler:
-     ^(NSArray *placemarks, NSError *error)
+    for (id<MKAnnotation> annotation in self.mapView.annotations)
     {
-         CLPlacemark *placemark = [placemarks objectAtIndex:0];
-         NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-         self.startAddress.text =locatedAt;
-         self.annotationFirst = [[MKPointAnnotation alloc] init];
-         [self.annotationFirst setCoordinate:ctrpoint];
-         [self.annotationFirst setTitle:locatedAt];
-         [self.annotationFirst setSubtitle:@"Départ"];
-         [self.mapView addAnnotation:self.annotationFirst];
-     
-
-        [[UIApplication sharedApplication] endIgnoringInteractionEvents];
-        [spin stopAnimating];
-        [spin removeFromSuperview];
-         [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
-        
-        
-     }
-     
-     ];
-}
-
-
--(IBAction)setSecondPin:(id)sender
-{
-    CLLocationCoordinate2D  ctrpoint;
-
-
-    ctrpoint = [self.mapView centerCoordinate];
-    if(ctrpoint.latitude <= 0.000000)
-    {
-        CLLocationCoordinate2D coo;
-        coo.latitude = 48.8566140;
-        coo.longitude = 2.3522219;
-        [self.mapView setCenterCoordinate:coo];
-
+        MKAnnotationView* anView = [self.mapView viewForAnnotation: annotation];
+        if (anView && [[annotation subtitle]  isEqual: @"Arrivée" ])
+            [self.mapView removeAnnotation:annotation];
     }
     
-    [self.mapView removeAnnotation:self.annotationSecond];
-    
     
     UIActivityIndicatorView *  spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [spin setCenter:CGPointMake([[UIScreen mainScreen] bounds].size.width / 2, [[UIScreen mainScreen] bounds].size.height / 2)];
@@ -352,8 +380,8 @@
     spin.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2, 2);
     [spin startAnimating];
     [self.view addSubview:spin];
-
-
+    
+    
     
     
     CLGeocoder *ceo = [[CLGeocoder alloc]init];
@@ -365,25 +393,25 @@
          NSLog(@"placemark %@",placemark);
          //String to hold address
          NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-         self.annotationSecond = [[MKPointAnnotation alloc] init];
-         [self.annotationSecond setCoordinate:ctrpoint];
-         [self.annotationSecond setTitle:locatedAt];
-         [self.annotationSecond setSubtitle:@"Arrivée"];
-
+         self.annotationFirst = [[MKPointAnnotation alloc] init];
+         [self.annotationFirst setCoordinate:ctrpoint];
+         [self.annotationFirst setTitle:locatedAt];
+         [self.annotationFirst setSubtitle:@"Arrivée"];
          
-         [self.mapView addAnnotation:self.annotationSecond];
          
-      
+         [self.mapView addAnnotation:self.annotationFirst];
          
-         self.endAddress.text =locatedAt;
-         if (self.annotationSecond)
-         [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
-
+         
+         
+         self.address.text =locatedAt;
+      /*   if (self.annotationSecond)
+             [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
+       */
          [spin stopAnimating];
          [spin removeFromSuperview];
-         [self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
+         //[self traceRoute:self.annotationFirst.coordinate:self.annotationSecond.coordinate];
+       
          
-
          
      }
      
@@ -397,7 +425,10 @@
             anView.image = [UIImage imageNamed:@"pinMapArrive"];
         }
     }
+
 }
+
+
 
 - (void) getLocation
 {
@@ -417,14 +448,12 @@
     
     [self.locationManager startUpdatingLocation];
     
-    
-    
 }
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:   (CLLocation*)newLocation fromLocation:(CLLocation *)oldLocation
 {
     
-    if (!self.fromResa && self.startAddress.text.length == 0)
+    if (!self.fromResa && self.address.text.length == 0)
     {
     NSString * tLatitude  = [NSString stringWithFormat:@"%3.5f", newLocation.coordinate.latitude];
     NSString * tLongitude = [NSString stringWithFormat:@"%3.5f", newLocation.coordinate.longitude];
@@ -446,10 +475,9 @@
          {
              
                  [self.mapView removeAnnotation:self.annotationFirst];
-             [self.mapView removeAnnotation:self.annotationSecond];
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
              NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-             self.startAddress.text =locatedAt;
+             self.address.text =locatedAt;
              self.annotationFirst = [[MKPointAnnotation alloc] init];
              [self.annotationFirst setCoordinate:newLocation.coordinate];
              [self.annotationFirst setTitle:locatedAt];
@@ -462,8 +490,8 @@
              [spin removeFromSuperview];
 
              
-             self.startAddress.text = [[curString.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
-             self.start = self.startAddress.text;
+            self.address.text = [[curString.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+             self.start = self.address.text;
              self.startLat = tLatitude;
              self.startLng = tLongitude;
              
@@ -561,14 +589,29 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     ReservationViewController* ctrl = (ReservationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ReservationViewController"];
-    ctrl.startLat = self.annotationFirst.coordinate.latitude;
-    ctrl.startLng = self.annotationFirst.coordinate.longitude;
-    ctrl.endLat = self.annotationSecond.coordinate.latitude;
-    ctrl.endLng = self.annotationSecond.coordinate.longitude;
-    ctrl.startAddr = self.startAddress.text;
-    ctrl.endAddr = self.endAddress.text;
+    
 
+    ctrl.endLat = self.annotationFirst.coordinate.latitude;
+    ctrl.endLng = self.annotationFirst.coordinate.longitude;
+    ctrl.startLat = [self.startLat floatValue];
+    ctrl.startLng = [self.startLng floatValue];
+    ctrl.endAddr = self.address.text;
+    ctrl.startAddr = self.start;
 
+    
+    if (self.isStart)
+    {
+        
+        ctrl.startLat = self.annotationFirst.coordinate.latitude;
+        ctrl.startLng = self.annotationFirst.coordinate.longitude;
+        ctrl.endLat = [self.endLat floatValue];
+        ctrl.endLng = [self.endLng floatValue];
+        ctrl.startAddr = self.address.text;
+        ctrl.endAddr = self.end;
+        
+        
+       }
+    
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
@@ -576,8 +619,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [self.startAddress resignFirstResponder];
-    [self.endAddress resignFirstResponder];
+    [self.address resignFirstResponder];
 
 }
 
@@ -591,14 +633,24 @@
          [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];
     [self getLocation];
-    self.isFirstPlacement = NO;
+    if (self.fromResa)
+        self.isFirstPlacement = YES;
+    else
+      [self performSelector:@selector(userLoc:) withObject:nil afterDelay:2.0];
+
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (self.fromResa)
+     self.isFirstPlacement = YES;
+}
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated
 {
-      [self performSelector:@selector(setSecondPin:) withObject:nil afterDelay:1.0];
+              [self putVTC];
+      [self performSelector:@selector(setFirstPin:) withObject:nil afterDelay:0.0];
 }
 
 

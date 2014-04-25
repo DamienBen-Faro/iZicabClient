@@ -15,18 +15,10 @@
 
 @implementation SignInViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
     UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:dismissKeyboard];
@@ -39,9 +31,49 @@
     
     self.phone.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     self.password.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+
+        [self setCustomTitle:@"CONNECTION"];
+    self.fieldArr = [[NSArray alloc] initWithObjects:
+                     self.phone,  self.password,nil];
+    
 }
 
-- (void)dismissKeyboard {
+-(void)createInputAccessoryView
+{
+    self.inputAccView = [[UIView alloc] initWithFrame:CGRectMake(10.0, 0.0, 310.0, 40.0)];
+    [self.inputAccView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.inputAccView setAlpha: 0.8];
+    
+    
+    self.btnPrev = [UIButton buttonWithType: UIButtonTypeCustom];
+    [self.btnPrev setFrame: CGRectMake(0.0, 0.0, 80.0, 40.0)];
+    [self.btnPrev setTitle: @"Previous" forState: UIControlStateNormal];
+    [self.btnPrev setBackgroundColor: [UIColor blueColor]];
+    [self.btnPrev addTarget: self action: @selector(gotoPrevTextfield) forControlEvents: UIControlEventTouchUpInside];
+    
+    self.btnNext = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.btnNext setFrame:CGRectMake(85.0f, 0.0f, 80.0f, 40.0f)];
+    [self.btnNext setTitle:@"Next" forState:UIControlStateNormal];
+    [self.btnNext setBackgroundColor:[UIColor blueColor]];
+    [self.btnNext addTarget:self action:@selector(gotoNextTextfield) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.btnDone = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.btnDone setFrame:CGRectMake(240.0, 0.0f, 80.0f, 40.0f)];
+    [self.btnDone setTitle:@"Done" forState:UIControlStateNormal];
+    [self.btnDone setBackgroundColor:[UIColor greenColor]];
+    [self.btnDone setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.btnDone addTarget:self action:@selector(doneTyping) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.inputAccView addSubview:self.btnPrev];
+    [self.inputAccView addSubview:self.btnNext];
+    [self.inputAccView addSubview:self.btnDone];
+}
+
+
+
+
+- (void)dismissKeyboard
+{
     for (UIView *subView in self.view.subviews) {
         if ([subView isKindOfClass:[UITextField class]]) {
             [subView resignFirstResponder];
@@ -49,11 +81,69 @@
     }
 }
 
-- (void)textFieldDidBeginEditing:(UITextView *)textView
+
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    [self animateTextView: YES:textView.tag];
+    [self animateTextView: YES:textField.tag];
+
+    [self createInputAccessoryView];
+    [textField setInputAccessoryView:self.inputAccView];
+    
+    self.txtActiveField = textField;
+
 }
 
+
+-(void)gotoPrevTextfield
+{
+    
+    for (int i = 0; i < [self.fieldArr count]; i++)
+    {
+        if (i - 1 == 0 )
+            [self.txtActiveField resignFirstResponder];
+        
+        if (self.txtActiveField == self.fieldArr[i])
+        {
+            if (i - 1 >= 0)
+            {
+                self.txtActiveField = self.fieldArr[i - 1];
+                [self.txtActiveField becomeFirstResponder];
+                break;
+            }
+        }
+    }
+    
+    
+}
+
+-(void)gotoNextTextfield
+{
+    for (int i = 0; i < [self.fieldArr count]; i++)
+    {
+        if (i + 1 == 5 )
+            [self.txtActiveField resignFirstResponder];
+        
+        if (self.txtActiveField == self.fieldArr[i])
+        {
+            if (i + 1 < [self.fieldArr count])
+            {
+                self.txtActiveField = self.fieldArr[i + 1];
+                [self.txtActiveField becomeFirstResponder];
+                break;
+            }
+            
+        }
+    }
+    
+    
+}
+
+-(void)doneTyping
+{
+    
+    [self.txtActiveField resignFirstResponder];
+}
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField
 {
@@ -158,6 +248,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    
             [self setCustomTitle:@"CONNECTION"];
     
 }

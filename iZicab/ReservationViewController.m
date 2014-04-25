@@ -65,7 +65,7 @@
     [self.view addSubview:self.datePicker];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
     [self.startDate setTitle: [dateFormatter stringFromDate:self.datePicker.date ] forState:UIControlStateNormal];
     
     [self setLeftV:self.name :@"perso"];
@@ -77,10 +77,24 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"lat"] && self.startAddress.titleLabel.text.length == 0)
     {
+        
+        
        self.startLat = [[defaults objectForKey:@"lat"] floatValue];
-        self.endLat = [[defaults objectForKey:@"lng"] floatValue];
+        self.startLng = [[defaults objectForKey:@"lng"] floatValue];
     
-        [self.startAddress setTitle:@"Ma position" forState:UIControlStateNormal];
+        CLLocation *locStart = [[CLLocation alloc]initWithLatitude:self.startLat longitude:self.startLng];
+        CLGeocoder *ceo = [[CLGeocoder alloc]init];
+        [ceo reverseGeocodeLocation: locStart completionHandler:
+         ^(NSArray *placemarks, NSError *error)
+         {
+            CLPlacemark *placemark = [placemarks objectAtIndex:0];
+            NSString *locatedAt = [[placemark.addressDictionary valueForKey:@"FormattedAddressLines"] componentsJoinedByString:@", "];
+            [self.startAddress setTitle:locatedAt forState:UIControlStateNormal];
+         }
+     ];
+
+        
+       
     }
 }
 
@@ -208,6 +222,8 @@
     ctrl.endLng = [NSString stringWithFormat:@"%f", self.endLng ];
    
     ctrl.fromResa = YES;
+    if ([sender tag] == 1001)
+        ctrl.isStart = YES;
     [self.navigationController pushViewController:ctrl animated:YES];
 }
 
@@ -227,7 +243,7 @@
         self.dpBtn.hidden = YES;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
     [self.startDate setTitle: [dateFormatter stringFromDate:self.datePicker.date ] forState:UIControlStateNormal];
 
 }

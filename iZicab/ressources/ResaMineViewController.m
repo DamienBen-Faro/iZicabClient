@@ -170,7 +170,9 @@
     [cell.modif addTarget:self action:@selector(modifResa:) forControlEvents:UIControlEventTouchDown];
     [cell.deleteResa addTarget:self action:@selector(deleteResa:) forControlEvents:UIControlEventTouchDown];
   
-    if (self.segment.selectedSegmentIndex == 1)
+    NSLog(@"segment:%i", self.segmentIdx);
+    
+    if (self.segmentIdx == 1)
     {
         cell.modif.hidden = YES;
         cell.deleteResa.hidden = YES;
@@ -274,7 +276,7 @@
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    
+    self.segmentIdx = ((UISegmentedControl *)sender).selectedSegmentIndex;
     if (((UISegmentedControl *)sender).selectedSegmentIndex == 1)
         [[ConnectionData sharedConnectionData] beginService: @"ride/getClientHistoricalReservation":[[NSMutableDictionary alloc] initWithObjectsAndKeys:                                                                                                                 [defaults objectForKey:@"userId"], @"userId", nil] :@selector(callBackController:):self];
     else

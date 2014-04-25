@@ -216,7 +216,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"numberofsection:%i",  [self.data count]);
     return [self.data count];
 }
 
@@ -224,7 +223,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSDictionary *dictionary = [self.data objectAtIndex:section];
-    NSLog(@"numberofrow:%i", [dictionary count]);
     return [dictionary count];
 }
 
@@ -242,7 +240,7 @@
     }
     
     cell.textLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
-  //  NSLog(@"%@", [self.data objectAtIndex:indexPath.section][indexPath.row]);
+    NSLog(@"%@", [self.data objectAtIndex:indexPath.section][indexPath.row]);
     cell.textLabel.text = [self.data objectAtIndex:indexPath.section][indexPath.row][@"name"];
     return cell;
     
@@ -258,28 +256,15 @@
     if (self.isFromMap)
     {
          MapViewController *  ctrl = (MapViewController *)[storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
-        if (self.isStartAddr)
-        {
-            ctrl.start = [self.data objectAtIndex:indexPath.section][indexPath.row][@"name"];
-            ctrl.startLat = [self.data objectAtIndex:indexPath.section][indexPath.row][@"lat"] ;
-            ctrl.startLng = [self.data objectAtIndex:indexPath.section][indexPath.row][@"lng"] ;
-            
-            ctrl.end = self.memoryFromReservation[@"addr"];
-            ctrl.endLat = self.memoryFromReservation[@"lat"];
-            ctrl.endLng = self.memoryFromReservation[@"lng"];
-        }
-        else
-        {
-            ctrl.end = [self.data objectAtIndex:indexPath.section][indexPath.row][@"name"];
-            ctrl.endLat = [self.data objectAtIndex:indexPath.section][indexPath.row][@"lat"] ;
-            ctrl.endLng = [self.data objectAtIndex:indexPath.section][indexPath.row][@"lng"] ;
-            
-            ctrl.start = self.memoryFromReservation[@"addr"];
-            ctrl.startLat = self.memoryFromReservation[@"lat"] ;
-            ctrl.startLng = self.memoryFromReservation[@"lng"] ;
-            
-            NSLog(@"%@/%@", ctrl.startLat, ctrl.startLng);
-        }
+  
+        ctrl.end = [self.data objectAtIndex:indexPath.section][indexPath.row][@"name"];
+        ctrl.endLat = [self.data objectAtIndex:indexPath.section][indexPath.row][@"lat"] ;
+        ctrl.endLng = [self.data objectAtIndex:indexPath.section][indexPath.row][@"lng"] ;
+        
+        ctrl.start = self.myPos[0][@"name"];
+        ctrl.startLat = self.myPos[0][@"lat"];
+        ctrl.startLng = self.myPos[0][@"lng"];
+        
         ctrl.fromResa = YES;
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
         [self.navigationController pushViewController:ctrl animated:YES];

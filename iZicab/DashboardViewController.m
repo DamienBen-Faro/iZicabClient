@@ -46,9 +46,6 @@
     
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-
-    
     [[ConnectionData sharedConnectionData] beginService: @"reservation/readAllMinePrivateUser" :[[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                                                        [defaults objectForKey:@"userId"],  @"userId"
                                                                        ,nil] :@selector(callBackController:):self];
