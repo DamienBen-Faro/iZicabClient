@@ -101,10 +101,10 @@
     
    self.standardLabel.alpha = 0;
     self.standardExplainLabel.alpha = 0;
-    UIImage *sliderTrackImage = [[UIImage imageNamed: @"menuButton@2X.png"] stretchableImageWithLeftCapWidth: 7 topCapHeight: 0];
+
     
-    [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"menuButton@2X.png"] forState:UIControlStateNormal];
-        [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"menuButton@2X.png"] forState:UIControlStateHighlighted];
+    [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"buttonSwitch"] forState:UIControlStateNormal];
+        [[UISlider appearance] setThumbImage:[UIImage imageNamed:@"buttonSwitch"] forState:UIControlStateHighlighted];
 
 }
 

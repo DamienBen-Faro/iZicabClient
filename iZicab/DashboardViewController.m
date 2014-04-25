@@ -76,6 +76,8 @@
 
 - (void)logout
 {
+
+
     [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"logout"] forState:UIControlStateNormal];
     [self.reservationButton addTarget:self action:@selector(goToSign:)
      forControlEvents:UIControlEventTouchUpInside];
@@ -432,7 +434,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
         [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    
+     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
         [[self navigationController] setNavigationBarHidden:YES animated:NO];
  //[NSThread detachNewThreadSelector:@selector(firstAnim) toTarget:self withObject:nil];
    _datstop = NO;
