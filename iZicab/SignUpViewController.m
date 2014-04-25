@@ -56,6 +56,11 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.homeButtonView removeFromSuperview];
+}
+
 -(void)createInputAccessoryView
 {
      self.inputAccView = [[UIView alloc] initWithFrame:CGRectMake(10.0, 0.0, 310.0, 40.0)];

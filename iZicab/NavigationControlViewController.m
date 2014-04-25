@@ -65,7 +65,7 @@
     
     self.notifModalView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
     self.notifModalView.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1];
-    self.notifModalView.alpha = 0.85;
+    self.notifModalView.alpha = 0.95;
     
     
    
@@ -145,24 +145,18 @@
                     completion:nil];
 }
 
-- (void)setNotifModal:(id)userInfo
+- (void)setNotifModal:(NSNotification *)userInfo
 {
     
-    id tmp = [NSJSONSerialization JSONObjectWithData:userInfo options:NSJSONReadingMutableContainers error:nil];
-    
-     NSLog(@"%@", tmp[@"aps"]);
     
     
-    /*[userInfo objectForKey:@"aps"][@"alert"][@"data"][@"message"] ?
-    [userInfo objectForKey:@"aps"][@"alert"][@"data"][@"message"] : @"";
     
-    id tmp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
+     NSLog(@"%@", userInfo.object);
     
-    if ([tmp isKindOfClass:[NSDictionary class]])
-        [self.delegateController performSelector:self.pointeeFunction withObject:tmp];
-    
-    self.notifModalView.text =
-*/
+    self.notifModalView.text =[userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"message"] ?
+    [userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"message"] : @"Problème d'affichage du message";
+
+
     
     [UIView transitionWithView:self.view
                       duration:1.2
