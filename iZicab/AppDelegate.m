@@ -58,7 +58,7 @@
                                           otherButtonTitles:nil];
     [alert show];*/
   
-    [[NSNotificationCenter defaultCenter] postNotificationName: @"notif" object:nil userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"notif" object:userInfo userInfo:userInfo];
 
     
 //[[NSNotificationCenter defaultCenter] postNotificationName:@"notif" object:self userInfo:[NSDictionary dictionaryWithObject:@"1,2,3,4,5" forKey:@"categories_ids"]];

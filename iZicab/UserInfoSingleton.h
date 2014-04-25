@@ -18,6 +18,7 @@
 @property (strong) NSString *email;
 @property (strong) NSString *postalCode;
 @property (strong) NSString *city;
+@property (assign) BOOL dashed;
 
 + (id)sharedUserInfo;
 

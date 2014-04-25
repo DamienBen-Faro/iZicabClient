@@ -11,6 +11,7 @@
 
 @interface CustomViewController : UIViewController
 
+@property (strong)   UIView *homeButtonView ;
 
 - (void)setCustomTitle:(NSString *)string;
 - (void)goBack;

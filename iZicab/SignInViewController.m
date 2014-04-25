@@ -35,7 +35,13 @@
         [self setCustomTitle:@"CONNECTION"];
     self.fieldArr = [[NSArray alloc] initWithObjects:
                      self.phone,  self.password,nil];
+  
     
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+       [self.homeButtonView removeFromSuperview];
 }
 
 -(void)createInputAccessoryView
@@ -171,9 +177,6 @@
 }
 
 
-- (void)viewDidAppear:(BOOL)animated
-{
- }
 
 - (void)didReceiveMemoryWarning
 {
@@ -249,7 +252,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     
-            [self setCustomTitle:@"CONNECTION"];
+   
+     [self setCustomTitle:@"CONNECTION"];
     
 }
 

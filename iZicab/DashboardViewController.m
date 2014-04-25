@@ -9,6 +9,7 @@
 #import "DashboardViewController.h"
 #import "ConnectionData.h"
 #import "ReservationViewController.h"
+#import "UserInfoSingleton.h"
 #import "SignController.h"
 #import "TutoViewController.h"
 
@@ -423,6 +424,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+        [[UserInfoSingleton sharedUserInfo] setDashed:YES];
     _datstop = YES;
 
 }
@@ -430,17 +432,22 @@
 - (void)viewDidAppear:(BOOL)animated
 {
         [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
         [[self navigationController] setNavigationBarHidden:YES animated:NO];
  //[NSThread detachNewThreadSelector:@selector(firstAnim) toTarget:self withObject:nil];
    _datstop = NO;
    [self performSelector:@selector(mapAnim) withObject:nil afterDelay:2.5];
     [self actuAnim];
 
+    
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
 {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
     if ([defaults objectForKey:@"tutorialy"] == nil)
         [self showTuto];
     [super viewWillAppear:animated];

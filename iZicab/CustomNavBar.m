@@ -7,6 +7,7 @@
 //
 
 #import "CustomNavBar.h"
+#import "UserInfoSingleton.h"
 
 @implementation CustomNavBar
 
@@ -50,7 +51,14 @@
 {
 
     if (_isDash)
+    {
+        
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    }
+   
+    if (![[UserInfoSingleton sharedUserInfo] dashed])
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     

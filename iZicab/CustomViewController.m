@@ -52,9 +52,9 @@
     [homeBtn setBackgroundImage:homeBtnImagePressed forState:UIControlStateHighlighted];
     [homeBtn addTarget:self action:@selector(goToDash) forControlEvents:UIControlEventTouchUpInside];
     homeBtn.frame = CGRectMake(0, 0, 50, 70);
-    UIView *homeButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 70)];
-    [homeButtonView setFrame:CGRectMake(270, 20, 50, 70)];//25, 75
-    [homeButtonView addSubview:homeBtn];
+    self.homeButtonView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 70)];
+    [self.homeButtonView setFrame:CGRectMake(270, 20, 50, 70)];//25, 75
+    [self.homeButtonView addSubview:homeBtn];
     
     
     
@@ -62,7 +62,7 @@
     CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
     navigationBar.isDash = YES;
     [navigationBar addSubview:backButtonView];
-    [navigationBar addSubview:homeButtonView];
+    [navigationBar addSubview:self.homeButtonView];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
 }
 
