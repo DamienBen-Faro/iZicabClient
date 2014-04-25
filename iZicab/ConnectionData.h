@@ -16,8 +16,11 @@
 @property (strong)          UIActivityIndicatorView* spinner;
 @property (assign)          SEL pointeeFunction;
 @property (strong)          id  delegateController;
+@property (nonatomic, strong) NSString *urlz;
+
 
 - (void)beginService:(NSString *)serviceName:(NSMutableDictionary *)params:(SEL)pointeeFunction:(id)delegateController;
+- (void)initService;
 + (id)sharedConnectionData;
 
 @end

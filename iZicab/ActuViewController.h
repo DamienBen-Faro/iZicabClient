@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h" 
 
-@interface ActuViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ActuViewController : CustomViewController<UITableViewDataSource, UITableViewDelegate>
 
 @property(strong) IBOutlet UITableView *tableView;
 @property(strong) NSMutableArray *arr;
-
+@property(strong) UIActivityIndicatorView *spin;
 
 @end

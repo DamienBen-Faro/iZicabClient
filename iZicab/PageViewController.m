@@ -26,7 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.lab.text = [NSString stringWithFormat:@"%i", self.index];
+    NSLog(@"tuto img name:%@", self.imgName);
+   [self.img setImage:[UIImage imageNamed:self.imgName]];
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h" 
 
-@interface PageViewController : UIViewController
+@interface PageViewController : CustomViewController
 
 @property (assign, nonatomic) NSInteger index;
-@property (strong) IBOutlet UILabel    *lab;
+@property (strong) IBOutlet UIImageView    *img;
+@property (strong) NSString *imgName;
 
 @end

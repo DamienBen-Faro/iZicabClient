@@ -7,6 +7,8 @@
 //
 
 
-NSString * const __CONST_ADDR_SERVER = @"http://199.16.131.147/~izicat/105/Website/index.php/ws/";
 
+
+#define   __GET_URL_PROD  @"https://www.izicab.net/server/105/getCabProdUrl.php"
+#define   __GET_URL_DEV  @"https://www.izicab.net/server/105/getCabDevUrl.php"
 

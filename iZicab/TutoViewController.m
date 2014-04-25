@@ -26,6 +26,7 @@
     NSArray *initialViewControllers = [NSArray arrayWithObject:initialViewController];
     
     [self.pager setViewControllers:initialViewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    self.pager.view.backgroundColor = [UIColor blackColor];
     [self.pager willMoveToParentViewController:self];
     [self addChildViewController:self.pager];
     [self.view addSubview:self.pager.view];
@@ -44,7 +45,7 @@
 
 - (void)goBack
 {
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+
     [CATransaction begin];
     [CATransaction setValue:(id)kCFBooleanTrue forKey:kCATransactionDisableActions];
     
@@ -59,7 +60,7 @@
 
 - (void) goToDash
 {
-    
+
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
     [UIView  beginAnimations:@"ShowDetails" context: nil];
@@ -75,18 +76,34 @@
 - (UIViewController *)viewControllerAtIndex:(int)i
 {
     // Asking for a page that is out of bounds??
-    if (i<0) {
+    if (i < 0)
         return nil;
-    }
-    if (i>= 5 ) {
-        [self goBack];
+    
+    if (i > 4 )
+    {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        if ([defaults objectForKey:@"tutorialy"] == nil)
+        {
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            [defaults setObject:@"ok" forKey:@"tutorialy"];
+            [defaults synchronize];
+            [self performSelector:@selector(goToDash) withObject:nil afterDelay:1];
+        }
+        else
+        {
+            NSLog(@"waaaaaat");
+             [self goToDash];
+        }
     }
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     PageViewController* ctrl = (PageViewController *)[storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     ctrl.index = i;
+    ctrl.imgName = [NSString stringWithFormat:@"tuto%i", i + 1];
     return ctrl;
 }
+
+
 
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
@@ -111,7 +128,7 @@
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
-    return 5;
+    return 4;
 }
 
 @end

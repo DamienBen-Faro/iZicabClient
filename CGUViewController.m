@@ -7,10 +7,8 @@
 //
 
 #import "CGUViewController.h"
-
-@interface CGUViewController ()
-
-@end
+#import "CustomNavBar.h"
+#import "DashboardViewController.h"
 
 @implementation CGUViewController
 
@@ -26,6 +24,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString *fullURL = @"https://www.izicab.net/current/links/about.html";
+    NSURL *url = [NSURL URLWithString:fullURL];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:requestObj];
     // Do any additional setup after loading the view.
 }
 
@@ -35,8 +37,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self setCustomTitle:@"À PROPOS"];
+}
+
+/*#pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

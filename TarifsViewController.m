@@ -8,9 +8,6 @@
 
 #import "TarifsViewController.h"
 
-@interface TarifsViewController ()
-
-@end
 
 @implementation TarifsViewController
 
@@ -26,6 +23,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSString *fullURL = @"https://www.izicab.net/current/links/price.html";
+    NSURL *url = [NSURL URLWithString:fullURL];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [self.webView loadRequest:requestObj];
     // Do any additional setup after loading the view.
 }
 
@@ -34,6 +35,14 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void) viewWillAppear:(BOOL)animated
+{
+    [self setCustomTitle:@"TARIFS"];
+}
+
+
+
 
 /*
 #pragma mark - Navigation

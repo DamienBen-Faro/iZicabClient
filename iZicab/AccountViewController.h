@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomViewController.h" 
 
-@interface AccountViewController : UIViewController
+@interface AccountViewController : CustomViewController
 
 
 @property (strong) IBOutlet UIScrollView *scrollView;

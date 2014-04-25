@@ -54,6 +54,8 @@
 		6D53B99718E5BBBB0012C12A /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B99618E5BBBB0012C12A /* Main_iPhone.storyboard */; };
 		6D53B99A18E5BDCF0012C12A /* ActuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B99918E5BDCF0012C12A /* ActuDetailViewController.m */; };
 		6D53B99C18E5C2F70012C12A /* ResaMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B99B18E5C2F70012C12A /* ResaMineCell.xib */; };
+		6D58EFA4190A64A00066D975 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58EFA3190A64A00066D975 /* Reachability.m */; };
+		6D5EFC821907CE8300B69F31 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5EFC811907CE8300B69F31 /* CustomViewController.m */; };
 		6D83735018E46A94005A6709 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83734E18E46A94005A6709 /* DashboardViewController.m */; };
 		6D83735318E46C01005A6709 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D83735218E46C01005A6709 /* MapKit.framework */; };
 		6D83736318E47586005A6709 /* ElementAppli-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D83735E18E47586005A6709 /* ElementAppli-01.png */; };
@@ -66,6 +68,7 @@
 		6DAE0BBC1901314E00E8158D /* TarifsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE0BBB1901314E00E8158D /* TarifsViewController.m */; };
 		6DAE0BBF1901315900E8158D /* CGUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE0BBE1901315900E8158D /* CGUViewController.m */; };
 		6DAE0BC219013ABA00E8158D /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE0BC119013ABA00E8158D /* PageViewController.m */; };
+		6DAE0BC619018C2F00E8158D /* tuto4.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAE0BC519018C2F00E8158D /* tuto4.png */; };
 		6DAF56AD18F4198100E5C844 /* fondu@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAF56AB18F4198100E5C844 /* fondu@2X.png */; };
 		6DAF56AF18F41EEF00E5C844 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DAF56AE18F41EEF00E5C844 /* bg@2x.png */; };
 		6DCF52FC18E4394A0037A10C /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FB18E4394A0037A10C /* SignUpViewController.m */; };
@@ -96,7 +99,6 @@
 		E31C5F2C18E9B9B900727ABD /* ButtonChange.png in Resources */ = {isa = PBXBuildFile; fileRef = E31C5F2918E9B9B900727ABD /* ButtonChange.png */; };
 		E31D9AF118F7E293007BE3FD /* buttonOn.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9AEF18F7E293007BE3FD /* buttonOn.png */; };
 		E31D9AF218F7E293007BE3FD /* buttonOff.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9AF018F7E293007BE3FD /* buttonOff.png */; };
-		E31D9AF818F7E7DD007BE3FD /* watch.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9AF718F7E7DD007BE3FD /* watch.png */; };
 		E31D9B0518F7F216007BE3FD /* carteOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0118F7F216007BE3FD /* carteOff@2x.png */; };
 		E31D9B0618F7F216007BE3FD /* especeOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0218F7F216007BE3FD /* especeOff@2x.png */; };
 		E31D9B0718F7F216007BE3FD /* carteOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E31D9B0318F7F216007BE3FD /* carteOn@2x.png */; };
@@ -144,6 +146,9 @@
 		E397E03018FC2565003ACD8D /* mailAcc.png in Resources */ = {isa = PBXBuildFile; fileRef = E397E02B18FC2565003ACD8D /* mailAcc.png */; };
 		E397E03118FC2565003ACD8D /* perso.png in Resources */ = {isa = PBXBuildFile; fileRef = E397E02C18FC2565003ACD8D /* perso.png */; };
 		E397E03218FC2565003ACD8D /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = E397E02D18FC2565003ACD8D /* phone.png */; };
+		E3AC4F8F190A902900B8E715 /* watch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AC4F8E190A902900B8E715 /* watch@2x.png */; };
+		E3AC4F91190AA63300B8E715 /* FlecheNext@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AC4F90190AA63300B8E715 /* FlecheNext@2X.png */; };
+		E3BDDEE8190ACE54002AEBFD /* buttonSwitch.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEE7190ACE54002AEBFD /* buttonSwitch.png */; };
 		E3E7C52C19093EEE002BE526 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = E3E7C52B19093EEE002BE526 /* logout.png */; };
 		E3EF8E2618EAC4040068EC03 /* ButtonMap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EF8E2518EAC4040068EC03 /* ButtonMap@2x.png */; };
 		E3EF8E2818EAC7640068EC03 /* validation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EF8E2718EAC7630068EC03 /* validation@2x.png */; };
@@ -240,6 +245,10 @@
 		6D53B99818E5BDCF0012C12A /* ActuDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActuDetailViewController.h; sourceTree = "<group>"; };
 		6D53B99918E5BDCF0012C12A /* ActuDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActuDetailViewController.m; sourceTree = "<group>"; };
 		6D53B99B18E5C2F70012C12A /* ResaMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResaMineCell.xib; sourceTree = "<group>"; };
+		6D58EFA2190A64A00066D975 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		6D58EFA3190A64A00066D975 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		6D5EFC801907CE8200B69F31 /* CustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
+		6D5EFC811907CE8300B69F31 /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
 		6D83734D18E46A94005A6709 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		6D83734E18E46A94005A6709 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		6D83735218E46C01005A6709 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -261,6 +270,7 @@
 		6DAE0BBE1901315900E8158D /* CGUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGUViewController.m; sourceTree = "<group>"; };
 		6DAE0BC019013ABA00E8158D /* PageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		6DAE0BC119013ABA00E8158D /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+		6DAE0BC519018C2F00E8158D /* tuto4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tuto4.png; sourceTree = "<group>"; };
 		6DAF56AB18F4198100E5C844 /* fondu@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fondu@2X.png"; sourceTree = "<group>"; };
 		6DAF56AE18F41EEF00E5C844 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
 		6DCF52FA18E4394A0037A10C /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -295,7 +305,6 @@
 		E31C5F2918E9B9B900727ABD /* ButtonChange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonChange.png; sourceTree = "<group>"; };
 		E31D9AEF18F7E293007BE3FD /* buttonOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonOn.png; sourceTree = "<group>"; };
 		E31D9AF018F7E293007BE3FD /* buttonOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonOff.png; sourceTree = "<group>"; };
-		E31D9AF718F7E7DD007BE3FD /* watch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = watch.png; sourceTree = "<group>"; };
 		E31D9B0118F7F216007BE3FD /* carteOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carteOff@2x.png"; sourceTree = "<group>"; };
 		E31D9B0218F7F216007BE3FD /* especeOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "especeOff@2x.png"; sourceTree = "<group>"; };
 		E31D9B0318F7F216007BE3FD /* carteOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carteOn@2x.png"; sourceTree = "<group>"; };
@@ -343,6 +352,9 @@
 		E397E02B18FC2565003ACD8D /* mailAcc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mailAcc.png; sourceTree = "<group>"; };
 		E397E02C18FC2565003ACD8D /* perso.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = perso.png; sourceTree = "<group>"; };
 		E397E02D18FC2565003ACD8D /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
+		E3AC4F8E190A902900B8E715 /* watch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "watch@2x.png"; sourceTree = "<group>"; };
+		E3AC4F90190AA63300B8E715 /* FlecheNext@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlecheNext@2X.png"; sourceTree = "<group>"; };
+		E3BDDEE7190ACE54002AEBFD /* buttonSwitch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSwitch.png; sourceTree = "<group>"; };
 		E3E7C52B19093EEE002BE526 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 		E3EF8E2518EAC4040068EC03 /* ButtonMap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonMap@2x.png"; sourceTree = "<group>"; };
 		E3EF8E2718EAC7630068EC03 /* validation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "validation@2x.png"; sourceTree = "<group>"; };
@@ -458,6 +470,8 @@
 				6D0039F518E314EC00D6C9E3 /* Main_iPad.storyboard */,
 				6D83734E18E46A94005A6709 /* DashboardViewController.m */,
 				6D83734D18E46A94005A6709 /* DashboardViewController.h */,
+				6D58EFA2190A64A00066D975 /* Reachability.h */,
+				6D58EFA3190A64A00066D975 /* Reachability.m */,
 				6DCF530618E44A2B0037A10C /* SignInViewController.h */,
 				6DCF530718E44A2B0037A10C /* SignInViewController.m */,
 				6DCF530B18E451520037A10C /* CodeViewController.h */,
@@ -470,6 +484,8 @@
 				6D53B98018E58EAF0012C12A /* AccountViewController.m */,
 				6D0039F818E314EC00D6C9E3 /* SignController.h */,
 				6D0039F918E314EC00D6C9E3 /* SignController.m */,
+				6D5EFC801907CE8200B69F31 /* CustomViewController.h */,
+				6D5EFC811907CE8300B69F31 /* CustomViewController.m */,
 				6D53B97C18E58E4E0012C12A /* ResaMineViewController.h */,
 				6D53B97D18E58E4E0012C12A /* ResaMineViewController.m */,
 				6D53B98518E591C60012C12A /* InvoiceViewController.h */,
@@ -545,7 +561,11 @@
 		6DCF530018E43C400037A10C /* ressources */ = {
 			isa = PBXGroup;
 			children = (
+				E3BDDEE7190ACE54002AEBFD /* buttonSwitch.png */,
+				E3AC4F90190AA63300B8E715 /* FlecheNext@2X.png */,
+				E3AC4F8E190A902900B8E715 /* watch@2x.png */,
 				E3E7C52B19093EEE002BE526 /* logout.png */,
+				6DAE0BC519018C2F00E8158D /* tuto4.png */,
 				E3F01AE119017935000F18C5 /* tuto2.png */,
 				E3F01AE219017935000F18C5 /* tuto1.png */,
 				E3F01AE319017935000F18C5 /* tuto3.png */,
@@ -586,7 +606,6 @@
 				E31D9B2718F83A02007BE3FD /* signalResa@2x.png */,
 				E31D9B0F18F801F7007BE3FD /* logoMap.png */,
 				E333E4AD18F41688007D5490 /* menuBackBlue@2x.png */,
-				E31D9AF718F7E7DD007BE3FD /* watch.png */,
 				E31D9AEF18F7E293007BE3FD /* buttonOn.png */,
 				E31D9AF018F7E293007BE3FD /* buttonOff.png */,
 				E314213F18EEC1C600A52D0D /* loader.gif */,
@@ -756,6 +775,7 @@
 				6D53B99518E5A7A50012C12A /* ActuCellView.xib in Resources */,
 				E38CA75819012F2800B8ADEF /* validResa.png in Resources */,
 				E389BD2418FD59D00071D6E6 /* pinMapEnd@2x.png in Resources */,
+				E3BDDEE8190ACE54002AEBFD /* buttonSwitch.png in Resources */,
 				E31D9B0518F7F216007BE3FD /* carteOff@2x.png in Resources */,
 				E35AA12518EDB41D005F1178 /* wifiOn@2x.png in Resources */,
 				E31D9B2318F82D73007BE3FD /* histoOn.png in Resources */,
@@ -788,6 +808,7 @@
 				E30D1CD618EC663000252F1C /* facebook@2x.png in Resources */,
 				6D83736318E47586005A6709 /* ElementAppli-01.png in Resources */,
 				6D53B97818E586FC0012C12A /* RobotoCondensed-Italic.ttf in Resources */,
+				E3AC4F8F190A902900B8E715 /* watch@2x.png in Resources */,
 				E31D9AF218F7E293007BE3FD /* buttonOff.png in Resources */,
 				E30D1CD418EC663000252F1C /* twitter@2x.png in Resources */,
 				6D53B99718E5BBBB0012C12A /* Main_iPhone.storyboard in Resources */,
@@ -814,6 +835,7 @@
 				E397E02F18FC2565003ACD8D /* littlePin.png in Resources */,
 				E389BD3A18FD6C8B0071D6E6 /* backButton@2x.png in Resources */,
 				E3EF8E2A18EACFCA0068EC03 /* ButtonOption.png in Resources */,
+				6DAE0BC619018C2F00E8158D /* tuto4.png in Resources */,
 				E3249CA718E9973700BD23B1 /* Account@2X.png in Resources */,
 				E30D1CC818EC31FE00252F1C /* inscription@2x.png in Resources */,
 				E3EF8E2818EAC7640068EC03 /* validation@2x.png in Resources */,
@@ -829,8 +851,8 @@
 				E333E4A718F4131C007D5490 /* fondu@2X.png in Resources */,
 				E31D9B0718F7F216007BE3FD /* carteOn@2x.png in Resources */,
 				E365EDCA18EAFC4C00E90D14 /* logoBlack@2x.png in Resources */,
+				E3AC4F91190AA63300B8E715 /* FlecheNext@2X.png in Resources */,
 				E389BD4018FD739D0071D6E6 /* phoneOff.png in Resources */,
-				E31D9AF818F7E7DD007BE3FD /* watch.png in Resources */,
 				E389BD2018FD56D90071D6E6 /* encartMap.png in Resources */,
 				E30D1CD818EC673A00252F1C /* googlePlus@2x.png in Resources */,
 				6D53B96C18E586FC0012C12A /* Roboto-Bold.ttf in Resources */,
@@ -863,7 +885,9 @@
 				6DAE0BBC1901314E00E8158D /* TarifsViewController.m in Sources */,
 				6D0039FA18E314EC00D6C9E3 /* SignController.m in Sources */,
 				6D3161DF18E9AD89005ABB3E /* UserInfoSingleton.m in Sources */,
+				6D58EFA4190A64A00066D975 /* Reachability.m in Sources */,
 				6D53B98118E58EAF0012C12A /* AccountViewController.m in Sources */,
+				6D5EFC821907CE8300B69F31 /* CustomViewController.m in Sources */,
 				6D0039F118E314EC00D6C9E3 /* AppDelegate.m in Sources */,
 				6D53B99A18E5BDCF0012C12A /* ActuDetailViewController.m in Sources */,
 				6D83735018E46A94005A6709 /* DashboardViewController.m in Sources */,

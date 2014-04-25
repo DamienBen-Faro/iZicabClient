@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "Constant.h"
+#import "ConnectionData.h"
+#import "NavigationControlViewController.h"
 
 @implementation AppDelegate
 
@@ -14,8 +17,14 @@
 {
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    
+    [[ConnectionData sharedConnectionData] initService];
+
+    
     return YES;
 }
+
 
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
@@ -40,14 +49,20 @@
 {
     NSLog(@"alert msg - %@", [[userInfo objectForKey:@"aps"] objectForKey:@"alert"][@"data"][@"message"]);
 
-     
+  /*
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification"
                                                     message:[userInfo objectForKey:@"aps"][@"alert"][@"data"][@"message"] ?
                                                         [userInfo objectForKey:@"aps"][@"alert"][@"data"][@"message"] : @""
                                                    delegate:self
                                           cancelButtonTitle:@"ok"
                                           otherButtonTitles:nil];
-    [alert show];
+    [alert show];*/
+  
+    [[NSNotificationCenter defaultCenter] postNotificationName: @"notif" object:nil userInfo:userInfo];
+
+    
+//[[NSNotificationCenter defaultCenter] postNotificationName:@"notif" object:self userInfo:[NSDictionary dictionaryWithObject:@"1,2,3,4,5" forKey:@"categories_ids"]];
+      //  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
 }
 
 

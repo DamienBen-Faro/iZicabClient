@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "CustomViewController.h"
 
-@interface DashboardViewController : UIViewController<MKMapViewDelegate>
+@interface DashboardViewController : CustomViewController<MKMapViewDelegate>
 
 @property(strong) IBOutlet UIButton *mapButton;
 @property(strong) IBOutlet UIButton *actuButton;

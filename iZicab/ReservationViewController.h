@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "CustomViewController.h"
 
-
-@interface ReservationViewController : UIViewController<UIScrollViewDelegate, CLLocationManagerDelegate>
+@interface ReservationViewController : CustomViewController<UIScrollViewDelegate, CLLocationManagerDelegate>
 
 
 @property (strong)IBOutlet UIScrollView *scrollView;
