@@ -150,6 +150,9 @@
 		E3AC4F91190AA63300B8E715 /* FlecheNext@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AC4F90190AA63300B8E715 /* FlecheNext@2X.png */; };
 		E3BDDEE8190ACE54002AEBFD /* buttonSwitch@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEE7190ACE54002AEBFD /* buttonSwitch@2X.png */; };
 		E3BDDEEA190AD3B0002AEBFD /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEE9190AD3B0002AEBFD /* logout.png */; };
+		E3BDDEED190ADA65002AEBFD /* mapStart@2X in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEEB190ADA65002AEBFD /* mapStart@2X */; };
+		E3BDDEEE190ADA65002AEBFD /* mapEnd@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEEC190ADA65002AEBFD /* mapEnd@2X.png */; };
+		E3BDDEF0190ADB2D002AEBFD /* MapNext@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEEF190ADB2D002AEBFD /* MapNext@2X.png */; };
 		E3EF8E2618EAC4040068EC03 /* ButtonMap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EF8E2518EAC4040068EC03 /* ButtonMap@2x.png */; };
 		E3EF8E2818EAC7640068EC03 /* validation@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EF8E2718EAC7630068EC03 /* validation@2x.png */; };
 		E3EF8E2A18EACFCA0068EC03 /* ButtonOption.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EF8E2918EACFCA0068EC03 /* ButtonOption.png */; };
@@ -356,6 +359,9 @@
 		E3AC4F90190AA63300B8E715 /* FlecheNext@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlecheNext@2X.png"; sourceTree = "<group>"; };
 		E3BDDEE7190ACE54002AEBFD /* buttonSwitch@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonSwitch@2X.png"; sourceTree = "<group>"; };
 		E3BDDEE9190AD3B0002AEBFD /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		E3BDDEEB190ADA65002AEBFD /* mapStart@2X */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mapStart@2X"; sourceTree = "<group>"; };
+		E3BDDEEC190ADA65002AEBFD /* mapEnd@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapEnd@2X.png"; sourceTree = "<group>"; };
+		E3BDDEEF190ADB2D002AEBFD /* MapNext@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MapNext@2X.png"; sourceTree = "<group>"; };
 		E3EF8E2518EAC4040068EC03 /* ButtonMap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonMap@2x.png"; sourceTree = "<group>"; };
 		E3EF8E2718EAC7630068EC03 /* validation@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "validation@2x.png"; sourceTree = "<group>"; };
 		E3EF8E2918EACFCA0068EC03 /* ButtonOption.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonOption.png; sourceTree = "<group>"; };
@@ -561,6 +567,9 @@
 		6DCF530018E43C400037A10C /* ressources */ = {
 			isa = PBXGroup;
 			children = (
+				E3BDDEEF190ADB2D002AEBFD /* MapNext@2X.png */,
+				E3BDDEEB190ADA65002AEBFD /* mapStart@2X */,
+				E3BDDEEC190ADA65002AEBFD /* mapEnd@2X.png */,
 				E3BDDEE9190AD3B0002AEBFD /* logout.png */,
 				E3BDDEE7190ACE54002AEBFD /* buttonSwitch@2X.png */,
 				E3AC4F90190AA63300B8E715 /* FlecheNext@2X.png */,
@@ -806,7 +815,9 @@
 				E314213D18EEB19800A52D0D /* standardOff@2x.png in Resources */,
 				E314213B18EEB19800A52D0D /* premiumOff@2x.png in Resources */,
 				E30D1CD618EC663000252F1C /* facebook@2x.png in Resources */,
+				E3BDDEEE190ADA65002AEBFD /* mapEnd@2X.png in Resources */,
 				6D83736318E47586005A6709 /* ElementAppli-01.png in Resources */,
+				E3BDDEED190ADA65002AEBFD /* mapStart@2X in Resources */,
 				6D53B97818E586FC0012C12A /* RobotoCondensed-Italic.ttf in Resources */,
 				E3AC4F8F190A902900B8E715 /* watch@2x.png in Resources */,
 				E31D9AF218F7E293007BE3FD /* buttonOff.png in Resources */,
@@ -832,6 +843,7 @@
 				6D53B97118E586FC0012C12A /* Roboto-Medium.ttf in Resources */,
 				E3EF8E2618EAC4040068EC03 /* ButtonMap@2x.png in Resources */,
 				E397E02F18FC2565003ACD8D /* littlePin.png in Resources */,
+				E3BDDEF0190ADB2D002AEBFD /* MapNext@2X.png in Resources */,
 				E389BD3A18FD6C8B0071D6E6 /* backButton@2x.png in Resources */,
 				E3EF8E2A18EACFCA0068EC03 /* ButtonOption.png in Resources */,
 				6DAE0BC619018C2F00E8158D /* tuto4.png in Resources */,
