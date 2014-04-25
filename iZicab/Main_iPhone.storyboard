@@ -966,10 +966,15 @@ Roissy-en-France 95700</string>
                                 <rect key="frame" x="10" y="20" width="320" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uYg-Xi-BDH">
+                                        <rect key="frame" x="0.0" y="5" width="300" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BR-R7-e2E">
                                         <rect key="frame" x="260" y="16" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Valider" image="validMap.png">
+                                        <state key="normal" title="Valider" image="mapNext">
                                             <color key="titleColor" red="0.36470589040000001" green="0.78039222959999999" blue="0.84705889229999998" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -978,32 +983,32 @@ Roissy-en-France 95700</string>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Adresse" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="cJM-GG-NrX">
-                                        <rect key="frame" x="57" y="16" width="195" height="27"/>
+                                        <rect key="frame" x="67" y="16" width="186" height="27"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.99607849120000003" green="0.99607849120000003" blue="0.99215692280000001" alpha="1" colorSpace="deviceRGB"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uoj-8k-tb4">
-                                        <rect key="frame" x="3" y="17" width="25" height="25"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0V-T6-a1N">
+                                        <rect key="frame" x="7" y="15" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="pinMapStart.png">
+                                        <state key="normal" image="mapEnd@2X.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uoj-8k-tb4">
+                                        <rect key="frame" x="7" y="15" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="mapStart@2X">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="setFirstPin:" destination="JG4-dv-4I9" eventType="touchUpInside" id="MMM-N0-sXA"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0V-T6-a1N">
-                                        <rect key="frame" x="3" y="15" width="25" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="pinMapEnd.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loupe.png" translatesAutoresizingMaskIntoConstraints="NO" id="J2a-2E-Vt5">
-                                        <rect key="frame" x="36" y="21" width="14" height="20"/>
+                                        <rect key="frame" x="45" y="21" width="14" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -1965,12 +1970,13 @@ Roissy-en-France 95700</string>
         <image name="logoBlack.png" width="206" height="30"/>
         <image name="loupe.png" width="28" height="40"/>
         <image name="mail.png" width="72" height="72"/>
+        <image name="mapEnd@2X.png" width="60" height="60"/>
+        <image name="mapNext" width="129" height="120"/>
+        <image name="mapStart@2X" width="60" height="60"/>
         <image name="menuButtonBlue.png" width="29" height="29"/>
         <image name="minus.png" width="52" height="52"/>
         <image name="paperOff.png" width="130" height="130"/>
         <image name="paperOn.png" width="130" height="130"/>
-        <image name="pinMapEnd.png" width="25" height="25"/>
-        <image name="pinMapStart.png" width="25" height="25"/>
         <image name="plus.png" width="52" height="52"/>
         <image name="premiumOff.png" width="130" height="30"/>
         <image name="premiumOn.png" width="130" height="30"/>
@@ -1982,7 +1988,6 @@ Roissy-en-France 95700</string>
         <image name="standardOn.png" width="130" height="30"/>
         <image name="suitcase.png" width="82" height="89"/>
         <image name="twitter.png" width="72" height="72"/>
-        <image name="validMap.png" width="60" height="60"/>
         <image name="validation.png" width="146" height="30"/>
         <image name="watch.png" width="80" height="80"/>
         <image name="wifiOff.png" width="130" height="130"/>
