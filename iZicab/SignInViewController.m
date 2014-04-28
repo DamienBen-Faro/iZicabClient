@@ -253,7 +253,7 @@
 {
     
    
-     [self setCustomTitle:@"CONNECTION"];
+     [self setCustomTitle:@"CONNEXION"];
     
 }
 
