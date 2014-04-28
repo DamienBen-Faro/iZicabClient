@@ -78,7 +78,7 @@
 {
 
 
-    [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"logout"] forState:UIControlStateNormal];
+    [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"logout@2X.png"] forState:UIControlStateNormal];
     [self.reservationButton addTarget:self action:@selector(goToSign:)
      forControlEvents:UIControlEventTouchUpInside];
 
@@ -440,6 +440,11 @@
    _datstop = NO;
    [self performSelector:@selector(mapAnim) withObject:nil afterDelay:2.5];
     [self actuAnim];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if ([defaults objectForKey:@"tutorialy"] == nil)
+        [self showTuto];
+
 
     
 
@@ -448,11 +453,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    if ([defaults objectForKey:@"tutorialy"] == nil)
-        [self showTuto];
-    [super viewWillAppear:animated];
+       [super viewWillAppear:animated];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 

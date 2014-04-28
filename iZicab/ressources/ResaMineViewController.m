@@ -67,7 +67,7 @@
         else
         {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
-                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                           message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
                                                            delegate:self
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];

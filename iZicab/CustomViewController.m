@@ -56,14 +56,12 @@
     [self.homeButtonView setFrame:CGRectMake(270, 20, 50, 70)];//25, 75
     [self.homeButtonView addSubview:homeBtn];
     
-    
-    
-    
     CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
     navigationBar.isDash = YES;
     [navigationBar addSubview:backButtonView];
     [navigationBar addSubview:self.homeButtonView];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
+    
 }
 
 - (void)setCustomTitle:(NSString *)string

@@ -322,7 +322,7 @@
     NSLog(@"%@ / %@", self.datePicker.date , minimumDate);
     
     if (self.startAddress.titleLabel.text.length == 0 || self.endAddress.titleLabel.text.length == 0
-      || [self.datePicker.date compare:minimumDate] == NSOrderedDescending)
+      || [self.datePicker.date compare:minimumDate] == NSOrderedAscending)
     {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
