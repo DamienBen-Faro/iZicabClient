@@ -43,14 +43,15 @@
         self.paper.font     = [UIFont fontWithName:@"Roboto-Thin" size:12.0];
         self.price.font     = [UIFont fontWithName:@"Roboto-Regular" size:45.0];
 
+            self.billz.hidden = YES;
+     self.premium.selected = YES;
 
     self.firstURL = NO;
     self.baby.text = [NSString stringWithFormat:@"%i", self.resaCtrl.babySeat.selected];
     self.wifi.text = [NSString stringWithFormat:@"%i", self.resaCtrl.wifi.selected];
     self.paper.text = [NSString stringWithFormat:@"%i", self.resaCtrl.paper.selected];
     
-    self.premium.selected = YES;
-
+    
     
     [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
     self.datId.hidden = YES;
@@ -67,6 +68,9 @@
 {
     self.datId.hidden = NO;
     self.idResa.hidden = NO;
+        self.billz.hidden = NO;
+    self.premium.hidden = YES;
+    self.standard.hidden = YES;
     
     self.date.text = self.resa[@"tripdatetime"];
         self.start.text = self.resa[@"startposition"];
@@ -78,10 +82,26 @@
       self.name.text = [NSString stringWithFormat:@"%@", self.resa[@"contactname"]];
       self.idResa.text = [NSString stringWithFormat:@"ref#100%@", self.resa[@"id"]];
     self.validate.hidden = YES;
-    self.premium.hidden = YES;
-    self.standard.hidden = YES;
+
 
 }
+
+- (IBAction)standard:(id)sender
+{
+    
+    self.premium.selected = NO;
+    self.standard.selected = YES;
+    [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
+}
+
+- (IBAction)premium:(id)sender
+{
+    
+    self.premium.selected = YES;
+    self.standard.selected = NO;
+    [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
+}
+
 
 - (void)getDist:(CLLocationCoordinate2D)southWest:(CLLocationCoordinate2D)northEast
 {
@@ -158,31 +178,36 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     
-    
-    
     [self setCustomTitle:@"RÉCAPITULATIF"];
-
-    
-    
 }
 
-
-
-- (IBAction)standard:(id)sender
-{
-
-        self.premium.selected = NO;
-        self.standard.selected = YES;
-    [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
-}
-
-- (IBAction)premium:(id)sender
+- (IBAction)share:(id)sender
 {
     
-        self.premium.selected = YES;
-        self.standard.selected = NO;
-    [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
+    UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
+    
+    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSString *shareString = @"capture facture";
+   
+    NSData *pdfData = UIImagePNGRepresentation(image);
+    NSArray *activityItems = [NSArray arrayWithObjects:shareString, pdfData, nil];
+    
+    
+
+    
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentViewController:activityViewController animated:YES completion:nil];
+    
+    
+    
 }
+
+
 
 
 

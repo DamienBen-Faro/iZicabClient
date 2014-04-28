@@ -63,7 +63,7 @@
 
     
     
-    self.notifModalView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];
+    self.notifModalView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
     self.notifModalView.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1];
     self.notifModalView.alpha = 0.95;
     
@@ -168,7 +168,7 @@
                         
                     }
                     completion:nil];
-    [self performSelector:@selector(dismissNotifModal) withObject:nil afterDelay:5];
+    [self performSelector:@selector(dismissNotifModal) withObject:nil afterDelay:10];
 }
 
 - (BOOL)prefersStatusBarHidden

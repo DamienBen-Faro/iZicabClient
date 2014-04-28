@@ -93,9 +93,8 @@
          }
      ];
 
-        
-       
     }
+
 }
 
 - (void)setLeftV: (UITextField *)textF
@@ -118,6 +117,9 @@
     if (self.isResa)
         [self updateResa];
 }
+
+
+
 
 
 - (void) updateResa
@@ -239,13 +241,13 @@
 - (IBAction)dateSelected:(id)sender
 {
  
-        self.datePicker.hidden = YES;
-        self.dpBtn.hidden = YES;
+     self.datePicker.hidden = YES;
+     self.dpBtn.hidden = YES;
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
     [self.startDate setTitle: [dateFormatter stringFromDate:self.datePicker.date ] forState:UIControlStateNormal];
-
+    NSLog(@"wat:%@", self.startDate.titleLabel);
 }
 
 - (IBAction)offAll:(id)sender
@@ -315,10 +317,10 @@
     NSDate *minimumDate = [[NSDate alloc] init];
     minimumDate = [theCalendar dateByAddingComponents:dayComponent toDate:minimumDate options:0];
     
-    NSLog(@"%@", self.datePicker.date );
+    NSLog(@"%@ / %@", self.datePicker.date , minimumDate);
     
     if (self.startAddress.titleLabel.text.length == 0 || self.endAddress.titleLabel.text.length == 0
-      || [self.datePicker.date compare:minimumDate] == NSOrderedAscending)
+      || [self.datePicker.date compare:minimumDate] == NSOrderedDescending)
     {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
