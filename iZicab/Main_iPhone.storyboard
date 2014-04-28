@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cor-LO-qsg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Cor-LO-qsg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -17,17 +17,27 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GM7-Bl-uKm">
-                                <rect key="frame" x="75" y="299" width="171" height="84"/>
+                                <rect key="frame" x="75" y="300" width="171" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lih-29-uxJ">
-                                <rect key="frame" x="76" y="300" width="169" height="83"/>
+                                <rect key="frame" x="76" y="301" width="169" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SJg-SX-SYI">
+                                <rect key="frame" x="75" y="359" width="171" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAx-IK-QW2">
+                                <rect key="frame" x="76" y="360" width="169" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5mi-Hu-KL3">
-                                <rect key="frame" x="93" y="311" width="135" height="30"/>
+                                <rect key="frame" x="93" y="304" width="135" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="CONNEXION">
@@ -39,7 +49,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woy-ef-clF">
-                                <rect key="frame" x="85" y="343" width="151" height="30"/>
+                                <rect key="frame" x="85" y="364" width="151" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
                                 <state key="normal" title="INSCRIPTION">
@@ -959,12 +969,14 @@ Roissy-en-France 95700</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0V-T6-a1N">
                                         <rect key="frame" x="7" y="15" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="mapEnd@2X.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loupe.png" translatesAutoresizingMaskIntoConstraints="NO" id="J2a-2E-Vt5">
                                         <rect key="frame" x="45" y="21" width="14" height="20"/>
@@ -1584,7 +1596,7 @@ Roissy-en-France 95700</string>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="205" id="XrA-n3-d7J"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="205" id="Z5V-tW-M2M"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="ElementAppli-01.png">
+                                <state key="normal" backgroundImage="ButtonResaCenter@2X.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1919,7 +1931,7 @@ Roissy-en-France 95700</string>
     <resources>
         <image name="Account@2X.png" width="320" height="300"/>
         <image name="ActuImageFull.png" width="300" height="210"/>
-        <image name="ElementAppli-01.png" width="263" height="262"/>
+        <image name="ButtonResaCenter@2X.png" width="410" height="410"/>
         <image name="FlecheNext@2X.png" width="74" height="74"/>
         <image name="MapNext@2X.png" width="60" height="60"/>
         <image name="babyOff.png" width="130" height="130"/>
@@ -1940,7 +1952,11 @@ Roissy-en-France 95700</string>
         <image name="logoBlack.png" width="206" height="30"/>
         <image name="loupe.png" width="28" height="40"/>
         <image name="mail.png" width="72" height="72"/>
+
         <image name="mapEnd@2X.png" width="60" height="60"/>
+
+        <image name="mapStart@2X" width="60" height="60"/>
+
         <image name="menuButtonBlue.png" width="29" height="29"/>
         <image name="minus.png" width="52" height="52"/>
         <image name="paperOff.png" width="130" height="130"/>
