@@ -137,7 +137,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drm-ue-p9V">
-                                        <rect key="frame" x="0.0" y="-267" width="320" height="1200"/>
+                                        <rect key="frame" x="0.0" y="51" width="320" height="1200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jKU-Dr-m3O" userLabel="nameView">
@@ -244,7 +244,7 @@
                                                                 </connections>
                                                             </button>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="watch.png" translatesAutoresizingMaskIntoConstraints="NO" id="fFM-OI-uI8">
-                                                                <rect key="frame" x="16" y="113" width="34" height="34"/>
+                                                                <rect key="frame" x="14" y="113" width="34" height="34"/>
                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             </imageView>
                                                         </subviews>
@@ -569,7 +569,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9T1-Y6-nRs">
-                                        <rect key="frame" x="0.0" y="15" width="325" height="568"/>
+                                        <rect key="frame" x="0.0" y="-57" width="325" height="568"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oeM-6v-cau">
@@ -697,10 +697,10 @@ Roissy-en-France 95700</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGP-P4-klu">
-                                                <rect key="frame" x="88" y="444" width="146" height="30"/>
+                                                <rect key="frame" x="10" y="456" width="300" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.0036222628740000002" green="1" blue="0.25271669720000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" image="validation.png">
+                                                <state key="normal" image="validResa.png">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
@@ -920,7 +920,7 @@ Roissy-en-France 95700</string>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4BR-R7-e2E">
                                         <rect key="frame" x="260" y="16" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Valider" image="mapNextq">
+                                        <state key="normal" title="Valider" image="MapNext@2X.png">
                                             <color key="titleColor" red="0.36470589040000001" green="0.78039222959999999" blue="0.84705889229999998" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1880,6 +1880,7 @@ Roissy-en-France 95700</string>
         <image name="ActuImageFull.png" width="300" height="210"/>
         <image name="ElementAppli-01.png" width="263" height="262"/>
         <image name="FlecheNext@2X.png" width="74" height="74"/>
+        <image name="MapNext@2X.png" width="60" height="60"/>
         <image name="babyOff.png" width="130" height="130"/>
         <image name="babyOn.png" width="130" height="130"/>
         <image name="backButtonBlue.png" width="29" height="29"/>
@@ -1899,7 +1900,6 @@ Roissy-en-France 95700</string>
         <image name="loupe.png" width="28" height="40"/>
         <image name="mail.png" width="72" height="72"/>
         <image name="mapEnd@2X.png" width="60" height="60"/>
-        <image name="mapNextq" width="129" height="120"/>
         <image name="mapStart@2X" width="60" height="60"/>
         <image name="menuButtonBlue.png" width="29" height="29"/>
         <image name="minus.png" width="52" height="52"/>
@@ -1916,6 +1916,7 @@ Roissy-en-France 95700</string>
         <image name="standardOn.png" width="130" height="30"/>
         <image name="suitcase.png" width="82" height="89"/>
         <image name="twitter.png" width="72" height="72"/>
+        <image name="validResa.png" width="600" height="80"/>
         <image name="validation.png" width="146" height="30"/>
         <image name="watch.png" width="80" height="80"/>
         <image name="wifiOff.png" width="130" height="130"/>
