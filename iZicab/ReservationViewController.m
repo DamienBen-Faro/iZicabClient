@@ -60,7 +60,7 @@
      forControlEvents:UIControlEventTouchUpInside];
     [self.dpBtn setTitle:@"" forState:UIControlStateNormal];
      self.dpBtn.frame = CGRectMake(0, self.datePicker.frame.origin.y - 40, 320, 40);
-    [self.dpBtn setBackgroundImage:[UIImage imageNamed:@"validDate"] forState:UIControlStateNormal];
+    [self.dpBtn setBackgroundImage:[UIImage imageNamed:@"validDate@2X.png"] forState:UIControlStateNormal];
     self.dpBtn.hidden = YES;
     
     [self.view addSubview:self.dpBtn];
