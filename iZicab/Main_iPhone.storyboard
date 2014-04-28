@@ -137,7 +137,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="drm-ue-p9V">
-                                        <rect key="frame" x="0.0" y="20" width="320" height="1100"/>
+                                        <rect key="frame" x="0.0" y="20" width="320" height="950"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jKU-Dr-m3O" userLabel="nameView">
@@ -212,7 +212,7 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gBi-ex-Ojc" userLabel="addressView">
-                                                <rect key="frame" x="10" y="162" width="300" height="160"/>
+                                                <rect key="frame" x="10" y="0.0" width="300" height="160"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KNz-jb-uBV" userLabel="View date">
@@ -322,7 +322,7 @@
                                                 <color key="tintColor" red="0.16544094141864438" green="0.54940609056122447" blue="0.44171529067230669" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bhz-Wg-P5c" userLabel="optionView">
-                                                <rect key="frame" x="10" y="333" width="300" height="550"/>
+                                                <rect key="frame" x="10" y="171" width="300" height="550"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KlX-PO-Vao">
@@ -539,6 +539,7 @@
                         <outlet property="endAddress" destination="NbO-TE-rNh" id="1hz-nd-3pd"/>
                         <outlet property="luggBtn" destination="rHY-Ei-R2M" id="MxV-aa-Aie"/>
                         <outlet property="name" destination="pPV-gi-czO" id="RDo-uE-GQC"/>
+                        <outlet property="nameView" destination="jKU-Dr-m3O" id="Ua0-Ho-ShQ"/>
                         <outlet property="paper" destination="DS6-9Y-2EY" id="iff-0O-72M"/>
                         <outlet property="passBtn" destination="RfO-SQ-VYb" id="iAc-7F-dpk"/>
                         <outlet property="phone" destination="r1Y-gJ-S7x" id="UIg-vr-1re"/>
@@ -1816,12 +1817,12 @@ Roissy-en-France 95700</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ta-4W-SNm">
-                                <rect key="frame" x="10" y="156" width="300" height="204"/>
+                                <rect key="frame" x="10" y="121" width="300" height="243"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="calibratedWhite"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Nom" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Na5-6I-52H">
-                                <rect key="frame" x="20" y="166" width="280" height="30"/>
+                                <rect key="frame" x="20" y="133" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.51372549019607838" green="0.51372549019607838" blue="0.51372549019607838" alpha="1" colorSpace="deviceRGB"/>
@@ -1829,7 +1830,7 @@ Roissy-en-France 95700</string>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Prénom" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FaB-cR-XTG">
-                                <rect key="frame" x="20" y="204" width="280" height="30"/>
+                                <rect key="frame" x="20" y="171" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1837,7 +1838,7 @@ Roissy-en-France 95700</string>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Téléphone" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-bJ-ac3">
-                                <rect key="frame" x="20" y="242" width="280" height="30"/>
+                                <rect key="frame" x="20" y="209" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1845,7 +1846,7 @@ Roissy-en-France 95700</string>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Mail" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="etp-Bo-yKU">
-                                <rect key="frame" x="20" y="280" width="280" height="30"/>
+                                <rect key="frame" x="20" y="247" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1853,7 +1854,15 @@ Roissy-en-France 95700</string>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Mot de passe" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SpL-4l-ms9">
-                                <rect key="frame" x="20" y="318" width="280" height="30"/>
+                                <rect key="frame" x="20" y="285" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Mot de passe confirmation" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZg-HW-L8v">
+                                <rect key="frame" x="20" y="323" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1880,6 +1889,7 @@ Roissy-en-France 95700</string>
                         <outlet property="familyName" destination="Na5-6I-52H" id="HtR-UB-gra"/>
                         <outlet property="firstName" destination="FaB-cR-XTG" id="hi8-ix-AsE"/>
                         <outlet property="password" destination="SpL-4l-ms9" id="Hhj-GX-Qh4"/>
+                        <outlet property="passwordConfirm" destination="dZg-HW-L8v" id="Y2J-yf-lHG"/>
                         <outlet property="phone" destination="Bv1-bJ-ac3" id="ncN-eN-MA8"/>
                     </connections>
                 </viewController>

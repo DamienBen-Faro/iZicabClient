@@ -24,6 +24,7 @@
 @property (strong)IBOutlet UIButton    *luggBtn;
 @property (strong)IBOutlet UIButton    *babySeat;
 @property (strong)IBOutlet UIButton    *paper;
+@property (strong)IBOutlet UIView      *nameView;
 @property (strong)IBOutlet UIButton    *wifi;
 @property (strong)         UIDatePicker*datePicker;
 @property (assign)         BOOL isStartAddr;

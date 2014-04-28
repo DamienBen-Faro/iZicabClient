@@ -32,24 +32,26 @@
     self.phone.delegate = self;
     self.familyName.delegate = self;
     self.password.delegate = self;
+      self.passwordConfirm.delegate = self;
     self.email.delegate = self;
     
-    self.familyName.tag = 60;
-    self.firstName.tag = 80;
-    self.phone.tag = 90;
-    self.email.tag = 120;
-    self.password.tag = 160;
+    self.familyName.tag = 40;
+    self.firstName.tag = 60;
+    self.phone.tag = 70;
+    self.email.tag = 100;
+    self.password.tag = 130;
+        self.passwordConfirm.tag = 160;
     
     self.familyName.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     self.firstName.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
         self.phone.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
         self.email.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
         self.password.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
-    
+       self.passwordConfirm.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
 
     
     self.fieldArr = [[NSArray alloc] initWithObjects:
-                      self.familyName,  self.firstName, self.phone, self.email, self.password, nil];
+                      self.familyName,  self.firstName, self.phone, self.email, self.password, self.passwordConfirm,nil];
     
     UITapGestureRecognizer *dismissKeyboard = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(dismissKeyboard)];
     [self.view addGestureRecognizer:dismissKeyboard];
@@ -140,7 +142,7 @@
 {
     for (int i = 0; i < [self.fieldArr count]; i++)
     {
-        if (i + 1 == 5 )
+        if (i + 1 == [self.fieldArr count] )
            [self.txtActiveField resignFirstResponder];
         
         if (self.txtActiveField == self.fieldArr[i])
@@ -248,8 +250,19 @@
 
 - (IBAction)sendSubscribe:(id)sender
 {
-    
+    if ([self.password.text isEqualToString:self.passwordConfirm.text])
+    {
     [[ConnectionData sharedConnectionData] beginService: @"account/createPrivateUser": [[NSMutableDictionary alloc] initWithObjectsAndKeys:_phone.text, @"login" , @"ios" ,@"idDevice", _password.text, @"password", _email.text, @"email", _firstName.text,  @"name", _familyName.text,  @"familyName" ,nil] :@selector(callBackController:):self];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                        message:@"Mot de passe et confirmation différent."
+                                                       delegate:self
+                                              cancelButtonTitle:@"ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 
 }
 

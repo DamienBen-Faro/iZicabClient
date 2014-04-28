@@ -21,7 +21,7 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
-  
+
 
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
@@ -291,6 +291,7 @@
     
     if (error == nil && [[dict objectForKey:@"error"] length] == 0)
     {
+         NSString *tmpName = nil;
        
      if(dict[@"data"]
         &&  [dict[@"data"] isKindOfClass:[NSDictionary class]]
@@ -305,6 +306,7 @@
              if (anView && [[annotation subtitle]  isEqual: @"Chauffeur" ])
                  [self.mapView removeAnnotation:annotation];
          }
+        
          
          for (NSDictionary *dic in dict[@"data"][@"dataProvider"])
          {
@@ -314,9 +316,9 @@
              
               MKPointAnnotation* anP = [[MKPointAnnotation alloc] init];
              [anP setCoordinate:ctrpoint];
-             [anP setTitle: [NSString stringWithFormat:@"%@ %@ %@ ", dic[@"familyName"], dic[@"brand"], dic[@"model"] ]];
-             [anP setSubtitle:@"Chauffeur"];
-             
+             [anP setTitle: [NSString stringWithFormat:@"%@ %@ %@ ", dic[@"type"], dic[@"brand"], dic[@"model"] ]];
+             [anP setSubtitle:dic[@"familyName"]];
+             tmpName = dic[@"familyName"];
              [self.mapView addAnnotation:anP];
              
             }
@@ -328,11 +330,10 @@
         for (id<MKAnnotation> annotation in self.mapView.annotations)
         {
             MKAnnotationView* anView = [self.mapView viewForAnnotation: annotation];
-            if (anView && [[annotation subtitle]  isEqual: @"Chauffeur" ])
-            {
+           
+            if (anView && tmpName && [[annotation subtitle] isEqualToString:tmpName ])
                 anView.image = [UIImage imageNamed:@"pinChauffeur@2x.png"];
-            }
-        }
+         }
     
     }
     else

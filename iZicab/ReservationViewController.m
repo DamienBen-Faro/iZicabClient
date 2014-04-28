@@ -22,6 +22,8 @@
 {
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
+    
+    self.nameView.hidden = YES;
     self.scrollView.delegate = self;
     self.scrollView.scrollEnabled = YES;
     self.startAddress.tag = 111;

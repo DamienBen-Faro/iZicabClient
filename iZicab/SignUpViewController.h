@@ -16,7 +16,7 @@
 @property (strong) IBOutlet UITextField *phone;
 @property (strong) IBOutlet UITextField *email;
 @property (strong) IBOutlet UITextField *password;
-
+@property (strong) IBOutlet UITextField *passwordConfirm;
 
 
 
