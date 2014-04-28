@@ -18,6 +18,7 @@
 @property (strong)          MKPointAnnotation *annotationSecond;
 @property (strong)IBOutlet  UITextField *address;
 @property (strong)IBOutlet  UIView *addrView;
+@property (strong)IBOutlet  UIButton *pinBtn;
 @property (assign)          BOOL      isFirstPlacement;
 @property (strong)          MKPolyline *line;
 

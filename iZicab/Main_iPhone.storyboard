@@ -961,19 +961,9 @@ Roissy-en-France 95700</string>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0V-T6-a1N">
                                         <rect key="frame" x="7" y="15" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="mapEnd@2X.png">
+                                        <state key="normal" backgroundImage="mapEnd@2X.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uoj-8k-tb4">
-                                        <rect key="frame" x="7" y="15" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="mapStart@2X">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="setFirstPin:" destination="JG4-dv-4I9" eventType="touchUpInside" id="MMM-N0-sXA"/>
-                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loupe.png" translatesAutoresizingMaskIntoConstraints="NO" id="J2a-2E-Vt5">
                                         <rect key="frame" x="45" y="21" width="14" height="20"/>
@@ -1015,6 +1005,7 @@ Roissy-en-France 95700</string>
                         <outlet property="addrView" destination="o2i-P1-bn5" id="0Sm-Jy-sU2"/>
                         <outlet property="address" destination="cJM-GG-NrX" id="lte-qE-FJS"/>
                         <outlet property="mapView" destination="47h-FS-Enb" id="8wO-Br-tlN"/>
+                        <outlet property="pinBtn" destination="f0V-T6-a1N" id="pJq-zf-AbS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JCh-iz-5QK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1940,7 +1931,6 @@ Roissy-en-France 95700</string>
         <image name="loupe.png" width="28" height="40"/>
         <image name="mail.png" width="72" height="72"/>
         <image name="mapEnd@2X.png" width="60" height="60"/>
-        <image name="mapStart@2X" width="60" height="60"/>
         <image name="menuButtonBlue.png" width="29" height="29"/>
         <image name="minus.png" width="52" height="52"/>
         <image name="paperOff.png" width="130" height="130"/>

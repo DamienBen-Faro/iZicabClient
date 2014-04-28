@@ -66,6 +66,7 @@
     if ([sender tag] == 1001)
     {
         ctrl.isStartAddr = YES;
+
         ctrl.memoryFromReservation = [[NSMutableDictionary alloc] initWithObjectsAndKeys:self.end ,@"addr",  self.endLat, @"lat",  self.endLng, @"lng" , nil];
     }
     else
@@ -100,6 +101,7 @@
     
     if (self.isStart)
     {
+                [self.pinBtn setBackgroundImage:[UIImage imageNamed:@"mapStart@2X.png"] forState:UIControlStateNormal];
         self.address.text = self.start;
         ctrpointStart.latitude = [self.startLat floatValue];
         ctrpointStart.longitude = [self.startLng floatValue];
@@ -257,10 +259,10 @@
 
    
     
-    if ([[annotation subtitle]  isEqual: @"Arrivée" ])
+    if ([[annotation subtitle]  isEqual: @"Arrivée" ] || [[annotation subtitle]  isEqual: @"Départ" ])
         pinView.image = [UIImage imageNamed:@"pinMapArrive"];
-    else if ([[annotation subtitle]  isEqual: @"Départ" ])
-        pinView.image = [UIImage imageNamed:@"pinDepart"];
+    //else if ([[annotation subtitle]  isEqual: @"Départ" ])
+     //   pinView.image = [UIImage imageNamed:@"pinDepart"];
     else
         return nil;
     return pinView;
@@ -366,11 +368,7 @@
 
     [self.mapView removeAnnotation:self.annotationFirst];
     for (id<MKAnnotation> annotation in self.mapView.annotations)
-    {
-        MKAnnotationView* anView = [self.mapView viewForAnnotation: annotation];
-        if (anView && [[annotation subtitle]  isEqual: @"Arrivée" ])
             [self.mapView removeAnnotation:annotation];
-    }
     
     
     UIActivityIndicatorView *  spin = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -396,6 +394,10 @@
          self.annotationFirst = [[MKPointAnnotation alloc] init];
          [self.annotationFirst setCoordinate:ctrpoint];
          [self.annotationFirst setTitle:locatedAt];
+         
+         if (self.isStart)
+         [self.annotationFirst setSubtitle:@"Départ"];
+             else
          [self.annotationFirst setSubtitle:@"Arrivée"];
          
          
