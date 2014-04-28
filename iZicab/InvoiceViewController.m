@@ -43,6 +43,8 @@
         self.paper.font     = [UIFont fontWithName:@"Roboto-Thin" size:12.0];
         self.price.font     = [UIFont fontWithName:@"Roboto-Regular" size:45.0];
 
+            self.billz.hidden = YES;
+     self.premium.selected = YES;
 
     self.firstURL = NO;
     self.baby.text = [NSString stringWithFormat:@"%i", self.resaCtrl.babySeat.selected];
@@ -54,7 +56,6 @@
     [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
     self.datId.hidden = YES;
     self.idResa.hidden = YES;
-    self.isPremium = YES;
     if (self.isSeeing)
         [self showResaM];
     
@@ -67,6 +68,9 @@
 {
     self.datId.hidden = NO;
     self.idResa.hidden = NO;
+        self.billz.hidden = NO;
+    self.premium.hidden = YES;
+    self.standard.hidden = YES;
     
     self.date.text = self.resa[@"tripdatetime"];
         self.start.text = self.resa[@"startposition"];
@@ -81,6 +85,23 @@
 
 
 }
+
+- (IBAction)standard:(id)sender
+{
+    
+    self.premium.selected = NO;
+    self.standard.selected = YES;
+    [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
+}
+
+- (IBAction)premium:(id)sender
+{
+    
+    self.premium.selected = YES;
+    self.standard.selected = NO;
+    [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
+}
+
 
 - (void)getDist:(CLLocationCoordinate2D)southWest:(CLLocationCoordinate2D)northEast
 {
@@ -107,7 +128,7 @@
              MKRoute *rout = obj;
              NSString *isPremium = @"standard";
              
-             if ( self.isPremium)
+             if ( self.premium.selected)
                  isPremium = @"premium";
 
 
@@ -134,7 +155,7 @@
  
         NSString *isPremium = @"standard";
         
-        if ( self.isPremium)
+        if ( self.premium.selected)
             isPremium = @"premium";
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
             self.price.text = [NSString stringWithFormat:@"%.01f€", [dict[@"data"][isPremium] floatValue]];
@@ -316,7 +337,7 @@
 
     NSString *isPremium = @"standard";
     
-    if ( self.isPremium)
+    if ( self.premium.selected)
         isPremium = @"premium";
     
 

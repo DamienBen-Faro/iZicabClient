@@ -55,6 +55,7 @@
 		6D53B99A18E5BDCF0012C12A /* ActuDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53B99918E5BDCF0012C12A /* ActuDetailViewController.m */; };
 		6D53B99C18E5C2F70012C12A /* ResaMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D53B99B18E5C2F70012C12A /* ResaMineCell.xib */; };
 		6D58EFA4190A64A00066D975 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58EFA3190A64A00066D975 /* Reachability.m */; };
+		6D58EFA6190ADE630066D975 /* buttonSwitch.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D58EFA5190ADE630066D975 /* buttonSwitch.png */; };
 		6D5EFC821907CE8300B69F31 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5EFC811907CE8300B69F31 /* CustomViewController.m */; };
 		6D83735018E46A94005A6709 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83734E18E46A94005A6709 /* DashboardViewController.m */; };
 		6D83735318E46C01005A6709 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D83735218E46C01005A6709 /* MapKit.framework */; };
@@ -150,7 +151,7 @@
 		E3AC4F91190AA63300B8E715 /* FlecheNext@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3AC4F90190AA63300B8E715 /* FlecheNext@2X.png */; };
 		E3BDDEE8190ACE54002AEBFD /* buttonSwitch@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEE7190ACE54002AEBFD /* buttonSwitch@2X.png */; };
 		E3BDDEEA190AD3B0002AEBFD /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEE9190AD3B0002AEBFD /* logout.png */; };
-		E3BDDEED190ADA65002AEBFD /* mapStart@2X in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEEB190ADA65002AEBFD /* mapStart@2X */; };
+		E3BDDEED190ADA65002AEBFD /* mapStart@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEEB190ADA65002AEBFD /* mapStart@2X.png */; };
 		E3BDDEEE190ADA65002AEBFD /* mapEnd@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEEC190ADA65002AEBFD /* mapEnd@2X.png */; };
 		E3BDDEF0190ADB2D002AEBFD /* MapNext@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E3BDDEEF190ADB2D002AEBFD /* MapNext@2X.png */; };
 		E3EF8E2618EAC4040068EC03 /* ButtonMap@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3EF8E2518EAC4040068EC03 /* ButtonMap@2x.png */; };
@@ -250,6 +251,7 @@
 		6D53B99B18E5C2F70012C12A /* ResaMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResaMineCell.xib; sourceTree = "<group>"; };
 		6D58EFA2190A64A00066D975 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		6D58EFA3190A64A00066D975 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		6D58EFA5190ADE630066D975 /* buttonSwitch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonSwitch.png; sourceTree = "<group>"; };
 		6D5EFC801907CE8200B69F31 /* CustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
 		6D5EFC811907CE8300B69F31 /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
 		6D83734D18E46A94005A6709 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
@@ -359,7 +361,7 @@
 		E3AC4F90190AA63300B8E715 /* FlecheNext@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FlecheNext@2X.png"; sourceTree = "<group>"; };
 		E3BDDEE7190ACE54002AEBFD /* buttonSwitch@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buttonSwitch@2X.png"; sourceTree = "<group>"; };
 		E3BDDEE9190AD3B0002AEBFD /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
-		E3BDDEEB190ADA65002AEBFD /* mapStart@2X */ = {isa = PBXFileReference; lastKnownFileType = file; path = "mapStart@2X"; sourceTree = "<group>"; };
+		E3BDDEEB190ADA65002AEBFD /* mapStart@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapStart@2X.png"; sourceTree = "<group>"; };
 		E3BDDEEC190ADA65002AEBFD /* mapEnd@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mapEnd@2X.png"; sourceTree = "<group>"; };
 		E3BDDEEF190ADB2D002AEBFD /* MapNext@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MapNext@2X.png"; sourceTree = "<group>"; };
 		E3EF8E2518EAC4040068EC03 /* ButtonMap@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonMap@2x.png"; sourceTree = "<group>"; };
@@ -568,7 +570,7 @@
 			isa = PBXGroup;
 			children = (
 				E3BDDEEF190ADB2D002AEBFD /* MapNext@2X.png */,
-				E3BDDEEB190ADA65002AEBFD /* mapStart@2X */,
+				E3BDDEEB190ADA65002AEBFD /* mapStart@2X.png */,
 				E3BDDEEC190ADA65002AEBFD /* mapEnd@2X.png */,
 				E3BDDEE9190AD3B0002AEBFD /* logout.png */,
 				E3BDDEE7190ACE54002AEBFD /* buttonSwitch@2X.png */,
@@ -585,6 +587,7 @@
 				E389BD3E18FD739D0071D6E6 /* phoneOff.png */,
 				E389BD3B18FD71AA0071D6E6 /* validDate@2X.png */,
 				E389BD3718FD6C8B0071D6E6 /* menuButton@2X.png */,
+				6D58EFA5190ADE630066D975 /* buttonSwitch.png */,
 				E389BD3818FD6C8B0071D6E6 /* backButton@2x.png */,
 				E389BD3518FD64930071D6E6 /* cibleMap@2x.png */,
 				E389BD3318FD61EA0071D6E6 /* encartMenuMap.png */,
@@ -817,7 +820,7 @@
 				E30D1CD618EC663000252F1C /* facebook@2x.png in Resources */,
 				E3BDDEEE190ADA65002AEBFD /* mapEnd@2X.png in Resources */,
 				6D83736318E47586005A6709 /* ElementAppli-01.png in Resources */,
-				E3BDDEED190ADA65002AEBFD /* mapStart@2X in Resources */,
+				E3BDDEED190ADA65002AEBFD /* mapStart@2X.png in Resources */,
 				6D53B97818E586FC0012C12A /* RobotoCondensed-Italic.ttf in Resources */,
 				E3AC4F8F190A902900B8E715 /* watch@2x.png in Resources */,
 				E31D9AF218F7E293007BE3FD /* buttonOff.png in Resources */,
@@ -836,6 +839,7 @@
 				E3EF8E2E18EAE2780068EC03 /* buttonPassenger@2x.png in Resources */,
 				E365EDCC18EAFD8800E90D14 /* separateurDouble.png in Resources */,
 				E31C5F2C18E9B9B900727ABD /* ButtonChange.png in Resources */,
+				6D58EFA6190ADE630066D975 /* buttonSwitch.png in Resources */,
 				E31D9B0A18F7FCBF007BE3FD /* pinChauffeur@2x.png in Resources */,
 				E365EDC618EAF0E200E90D14 /* resa@2x.png in Resources */,
 				E3249CA218E985D700BD23B1 /* ActuImage-01.png in Resources */,

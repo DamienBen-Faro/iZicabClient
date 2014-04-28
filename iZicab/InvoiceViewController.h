@@ -27,8 +27,10 @@
 @property (strong) IBOutlet UILabel*        luggage;
 @property (strong) IBOutlet UILabel*        price;
 @property (strong) IBOutlet UILabel*        datId;
-@property (assign)          BOOL            isPremium;
 @property (strong) IBOutlet UIButton*       validate;
+@property (strong) IBOutlet UIButton*       billz;
+@property (strong) IBOutlet UIButton*       premium;
+@property (strong) IBOutlet UIButton*       standard;
 @property (assign)          BOOL            isSeeing;
 @property (assign)          NSDictionary*   resa;
 @property (strong)          UIWebView*      webView;
