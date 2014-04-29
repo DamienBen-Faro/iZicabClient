@@ -30,7 +30,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-      [self setCustomTitle:@"RECAPITULATIF"];
+      [self setCustomTitle:@"RÉCAPITULATIF"];
 }
 
 

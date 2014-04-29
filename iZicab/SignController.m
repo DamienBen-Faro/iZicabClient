@@ -45,7 +45,7 @@
         self.codeBtn.hidden = NO;
         static BOOL wasLoaded = NO;
         
-        if (![defaults objectForKey:@"deco"] && !wasLoaded)
+        if ([defaults objectForKey:@"userId"] && ![defaults objectForKey:@"deco"] && !wasLoaded)
             [self goToCodeView:nil];
         wasLoaded = YES;
       

@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "CustomViewController.h"
 
-@interface ReservationViewController : CustomViewController<UIScrollViewDelegate, CLLocationManagerDelegate>
+@interface ReservationViewController : CustomViewController<UIScrollViewDelegate, CLLocationManagerDelegate, UITextViewDelegate>
 
 
 @property (strong)IBOutlet UIScrollView *scrollView;
@@ -40,6 +40,8 @@
 @property (strong)         NSMutableDictionary *resaUpdate;
 @property (strong)         UIButton *dpBtn;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, retain) UIView *inputAccView;
+@property (nonatomic, retain) UIButton *btnDone;
 
 
 

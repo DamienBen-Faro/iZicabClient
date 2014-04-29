@@ -78,7 +78,7 @@
 {
 
 
-    [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"logout@2X.png"] forState:UIControlStateNormal];
+    [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"logout"] forState:UIControlStateNormal];
      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"phone"];
         [defaults setObject:@"deco" forKey:@"deco"];
@@ -90,7 +90,7 @@
 
 - (void)resa
 {
-        [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"ElementAppli-01"] forState:UIControlStateNormal];
+        [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"ButtonResaCenter"] forState:UIControlStateNormal];
     [self.reservationButton addTarget:self action:@selector(goToResa:)
                      forControlEvents:UIControlEventTouchUpInside];
 
@@ -170,7 +170,7 @@
             {
                 UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.resaMineView.frame.size.width, self.resaMineView.frame.size.height)];
                 
-                [imgV setImage:[UIImage imageNamed:@"MesResa@2x"]];
+                [imgV setImage:[UIImage imageNamed:@"MesResa"]];
                 [imgV setTag:422];
                 [self.resaMineView addSubview:imgV];
             }
@@ -331,7 +331,7 @@
                         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.actuView.frame.size.width, self.actuView.frame.size.height)];
                         if (isFirst)
                         {
-                            [imgV setImage:[UIImage imageNamed:@"actu@2x"]];
+                            [imgV setImage:[UIImage imageNamed:@"actu"]];
                             [imgV setTag:11];
                             [self.actuView addSubview:imgV];
                             isFirst = NO;
@@ -368,7 +368,7 @@
                         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.actuView.frame.size.width, self.actuView.frame.size.height)];
                         if (isFirst)
                         {
-                            [imgV setImage:[UIImage imageNamed:@"map@2x"]];
+                            [imgV setImage:[UIImage imageNamed:@"map"]];
                             [imgV setTag:42];
                             [self.mapView addSubview:imgV];
                             isFirst = NO;
@@ -405,7 +405,7 @@
                         UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.resaMineView.frame.size.width, self.resaMineView.frame.size.height)];
                         if (isFirst)
                         {
-                            [imgV setImage:[UIImage imageNamed:@"MesResa@2x"]];
+                            [imgV setImage:[UIImage imageNamed:@"MesResa"]];
                             [imgV setTag:422];
                             [self.resaMineView addSubview:imgV];
                             isFirst = NO;

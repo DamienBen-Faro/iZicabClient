@@ -47,26 +47,23 @@
 -(void)createInputAccessoryView
 {
     self.inputAccView = [[UIView alloc] initWithFrame:CGRectMake(10.0, 0.0, 310.0, 40.0)];
-    [self.inputAccView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.inputAccView setBackgroundColor:[UIColor whiteColor]];
     [self.inputAccView setAlpha: 0.8];
     
     
     self.btnPrev = [UIButton buttonWithType: UIButtonTypeCustom];
-    [self.btnPrev setFrame: CGRectMake(0.0, 0.0, 80.0, 40.0)];
-    [self.btnPrev setTitle: @"Previous" forState: UIControlStateNormal];
-    [self.btnPrev setBackgroundColor: [UIColor blueColor]];
+    [self.btnPrev setFrame: CGRectMake(0.0, 0.0, 40.0, 40.0)];
+    [self.btnPrev setBackgroundImage:[UIImage imageNamed:@"keyboardPrevious"] forState:UIControlStateNormal];
     [self.btnPrev addTarget: self action: @selector(gotoPrevTextfield) forControlEvents: UIControlEventTouchUpInside];
     
     self.btnNext = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.btnNext setFrame:CGRectMake(85.0f, 0.0f, 80.0f, 40.0f)];
-    [self.btnNext setTitle:@"Next" forState:UIControlStateNormal];
-    [self.btnNext setBackgroundColor:[UIColor blueColor]];
+    [self.btnNext setFrame:CGRectMake(45.0f, 0.0f, 40.0f, 40.0f)];
+    [self.btnNext setBackgroundImage:[UIImage imageNamed:@"keyboardNext"] forState:UIControlStateNormal];
     [self.btnNext addTarget:self action:@selector(gotoNextTextfield) forControlEvents:UIControlEventTouchUpInside];
     
     self.btnDone = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.btnDone setFrame:CGRectMake(240.0, 0.0f, 80.0f, 40.0f)];
-    [self.btnDone setTitle:@"Done" forState:UIControlStateNormal];
-    [self.btnDone setBackgroundColor:[UIColor greenColor]];
+    [self.btnDone setFrame:CGRectMake(260.0, 0.0f, 40.0f, 40.0f)];
+    [self.btnDone setBackgroundImage:[UIImage imageNamed:@"keyboardDone"] forState:UIControlStateNormal];
     [self.btnDone setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.btnDone addTarget:self action:@selector(doneTyping) forControlEvents:UIControlEventTouchUpInside];
     
@@ -127,7 +124,7 @@
 {
     for (int i = 0; i < [self.fieldArr count]; i++)
     {
-        if (i + 1 == 5 )
+        if (i + 1 ==  [self.fieldArr count] )
             [self.txtActiveField resignFirstResponder];
         
         if (self.txtActiveField == self.fieldArr[i])
@@ -244,7 +241,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+
      [self setCustomTitle:@"CONNEXION"];
+
 }
 
 

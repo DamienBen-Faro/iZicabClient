@@ -25,6 +25,7 @@
     
     self.nameView.hidden = YES;
     self.scrollView.delegate = self;
+    self.comment.delegate = self;
     self.scrollView.scrollEnabled = YES;
     self.startAddress.tag = 111;
     self.endAddress.tag = 222;
@@ -60,7 +61,7 @@
      forControlEvents:UIControlEventTouchUpInside];
     [self.dpBtn setTitle:@"" forState:UIControlStateNormal];
      self.dpBtn.frame = CGRectMake(0, self.datePicker.frame.origin.y - 40, 320, 40);
-    [self.dpBtn setBackgroundImage:[UIImage imageNamed:@"validDate@2X.png"] forState:UIControlStateNormal];
+    [self.dpBtn setBackgroundImage:[UIImage imageNamed:@"validDate"] forState:UIControlStateNormal];
     self.dpBtn.hidden = YES;
     
     [self.view addSubview:self.dpBtn];
@@ -97,14 +98,62 @@
 
     }
     
-      self.startAddress.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
- self.endAddress.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
-     self.startDate.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
-     self.comment.font = [UIFont fontWithName:@"Roboto-Thin" size:18.0];
+    self.startAddress.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
+    self.endAddress.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
+    self.startDate.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
+    self.comment.font = [UIFont fontWithName:@"Roboto-Thin" size:18.0];
+
 }
 
 
+-(void)createInputAccessoryView
+{
+    self.inputAccView = [[UIView alloc] initWithFrame:CGRectMake(10.0, 0.0, 310.0, 40.0)];
+    [self.inputAccView setBackgroundColor:[UIColor whiteColor]];
+    [self.inputAccView setAlpha: 0.8];
+    
+    
+    
+    self.btnDone = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.btnDone setFrame:CGRectMake(260.0, 0.0f, 40.0f, 40.0f)];
+    [self.btnDone setBackgroundImage:[UIImage imageNamed:@"keyboardDone"] forState:UIControlStateNormal];
+    [self.btnDone setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.btnDone addTarget:self action:@selector(doneTyping) forControlEvents:UIControlEventTouchUpInside];
 
+    
+    [self.inputAccView addSubview:self.btnDone];
+}
+
+-(void)doneTyping
+{
+    [self.comment resignFirstResponder];
+}
+
+-(BOOL) textViewShouldBeginEditing:(UITextView *)observationComment
+{
+ 
+     [self moveView:-100];
+    [self createInputAccessoryView];
+   [self.comment setInputAccessoryView:self.inputAccView];
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    [self moveView:100];
+}
+
+- (void)moveView:(int)moved
+{
+    const float movementDuration = 0.3f; // tweak as needed
+   
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectMake(0, self.view.frame.origin.y + moved, self.view.frame.size.width, self.view.frame.size.height);
+    [UIView commitAnimations];
+}
 
 - (void)setLeftV: (UITextField *)textF
                   :(NSString *)imgName

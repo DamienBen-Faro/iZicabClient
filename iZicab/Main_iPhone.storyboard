@@ -1976,38 +1976,38 @@ Roissy-en-France 95700</string>
         <image name="babyOff.png" width="130" height="130"/>
         <image name="babyOn.png" width="130" height="130"/>
         <image name="backButtonBlue.png" width="29" height="29"/>
-        <image name="bigLogo.png" width="129" height="120"/>
+        <image name="bigLogo.png" width="129" height="121"/>
         <image name="buttonOff.png" width="40" height="40"/>
         <image name="buttonOn.png" width="40" height="40"/>
-        <image name="buttonPassenger.png" width="41" height="44"/>
+        <image name="buttonPassenger.png" width="41" height="45"/>
         <image name="connexion.png" width="146" height="30"/>
-        <image name="encartMenuMap.png" width="83" height="163"/>
-        <image name="facebook.png" width="72" height="72"/>
-        <image name="flag.png" width="94" height="80"/>
-        <image name="googlePlus" width="129" height="120"/>
+        <image name="encartMenuMap.png" width="42" height="82"/>
+        <image name="facebook.png" width="73" height="73"/>
+        <image name="flag.png" width="47" height="40"/>
+        <image name="googlePlus" width="73" height="73"/>
         <image name="inscription.png" width="146" height="30"/>
-        <image name="linkedin.png" width="72" height="72"/>
-        <image name="littlePin.png" width="94" height="80"/>
-        <image name="logoBlack.png" width="206" height="30"/>
+        <image name="linkedin.png" width="73" height="73"/>
+        <image name="littlePin.png" width="47" height="40"/>
+        <image name="logoBlack.png" width="207" height="30"/>
         <image name="loupe.png" width="28" height="40"/>
-        <image name="mail.png" width="72" height="72"/>
+        <image name="mail.png" width="73" height="73"/>
         <image name="mapEnd@2X.png" width="60" height="60"/>
         <image name="menuButtonBlue.png" width="29" height="29"/>
-        <image name="minus.png" width="52" height="52"/>
+        <image name="minus.png" width="26" height="26"/>
         <image name="paperOff.png" width="130" height="130"/>
         <image name="paperOn.png" width="130" height="130"/>
-        <image name="plus.png" width="52" height="52"/>
+        <image name="plus.png" width="26" height="26"/>
         <image name="premiumOff.png" width="130" height="30"/>
         <image name="premiumOn.png" width="130" height="30"/>
-        <image name="retourPosition.png" width="82" height="82"/>
-        <image name="rond.png" width="82" height="82"/>
-        <image name="separateurDouble.png" width="540" height="7"/>
-        <image name="sms.png" width="72" height="72"/>
+        <image name="retourPosition.png" width="41" height="41"/>
+        <image name="rond.png" width="41" height="41"/>
+        <image name="separateurDouble.png" width="270" height="4"/>
+        <image name="sms.png" width="73" height="73"/>
         <image name="standardOff.png" width="130" height="30"/>
         <image name="standardOn.png" width="130" height="30"/>
-        <image name="suitcase.png" width="82" height="89"/>
-        <image name="twitter.png" width="72" height="72"/>
-        <image name="validResa.png" width="600" height="80"/>
+        <image name="suitcase.png" width="41" height="45"/>
+        <image name="twitter.png" width="73" height="73"/>
+        <image name="validResa.png" width="300" height="40"/>
         <image name="validation.png" width="146" height="30"/>
         <image name="watch.png" width="80" height="80"/>
         <image name="wifiOff.png" width="130" height="130"/>

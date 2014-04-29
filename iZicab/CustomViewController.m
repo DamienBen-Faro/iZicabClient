@@ -33,8 +33,8 @@
 - (void)setDatCustom
 {
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *backBtnImage = [UIImage imageNamed:@"backButton@2x.png"];
-    UIImage *backBtnImagePressed = [UIImage imageNamed:@"backButton@2x.png"];
+    UIImage *backBtnImage = [UIImage imageNamed:@"backButton"];
+    UIImage *backBtnImagePressed = [UIImage imageNamed:@"backButton"];
     [backBtn setBackgroundImage:backBtnImage forState:UIControlStateNormal];
     [backBtn setBackgroundImage:backBtnImagePressed forState:UIControlStateHighlighted];
     [backBtn addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
@@ -46,8 +46,8 @@
     self.navigationItem.hidesBackButton = YES;
     
     UIButton *homeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *homeBtnImage = [UIImage imageNamed:@"menuButton@2X.png"];
-    UIImage *homeBtnImagePressed = [UIImage imageNamed:@"menuButton@2X.png"];
+    UIImage *homeBtnImage = [UIImage imageNamed:@"menuButton@2x.png"];
+    UIImage *homeBtnImagePressed = [UIImage imageNamed:@"menuButton@2x.png"];
     [homeBtn setBackgroundImage:homeBtnImage forState:UIControlStateNormal];
     [homeBtn setBackgroundImage:homeBtnImagePressed forState:UIControlStateHighlighted];
     [homeBtn addTarget:self action:@selector(goToDash) forControlEvents:UIControlEventTouchUpInside];

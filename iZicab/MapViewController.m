@@ -102,7 +102,7 @@
     
     if (self.isStart)
     {
-                [self.pinBtn setBackgroundImage:[UIImage imageNamed:@"mapStart@2X.png"] forState:UIControlStateNormal];
+        [self.pinBtn setBackgroundImage:[UIImage imageNamed:@"mapStart@2x.png"] forState:UIControlStateNormal];
         self.address.text = self.start;
         ctrpointStart.latitude = [self.startLat floatValue];
         ctrpointStart.longitude = [self.startLng floatValue];
@@ -333,7 +333,7 @@
             MKAnnotationView* anView = [self.mapView viewForAnnotation: annotation];
            
             if (anView && tmpName && [[annotation subtitle] isEqualToString:tmpName ])
-                anView.image = [UIImage imageNamed:@"pinChauffeurOn@2X.png"];
+                anView.image = [UIImage imageNamed:@"pinChauffeurOn"];
          }
     
     }
