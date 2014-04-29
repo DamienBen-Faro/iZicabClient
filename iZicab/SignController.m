@@ -11,6 +11,7 @@
 #import "CustomNavBar.h"
 #import "ConnectionData.h"
 #import "UserInfoSingleton.h"
+#import "CodeViewController.h"
 
 @implementation SignController
 
@@ -22,7 +23,7 @@
     
     [[ConnectionData sharedConnectionData] beginService: @"auth/checkUserActivated" :[[NSMutableDictionary alloc] initWithObjectsAndKeys: [defaults objectForKey:@"phone"] ? [defaults objectForKey:@"phone"] : @"", @"phone",  [defaults objectForKey:@"token"] , @"idDevice", nil] :@selector(callBackController:):self];
 
-
+    self.codeBtn.hidden = YES;
 }
 
 
@@ -30,13 +31,34 @@
 {
 
         NSError *error;
+      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+          
             if (((NSString *)[defaults objectForKey:@"phone"]).length  != 0 && [[defaults objectForKey:@"isActivated"] isEqualToString:@"YES"] && !self.fromDash)
                 [self noNeedToSign];
         }
+    else
+    {
+        
+        self.codeBtn.hidden = NO;
+        static BOOL wasLoaded = NO;
+        
+        if (![defaults objectForKey:@"deco"] && !wasLoaded)
+            [self goToCodeView:nil];
+        wasLoaded = YES;
+      
+    }
+
+}
+
+- (IBAction)goToCodeView:(id)sender
+{
+    self.codeBtn.hidden = NO;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    CodeViewController* ctrl = (CodeViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CodeViewController"];
+    [self.navigationController pushViewController:ctrl animated:YES];
 
 }
 

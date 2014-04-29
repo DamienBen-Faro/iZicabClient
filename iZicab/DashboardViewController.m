@@ -32,7 +32,7 @@
     _datstop = NO;
    // self.mapView.hidden = YES;
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     
     self.mapView.showsUserLocation = YES;
     self.mapView.delegate = self;
@@ -79,6 +79,9 @@
 
 
     [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"logout@2X.png"] forState:UIControlStateNormal];
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"phone"];
+        [defaults setObject:@"deco" forKey:@"deco"];
     [self.reservationButton addTarget:self action:@selector(goToSign:)
      forControlEvents:UIControlEventTouchUpInside];
 
@@ -100,6 +103,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     SignController* ctrl = (SignController *)[storyboard instantiateViewControllerWithIdentifier:@"SignController"];
     ctrl.fromDash = YES;
+
     
     [UIView  beginAnimations: @"Showinfo" context: nil];
     [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
@@ -454,6 +458,7 @@
 {
     
        [super viewWillAppear:animated];
+            [[self navigationController] setNavigationBarHidden:YES animated:NO];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
 

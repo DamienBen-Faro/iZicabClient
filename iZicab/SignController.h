@@ -12,6 +12,8 @@
 @interface SignController : CustomViewController
 
 @property (assign) BOOL fromDash;
+@property (strong) IBOutlet UIButton *codeBtn;
+
 
 -(void)noNeedToSign;
 

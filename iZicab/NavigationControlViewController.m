@@ -109,10 +109,11 @@
 }
 
 
+
 - (void)updateInterfaceWithReachability:(Reachability *)reachability
 {
     NetworkStatus netStatus = [reachability currentReachabilityStatus];
-
+  //  NSLog(@"stats:%@", netStatus );
 
         
         [UIView transitionWithView:self.view
@@ -121,7 +122,7 @@
                         animations:^ {
                             
                             [self.alertModalView removeFromSuperview];
-                            if (netStatus == NotReachable)
+                            if (netStatus != ReachableViaWWAN && netStatus != ReachableViaWiFi)
                                 [self.view addSubview:self.alertModalView];
                             
                         }
@@ -147,16 +148,13 @@
 
 - (void)setNotifModal:(NSNotification *)userInfo
 {
-    
-    
-    
-    
-     NSLog(@"%@", userInfo.object);
+  
     
     self.notifModalView.text =[userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"message"] ?
     [userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"message"] : @"Problème d'affichage du message";
 
 
+    
     
     [UIView transitionWithView:self.view
                       duration:1.2

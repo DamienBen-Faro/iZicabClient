@@ -195,9 +195,12 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     InvoiceViewController* ctrl = (InvoiceViewController *)[storyboard instantiateViewControllerWithIdentifier:@"InvoiceViewController"];
     ctrl.isSeeing = YES;
-    NSLog(@"%@", self.arr[[indexPath row]]);
+   if (self.segmentIdx == 1)
+       ctrl.isHisto = YES;
     ctrl.resa = self.arr[[indexPath row]];
     [self.navigationController pushViewController:ctrl animated:YES];
+    
+    
 }
 
 -(void) seeResa

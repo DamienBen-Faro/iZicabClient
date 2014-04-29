@@ -96,8 +96,15 @@
      ];
 
     }
-
+    
+      self.startAddress.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
+ self.endAddress.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
+     self.startDate.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
+     self.comment.font = [UIFont fontWithName:@"Roboto-Thin" size:18.0];
 }
+
+
+
 
 - (void)setLeftV: (UITextField *)textF
                   :(NSString *)imgName
@@ -319,14 +326,17 @@
     NSDate *minimumDate = [[NSDate alloc] init];
     minimumDate = [theCalendar dateByAddingComponents:dayComponent toDate:minimumDate options:0];
     
-    NSLog(@"%@ / %@", self.datePicker.date , minimumDate);
+    NSString *strEqual = nil;
+    
+    if ([self.startAddress.titleLabel.text isEqualToString:self.endAddress.titleLabel.text])
+    strEqual = @"Adresse de départ et d'arrivée similaire";
     
     if (self.startAddress.titleLabel.text.length == 0 || self.endAddress.titleLabel.text.length == 0
-      || [self.datePicker.date compare:minimumDate] == NSOrderedAscending)
+      || [self.datePicker.date compare:minimumDate] == NSOrderedAscending || [self.startAddress.titleLabel.text isEqualToString:self.endAddress.titleLabel.text])
     {
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
-                                                        message:@"Veuillez remplir tous les champs et mettre une date adéquate"
+                                                        message:strEqual ? strEqual : @"Veuillez remplir tous les champs et mettre une date adéquate"
                                                        delegate:self
                                               cancelButtonTitle:@"ok"
                                               otherButtonTitles:nil];
@@ -352,6 +362,7 @@
     {
         self.name.text = [defaults objectForKey:@"userName"];
         self.name.enabled = YES;
+        
         self.name.backgroundColor = [UIColor whiteColor];
         self.phone.text = [defaults objectForKey:@"phone"];
         self.phone.enabled = YES;

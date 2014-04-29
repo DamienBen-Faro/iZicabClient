@@ -8,6 +8,8 @@
 
 #import "ConnectionData.h"
 #import "Constant.h"
+#import "AppDelegate.h"
+#import "NavigationControlViewController.h"
 
 @implementation ConnectionData
 
@@ -28,6 +30,8 @@
     {
         if (sharedConnectionData == nil)
             sharedConnectionData = [[self alloc] init];
+       
+        
     }
     return sharedConnectionData;
 }
@@ -35,12 +39,28 @@
 
 - (void)initService
 {
+    
+    self.alertModalView = [[UILabel alloc] initWithFrame:CGRectMake(0, [ [ UIScreen mainScreen ] bounds ].size.height - 50, 320, 50)];
+    self.alertModalView.backgroundColor = [UIColor redColor];
+    self.alertModalView.alpha = 0.85;
+    
+    
+    
+    self.alertModalView.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    self.alertModalView.textColor = [UIColor whiteColor];
+    self.alertModalView.text = @"Pas de connection internet";
+    self.alertModalView.textAlignment = UITextAlignmentCenter;
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    self.rootViewController = window.rootViewController;
+    
     NSMutableURLRequest *postRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:__GET_URL_DEV]];
     [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [postRequest setHTTPMethod:@"POST"];
     
     NSURLResponse* response;
     NSError* error = nil;
+    
     
   
      NSData *data = [NSURLConnection sendSynchronousRequest:postRequest  returningResponse:&response error:&error];
@@ -135,23 +155,32 @@
     NSError *error;
     id tmp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     
+    NSLog(@"%@", tmp);
     if ([tmp isKindOfClass:[NSDictionary class]])
         [self.delegateController performSelector:self.pointeeFunction withObject:tmp];
     else
-    {
-     
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                            message:@"internal server error"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"ok"
-                                                  otherButtonTitles:nil];
-            [alert show];
-        
-    }
+      NSLog(@"error");
     
         NSString* dataStr = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-        NSLog(@"%@", dataStr);
         [[UIApplication sharedApplication] endIgnoringInteractionEvents];
+
+}
+
+
+- (void)dismissNotifModal
+{
+    
+    [UIView transitionWithView:self.rootViewController.view
+                      duration:1.2
+                       options:UIViewAnimationOptionTransitionCrossDissolve //any animation
+                    animations:^ {
+                        
+                        [self.alertModalView removeFromSuperview];
+                        
+                        
+                    }
+                    completion:nil];
+    
 
 }
 

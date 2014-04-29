@@ -32,7 +32,7 @@
     self.phone.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     self.password.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
 
-        [self setCustomTitle:@"CONNECTION"];
+        [self setCustomTitle:@"CONNEXION"];
     self.fieldArr = [[NSArray alloc] initWithObjects:
                      self.phone,  self.password,nil];
   
@@ -163,11 +163,9 @@
 
 - (void) animateTextView:(BOOL) up: (int)tag
 {
-    
-    const int movementDistance = tag; // tweak as needed
-    const float movementDuration = 0.3f; // tweak as needed
+    const int movementDistance = tag;
+    const float movementDuration = 0.3f;
     int movement= movement = (up ? -movementDistance : movementDistance);
-    NSLog(@"%d",movement);
     
     [UIView beginAnimations: @"anim" context: nil];
     [UIView setAnimationBeginsFromCurrentState: YES];
@@ -185,36 +183,32 @@
 
 - (IBAction)showCodeView:(id)sender
 {
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     CodeViewController* pointVC = (CodeViewController *)[storyboard instantiateViewControllerWithIdentifier:@"CodeViewController"];
-    
-
-    [self.view addSubview:pointVC.view];
-    [pointVC didMoveToParentViewController:self];
+   
+    pointVC.isForgotten = YES;
+    [self.navigationController pushViewController:pointVC animated:YES];
 
 }
+
+
 
 
 
 - (IBAction)connexion:(id)sender
 {
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-        [[ConnectionData sharedConnectionData] beginService: @"auth/log" :[[NSMutableDictionary alloc] initWithObjectsAndKeys: _phone.text, @"login",  [defaults objectForKey:@"token"] ? [defaults objectForKey:@"token"] : @"" , @"idDevice",  _password.text, @"password", @"privateUser", @"userType", nil] :@selector(callBackController:):self];
-    
-
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [[ConnectionData sharedConnectionData] beginService: @"auth/log" :[[NSMutableDictionary alloc] initWithObjectsAndKeys: _phone.text, @"login",  [defaults objectForKey:@"token"] ? [defaults objectForKey:@"token"] : @"" , @"idDevice",  _password.text, @"password", @"privateUser", @"userType", nil] :@selector(callBackController:):self];
+   
     [defaults setValue:_phone.text forKey:@"phone"];
-     [defaults synchronize];
+    [defaults synchronize];
 }
 
 
 - (void)callBackController:(NSDictionary *)dict
 {
-
-        
+    
         NSError *error;
-        
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
             dict = [dict objectForKey:@"data"];
@@ -248,13 +242,9 @@
 }
 
 
-
 - (void)viewWillAppear:(BOOL)animated
 {
-    
-   
-     [self setCustomTitle:@"CONNECTION"];
-    
+     [self setCustomTitle:@"CONNEXION"];
 }
 
 

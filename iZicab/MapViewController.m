@@ -51,6 +51,7 @@
 
     [self.address addTarget:self action:@selector(textFieldBegin:) forControlEvents:UIControlEventEditingDidBegin];
 
+    self.address.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
 
     
     self.autocompleteUrls = [[NSMutableArray alloc] init];
@@ -332,7 +333,7 @@
             MKAnnotationView* anView = [self.mapView viewForAnnotation: annotation];
            
             if (anView && tmpName && [[annotation subtitle] isEqualToString:tmpName ])
-                anView.image = [UIImage imageNamed:@"pinChauffeur@2x.png"];
+                anView.image = [UIImage imageNamed:@"pinChauffeurOn@2X.png"];
          }
     
     }
@@ -349,6 +350,10 @@
     
 }
 
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    [self sendResa:nil];
+}
 
 
 -(IBAction)setFirstPin:(id)sender

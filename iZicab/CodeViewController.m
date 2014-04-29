@@ -9,6 +9,7 @@
 #import "CodeViewController.h"
 #import "DashboardViewController.h"
 #import "ConnectionData.h"
+#import "SignController.h"
 
 @implementation CodeViewController
 
@@ -24,9 +25,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+            [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    if (self.isForgotten)
+        self.code.placeholder = @"Teléphone";
     UITapGestureRecognizer *tapGestureRecognize = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(offAll:)];
     tapGestureRecognize.numberOfTapsRequired = 1;
+
     [self.view addGestureRecognizer:tapGestureRecognize];
+    
 
 }
 
@@ -35,6 +41,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 
 - (void)callBackController:(NSDictionary *)dict
@@ -50,16 +57,29 @@
             [defaults setValue:@"YES" forKey:@"isActivated"];
             [defaults synchronize];
             
+            NSString *tmp = @"Compte créé";
+            if (self.isForgotten)
+                tmp = @"Vous allez recevoir un e-mail afin de recréer un nouveau mot de passe, si il n'apparait pas pensez à verifier les spams.";
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
-                                                            message:@"Compte créé"
+                                                            message:tmp
                                                            delegate:self
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];
             [alert show];
             
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-            DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-            [self.navigationController pushViewController:ctrl animated:YES];
+            if (self.isForgotten)
+            {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+                SignController* ctrl = (SignController *)[storyboard instantiateViewControllerWithIdentifier:@"SignController"];
+                [self.navigationController pushViewController:ctrl animated:YES];
+                
+            }
+                else
+                {
+                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+                        DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
+                        [self.navigationController pushViewController:ctrl animated:YES];
+                }
             
             
         }
@@ -79,11 +99,19 @@
 
 -(IBAction)activateAccount:(id)sender
 {
-     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (self.isForgotten)
+    {
+        
+             [[ConnectionData sharedConnectionData] beginService: @"account/passwordForgotten":  [[NSMutableDictionary alloc] initWithObjectsAndKeys: _code.text , @"phone",nil] :@selector(callBackController:):self];
+        
 
-    
-    [[ConnectionData sharedConnectionData] beginService: @"account/activePrivateUser":  [[NSMutableDictionary alloc] initWithObjectsAndKeys: [defaults objectForKey:@"userId"], @"userId", _code.text , @"code",nil] :@selector(callBackController:):self];
-
+    }
+    else
+    {
+      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  
+     [[ConnectionData sharedConnectionData] beginService: @"account/activePrivateUser":  [[NSMutableDictionary alloc] initWithObjectsAndKeys: [defaults objectForKey:@"userId"], @"userId", _code.text , @"code",nil] :@selector(callBackController:):self];
+    }
 }
 
 

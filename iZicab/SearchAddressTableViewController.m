@@ -70,8 +70,28 @@
     [navigationBar addSubview:homeButtonView];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
     [(CustomNavBar *)self.navigationController.navigationBar setTitleNavBar:@"RECHERCHE"];
+    
+    self.inputAccView = [[UIView alloc] initWithFrame:CGRectMake(10.0, 0.0, 310.0, 40.0)];
+    [self.inputAccView setBackgroundColor:[UIColor lightGrayColor]];
+    [self.inputAccView setAlpha: 0.8];
+    
+    self.btnDone = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.btnDone setFrame:CGRectMake(240.0, 0.0f, 80.0f, 40.0f)];
+    [self.btnDone setTitle:@"Done" forState:UIControlStateNormal];
+    [self.btnDone setBackgroundColor:[UIColor greenColor]];
+    [self.btnDone setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.btnDone addTarget:self action:@selector(doneTyping) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [self.inputAccView addSubview:self.btnDone];
 
   
+}
+
+-(void)doneTyping
+{
+    
+    [self.searchBar resignFirstResponder];
 }
 
 - (void)viewDidAppear:(BOOL)animated

@@ -31,7 +31,9 @@
 @property (strong) IBOutlet UIButton*       billz;
 @property (strong) IBOutlet UIButton*       premium;
 @property (strong) IBOutlet UIButton*       standard;
+@property (strong) IBOutlet UIView*         content;
 @property (assign)          BOOL            isSeeing;
+@property (assign)          BOOL            isHisto;
 @property (assign)          NSDictionary*   resa;
 @property (strong)          UIWebView*      webView;
 @property (assign)          BOOL            firstURL;

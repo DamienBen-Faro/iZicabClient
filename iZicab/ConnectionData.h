@@ -17,6 +17,8 @@
 @property (assign)          SEL pointeeFunction;
 @property (strong)          id  delegateController;
 @property (nonatomic, strong) NSString *urlz;
+@property (strong) UILabel *alertModalView;
+@property (strong)UIViewController *rootViewController;
 
 
 - (void)beginService:(NSString *)serviceName:(NSMutableDictionary *)params:(SEL)pointeeFunction:(id)delegateController;

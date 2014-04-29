@@ -56,6 +56,7 @@
     [self getDist:CLLocationCoordinate2DMake(self.resaCtrl.startLat, self.resaCtrl.startLng): CLLocationCoordinate2DMake(self.resaCtrl.endLat, self.resaCtrl.endLng)];
     self.datId.hidden = YES;
     self.idResa.hidden = YES;
+ 
     if (self.isSeeing)
         [self showResaM];
     
@@ -68,21 +69,23 @@
 {
     self.datId.hidden = NO;
     self.idResa.hidden = NO;
-        self.billz.hidden = NO;
     self.premium.hidden = YES;
     self.standard.hidden = YES;
     
+    if (self.isHisto)
+    self.billz.hidden = NO;
     self.date.text = self.resa[@"tripdatetime"];
         self.start.text = self.resa[@"startposition"];
         self.end.text = self.resa[@"endposition"];
  
-       self.passenger.text = [NSString stringWithFormat:@"%@", self.resa[@"seat"]];
-        self.luggage.text = [NSString stringWithFormat:@"%@", self.resa[@"luggage"]];
-    self.price.text = [NSString stringWithFormat:@"%@ €", self.resa[@"invoicing"]];
-      self.name.text = [NSString stringWithFormat:@"%@", self.resa[@"contactname"]];
-      self.idResa.text = [NSString stringWithFormat:@"ref#100%@", self.resa[@"id"]];
-    self.validate.hidden = YES;
-
+     self.passenger.text = [NSString stringWithFormat:@"%@", self.resa[@"seat"]];
+     self.luggage.text = [NSString stringWithFormat:@"%@", self.resa[@"luggage"]];
+     self.price.text = [NSString stringWithFormat:@"%@ €", self.resa[@"invoicing"]];
+     self.name.text = [NSString stringWithFormat:@"%@", self.resa[@"contactname"]];
+     self.idResa.text = [NSString stringWithFormat:@"ref#100%@", self.resa[@"id"]];
+     self.validate.hidden = YES;
+    
+    
 
 }
 
@@ -186,12 +189,12 @@
     
     UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, NO, [UIScreen mainScreen].scale);
     
-    [self.view drawViewHierarchyInRect:self.view.bounds afterScreenUpdates:YES];
+    [self.content drawViewHierarchyInRect:self.content.bounds afterScreenUpdates:YES];
     
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    NSString *shareString = @"capture facture";
+    NSString *shareString = @"";
    
     NSData *pdfData = UIImagePNGRepresentation(image);
     NSArray *activityItems = [NSArray arrayWithObjects:shareString, pdfData, nil];
@@ -200,6 +203,7 @@
 
     
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
+    [activityViewController setValue:@"Facture iZicab" forKey:@"subject"];
     activityViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     [self presentViewController:activityViewController animated:YES completion:nil];
     
@@ -354,6 +358,7 @@
     [params setObject:isPremium forKey:@"tripType"];
     [params setObject:[NSString stringWithFormat:@"%@%@", [self.date.text componentsSeparatedByString:@" "][0], [self.date.text componentsSeparatedByString:@" "][1]] forKey: @"tripDateTime"];
     [params setObject: @"cash" forKey:@"paymentMode"];
+     [params setObject: self.resaCtrl.comment.text forKey:@"comment"];
     [params setObject: self.resaCtrl.passBtn.titleLabel.text forKey:@"seat"];
     [params setObject: self.resaCtrl.luggBtn.titleLabel.text forKey:@"luggage"];
      [params setObject:@"no convention" forKey:@"convention"];

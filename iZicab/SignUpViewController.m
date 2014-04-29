@@ -40,14 +40,14 @@
     self.phone.tag = 70;
     self.email.tag = 100;
     self.password.tag = 130;
-        self.passwordConfirm.tag = 160;
+    self.passwordConfirm.tag = 160;
     
     self.familyName.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
     self.firstName.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
-        self.phone.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
-        self.email.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
-        self.password.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
-       self.passwordConfirm.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    self.phone.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    self.email.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    self.password.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    self.passwordConfirm.font     = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
 
     
     self.fieldArr = [[NSArray alloc] initWithObjects:
@@ -252,7 +252,8 @@
 {
     if ([self.password.text isEqualToString:self.passwordConfirm.text])
     {
-    [[ConnectionData sharedConnectionData] beginService: @"account/createPrivateUser": [[NSMutableDictionary alloc] initWithObjectsAndKeys:_phone.text, @"login" , @"ios" ,@"idDevice", _password.text, @"password", _email.text, @"email", _firstName.text,  @"name", _familyName.text,  @"familyName" ,nil] :@selector(callBackController:):self];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [[ConnectionData sharedConnectionData] beginService: @"account/createPrivateUser": [[NSMutableDictionary alloc] initWithObjectsAndKeys:_phone.text, @"login" ,     [defaults  objectForKey:@"token"] ,@"idDevice", _password.text, @"password", _email.text, @"email", _firstName.text,  @"name", _familyName.text,  @"familyName" ,nil] :@selector(callBackController:):self];
     }
     else
     {

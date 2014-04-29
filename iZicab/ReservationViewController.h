@@ -25,6 +25,7 @@
 @property (strong)IBOutlet UIButton    *babySeat;
 @property (strong)IBOutlet UIButton    *paper;
 @property (strong)IBOutlet UIView      *nameView;
+@property (strong)IBOutlet UITextView  *comment;
 @property (strong)IBOutlet UIButton    *wifi;
 @property (strong)         UIDatePicker*datePicker;
 @property (assign)         BOOL isStartAddr;
@@ -39,6 +40,7 @@
 @property (strong)         NSMutableDictionary *resaUpdate;
 @property (strong)         UIButton *dpBtn;
 @property (nonatomic, strong) CLLocationManager *locationManager;
+
 
 
 - (IBAction)goToMap:(id)sender;

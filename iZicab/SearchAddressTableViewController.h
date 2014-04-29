@@ -22,5 +22,7 @@
 @property (assign)                  BOOL                isStartAddr;
 @property (assign)                  BOOL                isFromMap;
 @property (strong)                  NSMutableDictionary *memoryFromReservation;
+@property (nonatomic, retain) UIView *inputAccView;
+@property (nonatomic, retain) UIButton *btnDone;
 
 @end

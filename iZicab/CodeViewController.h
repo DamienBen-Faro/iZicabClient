@@ -13,6 +13,8 @@
 
 @property(strong) IBOutlet UIView *subCodeView;
 @property (strong) IBOutlet UITextField *code;
+@property (assign) BOOL isForgotten;
+
 
 -(IBAction)activateAccount:(id)sender;
 
