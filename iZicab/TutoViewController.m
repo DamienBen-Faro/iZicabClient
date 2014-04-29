@@ -79,7 +79,7 @@
     if (i < 0)
         return nil;
     
-    if (i > 4 )
+    if (i > 4)
     {
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         if ([defaults objectForKey:@"tutorialy"] == nil)
@@ -90,10 +90,7 @@
             [self performSelector:@selector(goToDash) withObject:nil afterDelay:1];
         }
         else
-        {
-            NSLog(@"waaaaaat");
              [self goToDash];
-        }
     }
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
