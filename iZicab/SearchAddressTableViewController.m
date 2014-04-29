@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
               [[self navigationController] setNavigationBarHidden:NO animated:YES];
-    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 27, 320, 0)];
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 26, 320, 0)];
     self.searchBar.delegate = self;
     [self.searchBar sizeToFit];
     [self.tableView addSubview:self.searchBar];
@@ -122,6 +122,15 @@
     
 }
 
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"removeFondu"];
+    
+}
+
+
 -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:   (CLLocation*)newLocation fromLocation:(CLLocation *)oldLocation
 {
 
@@ -151,8 +160,10 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    
-    
+    self.view.backgroundColor = [UIColor clearColor];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"fondu" forKey:@"removeFondu"];
+    [defaults synchronize];
     
     UIButton *backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *backBtnImage = [UIImage imageNamed:@"backButton"];
@@ -180,7 +191,6 @@
     
     
     CustomNavBar *navigationBar = [[CustomNavBar alloc] initWithFrame:CGRectZero];
-    navigationBar.isDash = YES;
     [navigationBar addSubview:backButtonView];
     [navigationBar addSubview:homeButtonView];
 	[self.navigationController setValue:navigationBar forKey:@"navigationBar"];
@@ -193,7 +203,8 @@
     
     [self.data addObject:self.airport];
     [self getLocation];
-    
+
+
 }
 
 

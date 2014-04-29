@@ -189,7 +189,7 @@
     [self.startAddress setTitle:self.resaUpdate[@"startposition"] forState:UIControlStateNormal];
     [self.endAddress setTitle:self.resaUpdate[@"endposition"] forState:UIControlStateNormal];
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    [format setDateFormat:@"dd/MM/yyyy HH:mm"];
+    [format setDateFormat:@"yyyy-MM-dd HH:mm"];
     NSDate *dat = [format dateFromString:self.resaUpdate[@"tripdatetime"]];
     
     if (dat)

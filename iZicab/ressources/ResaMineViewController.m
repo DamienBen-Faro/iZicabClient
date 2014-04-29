@@ -11,7 +11,7 @@
 #import "ReservationViewController.h"
 #import "InvoiceViewController.h"
 #import "ConnectionData.h"
-
+#import "CustomNavBar.h"
 
 
 @implementation ResaMineViewController
@@ -27,10 +27,12 @@
 
 - (void)viewDidLoad
 {
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+     [defaults setObject:@"fondu" forKey:@"removeFondu"];
     [super viewDidLoad];
     [[self navigationController] setNavigationBarHidden:NO animated:YES];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+   
     
     [[ConnectionData sharedConnectionData] beginService: @"reservation/readAllMinePrivateUser":[[NSMutableDictionary alloc] initWithObjectsAndKeys:                                                                                                                 [defaults objectForKey:@"userId"], @"userId", nil] :@selector(callBackController:):self];
 
@@ -107,14 +109,22 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:@"fondu" forKey:@"removeFondu"];
+    [defaults synchronize];
     [self setCustomTitle:@"MES RÉSERVATIONS"];
+
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"removeFondu"];
 
-
+}
 
 
 

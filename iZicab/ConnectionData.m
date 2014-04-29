@@ -146,16 +146,17 @@
     
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
 
     [[[ConnectionData sharedConnectionData] spinner] stopAnimating];
     [[[ConnectionData sharedConnectionData] spinner] removeFromSuperview];
-    
+        NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] );
     
     NSError *error;
     id tmp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&error];
     
-    NSLog(@"%@", tmp);
+
     if ([tmp isKindOfClass:[NSDictionary class]])
         [self.delegateController performSelector:self.pointeeFunction withObject:tmp];
     else

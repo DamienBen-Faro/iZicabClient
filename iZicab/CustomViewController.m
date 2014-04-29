@@ -46,8 +46,8 @@
     self.navigationItem.hidesBackButton = YES;
     
     UIButton *homeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *homeBtnImage = [UIImage imageNamed:@"menuButton@2x.png"];
-    UIImage *homeBtnImagePressed = [UIImage imageNamed:@"menuButton@2x.png"];
+    UIImage *homeBtnImage = [UIImage imageNamed:@"menuButton"];
+    UIImage *homeBtnImagePressed = [UIImage imageNamed:@"menuButton"];
     [homeBtn setBackgroundImage:homeBtnImage forState:UIControlStateNormal];
     [homeBtn setBackgroundImage:homeBtnImagePressed forState:UIControlStateHighlighted];
     [homeBtn addTarget:self action:@selector(goToDash) forControlEvents:UIControlEventTouchUpInside];

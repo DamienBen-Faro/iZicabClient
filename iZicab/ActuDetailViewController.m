@@ -41,7 +41,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-        [self setCustomTitle:@"ACTUALITÉ DÉTAILS"];
+        [self setCustomTitle:@"ACTUALITÉ"];
 }
 
 

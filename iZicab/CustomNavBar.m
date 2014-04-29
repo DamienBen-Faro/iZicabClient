@@ -70,6 +70,7 @@
     
     UIImageView *fondu = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 110)];
     fondu.image = [UIImage imageNamed:@"fondu.png"];
+    fondu.tag = 9999;
     
     UILabel *l =[[UILabel alloc] initWithFrame:CGRectMake(25, 9, self.frame.size.width - 50, 90)];
     l.text = _titleNavBar;
@@ -79,14 +80,17 @@
     l.lineBreakMode = NSLineBreakByWordWrapping;
     l.numberOfLines = 2;
 
-
     self.frame = CGRectMake(0, 0, self.frame.size.width, 110);
-    [v insertSubview:fondu atIndex:0];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (![defaults objectForKey:@"removeFondu"])
+        [v insertSubview:fondu atIndex:0];
+ 
     [v addSubview:whiteView];
    
     [self insertSubview:v atIndex:0];
     [self addSubview:l];
 }
+
 
 
 @end

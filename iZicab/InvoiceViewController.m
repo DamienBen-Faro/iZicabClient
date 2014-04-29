@@ -232,7 +232,7 @@
             [self.webView loadRequest:requestObj];
             [self.view addSubview:self.webView];
             
-
+                [self setCustomTitle:@"PAIEMENT"];
             
         }
         else
@@ -345,8 +345,15 @@
         isPremium = @"premium";
     
 
-    
+
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSDate *dat = [format dateFromString:self.date.text];
+   
+    NSString *newDateString = [format stringFromDate:dat];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+
+    
     
     [params setObject:[defaults objectForKey:@"userId"] forKey:@"userId" ];
     [params setObject:[NSString stringWithFormat:@"%f", self.resaCtrl.startLat] forKey:   @"latStart"];
@@ -356,7 +363,7 @@
     [params setObject:self.start.text forKey:@"startAddress"];
     [params setObject:self.end.text forKey:  @"endAddress"];
     [params setObject:isPremium forKey:@"tripType"];
-    [params setObject:[NSString stringWithFormat:@"%@%@", [self.date.text componentsSeparatedByString:@" "][0], [self.date.text componentsSeparatedByString:@" "][1]] forKey: @"tripDateTime"];
+    [params setObject:newDateString forKey: @"tripDateTime"];
     [params setObject: @"cash" forKey:@"paymentMode"];
      [params setObject: self.resaCtrl.comment.text forKey:@"comment"];
     [params setObject: self.resaCtrl.passBtn.titleLabel.text forKey:@"seat"];
