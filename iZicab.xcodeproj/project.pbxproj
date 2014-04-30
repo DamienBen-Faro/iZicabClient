@@ -166,6 +166,7 @@
 		E32590531911084500DE4716 /* carteOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E325904F1911084500DE4716 /* carteOn@2x.png */; };
 		E32590541911084500DE4716 /* especeOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E32590501911084500DE4716 /* especeOff@2x.png */; };
 		E32590551911084500DE4716 /* especeOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E32590511911084500DE4716 /* especeOn@2x.png */; };
+		E325905B1911191200DE4716 /* notification.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E325905A1911191200DE4716 /* notification.mp3 */; };
 		E36BB204190EC1DC0023856C /* Account@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E36BB15E190EC1DC0023856C /* Account@2X.png */; };
 		E36BB205190EC1DC0023856C /* actu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E36BB15F190EC1DC0023856C /* actu@2x.png */; };
 		E36BB206190EC1DC0023856C /* ActuImage-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E36BB160190EC1DC0023856C /* ActuImage-01.png */; };
@@ -461,6 +462,7 @@
 		E32590571911087E00DE4716 /* carteOn */ = {isa = PBXFileReference; lastKnownFileType = file; name = carteOn; path = "../../../../dossier sans titre/carteOn"; sourceTree = "<group>"; };
 		E32590581911087E00DE4716 /* especeOff */ = {isa = PBXFileReference; lastKnownFileType = file; name = especeOff; path = "../../../../dossier sans titre/especeOff"; sourceTree = "<group>"; };
 		E32590591911087E00DE4716 /* especeOn */ = {isa = PBXFileReference; lastKnownFileType = file; name = especeOn; path = "../../../../dossier sans titre/especeOn"; sourceTree = "<group>"; };
+		E325905A1911191200DE4716 /* notification.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = notification.mp3; path = ../../../notification.mp3; sourceTree = "<group>"; };
 		E36BB15E190EC1DC0023856C /* Account@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Account@2X.png"; sourceTree = "<group>"; };
 		E36BB15F190EC1DC0023856C /* actu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actu@2x.png"; sourceTree = "<group>"; };
 		E36BB160190EC1DC0023856C /* ActuImage-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActuImage-01.png"; sourceTree = "<group>"; };
@@ -762,6 +764,7 @@
 		6DCF530018E43C400037A10C /* ressources */ = {
 			isa = PBXGroup;
 			children = (
+				E325905A1911191200DE4716 /* notification.mp3 */,
 				6D58F085191008290066D975 /* splashScreen */,
 				6D58F05A190FFD1B0066D975 /* RobotoFont */,
 				6D58EFA7190FF8510066D975 /* Icon */,
@@ -1155,6 +1158,7 @@
 				E36BB234190EC1DC0023856C /* MesResa@2x.png in Resources */,
 				E36BB23F190EC1DC0023856C /* pinChauffeurOn@2X.png in Resources */,
 				6D53B99C18E5C2F70012C12A /* ResaMineCell.xib in Resources */,
+				E325905B1911191200DE4716 /* notification.mp3 in Resources */,
 				E36BB22F190EC1DC0023856C /* mapEnd@2X.png in Resources */,
 				6D58F051190FFBA40066D975 /* standardOn.png in Resources */,
 				6D58F013190FFBA40066D975 /* ButtonChange.png in Resources */,
