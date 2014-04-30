@@ -162,6 +162,10 @@
 		6DCF52FF18E43BAD0037A10C /* NavigationControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF52FE18E43BAD0037A10C /* NavigationControlViewController.m */; };
 		6DCF530818E44A2B0037A10C /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF530718E44A2B0037A10C /* SignInViewController.m */; };
 		6DCF530E18E451530037A10C /* CodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCF530C18E451520037A10C /* CodeViewController.m */; };
+		E32590521911084500DE4716 /* carteOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E325904E1911084500DE4716 /* carteOff@2x.png */; };
+		E32590531911084500DE4716 /* carteOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E325904F1911084500DE4716 /* carteOn@2x.png */; };
+		E32590541911084500DE4716 /* especeOff@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E32590501911084500DE4716 /* especeOff@2x.png */; };
+		E32590551911084500DE4716 /* especeOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E32590511911084500DE4716 /* especeOn@2x.png */; };
 		E36BB204190EC1DC0023856C /* Account@2X.png in Resources */ = {isa = PBXBuildFile; fileRef = E36BB15E190EC1DC0023856C /* Account@2X.png */; };
 		E36BB205190EC1DC0023856C /* actu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E36BB15F190EC1DC0023856C /* actu@2x.png */; };
 		E36BB206190EC1DC0023856C /* ActuImage-01.png in Resources */ = {isa = PBXBuildFile; fileRef = E36BB160190EC1DC0023856C /* ActuImage-01.png */; };
@@ -449,6 +453,14 @@
 		6DCF530718E44A2B0037A10C /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
 		6DCF530B18E451520037A10C /* CodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeViewController.h; sourceTree = "<group>"; };
 		6DCF530C18E451520037A10C /* CodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeViewController.m; sourceTree = "<group>"; };
+		E325904E1911084500DE4716 /* carteOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carteOff@2x.png"; sourceTree = "<group>"; };
+		E325904F1911084500DE4716 /* carteOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carteOn@2x.png"; sourceTree = "<group>"; };
+		E32590501911084500DE4716 /* especeOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "especeOff@2x.png"; sourceTree = "<group>"; };
+		E32590511911084500DE4716 /* especeOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "especeOn@2x.png"; sourceTree = "<group>"; };
+		E32590561911087E00DE4716 /* carteOff */ = {isa = PBXFileReference; lastKnownFileType = file; name = carteOff; path = "../../../../dossier sans titre/carteOff"; sourceTree = "<group>"; };
+		E32590571911087E00DE4716 /* carteOn */ = {isa = PBXFileReference; lastKnownFileType = file; name = carteOn; path = "../../../../dossier sans titre/carteOn"; sourceTree = "<group>"; };
+		E32590581911087E00DE4716 /* especeOff */ = {isa = PBXFileReference; lastKnownFileType = file; name = especeOff; path = "../../../../dossier sans titre/especeOff"; sourceTree = "<group>"; };
+		E32590591911087E00DE4716 /* especeOn */ = {isa = PBXFileReference; lastKnownFileType = file; name = especeOn; path = "../../../../dossier sans titre/especeOn"; sourceTree = "<group>"; };
 		E36BB15E190EC1DC0023856C /* Account@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Account@2X.png"; sourceTree = "<group>"; };
 		E36BB15F190EC1DC0023856C /* actu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actu@2x.png"; sourceTree = "<group>"; };
 		E36BB160190EC1DC0023856C /* ActuImage-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActuImage-01.png"; sourceTree = "<group>"; };
@@ -763,6 +775,10 @@
 		E36BB10D190EC1DC0023856C /* elements */ = {
 			isa = PBXGroup;
 			children = (
+				E32590561911087E00DE4716 /* carteOff */,
+				E32590571911087E00DE4716 /* carteOn */,
+				E32590581911087E00DE4716 /* especeOff */,
+				E32590591911087E00DE4716 /* especeOn */,
 				6D58EFBC190FFBA30066D975 /* Account.png */,
 				6D58EFBD190FFBA30066D975 /* actu.png */,
 				6D58EFBE190FFBA30066D975 /* babyOff.png */,
@@ -849,6 +865,10 @@
 		E36BB15D190EC1DC0023856C /* elements2x */ = {
 			isa = PBXGroup;
 			children = (
+				E325904E1911084500DE4716 /* carteOff@2x.png */,
+				E325904F1911084500DE4716 /* carteOn@2x.png */,
+				E32590501911084500DE4716 /* especeOff@2x.png */,
+				E32590511911084500DE4716 /* especeOn@2x.png */,
 				E36BB15E190EC1DC0023856C /* Account@2X.png */,
 				E36BB15F190EC1DC0023856C /* actu@2x.png */,
 				E36BB160190EC1DC0023856C /* ActuImage-01.png */,
@@ -1085,10 +1105,12 @@
 				E36BB22D190EC1DC0023856C /* mailAcc@2x.png in Resources */,
 				6D58F03E190FFBA40066D975 /* phone.png in Resources */,
 				6D58F04D190FFBA40066D975 /* separateurDouble.png in Resources */,
+				E32590541911084500DE4716 /* especeOff@2x.png in Resources */,
 				E36BB205190EC1DC0023856C /* actu@2x.png in Resources */,
 				6D58F045190FFBA40066D975 /* pinMapArrive.png in Resources */,
 				6D58F048190FFBA40066D975 /* plus.png in Resources */,
 				E36BB238190EC1DC0023856C /* perso@2x.png in Resources */,
+				E32590521911084500DE4716 /* carteOff@2x.png in Resources */,
 				6D58F052190FFBA40066D975 /* suitcase.png in Resources */,
 				E36BB24F190EC1DC0023856C /* twitter@2x.png in Resources */,
 				E36BB225190EC1DC0023856C /* keyboardPrevious@2x.png in Resources */,
@@ -1099,6 +1121,7 @@
 				6D58F03B190FFBA40066D975 /* paperOn.png in Resources */,
 				E36BB21B190EC1DC0023856C /* facebook@2x.png in Resources */,
 				6D58F02E190FFBA40066D975 /* logout.png in Resources */,
+				E32590531911084500DE4716 /* carteOn@2x.png in Resources */,
 				6D58F01D190FFBA40066D975 /* connexion.png in Resources */,
 				6D58F02F190FFBA40066D975 /* loupe.png in Resources */,
 				E36BB226190EC1DC0023856C /* linkedin@2x.png in Resources */,
@@ -1192,6 +1215,7 @@
 				E36BB228190EC1DC0023856C /* loader.gif in Resources */,
 				E36BB214190EC1DC0023856C /* buttonPassenger@2x.png in Resources */,
 				6D58F01B190FFBA40066D975 /* buttonSwitch.png in Resources */,
+				E32590551911084500DE4716 /* especeOn@2x.png in Resources */,
 				E36BB237190EC1DC0023856C /* paperOn@2x.png in Resources */,
 				E36BB233190EC1DC0023856C /* menuButtonBlue@2x.png in Resources */,
 				E36BB21C190EC1DC0023856C /* flag@2x.png in Resources */,
