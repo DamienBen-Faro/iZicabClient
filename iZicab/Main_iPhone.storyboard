@@ -1672,7 +1672,7 @@ Roissy-en-France 95700</string>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="De9-HY-9cN" kind="custom" identifier="dashResa" customClass="DashboardSegue" id="uUX-gp-wMd"/>
+                                    <action selector="goToResa:" destination="acf-eW-seZ" eventType="touchUpInside" id="ZZR-7J-p3p"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8T5-Tw-KDH">

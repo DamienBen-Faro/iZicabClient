@@ -17,6 +17,8 @@
 
 @property (strong) UILabel *alertModalView;
 @property (strong) UILabel *notifModalView;
+@property (strong) UILabel *notifModalViewTitle;
+@property (strong) UIView *notifModalViewContent;
 
 - (void)setNotifModal;
 

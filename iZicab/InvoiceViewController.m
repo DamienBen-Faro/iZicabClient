@@ -321,7 +321,7 @@
 {
      [self.webView removeFromSuperview];
     
-    NSString *str = @"Reservation effectuée";
+  /*  NSString *str = @"Reservation effectuée";
     
      if (self.resaCtrl.isResa)
          str = @"Modification effectuée";
@@ -332,7 +332,7 @@
                                           cancelButtonTitle:@"ok"
                                           otherButtonTitles:nil];
     [alert show];
-    
+    */
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
@@ -390,8 +390,9 @@
    
     NSString *newDateString = [format stringFromDate:dat];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-
-    
+    NSString *pay = @"CARD";
+    if (self.resaCtrl.bill.selected)
+       pay= @"BILL";
     
     [params setObject:[defaults objectForKey:@"userId"] forKey:@"userId" ];
     [params setObject:[NSString stringWithFormat:@"%f", self.resaCtrl.startLat] forKey:   @"latStart"];
@@ -402,7 +403,8 @@
     [params setObject:self.end.text forKey:  @"endAddress"];
     [params setObject:isPremium forKey:@"tripType"];
     [params setObject:newDateString forKey: @"tripDateTime"];
-    [params setObject: @"cash" forKey:@"paymentMode"];
+    
+    [params setObject:pay forKey:@"paymentMode"];
      [params setObject: self.resaCtrl.comment.text forKey:@"comment"];
     [params setObject: self.resaCtrl.passBtn.titleLabel.text forKey:@"seat"];
     [params setObject: self.resaCtrl.luggBtn.titleLabel.text forKey:@"luggage"];

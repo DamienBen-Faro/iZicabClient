@@ -79,10 +79,7 @@
 
 
     [self.reservationButton setBackgroundImage:[UIImage imageNamed:@"logout"] forState:UIControlStateNormal];
-     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults removeObjectForKey:@"phone"];
-        [defaults setObject:@"deco" forKey:@"deco"];
-    [self.reservationButton addTarget:self action:@selector(goToSign:)
+       [self.reservationButton addTarget:self action:@selector(goToSign:)
      forControlEvents:UIControlEventTouchUpInside];
 
    
@@ -99,6 +96,10 @@
 
 - (IBAction)goToSign:(id)sender
 {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"phone"];
+    [defaults setObject:@"deco" forKey:@"deco"];
+
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     SignController* ctrl = (SignController *)[storyboard instantiateViewControllerWithIdentifier:@"SignController"];
@@ -120,7 +121,32 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
     ReservationViewController* ctrl = (ReservationViewController *)[storyboard instantiateViewControllerWithIdentifier:@"ReservationViewController"];
+    /*
+    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"transform"];
+    anim.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    anim.duration = 0.200;
+    anim.repeatCount = 1;
+    anim.autoreverses = YES;
+    anim.removedOnCompletion = YES;
+    anim.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.2, 1.2, 1.0)];
+    [self.reservationButton.layer addAnimation:anim forKey:nil];
     
+    CABasicAnimation *anim2 = [CABasicAnimation animationWithKeyPath:@"transform"];
+    anim2.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    anim2.duration = 0.200;
+    anim2.repeatCount = 1;
+    anim2.autoreverses = YES;
+    anim2.removedOnCompletion = YES;
+    anim2.toValue = [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.85, 0.85, 1.0)];
+    [self.reservationButton.layer addAnimation:anim2 forKey:nil];
+*/
+
+
+    
+    
+
+
+
     
     [UIView  beginAnimations: @"Showinfo" context: nil];
     [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];

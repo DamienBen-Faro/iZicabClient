@@ -104,13 +104,13 @@
     self.comment.font = [UIFont fontWithName:@"Roboto-Thin" size:18.0];
     self.card.selected = YES;
     
-  /*  if (![[defaults valueForKey:@"userType"] isEqualToString:@"enterprise"] && ![[defaults valueForKey:@"userType"] isEqualToString:@"employee"])
+    if (![[defaults valueForKey:@"userType"] isEqualToString:@"enterprise"] && ![[defaults valueForKey:@"userType"] isEqualToString:@"employee"])
     {
         self.card.hidden = YES;
         self.bill.hidden = YES;
         self.commentConstraint.constant = 168;
     }
-*/
+
 
 }
 

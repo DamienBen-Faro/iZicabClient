@@ -58,24 +58,39 @@
     
     
 
-    self.alertModalView.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    self.alertModalView.font = [UIFont fontWithName:@"Roboto-Light" size:20.0];
     self.alertModalView.textColor = [UIColor whiteColor];
     self.alertModalView.text = @"Pas de connection internet";
     self.alertModalView.textAlignment = UITextAlignmentCenter;
 
     
     
-    self.notifModalView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 60)];
-    self.notifModalView.backgroundColor = [UIColor colorWithRed:89.0/255.0 green:200.0/255.0 blue:220.0/255.0 alpha:1];
-    self.notifModalView.alpha = 0.95;
+    self.notifModalViewContent = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 79)];
+    self.notifModalViewContent.backgroundColor = [UIColor colorWithRed:31.0/255.0 green:157.0/255.0 blue:190.0/255.0 alpha:1];
+    self.notifModalViewContent.alpha = 1.00;
     
-    
-   
-    self.notifModalView.font = [UIFont fontWithName:@"Roboto-Thin" size:20.0];
+    self.notifModalView = [[UILabel alloc] initWithFrame:CGRectMake(18, 28, 280, 45)];
+    self.notifModalView.backgroundColor = [UIColor clearColor];
+    self.notifModalView.font = [UIFont fontWithName:@"Roboto-Regular" size:16.0];
     self.notifModalView.textColor = [UIColor whiteColor];
     self.notifModalView.text = @"Message";
     self.notifModalView.numberOfLines = 2;
-    self.notifModalView.textAlignment = UITextAlignmentCenter;
+    self.notifModalView.lineBreakMode = NSLineBreakByTruncatingTail;
+    
+    
+    self.notifModalViewTitle = [[UILabel alloc] initWithFrame:CGRectMake(18, 8, 280, 15)];
+    self.notifModalViewTitle.backgroundColor = [UIColor clearColor];
+    self.notifModalViewTitle.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
+    self.notifModalViewTitle.textColor = [UIColor whiteColor];
+    self.notifModalViewTitle.text = @"Titre";
+
+
+    
+    
+    UISwipeGestureRecognizer *tapGestureRecognize = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(dismissModal)];
+    tapGestureRecognize.direction = UISwipeGestureRecognizerDirectionUp;
+    [ self.view addGestureRecognizer:tapGestureRecognize];
+
 
 }
 
@@ -141,49 +156,49 @@
                        options:UIViewAnimationOptionTransitionCrossDissolve //any animation
                     animations:^ {
                         
-                        [self.notifModalView removeFromSuperview];
+                        [self.notifModalViewContent removeFromSuperview];
 
                         
                     }
                     completion:nil];
 }
 
+- (void)dismissModal
+{
+    [UIView transitionWithView:self.notifModalView
+                      duration:1.2
+                       options:UIViewAnimationOptionTransitionFlipFromTop //any animation
+                    animations:^ {
+                        
+                        [self.notifModalViewContent removeFromSuperview];
+                        
+                        
+                    }
+                    completion:nil];
+}
+
+
+
 - (void)setNotifModal:(NSNotification *)userInfo
 {
   
-    self.notifModalView.text =[userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"message"] ?
-    [userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"message"] : @"Problème d'affichage du message";
+    self.notifModalView.text = [[userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"message"] uppercaseString]?
+   [[userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"message"] uppercaseString] : @"ERREUR MESSAGE";
+    NSLog(@"%@", userInfo.object);
 
-
+    self.notifModalViewTitle.text = [[userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"notifType"]  uppercaseString]?
+    [[userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"notifType"]  uppercaseString] : @"ALERTE";
+    
+    [self.notifModalViewContent addSubview:self.notifModalViewTitle];
+     [self.notifModalViewContent addSubview:self.notifModalView];
+        [self.notifModalView sizeToFit];
+    
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"notif" ofType:@"wav"];
-     NSURL *soundURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
-    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc]
-                                  initWithContentsOfURL:soundURL
-                                  error:nil];
+    SystemSoundID soundID;
+    NSURL *url = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/notification.mp3", [[NSBundle mainBundle] resourcePath]]];
     
-    [audioPlayer play];
- 
-    
-    NSString *name =@"notif.wav";
-    
-    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
-    AVAudioPlayer *snd;
-    NSError *err = nil;
-
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSURL * url = [NSURL fileURLWithPath:path];
-        snd = [[AVAudioPlayer alloc] initWithContentsOfURL:url
-                                                     error:&err] ;
-        if (! snd) {
-            NSLog(@"Sound named '%@' had error %@", name, [err localizedDescription]);
-        } else {
-            [snd prepareToPlay];
-        }
-    } else {
-        NSLog(@"Sound file '%@' doesn't exist at '%@'", name, path);
-    }
-    [snd play];
+    AudioServicesCreateSystemSoundID((CFURLRef)CFBridgingRetain(url), &soundID);
+    AudioServicesPlaySystemSound (soundID);
     
     
     [UIView transitionWithView:self.view
@@ -191,12 +206,13 @@
                        options:UIViewAnimationOptionTransitionCrossDissolve //any animation
                     animations:^ {
                         
-                        [self.notifModalView removeFromSuperview];
-                        [self.view addSubview:self.notifModalView];
+                        [self.notifModalViewContent removeFromSuperview];
+                        [self.view addSubview:self.notifModalViewContent];
+
                         
                     }
                     completion:nil];
-    [self performSelector:@selector(dismissNotifModal) withObject:nil afterDelay:10];
+    [self performSelector:@selector(dismissNotifModal) withObject:nil afterDelay:12];
 }
 
 - (BOOL)prefersStatusBarHidden
