@@ -214,6 +214,25 @@
 
 
 
+- (void)billing
+{
+    NSString *str = @"Reservation effectuée";
+    
+    if (self.resaCtrl.isResa)
+        str = @"Modification effectuée";
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
+                                                    message:str
+                                                   delegate:self
+                                          cancelButtonTitle:@"ok"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
+    DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
+    [self.navigationController pushViewController:ctrl animated:YES];
+}
 
 - (void)sendResa:(NSDictionary *)dict
 {
@@ -224,21 +243,26 @@
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
      
+             if (self.resaCtrl.bill.selected)
+                 [self billing];
+            else
+            {
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             NSString *urlAddress = [NSString stringWithFormat:@"http://199.16.131.147/~izicat/105/Website/application/controllers/ws/CIC/Phase1Aller.php?email=%@&userId=%@&amount=%@", [defaults objectForKey:@"email"], [defaults objectForKey:@"userId"],[self.price.text substringToIndex:[self.price.text length] - 1]];
-            NSLog(@"waat:%@", urlAddress);
+
             NSURL *url = [NSURL URLWithString:urlAddress];
             NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
             [self.webView loadRequest:requestObj];
             [self.view addSubview:self.webView];
             
-                [self setCustomTitle:@"PAIEMENT"];
-            
+            [self setCustomTitle:@"PAIEMENT"];
+            }
+           
         }
         else
         {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"internal server error"
+                                                            message:[dict objectForKey:@"error"] ? [dict objectForKey:@"error"] : @"Veuillez verifier toutes les informations"
                                                            delegate:self
                                                   cancelButtonTitle:@"ok"
                                                   otherButtonTitles:nil];
@@ -252,25 +276,31 @@
 - (void)updateResa:(NSDictionary *)dict
 {
         
-        NSError *error;
+    NSError *error;
+
+    if ([self.price.text length] > 0)
+    {
         
-        
-        NSLog(@"%@", dict);
         if (error == nil && [[dict objectForKey:@"error"] length] == 0)
         {
             
+
+            if (self.resaCtrl.bill.selected)
+                [self billing];
+            else
+            {
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
-                                                            message:@"Modification de la réservation effectuée"
-                                                           delegate:self
-                                                  cancelButtonTitle:@"ok"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            NSString *urlAddress = [NSString stringWithFormat:@"http://199.16.131.147/~izicat/105/Website/application/controllers/ws/CIC/Phase1Aller.php?email=%@&userId=%@&amount=%@", [defaults objectForKey:@"email"], [defaults objectForKey:@"userId"],[self.price.text substringToIndex:[self.price.text length] - 1]];
+            NSLog(@"waat:%@", urlAddress);
+            NSURL *url = [NSURL URLWithString:urlAddress];
+            NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+            [self.webView loadRequest:requestObj];
+            [self.view addSubview:self.webView];
             
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main_iPhone" bundle:nil];
-            DashboardViewController* ctrl = (DashboardViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DashboardViewController"];
-            [self.navigationController pushViewController:ctrl animated:YES];
-            
+            [self setCustomTitle:@"PAIEMENT"];
+            }
+
         }
         else
         {
@@ -281,6 +311,8 @@
                                                   otherButtonTitles:nil];
             [alert show];
         }
+    }
+    
 }
 
 
@@ -288,8 +320,14 @@
 - (void) sendFinish
 {
      [self.webView removeFromSuperview];
+    
+    NSString *str = @"Reservation effectuée";
+    
+     if (self.resaCtrl.isResa)
+         str = @"Modification effectuée";
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Information"
-                                                    message:@"Reservation effectuée"
+                                                    message:str
                                                    delegate:self
                                           cancelButtonTitle:@"ok"
                                           otherButtonTitles:nil];

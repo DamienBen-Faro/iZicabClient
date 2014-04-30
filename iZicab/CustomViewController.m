@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     [self setDatCustom];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:@"removeFondu"];
+    [defaults synchronize];
 }
 
 

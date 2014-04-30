@@ -102,6 +102,15 @@
     self.endAddress.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
     self.startDate.titleLabel.font = [UIFont fontWithName:@"Roboto-Thin" size:16.0];
     self.comment.font = [UIFont fontWithName:@"Roboto-Thin" size:18.0];
+    self.card.selected = YES;
+    
+  /*  if (![[defaults valueForKey:@"userType"] isEqualToString:@"enterprise"] && ![[defaults valueForKey:@"userType"] isEqualToString:@"employee"])
+    {
+        self.card.hidden = YES;
+        self.bill.hidden = YES;
+        self.commentConstraint.constant = 168;
+    }
+*/
 
 }
 
@@ -141,6 +150,14 @@
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
     [self moveView:100];
+}
+
+- (IBAction)selectPay:(id)sender
+{
+    self.card.selected = NO;
+    self.bill.selected = NO;
+    
+    ((UIButton *)sender).selected = YES;
 }
 
 - (void)moveView:(int)moved

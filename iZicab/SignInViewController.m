@@ -215,6 +215,7 @@
         
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setValue:[dict objectForKey:@"id"] forKey:@"userId"];
+            [defaults setValue:[dict objectForKey:@"userType"] forKey:@"userType"];
             [defaults setValue:[dict objectForKey:@"name"] forKey:@"userName"];
             [defaults setValue:[dict objectForKey:@"email"] forKey:@"email"];
             [defaults setValue:@"YES" forKey:@"isActivated"];

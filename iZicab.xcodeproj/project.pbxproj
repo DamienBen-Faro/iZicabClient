@@ -147,6 +147,9 @@
 		6D58F09F191008290066D975 /* iphone5_ios7.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D58F092191008290066D975 /* iphone5_ios7.png */; };
 		6D58F0A21910083C0066D975 /* icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D58F0A01910083C0066D975 /* icon-58.png */; };
 		6D58F0A31910083C0066D975 /* icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D58F0A11910083C0066D975 /* icon-120.png */; };
+		6D58F0A7191118C10066D975 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D58F0A6191118C10066D975 /* AudioToolbox.framework */; };
+		6D58F0A9191118CA0066D975 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D58F0A8191118CA0066D975 /* AVFoundation.framework */; };
+		6D58F0AD19111AC80066D975 /* notif.wav in Resources */ = {isa = PBXBuildFile; fileRef = 6D58F0AC19111AC80066D975 /* notif.wav */; };
 		6D5EFC821907CE8300B69F31 /* CustomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5EFC811907CE8300B69F31 /* CustomViewController.m */; };
 		6D83735018E46A94005A6709 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D83734E18E46A94005A6709 /* DashboardViewController.m */; };
 		6D83735318E46C01005A6709 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D83735218E46C01005A6709 /* MapKit.framework */; };
@@ -424,6 +427,9 @@
 		6D58F092191008290066D975 /* iphone5_ios7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone5_ios7.png; sourceTree = "<group>"; };
 		6D58F0A01910083C0066D975 /* icon-58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-58.png"; sourceTree = "<group>"; };
 		6D58F0A11910083C0066D975 /* icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-120.png"; sourceTree = "<group>"; };
+		6D58F0A6191118C10066D975 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6D58F0A8191118CA0066D975 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6D58F0AC19111AC80066D975 /* notif.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = notif.wav; sourceTree = "<group>"; };
 		6D5EFC801907CE8200B69F31 /* CustomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewController.h; sourceTree = "<group>"; };
 		6D5EFC811907CE8300B69F31 /* CustomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewController.m; sourceTree = "<group>"; };
 		6D83734D18E46A94005A6709 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
@@ -457,10 +463,10 @@
 		E325904F1911084500DE4716 /* carteOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carteOn@2x.png"; sourceTree = "<group>"; };
 		E32590501911084500DE4716 /* especeOff@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "especeOff@2x.png"; sourceTree = "<group>"; };
 		E32590511911084500DE4716 /* especeOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "especeOn@2x.png"; sourceTree = "<group>"; };
-		E32590561911087E00DE4716 /* carteOff */ = {isa = PBXFileReference; lastKnownFileType = file; name = carteOff; path = "../../../../dossier sans titre/carteOff"; sourceTree = "<group>"; };
-		E32590571911087E00DE4716 /* carteOn */ = {isa = PBXFileReference; lastKnownFileType = file; name = carteOn; path = "../../../../dossier sans titre/carteOn"; sourceTree = "<group>"; };
-		E32590581911087E00DE4716 /* especeOff */ = {isa = PBXFileReference; lastKnownFileType = file; name = especeOff; path = "../../../../dossier sans titre/especeOff"; sourceTree = "<group>"; };
-		E32590591911087E00DE4716 /* especeOn */ = {isa = PBXFileReference; lastKnownFileType = file; name = especeOn; path = "../../../../dossier sans titre/especeOn"; sourceTree = "<group>"; };
+		E32590561911087E00DE4716 /* carteOff */ = {isa = PBXFileReference; lastKnownFileType = text; name = carteOff; path = "../../../../dossier sans titre/carteOff"; sourceTree = "<group>"; };
+		E32590571911087E00DE4716 /* carteOn */ = {isa = PBXFileReference; lastKnownFileType = text; name = carteOn; path = "../../../../dossier sans titre/carteOn"; sourceTree = "<group>"; };
+		E32590581911087E00DE4716 /* especeOff */ = {isa = PBXFileReference; lastKnownFileType = text; name = especeOff; path = "../../../../dossier sans titre/especeOff"; sourceTree = "<group>"; };
+		E32590591911087E00DE4716 /* especeOn */ = {isa = PBXFileReference; lastKnownFileType = text; name = especeOn; path = "../../../../dossier sans titre/especeOn"; sourceTree = "<group>"; };
 		E36BB15E190EC1DC0023856C /* Account@2X.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Account@2X.png"; sourceTree = "<group>"; };
 		E36BB15F190EC1DC0023856C /* actu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "actu@2x.png"; sourceTree = "<group>"; };
 		E36BB160190EC1DC0023856C /* ActuImage-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActuImage-01.png"; sourceTree = "<group>"; };
@@ -554,6 +560,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D58F0A9191118CA0066D975 /* AVFoundation.framework in Frameworks */,
+				6D58F0A7191118C10066D975 /* AudioToolbox.framework in Frameworks */,
 				6D83735318E46C01005A6709 /* MapKit.framework in Frameworks */,
 				6D0039E318E314EC00D6C9E3 /* CoreGraphics.framework in Frameworks */,
 				6D0039E518E314EC00D6C9E3 /* UIKit.framework in Frameworks */,
@@ -604,6 +612,8 @@
 		6D0039DF18E314EC00D6C9E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D58F0A8191118CA0066D975 /* AVFoundation.framework */,
+				6D58F0A6191118C10066D975 /* AudioToolbox.framework */,
 				6D83735218E46C01005A6709 /* MapKit.framework */,
 				6D0039E018E314EC00D6C9E3 /* Foundation.framework */,
 				6D0039E218E314EC00D6C9E3 /* CoreGraphics.framework */,
@@ -762,6 +772,7 @@
 		6DCF530018E43C400037A10C /* ressources */ = {
 			isa = PBXGroup;
 			children = (
+				6D58F0AC19111AC80066D975 /* notif.wav */,
 				6D58F085191008290066D975 /* splashScreen */,
 				6D58F05A190FFD1B0066D975 /* RobotoFont */,
 				6D58EFA7190FF8510066D975 /* Icon */,
@@ -1180,6 +1191,7 @@
 				6D58F014190FFBA40066D975 /* ButtonDelete.png in Resources */,
 				6D58F018190FFBA40066D975 /* ButtonOption.png in Resources */,
 				6D58F04E190FFBA40066D975 /* signalResa.png in Resources */,
+				6D58F0AD19111AC80066D975 /* notif.wav in Resources */,
 				6D58F020190FFBA40066D975 /* facebook.png in Resources */,
 				6D58F038190FFBA40066D975 /* MesResa.png in Resources */,
 				6D58F050190FFBA40066D975 /* standardOff.png in Resources */,

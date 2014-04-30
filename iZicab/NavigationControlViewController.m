@@ -6,9 +6,11 @@
 //  Copyright (c) 2014 Damien . All rights reserved.
 //
 
+#import <AudioToolbox/AudioServices.h>
 #import "NavigationControlViewController.h"
 #import "CustomNavBar.h"
 #import "ConnectionData.h"
+#import "AVFoundation/AVFoundation.h"
 
 
 
@@ -149,11 +151,39 @@
 - (void)setNotifModal:(NSNotification *)userInfo
 {
   
-    
     self.notifModalView.text =[userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"message"] ?
     [userInfo.object objectForKey:@"aps"][@"alert"][@"data"][@"message"] : @"Problème d'affichage du message";
 
 
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+     NSString *soundFilePath = [[NSBundle mainBundle] pathForResource:@"notif" ofType:@"wav"];
+     NSURL *soundURL = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+    AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc]
+                                  initWithContentsOfURL:soundURL
+                                  error:nil];
+    
+    [audioPlayer play];
+ 
+    
+    NSString *name =@"notif.wav";
+    
+    NSString *path = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
+    AVAudioPlayer *snd;
+    NSError *err = nil;
+
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+        NSURL * url = [NSURL fileURLWithPath:path];
+        snd = [[AVAudioPlayer alloc] initWithContentsOfURL:url
+                                                     error:&err] ;
+        if (! snd) {
+            NSLog(@"Sound named '%@' had error %@", name, [err localizedDescription]);
+        } else {
+            [snd prepareToPlay];
+        }
+    } else {
+        NSLog(@"Sound file '%@' doesn't exist at '%@'", name, path);
+    }
+    [snd play];
     
     
     [UIView transitionWithView:self.view

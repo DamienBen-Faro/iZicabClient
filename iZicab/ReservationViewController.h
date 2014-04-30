@@ -27,6 +27,9 @@
 @property (strong)IBOutlet UIView      *nameView;
 @property (strong)IBOutlet UITextView  *comment;
 @property (strong)IBOutlet UIButton    *wifi;
+@property (strong)IBOutlet NSLayoutConstraint *commentConstraint;
+@property (strong)IBOutlet UIButton    *card;
+@property (strong)IBOutlet UIButton    *bill;
 @property (strong)         UIDatePicker*datePicker;
 @property (assign)         BOOL isStartAddr;
 @property (strong)         NSString *startAddr;

@@ -123,6 +123,7 @@
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"removeFondu"];
+    [defaults synchronize];
 
 }
 
